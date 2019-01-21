@@ -130,7 +130,8 @@ public class Paradas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void BotonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSiguienteActionPerformed
-
+reto3.controlador.pasar_pagina.paradas_a_lista();
+dispose();
     }//GEN-LAST:event_BotonSiguienteActionPerformed
 
     
