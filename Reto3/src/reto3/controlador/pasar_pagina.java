@@ -9,7 +9,7 @@ import reto3.vista.Saludo;
 import reto3.vista.Cobro;
 import reto3.vista.Adios;
 import reto3.vista.ImprimirTicket;
-import reto3.vista.listados;
+
 
 public class pasar_pagina
 {
@@ -56,8 +56,7 @@ public class pasar_pagina
      
       public static void paradas_a_lista() 
     {
-     listados obj= new listados ();
-        obj.setVisible(true);
+
     } 
 
       public static void linias_a_cobro(){
