@@ -1,15 +1,10 @@
 
 package reto3.vista;
 
-import java.awt.Image;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 public class Linea extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Paradas
-     */ 
     public Linea() {
         initComponents();
         
@@ -137,7 +132,7 @@ public class Linea extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
            reto3.controlador.pasar_pagina.classsaludoaregistrado();
-    dispose();
+        dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
