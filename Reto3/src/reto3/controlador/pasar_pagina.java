@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package reto3.controlador;
 
 import reto3.vista.Linea;
@@ -37,7 +32,7 @@ public class pasar_pagina
         obj.setVisible(true);
     }
         
-           public static void registrado_a_saludo() 
+        public static void registrado_a_saludo() 
     {
       Saludo obj= new Saludo ();
         obj.setVisible(true);
@@ -60,12 +55,5 @@ public class pasar_pagina
      lista obj= new lista ();
         obj.setVisible(true);
     } 
-
-
-    
- 
-    
-      
-
     
 }
