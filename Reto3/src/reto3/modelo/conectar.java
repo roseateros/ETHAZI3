@@ -1,9 +1,9 @@
 
-package reto3.vista;
+package reto3.modelo;
 
-public class Cobro extends javax.swing.JFrame {
+public class conectar extends javax.swing.JFrame {
 
-    public Cobro() {
+    public conectar() {
         initComponents();
     }
 
