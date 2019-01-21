@@ -6,6 +6,9 @@ import reto3.vista.Paradas;
 import reto3.vista.Registrado;
 import reto3.vista.Saludo;
 import reto3.vista.lista;
+import reto3.vista.Cobro;
+import reto3.vista.Adios;
+import reto3.vista.ImprimirTicket;
 
 public class pasar_pagina
 {
@@ -55,5 +58,20 @@ public class pasar_pagina
      lista obj= new lista ();
         obj.setVisible(true);
     } 
-    
+
+      public static void linias_a_cobro(){
+          Cobro obj = new Cobro();
+          obj.setVisible(true);
+      }
+      
+      public static void cobro_a_imprimir(){
+          ImprimirTicket obj = new ImprimirTicket();
+          obj.setVisible(true);
+      }
+      
+      public static void imprimir_a_adios(){
+          Adios obj = new Adios();
+          obj.setVisible(true);
+      }
+
 }

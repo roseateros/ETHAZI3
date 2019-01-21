@@ -12,7 +12,7 @@ public class Linea extends javax.swing.JFrame {
             setResizable (false);
             setTitle ("Paradas");
             
-    //ImageIcon Imagen = new ImageIcon ("src/Imagenes/anterior.png");
+    ImageIcon Imagen = new ImageIcon ("src/Imagenes/anterior.png");
 
 
     }
