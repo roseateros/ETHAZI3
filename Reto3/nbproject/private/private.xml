@@ -1,29 +1,19 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/listados.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/NoRegistrado.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/Paradas.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/Reto3.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/lista.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/Linea.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/controlador/pasar_pagina.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/vista/ImprimirTicket.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/modelo/conectar.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/vista/Paradas.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/vista/Linea.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/vista/Cobro.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/Reto3.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/vista/lista.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/vista/listados.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/vista/Adios.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/modelo/NoRegistrado.java</file>
         </group>
     </open-files>
 </project-private>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/roshan/ETHAZI3/Reto3/src/reto3/vista/Registrado.java</file>
-            <file>file:/C:/roshan/ETHAZI3/Reto3/src/reto3/vista/lista.java</file>
-            <file>file:/C:/roshan/ETHAZI3/Reto3/src/reto3/controlador/pasar_pagina.java</file>
-            <file>file:/C:/roshan/ETHAZI3/Reto3/src/reto3/vista/Cobro.java</file>
-        </group>
-    </open-files>
-</project-private>
->>>>>>> 81fb9a7db4814676ff3c9ac17b8ea3ce21f1ab0d

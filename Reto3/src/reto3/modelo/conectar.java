@@ -1,32 +1,25 @@
 
 package reto3.modelo;
 
-public class conectar extends javax.swing.JFrame {
+import com.mysql.jdbc.Connection;
+import java.beans.Statement;
+import java.sql.DriverManager;
 
-    public conectar() {
-        initComponents();
+public class conectar {
+Connection conectar=null;
+public Connection conexion(){
+try{
+Class.forName("com.mysql.jdbc.Driver");
+      conectar=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/maquina","root","");
+        System.out.println("Conexion establecida");
+
+        }
+catch(Exception e){
+  System.out.println(e.getMessage());}
+               return conectar;
+        }
+    Statement createStatement() {
+        throw new UnsupportedOperationException("Not yet implemented");
+
     }
-
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    // End of variables declaration//GEN-END:variables
 }
