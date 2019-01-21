@@ -16,6 +16,8 @@ public class listados extends javax.swing.JFrame {
      */
     public listados() {
         initComponents();
+           setLocationRelativeTo(null);
+            setResizable (false);
     }
 
     /**
@@ -37,6 +39,7 @@ public class listados extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 204, 255));
@@ -68,6 +71,11 @@ public class listados extends javax.swing.JFrame {
 
         jButton1.setText("Seguir Comprando");
         jButton1.setToolTipText("");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, -1, -1));
 
         jButton2.setText("Pagar");
@@ -81,8 +89,13 @@ public class listados extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         reto3.controlador.pasar_pagina.classsaludoaregistrado();
-
+ dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        reto3.controlador.pasar_pagina.registrado_a_lineas();
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
