@@ -3,7 +3,7 @@ package reto3.vista;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import static reto3.controlador.pasar_pagina.registrado_a_saludo;
+
 public class NoRegistrado extends javax.swing.JFrame {
 
     public NoRegistrado() {

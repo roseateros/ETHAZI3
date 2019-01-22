@@ -1,8 +1,6 @@
 
 package reto3.vista;
 
-import javax.swing.ImageIcon;
-
 public class Linea extends javax.swing.JFrame {
 
     public Linea() {
@@ -10,10 +8,7 @@ public class Linea extends javax.swing.JFrame {
         
             setLocationRelativeTo(null);
             setResizable (false);
-            setTitle ("Paradas");
-            
-    ImageIcon Imagen = new ImageIcon ("src/Imagenes/anterior.png");
-
+            setTitle ("Paradas");           
 
     }
 
