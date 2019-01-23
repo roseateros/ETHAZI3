@@ -26,8 +26,8 @@ public class Registrado extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         label1 = new java.awt.Label();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        textField1 = new java.awt.TextField();
+        pass = new javax.swing.JPasswordField();
+        us = new java.awt.TextField();
         BotonAnterior = new javax.swing.JButton();
         BotonSiguiente = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -52,8 +52,14 @@ public class Registrado extends javax.swing.JFrame {
         label1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         label1.setText("Contraseña:");
         getContentPane().add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 130, 30));
-        getContentPane().add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 130, 30));
+        getContentPane().add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 130, 30));
+
+        us.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usActionPerformed(evt);
+            }
+        });
+        getContentPane().add(us, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 130, 30));
 
         BotonAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,7 +95,7 @@ public class Registrado extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(255, 255, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         jLabel1.setOpaque(true);
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 600, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -109,6 +115,10 @@ public class Registrado extends javax.swing.JFrame {
         dispose (); 
     }//GEN-LAST:event_BotonSiguienteActionPerformed
 
+    private void usActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usActionPerformed
+
+    }//GEN-LAST:event_usActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
     private javax.swing.JButton BotonSiguiente;
@@ -117,8 +127,8 @@ public class Registrado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
     private java.awt.Label label1;
-    private java.awt.TextField textField1;
+    private javax.swing.JPasswordField pass;
+    private java.awt.TextField us;
     // End of variables declaration//GEN-END:variables
 }
