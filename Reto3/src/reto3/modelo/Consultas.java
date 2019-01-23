@@ -8,6 +8,8 @@ public class Consultas {
     Connection reg=con.conexion();
 
     
-
+public static void Cliente(){
+    
+}
 
 }

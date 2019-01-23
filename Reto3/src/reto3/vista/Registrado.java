@@ -3,7 +3,7 @@ package reto3.vista;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-
+import reto3.controlador.VerificarCliente;
 
 public class Registrado extends javax.swing.JFrame {
     public Registrado() {
@@ -95,18 +95,17 @@ public class Registrado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnteriorActionPerformed
-      reto3.controlador.pasar_pagina.registrado_a_saludo();
+        reto3.controlador.pasar_pagina.registrado_a_saludo();
         dispose (); 
     }//GEN-LAST:event_BotonAnteriorActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         reto3.controlador.pasar_pagina.registrado_a_noregistrado();
+        reto3.controlador.pasar_pagina.registrado_a_noregistrado();
         dispose (); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BotonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSiguienteActionPerformed
         reto3.controlador.pasar_pagina.registrado_a_lineas();
-        
         dispose (); 
     }//GEN-LAST:event_BotonSiguienteActionPerformed
 
