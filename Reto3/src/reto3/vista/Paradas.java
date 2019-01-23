@@ -17,12 +17,6 @@ public class Paradas extends javax.swing.JFrame {
     Icon icono = new ImageIcon(Imagen.getImage().getScaledInstance(BotonAnterior.getWidth(), BotonAnterior.getHeight(), Image.SCALE_DEFAULT));
     BotonAnterior.setIcon(icono);
     this.repaint();
-    
-    ImageIcon Imagen2 = new ImageIcon ("src/Imagenes/siguiente.png");
-    Icon icono2 = new ImageIcon(Imagen.getImage().getScaledInstance(BotonSiguiente.getWidth(), BotonSiguiente.getHeight(), Image.SCALE_DEFAULT));
-    BotonSiguiente.setIcon(icono2);
-    this.repaint();
-        
     }
     
     @SuppressWarnings("unchecked")
@@ -119,19 +113,18 @@ public class Paradas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnteriorActionPerformed
-        Registrado obj= new Registrado ();
-        obj.setVisible(true);
-        dispose ();  
+        reto3.controlador.pasar_pagina.classsaludoaregistrado();
+        dispose();
     }//GEN-LAST:event_BotonAnteriorActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-         reto3.controlador.pasar_pagina.classsaludoaregistrado();
+        reto3.controlador.pasar_pagina.classsaludoaregistrado();
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void BotonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSiguienteActionPerformed
-reto3.controlador.pasar_pagina.paradas_a_lista();
-dispose();
+        reto3.controlador.pasar_pagina.paradas_a_lista();
+        dispose();
     }//GEN-LAST:event_BotonSiguienteActionPerformed
 
     

@@ -1,4 +1,3 @@
-
 package reto3.modelo;
 
 import com.mysql.jdbc.Connection;
