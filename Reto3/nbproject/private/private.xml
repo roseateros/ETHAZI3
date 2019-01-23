@@ -3,12 +3,29 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/roshan/ETHAZI3/Reto3/src/reto3/modelo/conectar.java</file>
             <file>file:/C:/roshan/ETHAZI3/Reto3/src/reto3/controlador/pasar_pagina.java</file>
             <file>file:/C:/roshan/ETHAZI3/Reto3/src/reto3/vista/ImprimirTicket.java</file>
             <file>file:/C:/roshan/ETHAZI3/Reto3/src/reto3/vista/Linea.java</file>
             <file>file:/C:/roshan/ETHAZI3/Reto3/src/reto3/vista/Adios.java</file>
             <file>file:/C:/roshan/ETHAZI3/Reto3/src/reto3/vista/Cobro.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/controlador/pasar_pagina.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/vista/Paradas.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/modelo/conectar.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/Reto3.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/modelo/NoRegistrado.java</file>
+=======
+            <file>file:/C:/mai/ETHAZI3/Reto3/src/reto3/Reto3.java</file>
+            <file>file:/C:/mai/ETHAZI3/Reto3/src/reto3/vista/Linea.java</file>
+            <file>file:/C:/mai/ETHAZI3/Reto3/src/reto3/vista/NoRegistrado.java</file>
+            <file>file:/C:/mai/ETHAZI3/Reto3/src/reto3/vista/Saludo.java</file>
+            <file>file:/C:/mai/ETHAZI3/Reto3/src/reto3/vista/Paradas.java</file>
+            <file>file:/C:/mai/ETHAZI3/Reto3/src/reto3/vista/Adios.java</file>
+>>>>>>> 27f73cf722f6edc48310194fa186960a1d6d56d4
+>>>>>>> 8d0bbbe2f8a85077004c8fdc6b1081e068132f11
         </group>
     </open-files>
 </project-private>

@@ -17,7 +17,7 @@ public class Paradas extends javax.swing.JFrame {
     Icon icono = new ImageIcon(Imagen.getImage().getScaledInstance(BotonAnterior.getWidth(), BotonAnterior.getHeight(), Image.SCALE_DEFAULT));
     BotonAnterior.setIcon(icono);
     this.repaint();
-        
+
     }
     
     @SuppressWarnings("unchecked")
@@ -114,19 +114,27 @@ public class Paradas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnteriorActionPerformed
-        reto3.controlador.pasar_pagina.registrado_a_lineas();
+
+        reto3.controlador.pasar_pagina.classsaludoaregistrado();
         dispose();
     }//GEN-LAST:event_BotonAnteriorActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-         reto3.controlador.pasar_pagina.classsaludoaregistrado();
+        reto3.controlador.pasar_pagina.classsaludoaregistrado();
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
+
+
+    private void BotonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSiguienteActionPerformed
+        reto3.controlador.pasar_pagina.paradas_a_lista();
+        dispose();
+    }//GEN-LAST:event_BotonSiguienteActionPerformed
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
          reto3.controlador.pasar_pagina.paradas_a_lista();
         dispose();
     }//GEN-LAST:event_BuscarActionPerformed
+
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

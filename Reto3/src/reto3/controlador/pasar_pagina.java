@@ -1,5 +1,6 @@
 package reto3.controlador;
 
+import reto3.modelo.Consultas;
 import reto3.vista.Linea;
 import reto3.vista.NoRegistrado;
 import reto3.vista.Paradas;
@@ -23,7 +24,9 @@ public class pasar_pagina
         
     
     }
-    
+
+    Consultas con =new Consultas();
+
     
      public static void classsaludoaregistrado() 
     {
