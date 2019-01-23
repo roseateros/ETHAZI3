@@ -10,6 +10,7 @@ import reto3.vista.Saludo;
 import reto3.vista.Cobro;
 import reto3.vista.Adios;
 import reto3.vista.ImprimirTicket;
+import reto3.vista.lista;
 
 
 public class pasar_pagina
@@ -59,6 +60,8 @@ public class pasar_pagina
      
       public static void paradas_a_lista() 
     {
+        lista obj= new lista ();
+        obj.setVisible(true);
 
     } 
 

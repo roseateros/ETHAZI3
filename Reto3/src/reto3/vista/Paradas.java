@@ -8,7 +8,7 @@ public class Paradas extends javax.swing.JFrame {
 
     public Paradas() {
         initComponents();
-        
+
             setLocationRelativeTo(null);
             setResizable (false);
             setTitle ("Lineas");
@@ -17,6 +17,7 @@ public class Paradas extends javax.swing.JFrame {
     Icon icono = new ImageIcon(Imagen.getImage().getScaledInstance(BotonAnterior.getWidth(), BotonAnterior.getHeight(), Image.SCALE_DEFAULT));
     BotonAnterior.setIcon(icono);
     this.repaint();
+
     }
     
     @SuppressWarnings("unchecked")
@@ -24,7 +25,7 @@ public class Paradas extends javax.swing.JFrame {
     private void initComponents() {
 
         BotonAnterior = new javax.swing.JButton();
-        BotonSiguiente = new javax.swing.JButton();
+        Buscar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -42,7 +43,6 @@ public class Paradas extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BotonAnterior.setText("VOLVER");
         BotonAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonAnteriorActionPerformed(evt);
@@ -50,13 +50,14 @@ public class Paradas extends javax.swing.JFrame {
         });
         getContentPane().add(BotonAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 120, 70));
 
-        BotonSiguiente.setText("BUSCAR");
-        BotonSiguiente.addActionListener(new java.awt.event.ActionListener() {
+        Buscar.setBackground(new java.awt.Color(255, 255, 51));
+        Buscar.setText("BUSCAR");
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonSiguienteActionPerformed(evt);
+                BuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 530, 120, 70));
+        getContentPane().add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 120, 70));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT", 0, 64)); // NOI18N
         jLabel2.setText("Linea  2");
@@ -113,6 +114,7 @@ public class Paradas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnteriorActionPerformed
+
         reto3.controlador.pasar_pagina.classsaludoaregistrado();
         dispose();
     }//GEN-LAST:event_BotonAnteriorActionPerformed
@@ -122,15 +124,22 @@ public class Paradas extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
+
     private void BotonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSiguienteActionPerformed
         reto3.controlador.pasar_pagina.paradas_a_lista();
         dispose();
     }//GEN-LAST:event_BotonSiguienteActionPerformed
 
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+         reto3.controlador.pasar_pagina.paradas_a_lista();
+        dispose();
+    }//GEN-LAST:event_BuscarActionPerformed
+
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
-    private javax.swing.JButton BotonSiguiente;
+    private javax.swing.JButton Buscar;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
