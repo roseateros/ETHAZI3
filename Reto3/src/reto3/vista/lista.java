@@ -35,6 +35,12 @@ public class lista extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaActionPerformed(evt);
+            }
+        });
         getContentPane().add(lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 280, 340));
 
         BotonAnterior.addActionListener(new java.awt.event.ActionListener() {
@@ -66,6 +72,10 @@ public class lista extends javax.swing.JFrame {
         reto3.controlador.pasar_pagina.lista_a_cobro();
         dispose();
     }//GEN-LAST:event_BotonSiguienteActionPerformed
+
+    private void listaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
