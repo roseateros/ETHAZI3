@@ -1,6 +1,7 @@
 
 package reto3.controlador;
 
-public class CalcularPago {
+public class CalcularPago 
+{
     
 }
