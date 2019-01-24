@@ -31,7 +31,10 @@ public class pasar_pagina{
         NoRegistrado obj= new NoRegistrado ();
         obj.setVisible(true);
     }
-        
+    public static void noregistrado_a_registrado(){
+        Registrado obj= new Registrado ();
+        obj.setVisible(true);
+    }      
     public static void registrado_a_saludo(){
         Saludo obj= new Saludo ();
         obj.setVisible(true);

@@ -416,6 +416,7 @@ public final class Cobro extends javax.swing.JFrame {
         }
         reto3.controlador.pasar_pagina.cobro_a_imprimir();
         dispose();
+        
     }//GEN-LAST:event_confirmarPedidoActionPerformed
 
     private void bi100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi100ActionPerformed
