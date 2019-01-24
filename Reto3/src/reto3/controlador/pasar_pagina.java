@@ -13,7 +13,8 @@ import reto3.vista.lista;
 
 public class pasar_pagina{
     
-    Consultas con =new Consultas();
+    Consultas cone =new Consultas();
+   String mama = cone.ObtenerCliente();
     
     public  Saludo saludo1;
 
