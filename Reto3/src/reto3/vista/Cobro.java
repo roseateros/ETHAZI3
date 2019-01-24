@@ -414,7 +414,8 @@ public final class Cobro extends javax.swing.JFrame {
         } else if (pago<precio){
             JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
         }
-
+        reto3.controlador.pasar_pagina.cobro_a_imprimir();
+        dispose();
     }//GEN-LAST:event_confirmarPedidoActionPerformed
 
     private void bi100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi100ActionPerformed
