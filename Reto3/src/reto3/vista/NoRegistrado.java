@@ -39,7 +39,7 @@ public class NoRegistrado extends javax.swing.JFrame {
         dni = new javax.swing.JTextField();
         nombre = new javax.swing.JTextField();
         apellidos = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        fecha_nac = new com.toedter.calendar.JDateChooser();
         jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
@@ -111,7 +111,7 @@ public class NoRegistrado extends javax.swing.JFrame {
         getContentPane().add(dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 130, -1));
         getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 100, -1));
         getContentPane().add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 130, -1));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 100, 20));
+        getContentPane().add(fecha_nac, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 100, 20));
 
         jLabel8.setBackground(new java.awt.Color(0, 0, 0));
         jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
@@ -151,8 +151,8 @@ public class NoRegistrado extends javax.swing.JFrame {
     private javax.swing.JTextField apellidos;
     private javax.swing.JLabel contraseña;
     private javax.swing.JTextField dni;
+    private com.toedter.calendar.JDateChooser fecha_nac;
     private javax.swing.ButtonGroup gruposexo;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
