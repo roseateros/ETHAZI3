@@ -3,7 +3,7 @@ package reto3.vista;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-
+import reto3.controlador.VerificarCliente;
 
 public class Registrado extends javax.swing.JFrame {
     public Registrado() {
@@ -26,8 +26,8 @@ public class Registrado extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         label1 = new java.awt.Label();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        textField1 = new java.awt.TextField();
+        pass = new javax.swing.JPasswordField();
+        us = new java.awt.TextField();
         BotonAnterior = new javax.swing.JButton();
         BotonSiguiente = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -52,8 +52,8 @@ public class Registrado extends javax.swing.JFrame {
         label1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         label1.setText("Contraseña:");
         getContentPane().add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 130, 30));
-        getContentPane().add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 130, 30));
+        getContentPane().add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 130, 30));
+        getContentPane().add(us, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 130, 30));
 
         BotonAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,19 +95,17 @@ public class Registrado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnteriorActionPerformed
-      reto3.controlador.pasar_pagina.registrado_a_saludo();
+        reto3.controlador.pasar_pagina.registrado_a_saludo();
         dispose (); 
     }//GEN-LAST:event_BotonAnteriorActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         reto3.controlador.pasar_pagina.registrado_a_noregistrado();
+        reto3.controlador.pasar_pagina.registrado_a_noregistrado();
         dispose (); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BotonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSiguienteActionPerformed
-        reto3.controlador.pasar_pagina.registrado_a_lineas();
-        
-        dispose (); 
+    VerificarCliente verificar= new VerificarCliente(us.getText(),pass.getText());
     }//GEN-LAST:event_BotonSiguienteActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -118,8 +116,8 @@ public class Registrado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
     private java.awt.Label label1;
-    private java.awt.TextField textField1;
+    private javax.swing.JPasswordField pass;
+    private java.awt.TextField us;
     // End of variables declaration//GEN-END:variables
 }

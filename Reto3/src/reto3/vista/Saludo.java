@@ -24,8 +24,6 @@ public class Saludo extends javax.swing.JFrame {
     this.repaint();
 
     }
-    
-  
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -69,7 +67,7 @@ public class Saludo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonContinuarActionPerformed
-     reto3.controlador.pasar_pagina.classsaludoaregistrado();
+    reto3.controlador.pasar_pagina.classsaludoaregistrado();
     dispose();
     }//GEN-LAST:event_BotonContinuarActionPerformed
 

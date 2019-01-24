@@ -119,12 +119,12 @@ public class Paradas extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonAnteriorActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-         reto3.controlador.pasar_pagina.classsaludoaregistrado();
+        reto3.controlador.pasar_pagina.classsaludoaregistrado();
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-         reto3.controlador.pasar_pagina.paradas_a_lista();
+        reto3.controlador.pasar_pagina.paradas_a_lista();
         dispose();
     }//GEN-LAST:event_BuscarActionPerformed
 
