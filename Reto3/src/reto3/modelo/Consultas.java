@@ -2,6 +2,8 @@
 package reto3.modelo;
 
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Consultas {
    public  int vari=5;
@@ -10,6 +12,14 @@ public class Consultas {
         
     public String ObtenerCliente()
     {
+       try {
+           Statement sentencia= reg.createStatement();
+           ResultSet resultado;
+           
+       } catch (Exception e) {
+          System.err.println("Hubo un Error ");
+            System.err.println(e.getMessage());
+       }
         return "hola";
     }
     
