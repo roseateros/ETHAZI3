@@ -3,6 +3,7 @@ package reto3.controlador;
 
 import javax.swing.JOptionPane;
 import static reto3.controlador.pasar_pagina.registrado_a_lineas;
+import reto3.modelo.Consultas;
 
 public class VerificarCliente {
     public String us;
@@ -16,6 +17,8 @@ public class VerificarCliente {
            JOptionPane.showMessageDialog(null,"No has ingresado la Contraseña");
         }
         else if ( (pass != null) || us != null ){
+         Consultas cone =new Consultas();
+         String mama = cone.ObtenerCliente();
          registrado_a_lineas();       
         }
      

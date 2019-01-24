@@ -10,7 +10,22 @@ public class Consultas {
         
     public String ObtenerCliente()
     {
-        System.out.println("hola");
-        return "gola";
+        return "hola";
     }
+    
+     public String ObtenerBoleto()
+    {
+        return "hola";
+    }
+     
+      public String ObtenerParadas()
+    {
+        return "hola";
+    }
+     
+      public String ObtenerLineas()
+    {
+        return "hola";
+    }  
+      
 }
