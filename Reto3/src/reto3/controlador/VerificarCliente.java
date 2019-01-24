@@ -18,7 +18,7 @@ public class VerificarCliente {
         }
         else if ( (pass != null) || us != null ){
          Consultas cone =new Consultas();
-         String mama = cone.ObtenerCliente();
+         String mama = cone.ObtenerCliente(us,pass);
          registrado_a_lineas();       
         }
      
