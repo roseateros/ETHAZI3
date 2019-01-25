@@ -6,7 +6,7 @@ public class cliente {
     public String dni,nombre,apellidos,contraseña, gruposexo;
     public Date fecha_nac;
     
-    public void cliente(String dni,String nombre,String apellidos,String contraseña,Date fecha_nac)
+    public cliente(String dni,String nombre,String apellidos,String contraseña,Date fecha_nac)
     {
     this.dni=dni;
     this.nombre=nombre;

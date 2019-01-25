@@ -10,19 +10,21 @@ public class Consultas {
         conectar con =new conectar();
         Connection reg=con.conexion();
         
-    public String ObtenerCliente(String us,String pass)
+    public  cliente ObtenerCliente(String us,String pass)
     {
        try {
             String query="select * from cliente where nombre='"+us+"' AND contraseña='"+pass+"'";
            Statement sentencia= reg.createStatement();
            ResultSet resultado=sentencia.executeQuery(query);
-           
-           
+         /*
+          cliente cliente= new cliente("marico","marico","marico" );
+           return cliente;
+          */ 
        } catch (Exception e) {
           System.err.println("Hubo un Error ");
             System.err.println(e.getMessage());
        }
-        return "hola";
+       return null;
     }
     
      public String ObtenerBoleto()
@@ -35,10 +37,21 @@ public class Consultas {
         return "hola";
     }
      
-      public String ObtenerLineas()
-    {
-        return "hola";
-    }  
+                 public String ObtenerLineas()
+                {
+                        try 
+                        {
+                     String query="t";
+                     Statement sentencia= reg.createStatement();
+                     ResultSet resultado=sentencia.executeQuery(query);
+                         }
+                        catch (Exception e) 
+                        {
+                          System.err.println("Hubo un Error ");
+                             System.err.println(e.getMessage());
+                            }
+                          return "hola";
+                }  
       
 }
 //es para paradas

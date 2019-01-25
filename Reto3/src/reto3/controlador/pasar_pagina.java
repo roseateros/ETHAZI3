@@ -55,6 +55,8 @@ public class pasar_pagina{
     } 
     
     public static void lista_a_paradas(){
+    Consultas cone =new Consultas();
+    
     Paradas obj= new Paradas ();
     obj.setVisible(true);
     } 
