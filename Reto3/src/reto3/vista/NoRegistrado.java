@@ -1,8 +1,10 @@
 package reto3.vista;
 
 import java.awt.Image;
+import java.sql.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import reto3.controlador.crearCliente;
 
 public class NoRegistrado extends javax.swing.JFrame {
 
@@ -18,9 +20,9 @@ public class NoRegistrado extends javax.swing.JFrame {
     Icon icono = new ImageIcon(Imagen.getImage().getScaledInstance(BotonAnterior.getWidth(), BotonAnterior.getHeight(), Image.SCALE_DEFAULT));
     BotonAnterior.setIcon(icono);
     this.repaint();
-    
-    }
 
+    }
+    public String sexo = "";
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -34,8 +36,8 @@ public class NoRegistrado extends javax.swing.JFrame {
         Registrar = new javax.swing.JButton();
         jlabel3 = new javax.swing.JLabel();
         contraseña = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        H = new javax.swing.JRadioButton();
+        M = new javax.swing.JRadioButton();
         dni = new javax.swing.JTextField();
         nombre = new javax.swing.JTextField();
         apellidos = new javax.swing.JTextField();
@@ -95,13 +97,18 @@ public class NoRegistrado extends javax.swing.JFrame {
         contraseña.setText("CONTRASEÑA:");
         getContentPane().add(contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
 
-        gruposexo.add(jRadioButton1);
-        jRadioButton1.setText("Hombre");
-        getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, -1, -1));
+        gruposexo.add(H);
+        H.setText("Hombre");
+        H.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HActionPerformed(evt);
+            }
+        });
+        getContentPane().add(H, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, -1, -1));
 
-        gruposexo.add(jRadioButton2);
-        jRadioButton2.setText("Mujer");
-        getContentPane().add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, -1, -1));
+        gruposexo.add(M);
+        M.setText("Mujer");
+        getContentPane().add(M, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, -1, -1));
 
         dni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +127,7 @@ public class NoRegistrado extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 600, 600));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
 
         jPasswordField1.setText("jPasswordField1");
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, -1, -1));
@@ -137,16 +144,27 @@ public class NoRegistrado extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonAnteriorActionPerformed
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
-        reto3.controlador.pasar_pagina.noregistrado_a_registrado();
-        dispose (); 
+        if (H.isSelected()){
+            sexo= "Hombre";
+        } else if (M.isSelected()){
+            sexo= "Mujer";
+        }       
+        crearCliente crearCliente= new crearCliente (dni.getText(),nombre.getText(), apellidos.getText(),contraseña.getText(), sexo, (Date) fecha_nac.getDate());
+        
     }//GEN-LAST:event_RegistrarActionPerformed
 
     private void dniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dniActionPerformed
 
     }//GEN-LAST:event_dniActionPerformed
 
+    private void HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HActionPerformed
+        
+    }//GEN-LAST:event_HActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
+    private javax.swing.JRadioButton H;
+    private javax.swing.JRadioButton M;
     private javax.swing.JButton Registrar;
     private javax.swing.JTextField apellidos;
     private javax.swing.JLabel contraseña;
@@ -158,8 +176,6 @@ public class NoRegistrado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JLabel jlabel1;
     private javax.swing.JLabel jlabel2;

@@ -78,6 +78,10 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
                             }
                           return null;
                 }  
+
+    public cliente ObtenerCliente(String dni, String nombre, String apellidos, String contraseña, String gruposexo, Date fecha_nac) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
       
 }
 //es para paradas

@@ -3,17 +3,20 @@ package reto3.modelo;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import reto3.vista.NoRegistrado;
 
 public class Insertar {
+    
    public  int vari=5;
         conectar con =new conectar();
         Connection reg=con.conexion();
         
-    public String InsertarCliente()
+    public cliente InsertarCliente( String dni,String nombre,String apellidos,String contraseña, String gruposexo, Date fecha_nac)
     {
         try {  
-            Statement st = reg.createStatement(); 
-            st.executeUpdate("INSERT INTO `cliente` (`DNI`, `Nombre`, `Apellidos`, `Fecha_nac`, `Sexo`, `Contraseña`) VALUES ('', '', '', '', '', '')"); 
+            
+            Statement st = reg.createStatement();
+  //          st.executeUpdate("INSERT INTO `cliente` (`DNI`, `Nombre`, `Apellidos`, `Fecha_nac`, `Sexo`, `Contraseña`) VALUES ('"+NoRegistrado.+"', '""', '', '', '', '')"); 
            
             reg.close(); 
         } catch (Exception e) { 
@@ -21,7 +24,7 @@ public class Insertar {
             System.err.println(e.getMessage()); 
         } 
        
-        return "Done!";
+        return null;
     }
     
      public String InsertarBillete()

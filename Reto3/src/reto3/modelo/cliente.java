@@ -1,7 +1,5 @@
 package reto3.modelo;
 
-
-
 public class cliente {
     public String dni,nombre,apellidos,contraseña, gruposexo, fecha_nac;
 
