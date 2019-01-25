@@ -150,7 +150,7 @@ public class NoRegistrado extends javax.swing.JFrame {
             sexo= "Mujer";
         }       
         crearCliente crearCliente= new crearCliente (dni.getText(),nombre.getText(), apellidos.getText(),contraseña.getText(), sexo, (Date) fecha_nac.getDate());
-        dispose (); 
+        
     }//GEN-LAST:event_RegistrarActionPerformed
 
     private void dniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dniActionPerformed
