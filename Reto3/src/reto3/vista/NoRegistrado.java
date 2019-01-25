@@ -28,21 +28,21 @@ public class NoRegistrado extends javax.swing.JFrame {
         gruposexo = new javax.swing.ButtonGroup();
         jLabel2 = new javax.swing.JLabel();
         BotonAnterior = new javax.swing.JButton();
-        nombre = new javax.swing.JLabel();
-        dni = new javax.swing.JLabel();
+        jlabel2 = new javax.swing.JLabel();
+        jlabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Registrar = new javax.swing.JButton();
-        sexo = new javax.swing.JLabel();
-        fechaNacimiento = new javax.swing.JLabel();
+        jlabel3 = new javax.swing.JLabel();
         contraseña = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        dni = new javax.swing.JTextField();
+        nombre = new javax.swing.JTextField();
+        apellidos = new javax.swing.JTextField();
+        fecha_nac = new com.toedter.calendar.JDateChooser();
+        jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
         jTextField5 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,15 +60,18 @@ public class NoRegistrado extends javax.swing.JFrame {
         });
         getContentPane().add(BotonAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 120, 70));
 
-        nombre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        nombre.setText("NOMBRE:");
-        getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, -1, -1));
+        jlabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jlabel2.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        jlabel2.setText("NOMBRE:");
+        getContentPane().add(jlabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, -1, -1));
 
-        dni.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        dni.setText("DNI:");
-        getContentPane().add(dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 30, 20));
+        jlabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jlabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        jlabel1.setText("DNI:");
+        getContentPane().add(jlabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 30, 20));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
         jLabel5.setText("APELLIDOS:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, -1, -1));
 
@@ -80,19 +83,17 @@ public class NoRegistrado extends javax.swing.JFrame {
                 RegistrarActionPerformed(evt);
             }
         });
-        getContentPane().add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 120, 40));
+        getContentPane().add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 120, 40));
 
-        sexo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        sexo.setText("SEXO:");
-        getContentPane().add(sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, -1, -1));
+        jlabel3.setBackground(new java.awt.Color(0, 0, 0));
+        jlabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        jlabel3.setText("SEXO:");
+        getContentPane().add(jlabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 30, -1));
 
-        fechaNacimiento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        fechaNacimiento.setText("FECHA NACIMIENTO:");
-        getContentPane().add(fechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 120, 20));
-
-        contraseña.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        contraseña.setBackground(new java.awt.Color(0, 0, 0));
+        contraseña.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
         contraseña.setText("CONTRASEÑA:");
-        getContentPane().add(contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, -1));
+        getContentPane().add(contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
 
         gruposexo.add(jRadioButton1);
         jRadioButton1.setText("Hombre");
@@ -102,19 +103,27 @@ public class NoRegistrado extends javax.swing.JFrame {
         jRadioButton2.setText("Mujer");
         getContentPane().add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, -1, -1));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        dni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                dniActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 100, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 100, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 130, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 70, -1));
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 130, -1));
+        getContentPane().add(dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 130, -1));
+        getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 100, -1));
+        getContentPane().add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 130, -1));
+        getContentPane().add(fecha_nac, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 100, 20));
 
+        jLabel8.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        jLabel8.setText("FECHA DE NACIMIENTO:");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 130, -1));
+
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 600, 600));
+
+        jPasswordField1.setText("jPasswordField1");
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, -1, -1));
 
         jTextField5.setText("jTextField5");
         getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 140, -1));
@@ -123,40 +132,38 @@ public class NoRegistrado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnteriorActionPerformed
-        Registrado obj= new Registrado ();
-        obj.setVisible(true);
-        dispose ();  
+        reto3.controlador.pasar_pagina.noregistrado_a_registrado();
+        dispose (); 
     }//GEN-LAST:event_BotonAnteriorActionPerformed
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
-        Registrado obj= new Registrado ();
-        obj.setVisible(true);
-        dispose ();  
+        reto3.controlador.pasar_pagina.noregistrado_a_registrado();
+        dispose (); 
     }//GEN-LAST:event_RegistrarActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void dniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dniActionPerformed
 
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_dniActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
     private javax.swing.JButton Registrar;
+    private javax.swing.JTextField apellidos;
     private javax.swing.JLabel contraseña;
-    private javax.swing.JLabel dni;
-    private javax.swing.JLabel fechaNacimiento;
+    private javax.swing.JTextField dni;
+    private com.toedter.calendar.JDateChooser fecha_nac;
     private javax.swing.ButtonGroup gruposexo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JLabel nombre;
-    private javax.swing.JLabel sexo;
+    private javax.swing.JLabel jlabel1;
+    private javax.swing.JLabel jlabel2;
+    private javax.swing.JLabel jlabel3;
+    private javax.swing.JTextField nombre;
     // End of variables declaration//GEN-END:variables
 }

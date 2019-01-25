@@ -4,6 +4,7 @@ package reto3.controlador;
 import javax.swing.JOptionPane;
 import static reto3.controlador.pasar_pagina.registrado_a_lineas;
 import reto3.modelo.Consultas;
+import reto3.modelo.cliente;
 
 public class VerificarCliente {
     public String us;
@@ -18,7 +19,11 @@ public class VerificarCliente {
         }
         else if ( (pass != null) || us != null ){
          Consultas cone =new Consultas();
-         String mama = cone.ObtenerCliente(us,pass);
+         
+        /* cliente cliente;
+         cliente = cone.ObtenerCliente(us,pass);
+         System.out.println(cliente.dni);
+         */
          registrado_a_lineas();       
         }
      

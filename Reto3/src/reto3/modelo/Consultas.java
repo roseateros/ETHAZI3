@@ -1,4 +1,3 @@
-
 package reto3.modelo;
 
 import java.sql.*;
@@ -10,12 +9,13 @@ public class Consultas {
         conectar con =new conectar();
         Connection reg=con.conexion();
         
-    public String ObtenerCliente(String us,String pass)
+    public  cliente ObtenerCliente(String us,String pass)
     {
        try {
             String query="select * from cliente where nombre='"+us+"' AND contraseña='"+pass+"'";
            Statement sentencia= reg.createStatement();
            ResultSet resultado=sentencia.executeQuery(query);
+
            
            while (resultado.next())
              {
@@ -31,11 +31,17 @@ public class Consultas {
              }
            
            
+
+         /*
+          cliente cliente= new cliente("marico","marico","marico" );
+           return cliente;
+          */ 
+
        } catch (Exception e) {
           System.err.println("Hubo un Error ");
             System.err.println(e.getMessage());
        }
-        return "hola";
+       return null;
     }
     
      public String ObtenerBoleto()
@@ -48,10 +54,23 @@ public class Consultas {
         return "hola";
     }
      
-      public String ObtenerLineas()
-    {
-        return "hola";
-    }  
+                 public lineas ObtenerLineas(String linea)
+                {
+                        try 
+                        {
+                     String query="SELECT * FROM `linea` WHERE `Cod_Linea` LIKE '"+linea+"'";
+                     Statement sentencia= reg.createStatement();
+                     ResultSet resultado=sentencia.executeQuery(query);
+                     lineas lineas= new lineas("info","info");
+                     return lineas;
+                         }
+                        catch (Exception e) 
+                        {
+                          System.err.println("Hubo un Error ");
+                             System.err.println(e.getMessage());
+                            }
+                          return null;
+                }  
       
 }
 //es para paradas

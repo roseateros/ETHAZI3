@@ -30,7 +30,10 @@ public class pasar_pagina{
         NoRegistrado obj= new NoRegistrado ();
         obj.setVisible(true);
     }
-        
+    public static void noregistrado_a_registrado(){
+        Registrado obj= new Registrado ();
+        obj.setVisible(true);
+    }      
     public static void registrado_a_saludo(){
         Saludo obj= new Saludo ();
         obj.setVisible(true);
@@ -51,7 +54,8 @@ public class pasar_pagina{
         obj.setVisible(true);
     } 
     
-    public static void lista_a_paradas(){
+    public static void lista_a_paradas()
+    {
     Paradas obj= new Paradas ();
     obj.setVisible(true);
     } 

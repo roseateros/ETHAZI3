@@ -1,6 +1,9 @@
 
 package reto3.vista;
 
+import reto3.controlador.Seleccionar_linea;
+import reto3.modelo.Consultas;
+
 public class Linea extends javax.swing.JFrame {
 
     public Linea() {
@@ -106,27 +109,32 @@ public class Linea extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      reto3.controlador.pasar_pagina.lineas_a_paradas();
+     String  lineax="L1";
+        Seleccionar_linea seleccion= new Seleccionar_linea(lineax);
         dispose (); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         reto3.controlador.pasar_pagina.lineas_a_paradas();
+        Consultas cone =new Consultas();
+        reto3.controlador.pasar_pagina.lineas_a_paradas();
         dispose (); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-         reto3.controlador.pasar_pagina.lineas_a_paradas();
+        Consultas cone =new Consultas();
+        reto3.controlador.pasar_pagina.lineas_a_paradas();
         dispose (); 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       Consultas cone =new Consultas();
         reto3.controlador.pasar_pagina.lineas_a_paradas();
         dispose (); 
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-           reto3.controlador.pasar_pagina.classsaludoaregistrado();
+         Consultas cone =new Consultas();
+        reto3.controlador.pasar_pagina.classsaludoaregistrado();
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
