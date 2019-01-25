@@ -2,6 +2,7 @@
 package reto3.controlador;
 
 import javax.swing.JOptionPane;
+import static reto3.controlador.pasar_pagina.aux;
 import static reto3.controlador.pasar_pagina.registrado_a_lineas;
 import reto3.modelo.Consultas;
 import reto3.modelo.cliente;
@@ -29,7 +30,8 @@ public class VerificarCliente
                      cliente cliente;// DECLARAMOS UN OBJETO CLIENTE , ESTE OBJETO VA A SERVIR PARA ALMACENAR EL OBJETO QUE SE CREA CUANDO HACEMOS LA CONSULTA
                      cliente = cone.ObtenerCliente(us,pass);// AQUÌ EJECUTAMOS LA FUNCIÒN Y NOS DEVUELVE EL OBJETO
                      System.out.println(cliente.dni);
-                     registrado_a_lineas();       
+                     registrado_a_lineas();  
+                     aux++;
                    }
      
 

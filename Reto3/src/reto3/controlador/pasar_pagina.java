@@ -12,9 +12,9 @@ import reto3.vista.ImprimirTicket;
 import reto3.vista.lista;
 
 public class pasar_pagina{
-    
   
-    
+    public static int aux;
+  
     public  Saludo saludo1;
 
     public pasar_pagina(Saludo saludo1) {
