@@ -54,9 +54,8 @@ public class pasar_pagina{
         obj.setVisible(true);
     } 
     
-    public static void lista_a_paradas(){
-    Consultas cone =new Consultas();
-    
+    public static void lista_a_paradas()
+    {
     Paradas obj= new Paradas ();
     obj.setVisible(true);
     } 

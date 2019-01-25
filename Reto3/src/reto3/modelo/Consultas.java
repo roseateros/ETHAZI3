@@ -37,20 +37,22 @@ public class Consultas {
         return "hola";
     }
      
-                 public String ObtenerLineas()
+                 public lineas ObtenerLineas(String linea)
                 {
                         try 
                         {
-                     String query="t";
+                     String query="SELECT * FROM `linea` WHERE `Cod_Linea` LIKE '"+linea+"'";
                      Statement sentencia= reg.createStatement();
                      ResultSet resultado=sentencia.executeQuery(query);
+                     lineas lineas= new lineas("info","info");
+                     return lineas;
                          }
                         catch (Exception e) 
                         {
                           System.err.println("Hubo un Error ");
                              System.err.println(e.getMessage());
                             }
-                          return "hola";
+                          return null;
                 }  
       
 }
