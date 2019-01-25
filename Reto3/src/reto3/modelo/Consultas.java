@@ -4,44 +4,39 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Consultas {
+public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECIR, AL INSTANCIAR UN 
+    OBJETO EN LA CLASE CONSULTAS SOLO SE EJECUTARÀ ESTO conectar con =new conectar() Connection reg=con.conexion();*/
 
-        conectar con =new conectar();
-        Connection reg=con.conexion();
-        
-    public  cliente ObtenerCliente(String us,String pass)
-    {
-       try {
-            String query="select * from cliente where nombre='"+us+"' AND contraseña='"+pass+"'";
-           Statement sentencia= reg.createStatement();
-           ResultSet resultado=sentencia.executeQuery(query);
+        conectar con =new conectar(); //SOLO ESTO AL INSTANCIAR, ES NECESARIA PARA HACER LA CONEXIÒN//
+        Connection reg=con.conexion();// SOLO ESTO AL INSTACIAR, ES NECESARIA PARA HACER LA CONEXIÒN//
+        //DEBES CREAR EL METODO DEL MISMO TIPO QUE LA CLASE DEL OBJETO QUE DEBES DEVOLVER//
+    public  cliente ObtenerCliente(String us,String pass) //ESTO ES UN METODO O FUNCIÒN DE LA CLASE CONSULTAS//
+            /*PARA EJECUTAR ESTO DEBES PRIMERO INSTANCIAR UN OBJETO DE LA CLASE CONSULTAS Y LUEGO HACER ESTA
+            DECLARACIÒN COMPLETA: (ESTO DEBE HACERSE EN EL CONTROLADOR CUANDO QUIERAS USAR ESTA CLASE Y ESTE METODO)
+            Consultas cone =new Consultas();
+            cliente cliente; ES NECESARIO DECLARAR OTRO OBJETO PORQUE EL MÈTODO OBTENERCLIENTE RETORNA UN OBJETO
+            cliente = cone.ObtenerCliente(us,pass);*/
+            {
+                 try //EN EL CASO DONDE NO EXISTA NINGÙN ERROR
+                 {
+                     String query="select * from cliente where nombre='"+us+"' AND contraseña='"+pass+"'";//SENTENCIA SQL
+                      Statement sentencia= reg.createStatement();// CREAR VARIABLE PARA HACER LA SENTENCIA (ES NECESARIO)
+                         ResultSet resultado=sentencia.executeQuery(query);// LA VARIABLE DONDE SE VA A ALOJAR EL RESULTADO (ES NECESARIO)
+                             while (resultado.next())//ESTO SE REPETIRÀ EL NUMERO DE FILAS QUE SE SELECCIONEN DE LA BASES DE DATOS
+                                  {
+                                      
+                                  }
+                     cliente cliente= new cliente("dni","nombre","pass","sdsds" );// SE DEBE CREAR EL OBJETO CLIENTE CON LOS VALORES OBTENIDOS DE LA CONSULTA
+                     return cliente;// DEVOLVEMOS EL OBJETO 
+          
 
-           
-           while (resultado.next())
-             {
-                // String DNI=resultado.getString("DNI");
-               // cliente cliente =new cliente(DNI); 
-                 
-                 /*int id = rs.getInt("id");
-        String firstName = rs.getString("first_name");
-        String lastName = rs.getString("last_name");
-        Date dateCreated = rs.getDate("date_created");
-        boolean isAdmin = rs.getBoolean("is_admin");
-        int numPoints = rs.getInt("num_points");*/
-             }
-           
-           
-
-         /*
-          cliente cliente= new cliente("marico","marico","marico" );
-           return cliente;
-          */ 
-
-       } catch (Exception e) {
-          System.err.println("Hubo un Error ");
-            System.err.println(e.getMessage());
-       }
-       return null;
+                 }
+                 catch (Exception e) // SI SE PRODUCE UN ERROR
+                 {
+                     System.err.println("Hubo un Error ");
+                     System.err.println(e.getMessage());
+                 }
+       return null;// SI SE PRODUCE UN ERROR SE MANDA NULL
     }
     
      public String ObtenerBoleto()

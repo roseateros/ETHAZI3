@@ -6,13 +6,13 @@ public class cliente {
     public String dni,nombre,apellidos,contraseña, gruposexo;
     public Date fecha_nac;
     
-    public cliente(String dni,String nombre,String apellidos,String contraseña,Date fecha_nac)
+    public cliente(String dni,String nombre,String apellidos,String contraseña)
     {
     this.dni=dni;
     this.nombre=nombre;
     this.apellidos=apellidos;
     this.contraseña=contraseña;
-    this.fecha_nac=fecha_nac;
+
     }
 
     public String getDni() {
