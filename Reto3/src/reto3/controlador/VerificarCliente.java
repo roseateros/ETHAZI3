@@ -1,4 +1,3 @@
-
 package reto3.controlador;
 
 import javax.swing.JOptionPane;
@@ -16,30 +15,31 @@ public class VerificarCliente
      public VerificarCliente(String us,String  pass)//ESTA ES LA FUNCION CONSTRUCTORA DE LA CLASE VERIFICARCLIENTE 
      {
          //AQUI EMPEZAMOS A VERIFICAR 
-        if ( (us == null) || (us.equals("")) )// ESTO ES SI EL COÑO È MADRE NO DEJÒ VACÌO EL ESPACIO DE USUARIO 
+        if ( (us == null) || (us.equals("")) )
         {
            JOptionPane.showMessageDialog(null,"No has ingresado el Nombre del usuario");
         }
-             else if ( (pass == null) || (pass.equals("")) )// ESTO ES SI EL COÑO È MADRE NO DEJÒ VACÌO EL ESPACIO DE PASSWORD
+             else if ( (pass == null) || (pass.equals("")) )
              {
                  JOptionPane.showMessageDialog(null,"No has ingresado la Contraseña");
              }
-                 else if ( (pass != null) || us != null )// AQUÌ EL PANA NO ES TAN COÑO È MADRE, PORQUE NADA ESTÀ VACÌO
+                 else if ( (pass != null) || us != null )
                   {
                      Consultas cone =new Consultas(); // SE INSTANCIA EL OBJETO CONE EN LA CLASE CONSULTAS, LO CUAL DESPIERTA LA FURIA DE THANOS ._. , MENTIRA XD SOLO CONECTA A LA BASES DE DATOS
                      cliente cliente;// DECLARAMOS UN OBJETO CLIENTE , ESTE OBJETO VA A SERVIR PARA ALMACENAR EL OBJETO QUE SE CREA CUANDO HACEMOS LA CONSULTA
                      cliente = cone.ObtenerCliente(us,pass);// AQUÌ EJECUTAMOS LA FUNCIÒN Y NOS DEVUELVE EL OBJETO
-<<<<<<< HEAD
+
                      System.out.println("Bienvenido"+cliente.nombre);
                     
                      registrado_a_lineas();       
-=======
+
                      System.out.println(cliente.dni);
                      registrado_a_lineas();  
                      aux++;
->>>>>>> b5d46f912d121936c9601b07986d9f2e2b51b876
+
                    }
      
+
 
       }
 }
