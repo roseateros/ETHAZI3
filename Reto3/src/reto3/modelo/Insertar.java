@@ -9,7 +9,7 @@ public class Insertar {
         conectar con =new conectar();
         Connection reg=con.conexion();
         
-    public String InsertarCliente()
+    public cliente InsertarCliente( String dni,String nombre,String apellidos,String contraseña, String gruposexo, Date fecha_nac)
     {
         try {  
             Statement st = reg.createStatement(); 
@@ -21,7 +21,7 @@ public class Insertar {
             System.err.println(e.getMessage()); 
         } 
        
-        return "Done!";
+        return null;
     }
     
      public String InsertarBillete()
