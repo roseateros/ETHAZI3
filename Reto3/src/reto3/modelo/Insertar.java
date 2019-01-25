@@ -14,8 +14,9 @@ public class Insertar {
     public cliente InsertarCliente( String dni,String nombre,String apellidos,String contraseña, String gruposexo, Date fecha_nac)
     {
         try {  
+            
             Statement st = reg.createStatement();
-            st.executeUpdate("INSERT INTO `cliente` (`DNI`, `Nombre`, `Apellidos`, `Fecha_nac`, `Sexo`, `Contraseña`) VALUES ('"+NoRegistrado.+"', '', '', '', '', '')"); 
+  //          st.executeUpdate("INSERT INTO `cliente` (`DNI`, `Nombre`, `Apellidos`, `Fecha_nac`, `Sexo`, `Contraseña`) VALUES ('"+NoRegistrado.+"', '""', '', '', '', '')"); 
            
             reg.close(); 
         } catch (Exception e) { 
