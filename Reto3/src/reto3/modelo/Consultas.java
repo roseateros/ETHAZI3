@@ -6,7 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Consultas {
-   public  int vari=5;
+
         conectar con =new conectar();
         Connection reg=con.conexion();
         
@@ -16,6 +16,19 @@ public class Consultas {
             String query="select * from cliente where nombre='"+us+"' AND contraseña='"+pass+"'";
            Statement sentencia= reg.createStatement();
            ResultSet resultado=sentencia.executeQuery(query);
+           
+           while (resultado.next())
+             {
+                // String DNI=resultado.getString("DNI");
+               // cliente cliente =new cliente(DNI); 
+                 
+                 /*int id = rs.getInt("id");
+        String firstName = rs.getString("first_name");
+        String lastName = rs.getString("last_name");
+        Date dateCreated = rs.getDate("date_created");
+        boolean isAdmin = rs.getBoolean("is_admin");
+        int numPoints = rs.getInt("num_points");*/
+             }
            
            
        } catch (Exception e) {
