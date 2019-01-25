@@ -1,9 +1,9 @@
 package reto3.modelo;
 
 public class cliente {
-    public String dni,nombre,apellidos,contraseña, gruposexo, fecha_nac;
+    public String dni,nombre,apellidos,contraseña, sexo, fecha_nac;
 
-    public cliente(String dni,String nombre,String apellidos,String contraseña, String fecha_nac, String gruposexo)
+    public cliente(String dni,String nombre,String apellidos,String contraseña, String fecha_nac, String sexo)
 
     {
     this.dni=dni;
@@ -11,6 +11,6 @@ public class cliente {
     this.apellidos=apellidos;
     this.contraseña=contraseña;
     this.fecha_nac=fecha_nac;
-    this.gruposexo=gruposexo;
+    this.sexo=sexo;
     }
 }

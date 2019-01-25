@@ -1,10 +1,11 @@
 package reto3.vista;
 
 import java.awt.Image;
-import java.sql.Date;
+import java.util.Calendar;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import reto3.controlador.crearCliente;
+import reto3.modelo.cliente;
 
 public class NoRegistrado extends javax.swing.JFrame {
 
@@ -99,22 +100,11 @@ public class NoRegistrado extends javax.swing.JFrame {
 
         gruposexo.add(H);
         H.setText("Hombre");
-        H.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HActionPerformed(evt);
-            }
-        });
         getContentPane().add(H, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, -1, -1));
 
         gruposexo.add(M);
         M.setText("Mujer");
         getContentPane().add(M, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, -1, -1));
-
-        dni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dniActionPerformed(evt);
-            }
-        });
         getContentPane().add(dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 130, -1));
         getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 100, -1));
         getContentPane().add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 130, -1));
@@ -149,17 +139,14 @@ public class NoRegistrado extends javax.swing.JFrame {
         } else if (M.isSelected()){
             sexo= "Mujer";
         }       
-        crearCliente crearCliente= new crearCliente (dni.getText(),nombre.getText(), apellidos.getText(),contraseña.getText(), sexo, (Date) fecha_nac.getDate());
+        int año=fecha_nac.getCalendar().get(Calendar.YEAR);
+        int mes=fecha_nac.getCalendar().get(Calendar.MONTH);
+        int dia=fecha_nac.getCalendar().get(Calendar.DAY_OF_MONTH);
+        String fecha=año+"-"+mes+"-"+dia;
+        //cliente.setfecha_nac(fecha);
+        //crearCliente crearCliente= new crearCliente (dni.getText(),nombre.getText(), apellidos.getText(),contraseña.getText(), sexo, fecha.getText());
         
     }//GEN-LAST:event_RegistrarActionPerformed
-
-    private void dniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dniActionPerformed
-
-    }//GEN-LAST:event_dniActionPerformed
-
-    private void HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HActionPerformed
-        
-    }//GEN-LAST:event_HActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
