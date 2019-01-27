@@ -1,6 +1,7 @@
 package reto3.controlador;
 
 import reto3.modelo.Consultas;
+import reto3.modelo.cliente;
 import reto3.vista.Linea;
 import reto3.vista.NoRegistrado;
 import reto3.vista.Paradas;
@@ -49,31 +50,40 @@ public class pasar_pagina{
     }
          
     //FUNCION PARA PASAR DE REGISTRADO A LINEASS
-    public static void registrado_a_lineas(){
+    public static void registrado_a_lineas(cliente cliente){
         //SE CREA EL OBJ DE LA CLASE LINEA
-        Linea obj= new Linea ();
+        Linea obj= new Linea (cliente);
         obj.setVisible(true);
-    }    
+    }  
+    
+    
+        //FUNCION PARA PASAR DE LINEAS A REGISTRADO
+        public static void paradas_a_lineas(cliente cliente){
+        //SE CREA EL OBJ DE LA CLASE LINEA
+         Linea obj= new Linea (cliente);
+        obj.setVisible(true);
+  
+    } 
      
     //FUNCION PARA PASAR DE LINEAS A PARADAS
-    public static void lineas_a_paradas(){
+    public static void lineas_a_paradas(cliente cliente){
         //SE CREA EL OBJ DE LA CLASE PARADAS
-        Paradas obj= new Paradas ();
+        Paradas obj= new Paradas (cliente);
         obj.setVisible(true);
     }  
     
     // FUNCION PARA PASAR DE PARADAS A LISTA
-    public static void paradas_a_lista(){
+    public static void paradas_a_lista(cliente cliente){
         //SE CREA EL OBJ DE LA CLASE LISTA
-        lista obj= new lista ();
+        lista obj= new lista (cliente);
         obj.setVisible(true);
     } 
     
     //FUNCION PARA PASAR DE LISTA A PARADAS
-    public static void lista_a_paradas()
+    public static void lista_a_paradas(cliente cliente)
     {
     //SE CREA EL OBJ DE LA CLASE PARADAS    
-    Paradas obj= new Paradas ();
+    Paradas obj= new Paradas (cliente);
     obj.setVisible(true);
     } 
 

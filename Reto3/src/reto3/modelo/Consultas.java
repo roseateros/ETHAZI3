@@ -22,18 +22,19 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
                  try //EN EL CASO DONDE NO EXISTA NINGÙN ERROR
                  {
                      
-                     String query="select * from cliente where DNI='4'";//SENTENCIA SQL
+                     String query="select * from cliente where Nombre='"+us+"'";//SENTENCIA SQL
                       Statement sentencia= reg.createStatement();// CREAR VARIABLE PARA HACER LA SENTENCIA (ES NECESARIO)
                          ResultSet resultado=sentencia.executeQuery(query);// LA VARIABLE DONDE SE VA A ALOJAR EL RESULTADO (ES NECESARIO)
+                         
                              while (resultado.next())//ESTO SE REPETIRÀ EL NUMERO DE FILAS QUE SE SELECCIONEN DE LA BASES DE DATOS
                                   {
-                                 JOptionPane.showMessageDialog(null,"ENTRA");
-                                      String dni=getString("dni");
-                                      String nombre=getString("nombre");
-                                      String fecha_nac=getString("4");
-                                      String contrasena=getString("contraseña");
-                                      String apellidos=getString("apellidos");
-                                      String sexo=getString("sexo");
+                                 
+                                      String dni=resultado.getString("DNI");
+                                      String nombre=resultado.getString("Nombre");
+                                      String fecha_nac=resultado.getString("Fecha_nac");
+                                      String contrasena=resultado.getString("contraseña");
+                                      String apellidos=resultado.getString("Apellidos");
+                                      String sexo=resultado.getString("Sexo");
                                       cliente cliente= new cliente(dni,nombre,apellidos,contrasena,fecha_nac,sexo);// SE DEBE CREAR EL OBJETO CLIENTE CON LOS VALORES OBTENIDOS DE LA CONSULTA
                                   return cliente;// DEVOLVEMOS EL OBJETO 
                              }
@@ -68,8 +69,12 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
                      String query="SELECT * FROM `linea` WHERE `Cod_Linea` LIKE '"+linea+"'";
                      Statement sentencia= reg.createStatement();
                      ResultSet resultado=sentencia.executeQuery(query);
-                     lineas lineas= new lineas("info","info");
-                     return lineas;
+                      while (resultado.next())//ESTO SE REPETIRÀ EL NUMERO DE FILAS QUE SE SELECCIONEN DE LA BASES DE DATOS
+                                  {
+                          lineas lineas= new lineas(resultado.getString("Cod_Linea"),resultado.getString("Nombre"));
+                        return lineas; 
+                                 }
+                    
                          }
                         catch (Exception e) 
                         {
