@@ -1,8 +1,11 @@
-package reto3.vista;
+  package reto3.vista;
 
 import java.awt.Image;
+import java.util.Calendar;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import reto3.controlador.crearCliente;
+import reto3.modelo.cliente;
 
 public class NoRegistrado extends javax.swing.JFrame {
 
@@ -18,10 +21,10 @@ public class NoRegistrado extends javax.swing.JFrame {
     Icon icono = new ImageIcon(Imagen.getImage().getScaledInstance(BotonAnterior.getWidth(), BotonAnterior.getHeight(), Image.SCALE_DEFAULT));
     BotonAnterior.setIcon(icono);
     this.repaint();
-    
-    }
 
-    @SuppressWarnings("unchecked")
+    }
+    public String sexo = "";
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -34,8 +37,8 @@ public class NoRegistrado extends javax.swing.JFrame {
         Registrar = new javax.swing.JButton();
         jlabel3 = new javax.swing.JLabel();
         contraseña = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        H = new javax.swing.JRadioButton();
+        M = new javax.swing.JRadioButton();
         dni = new javax.swing.JTextField();
         nombre = new javax.swing.JTextField();
         apellidos = new javax.swing.JTextField();
@@ -95,19 +98,13 @@ public class NoRegistrado extends javax.swing.JFrame {
         contraseña.setText("CONTRASEÑA:");
         getContentPane().add(contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
 
-        gruposexo.add(jRadioButton1);
-        jRadioButton1.setText("Hombre");
-        getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, -1, -1));
+        gruposexo.add(H);
+        H.setText("Hombre");
+        getContentPane().add(H, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, -1, -1));
 
-        gruposexo.add(jRadioButton2);
-        jRadioButton2.setText("Mujer");
-        getContentPane().add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, -1, -1));
-
-        dni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dniActionPerformed(evt);
-            }
-        });
+        gruposexo.add(M);
+        M.setText("Mujer");
+        getContentPane().add(M, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, -1, -1));
         getContentPane().add(dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 130, -1));
         getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 100, -1));
         getContentPane().add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 130, -1));
@@ -120,7 +117,7 @@ public class NoRegistrado extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 600, 600));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
 
         jPasswordField1.setText("jPasswordField1");
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, -1, -1));
@@ -137,16 +134,24 @@ public class NoRegistrado extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonAnteriorActionPerformed
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
-        reto3.controlador.pasar_pagina.noregistrado_a_registrado();
-        dispose (); 
+        if (H.isSelected()){
+            sexo= "Hombre";
+        } else if (M.isSelected()){
+            sexo= "Mujer";
+        }       
+        int año=fecha_nac.getCalendar().get(Calendar.YEAR);
+        int mes=fecha_nac.getCalendar().get(Calendar.MONTH);
+        int dia=fecha_nac.getCalendar().get(Calendar.DAY_OF_MONTH);
+        String fecha=año+"-"+mes+"-"+dia;
+        //cliente.setfecha_nac(fecha);
+        //crearCliente crearCliente= new crearCliente (dni.getText(),nombre.getText(), apellidos.getText(),contraseña.getText(), sexo, fecha.getText());
+        
     }//GEN-LAST:event_RegistrarActionPerformed
-
-    private void dniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dniActionPerformed
-
-    }//GEN-LAST:event_dniActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
+    private javax.swing.JRadioButton H;
+    private javax.swing.JRadioButton M;
     private javax.swing.JButton Registrar;
     private javax.swing.JTextField apellidos;
     private javax.swing.JLabel contraseña;
@@ -158,8 +163,6 @@ public class NoRegistrado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JLabel jlabel1;
     private javax.swing.JLabel jlabel2;

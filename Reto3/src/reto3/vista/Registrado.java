@@ -4,6 +4,7 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import reto3.controlador.VerificarCliente;
+import static reto3.controlador.pasar_pagina.aux;
 
 public class Registrado extends javax.swing.JFrame {
     public Registrado() {
@@ -106,6 +107,10 @@ public class Registrado extends javax.swing.JFrame {
 
     private void BotonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSiguienteActionPerformed
     VerificarCliente verificar= new VerificarCliente(us.getText(),pass.getText());
+    if (aux>0){
+        dispose();
+        aux=0;
+    }
     }//GEN-LAST:event_BotonSiguienteActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
