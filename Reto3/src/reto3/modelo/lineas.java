@@ -1,4 +1,3 @@
-
 package reto3.modelo;
 
 public class lineas {
