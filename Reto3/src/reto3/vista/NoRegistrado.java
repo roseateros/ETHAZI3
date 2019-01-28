@@ -142,8 +142,9 @@ public class NoRegistrado extends javax.swing.JFrame {
         }        
     
     SimpleDateFormat dFormatter = new SimpleDateFormat("yyyy-MM-dd");
+    fecha_nac = dFormatter.format(crearCliente.fecha_nac.getDate());
 
-    crearCliente crearCliente = new crearCliente (dni.getText(),nombre.getText(), apellidos.getText(),contraseña.getText(), sexo, fecha_nac.getDateFormatString());
+    crearCliente crearCliente = new crearCliente (dni.getText(),nombre.getText(), apellidos.getText(),contraseña.getText(), sexo, dFormatter.toString());
         
     }//GEN-LAST:event_RegistrarActionPerformed
   
