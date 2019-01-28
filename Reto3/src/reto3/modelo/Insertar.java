@@ -1,9 +1,7 @@
 package reto3.modelo;
 
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import reto3.vista.NoRegistrado;
+
 
 public class Insertar {
     
@@ -11,16 +9,16 @@ public class Insertar {
         conectar con =new conectar();
         Connection reg=con.conexion();
         
-    public cliente InsertarCliente( String dni,String nombre,String apellidos,String contraseña, String sexo, String fecha_nac)
+    public cliente InsertarCliente( String dni,String nombre,String apellidos,String contraseña, String sexo, String fecha)
     {
         try {  
             
             Statement st = reg.createStatement();
-             st.executeUpdate("INSERT INTO cliente (DNI, Nombre, Apellidos, Fecha_nac, Sexo, Contraseña) VALUES ('"+dni+"', '"+nombre+"', '"+apellidos+"', '"+fecha_nac+"', '"+sexo+"', '"+contraseña+"')"); 
+             st.executeUpdate("INSERT INTO cliente (DNI, Nombre, Apellidos, Fecha_nac, Sexo, Contraseña) VALUES ('"+dni+"', '"+nombre+"', '"+apellidos+"', "+fecha+", "+sexo+", '"+contraseña+"')"); 
            
             reg.close(); 
         } catch (Exception e) { 
-            System.err.println("cannot insert!"+fecha_nac); 
+            System.err.println("cannot insert!"+fecha); 
             System.err.println(e.getMessage()); 
         } 
        

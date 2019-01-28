@@ -1,15 +1,18 @@
   package reto3.vista;
 
 import java.awt.Image;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import reto3.controlador.crearCliente;
+import static reto3.controlador.pasar_pagina.aux;
 
 public class NoRegistrado extends javax.swing.JFrame {
 
     public NoRegistrado() {
-        
+    
         initComponents();
             setLocationRelativeTo(null);
             setResizable (false);
@@ -43,9 +46,8 @@ public class NoRegistrado extends javax.swing.JFrame {
         apellidos = new javax.swing.JTextField();
         fecha_nac = new com.toedter.calendar.JDateChooser();
         jLabel8 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField5 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -116,15 +118,12 @@ public class NoRegistrado extends javax.swing.JFrame {
         jLabel8.setText("FECHA DE NACIMIENTO:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 130, -1));
 
+        jPasswordField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 130, -1));
+
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
-
-        jPasswordField1.setText("jPasswordField1");
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, -1, -1));
-
-        jTextField5.setText("jTextField5");
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 140, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -136,16 +135,19 @@ public class NoRegistrado extends javax.swing.JFrame {
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
         if (H.isSelected()){
-            sexo= "Hombre";
+            sexo= "V";
         } else if (M.isSelected()){
-            sexo= "Mujer";
+            sexo= "M";
         }        
     
-    SimpleDateFormat dFormatter = new SimpleDateFormat("yyyy-MM-dd");
-    fecha_nac = dFormatter.format(crearCliente.fecha_nac.getDate());
+    String fecha = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(fecha_nac.getDate());
 
-    crearCliente crearCliente = new crearCliente (dni.getText(),nombre.getText(), apellidos.getText(),contraseña.getText(), sexo, dFormatter.toString());
-        
+    crearCliente crearCliente = new crearCliente (dni.getText(), nombre.getText(), apellidos.getText(), fecha, sexo, contraseña.getText()) ;
+    
+    if (aux>0){
+    dispose();
+    aux=0;
+    }
     }//GEN-LAST:event_RegistrarActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -156,14 +158,13 @@ public class NoRegistrado extends javax.swing.JFrame {
     private javax.swing.JTextField apellidos;
     private javax.swing.JLabel contraseña;
     private javax.swing.JTextField dni;
-    private com.toedter.calendar.JDateChooser fecha_nac;
+    public static com.toedter.calendar.JDateChooser fecha_nac;
     private javax.swing.ButtonGroup gruposexo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JLabel jlabel1;
     private javax.swing.JLabel jlabel2;
     private javax.swing.JLabel jlabel3;

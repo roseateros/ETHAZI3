@@ -9,9 +9,8 @@ import reto3.modelo.cliente;
 
 public class crearCliente {
 
+    public crearCliente(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña){
 
-    public crearCliente(String dni,String nombre,String apellidos,String contraseña, String sexo, String fecha_nac){
-        reto3.controlador.pasar_pagina.noregistrado_a_registrado();
         if ( (dni == null) || (dni.equals("")) )
         {
            JOptionPane.showMessageDialog(null,"No has ingresado el Dni");
@@ -27,7 +26,7 @@ public class crearCliente {
         }else if ( (sexo == null) || (sexo.equals("")) )
         {
            JOptionPane.showMessageDialog(null,"No has ingresado el sexo");
-        }else if ( (fecha_nac == null) || (fecha_nac.equals("")) )
+        }else if ( (fecha == null) || (fecha.equals("")) )
         {
            JOptionPane.showMessageDialog(null,"No has ingresado la Fecha de Nacimiento");
         }else 
@@ -36,9 +35,13 @@ public class crearCliente {
         }
                     Insertar cone =new Insertar(); 
                      cliente cliente;
-                     cliente = cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha_nac);
+                     cliente = cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);
                      System.out.println(cliente.dni);
                      noregistrado_a_registrado();  
                      aux++;
+    }
+
+    public crearCliente(String text, String text0, String text1, String text2, String sexo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
