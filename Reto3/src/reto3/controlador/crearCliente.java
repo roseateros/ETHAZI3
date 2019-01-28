@@ -8,10 +8,10 @@ import reto3.modelo.Insertar;
 import reto3.modelo.cliente;
 
 public class crearCliente {
-
+public String dni,nombre,apellidos,contraseña, sexo, fecha_nac;
 
     public crearCliente(String dni,String nombre,String apellidos,String contraseña, String sexo, String fecha_nac){
-        reto3.controlador.pasar_pagina.noregistrado_a_registrado();
+
         if ( (dni == null) || (dni.equals("")) )
         {
            JOptionPane.showMessageDialog(null,"No has ingresado el Dni");
