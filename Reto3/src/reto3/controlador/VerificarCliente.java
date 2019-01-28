@@ -29,7 +29,7 @@ public class VerificarCliente
                      cliente = cone.ObtenerCliente(us,pass);// AQUÌ EJECUTAMOS LA FUNCIÒN Y NOS DEVUELVE EL OBJETO
 
                      JOptionPane.showMessageDialog(null,"Bienvenido "+cliente.nombre);
-                    
+
                      registrado_a_lineas(cliente);  
                      aux++;
                    }

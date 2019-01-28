@@ -35,13 +35,8 @@ public class crearCliente {
         }
                     Insertar cone =new Insertar(); 
                      cliente cliente;
-                     cliente = cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);
-                    
+                     cliente = cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);                    
                      noregistrado_a_registrado();  
                      aux++;
-    }
-
-    public crearCliente(String text, String text0, String text1, String text2, String sexo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
