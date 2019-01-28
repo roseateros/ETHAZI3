@@ -1,30 +1,30 @@
-package reto3.vista;
+  package reto3.vista;
 
 import java.awt.Image;
-import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import reto3.controlador.crearCliente;
-import reto3.modelo.cliente;
 
 public class NoRegistrado extends javax.swing.JFrame {
 
     public NoRegistrado() {
-        initComponents();
         
+        initComponents();
             setLocationRelativeTo(null);
             setResizable (false);
             setTitle ("Registro");
-            
-                
+                       
     ImageIcon Imagen = new ImageIcon ("src/Imagenes/anterior.png");
     Icon icono = new ImageIcon(Imagen.getImage().getScaledInstance(BotonAnterior.getWidth(), BotonAnterior.getHeight(), Image.SCALE_DEFAULT));
     BotonAnterior.setIcon(icono);
     this.repaint();
 
     }
+    
     public String sexo = "";
-    @SuppressWarnings("unchecked")
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -108,6 +108,8 @@ public class NoRegistrado extends javax.swing.JFrame {
         getContentPane().add(dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 130, -1));
         getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 100, -1));
         getContentPane().add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 130, -1));
+
+        fecha_nac.setDateFormatString("yyyy-MM-dd");
         getContentPane().add(fecha_nac, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 100, 20));
 
         jLabel8.setBackground(new java.awt.Color(0, 0, 0));
@@ -139,15 +141,10 @@ public class NoRegistrado extends javax.swing.JFrame {
         } else if (M.isSelected()){
             sexo= "Mujer";
         }       
-        int año=fecha_nac.getCalendar().get(Calendar.YEAR);
-        int mes=fecha_nac.getCalendar().get(Calendar.MONTH);
-        int dia=fecha_nac.getCalendar().get(Calendar.DAY_OF_MONTH);
-        String fecha=año+"-"+mes+"-"+dia;
-        //cliente.setfecha_nac(fecha);
-        //crearCliente crearCliente= new crearCliente (dni.getText(),nombre.getText(), apellidos.getText(),contraseña.getText(), sexo, fecha.getText());
+        crearCliente crearCliente = new crearCliente (dni.getText(),nombre.getText(), apellidos.getText(),contraseña.getText(), sexo, (java.sql.Date) fecha_nac.getDate());
         
     }//GEN-LAST:event_RegistrarActionPerformed
-
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
     private javax.swing.JRadioButton H;

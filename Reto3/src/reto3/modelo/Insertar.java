@@ -11,7 +11,7 @@ public class Insertar {
         conectar con =new conectar();
         Connection reg=con.conexion();
         
-    public cliente InsertarCliente( String dni,String nombre,String apellidos,String contraseña, String gruposexo, String fecha_nac)
+    public cliente InsertarCliente( String dni,String nombre,String apellidos,String contraseña, String sexo, String fecha_nac)
     {
         try {  
             
@@ -38,6 +38,10 @@ public class Insertar {
             System.err.println(e.getMessage()); 
         } 
         return "hola!";
+    }
+
+    public cliente InsertarCliente(String dni, String nombre, String apellidos, String contraseña, String sexo, Date fecha_nac) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
       
 }

@@ -3,16 +3,18 @@ package reto3.vista;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import reto3.controlador.Comprar_billete;
+import reto3.modelo.cliente;
 
 public class Paradas extends javax.swing.JFrame {
-
-    public Paradas() {
+ public cliente clientex;
+    public Paradas(cliente cliente) {
         initComponents();
-
+ clientex=cliente;
             setLocationRelativeTo(null);
             setResizable (false);
             setTitle ("Lineas");
-            
+            jLabel4.setText(cliente.nombre);
     ImageIcon Imagen = new ImageIcon ("src/Imagenes/anterior.png");
     Icon icono = new ImageIcon(Imagen.getImage().getScaledInstance(BotonAnterior.getWidth(), BotonAnterior.getHeight(), Image.SCALE_DEFAULT));
     BotonAnterior.setIcon(icono);
@@ -114,7 +116,7 @@ public class Paradas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnteriorActionPerformed
-        reto3.controlador.pasar_pagina.registrado_a_lineas();
+        reto3.controlador.pasar_pagina.paradas_a_lineas(clientex);
         dispose();
     }//GEN-LAST:event_BotonAnteriorActionPerformed
 
@@ -124,7 +126,7 @@ public class Paradas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-        reto3.controlador.pasar_pagina.paradas_a_lista();
+        Comprar_billete comprar = new Comprar_billete(clientex);
         dispose();
     }//GEN-LAST:event_BuscarActionPerformed
 

@@ -1,20 +1,26 @@
 
 package reto3.vista;
 
+import javax.swing.JOptionPane;
 import reto3.controlador.Seleccionar_linea;
 import reto3.modelo.Consultas;
+import reto3.modelo.cliente;
 
-public class Linea extends javax.swing.JFrame {
-
-    public Linea() {
+public class Linea extends javax.swing.JFrame  {
+ 
+    public cliente clientex;
+    public Linea(cliente cliente) {
         initComponents();
-        
+    clientex=cliente;
+     
             setLocationRelativeTo(null);
             setResizable (false);
-            setTitle ("Paradas");           
+            setTitle ("Paradas");   
+            jLabel4.setText(cliente.nombre);
+            
 
     }
-
+ 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -110,30 +116,29 @@ public class Linea extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
      String  lineax="L1";
-        Seleccionar_linea seleccion= new Seleccionar_linea(lineax);
+        Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex);
         dispose (); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Consultas cone =new Consultas();
-        reto3.controlador.pasar_pagina.lineas_a_paradas();
+ String  lineax="L2";
+        Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex);
         dispose (); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Consultas cone =new Consultas();
-        reto3.controlador.pasar_pagina.lineas_a_paradas();
-        dispose (); 
+  String  lineax="L3";
+        Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex);
+        dispose ();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       Consultas cone =new Consultas();
-        reto3.controlador.pasar_pagina.lineas_a_paradas();
-        dispose (); 
+ String  lineax="L4";
+        Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex);
+        dispose ();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-         Consultas cone =new Consultas();
         reto3.controlador.pasar_pagina.classsaludoaregistrado();
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed

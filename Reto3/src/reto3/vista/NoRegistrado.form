@@ -200,6 +200,9 @@
       </Constraints>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="fecha_nac">
+      <Properties>
+        <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd"/>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="290" y="230" width="100" height="20"/>
