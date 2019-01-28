@@ -4,6 +4,7 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import reto3.controlador.Comprar_billete;
+import reto3.controlador.Seleccionar_paradas;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
 
@@ -14,6 +15,9 @@ public class Paradas extends javax.swing.JFrame {
         
         
         initComponents();
+        Seleccionar_paradas para=new Seleccionar_paradas(lineas,cliente);
+        
+        
         clientex=cliente;
         lineasx=lineas;
         jLabel2.setText("Lineas "+lineas.Cod_Linea);
