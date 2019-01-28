@@ -8,7 +8,8 @@ import reto3.modelo.cliente;
 
 public class VerificarCliente 
 {
-
+public String us;
+public String pass;
 
 
      public VerificarCliente(String us,String  pass)//ESTA ES LA FUNCION CONSTRUCTORA DE LA CLASE VERIFICARCLIENTE 
@@ -29,7 +30,7 @@ public class VerificarCliente
                      cliente = cone.ObtenerCliente(us,pass);// AQUÌ EJECUTAMOS LA FUNCIÒN Y NOS DEVUELVE EL OBJETO
 
                      JOptionPane.showMessageDialog(null,"Bienvenido "+cliente.nombre);
-                    
+
                      registrado_a_lineas(cliente);  
                      aux++;
                    }
