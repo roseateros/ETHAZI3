@@ -137,7 +137,6 @@ public class NoRegistrado extends javax.swing.JFrame {
         } else if (M.isSelected()){
             sexo= "Mujer";
         }        
-
     //crearCliente crearCliente = new crearCliente (dni.getText(),nombre.getText(), apellidos.getText(),contraseña.getText(), sexo, fecha_nac.setDateFormatString());
     if (aux>0){
     dispose();

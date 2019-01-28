@@ -36,6 +36,7 @@ public String dni,nombre,apellidos,contraseña, sexo, fecha_nac;
         }
                     Insertar cone =new Insertar(); 
                      cliente cliente;
+                     JOptionPane.showMessageDialog(null,fecha_nac);
                      cliente = cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha_nac);
                      System.out.println(cliente.dni);
                      noregistrado_a_registrado();  
