@@ -1,6 +1,5 @@
 package reto3.controlador;
 
-import reto3.modelo.Consultas;
 import reto3.modelo.cliente;
 import reto3.vista.Linea;
 import reto3.vista.NoRegistrado;
@@ -57,8 +56,8 @@ public class pasar_pagina{
     }  
     
     
-        //FUNCION PARA PASAR DE LINEAS A REGISTRADO
-        public static void paradas_a_lineas(cliente cliente){
+    //FUNCION PARA PASAR DE LINEAS A REGISTRADO
+    public static void paradas_a_lineas(cliente cliente){
         //SE CREA EL OBJ DE LA CLASE LINEA
          Linea obj= new Linea (cliente);
         obj.setVisible(true);

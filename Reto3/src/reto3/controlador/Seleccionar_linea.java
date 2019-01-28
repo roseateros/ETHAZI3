@@ -16,9 +16,6 @@ public class Seleccionar_linea {
         lineas linea=cone.ObtenerLineas(lineax);
          JOptionPane.showMessageDialog(null,"Bienvenido "+cliente.nombre);
         lineas_a_paradas(cliente);
-        }
-        
-      
-    
+        }    
 }
  

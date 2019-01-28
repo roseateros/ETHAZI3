@@ -4,19 +4,12 @@ package reto3.vista;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 public final class Cobro extends javax.swing.JFrame {
     
-    private float precio, cambio=0, pago;
-    private float billete200=0, billete100=0, billete50=0, billete20=0, billete10=0, billete5=0, moneda2=0, moneda1=0;  
-    private float moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
-    
     public Cobro() {    
         
-        initComponents();
-        calcularTotal(); 
-        totalAPagar.setText(String.valueOf(precio+" €")); 
+        initComponents(); 
         setLocationRelativeTo(null);
         setResizable (false);
         setTitle ("Cobro"); 
@@ -90,91 +83,8 @@ public final class Cobro extends javax.swing.JFrame {
         Icon icono14 = new ImageIcon(Imagen14.getImage().getScaledInstance(mo001.getWidth(), mo001.getHeight(), Image.SCALE_DEFAULT));
         mo001.setIcon(icono14);
         this.repaint();
-    }
+    }    
     
-    public void calcularTotal(){
-
-    }
-    
-    public void calcularPago(){
-         
-        pago = (200*billete200)+(100*billete100)+(50*billete50)
-                 +(20*billete20)+(10*billete10)+(5*billete5)+(2*moneda2)
-                 +(1*moneda1)+(0.5f*moneda05)+(0.2f*moneda02)+(0.1f*moneda01)+(0.05f*moneda005)+(0.02f*moneda002)+(0.01f*moneda001);
-         
-        pago =(float)(Math.round(pago*100d)/100d);
-        actualizaPago.setText(String.valueOf(pago+" €"));
-     } 
-
-    public void calcularCambio(){
-         
-            cambio = (pago-precio);
-     
-            cambio = (float)(Math.round(cambio*100f)/100f);
-            billete200 = cambio / 200f;
-            cambio = (cambio%200f);
-           
-          
-            billete100 = cambio / 100f;
-            cambio = (cambio%100f);
-                           
-            billete50 = cambio / 50f;
-            cambio = (cambio%50f);
-                  
-            billete20 = cambio / 20f;
-            cambio = (cambio%20f);
-                      
-            billete10 = cambio / 10f;
-            cambio = (cambio%10f);
-                      
-            billete5 = cambio / 5f;
-            cambio = (cambio%5f);
-                 
-            moneda2 = cambio / 2f;
-            cambio = (cambio%2f);
-                     
-            moneda1 = cambio / 1f;
-            cambio = (cambio%1f);            
-           
-            moneda05 = cambio / 0.5f;
-            cambio =  (cambio%0.5f);
-                      
-            moneda02 = cambio / 0.2f;
-            cambio =  (cambio%0.2f);          
-         
-            moneda01 = cambio / 0.1f;
-            cambio = (cambio%0.1f);        
-      
-            moneda005 = cambio / 0.05f;
-            cambio =  (cambio%0.05f);            
-     
-            moneda002 = cambio / 0.02f;
-            cambio =  (cambio%0.02f);
-             
-            moneda001 = cambio / 0.01f;
-            moneda001 = (Math.round(moneda001*100f)/100f);
-            
-               JOptionPane.showMessageDialog(null,  "\nSe devolveran: "+(int)billete200+" Billetes de 200€\n"
-                                                    + "Se devolveran: "+(int)billete100+" Billetes de 100€\n"
-                                                    + "Se devolveran: "+(int)billete50+" Billetes de 50€\n"
-                                                    + "Se devolveran: "+(int)billete20+" Billetes de 20€\n"
-                                                    + "Se devolveran: "+(int)billete10+" Billetes de 10€\n"
-                                                    + "Se devolveran: "+(int)billete5+" Billetes de 5€\n"
-                                                    + "Se devolveran: "+(int)moneda2+" Monedas de 2€\n"
-                                                    + "Se devolveran: "+(int)moneda1+" Monedas de 1€\n"
-                                                    + "Se devolveran: "+(int)moneda05+" Monedas de 50cents\n"
-                                                    + "Se devolveran: "+(int)moneda02+" Monedas de 20cents\n"
-                                                    + "Se devolveran: "+(int)moneda01+" Monedas de 10cents\n"
-                                                    + "Se devolveran: "+(int)moneda005+" Monedas de 5cents\n"
-                                                    + "Se devolveran: "+(int)moneda002+" Monedas de 2cents\n"
-                                                    + "Se devolveran: "+(int)moneda001+" Monedas de 1cent\n");       
-     }
-     
-     public void reiniciarPago(){
-        pago=0;
-        actualizaPago.setText(String.valueOf(pago+" €"));
-     }
-     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -400,219 +310,69 @@ public final class Cobro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void confirmarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarPedidoActionPerformed
-
-        if (precio==pago){
-            Adios objPago= new Adios();
-            objPago.setVisible(true);
-            dispose ();
-        }
-        if (pago>precio){
-            calcularCambio();
-            Adios objPago= new Adios();
-            objPago.setVisible(true);
-            dispose ();
-        } else if (pago<precio){
-            JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
-        }
         reto3.controlador.pasar_pagina.cobro_a_imprimir();
         dispose();
-        
     }//GEN-LAST:event_confirmarPedidoActionPerformed
 
     private void bi100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi100ActionPerformed
 
-        billete100++;
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-
-            billete200=0; billete100=1; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-
-        }
     }//GEN-LAST:event_bi100ActionPerformed
 
     private void bi50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi50ActionPerformed
 
-        billete50++;
-        if (pago!=0){
-            calcularPago();
-
-        }
-        if (pago==0){
-
-            billete200=0; billete100=0; billete50=1; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-
-        }
     }//GEN-LAST:event_bi50ActionPerformed
 
     private void bi20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi20ActionPerformed
 
-        billete20++;
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=1; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
     }//GEN-LAST:event_bi20ActionPerformed
 
     private void bi10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi10ActionPerformed
 
-        billete10++;
-
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=1; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
     }//GEN-LAST:event_bi10ActionPerformed
 
     private void bi5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi5ActionPerformed
 
-        billete5++;
-
-        if (pago!=0){
-            calcularPago();
-        }
-
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=0; billete5=1; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
     }//GEN-LAST:event_bi5ActionPerformed
 
     private void mo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo2ActionPerformed
-        moneda2++;
 
-        if (pago!=0){
-            calcularPago();
-        }
-
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=1; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
     }//GEN-LAST:event_mo2ActionPerformed
 
     private void mo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo1ActionPerformed
-        moneda1++;
-        
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=1;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
+
     }//GEN-LAST:event_mo1ActionPerformed
 
     private void mo05ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo05ActionPerformed
-        moneda05++;
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=1; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
+
     }//GEN-LAST:event_mo05ActionPerformed
 
     private void mo02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo02ActionPerformed
 
-        moneda02++;
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=1; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
     }//GEN-LAST:event_mo02ActionPerformed
 
     private void mo01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo01ActionPerformed
 
-        moneda01++;
-
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=1; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
     }//GEN-LAST:event_mo01ActionPerformed
 
     private void mo005ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo005ActionPerformed
        
-        moneda005++;
-
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=1; moneda002=0; moneda001=0;
-            calcularPago();
-        }
     }//GEN-LAST:event_mo005ActionPerformed
 
     private void mo002ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo002ActionPerformed
-        moneda002++;
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=1; moneda001=0;
-            calcularPago();
-        }
+
     }//GEN-LAST:event_mo002ActionPerformed
 
     private void mo001ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo001ActionPerformed
-        moneda001++;
 
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=1;
-            calcularPago();
-        }
     }//GEN-LAST:event_mo001ActionPerformed
 
     private void bi200ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi200ActionPerformed
-        billete200++;
 
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=1; billete100=0; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
+        
     }//GEN-LAST:event_bi200ActionPerformed
 
     private void reiniciarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reiniciarPagoActionPerformed
-
-        reiniciarPago();
+        //reiniciarPago();
     }//GEN-LAST:event_reiniciarPagoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

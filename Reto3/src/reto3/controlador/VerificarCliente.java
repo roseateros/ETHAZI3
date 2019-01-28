@@ -29,17 +29,10 @@ public class VerificarCliente
                      cliente cliente;// DECLARAMOS UN OBJETO CLIENTE , ESTE OBJETO VA A SERVIR PARA ALMACENAR EL OBJETO QUE SE CREA CUANDO HACEMOS LA CONSULTA
                      cliente = cone.ObtenerCliente(us,pass);// AQUÌ EJECUTAMOS LA FUNCIÒN Y NOS DEVUELVE EL OBJETO
 
-                    JOptionPane.showMessageDialog(null,"Bienvenido "+cliente.nombre);
-                    
-                         
-
+                     JOptionPane.showMessageDialog(null,"Bienvenido "+cliente.nombre);
                     
                      registrado_a_lineas(cliente);  
                      aux++;
-
                    }
-     
-
-
       }
 }
