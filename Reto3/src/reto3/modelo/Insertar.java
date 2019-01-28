@@ -14,7 +14,7 @@ public class Insertar {
         try {  
             
             Statement st = reg.createStatement();
-             st.executeUpdate("INSERT INTO cliente (DNI, Nombre, Apellidos, Fecha_nac, Sexo, Contraseña) VALUES ('"+dni+"', '"+nombre+"', '"+apellidos+"', "+fecha+", "+sexo+", '"+contraseña+"')"); 
+             st.executeUpdate("INSERT INTO cliente (DNI, Nombre, Apellidos, Fecha_nac, Sexo, Contraseña) VALUES ('"+dni+"', '"+nombre+"', '"+apellidos+"','"+fecha+"','"+sexo+"', '"+contraseña+"')"); 
            
             reg.close(); 
         } catch (Exception e) { 

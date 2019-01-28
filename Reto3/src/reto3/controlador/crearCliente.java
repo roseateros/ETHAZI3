@@ -36,7 +36,7 @@ public class crearCliente {
                     Insertar cone =new Insertar(); 
                      cliente cliente;
                      cliente = cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);
-                     System.out.println(cliente.dni);
+                    
                      noregistrado_a_registrado();  
                      aux++;
     }
