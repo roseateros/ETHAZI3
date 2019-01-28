@@ -315,64 +315,63 @@ public final class Cobro extends javax.swing.JFrame {
     }//GEN-LAST:event_confirmarPedidoActionPerformed
 
     private void bi100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi100ActionPerformed
-
+        reto3.controlador.Cobro.bi100();
     }//GEN-LAST:event_bi100ActionPerformed
 
     private void bi50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi50ActionPerformed
-
+        reto3.controlador.Cobro.bi50();
     }//GEN-LAST:event_bi50ActionPerformed
 
     private void bi20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi20ActionPerformed
-
+        reto3.controlador.Cobro.bi20();
     }//GEN-LAST:event_bi20ActionPerformed
 
     private void bi10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi10ActionPerformed
-
+        reto3.controlador.Cobro.bi10();
     }//GEN-LAST:event_bi10ActionPerformed
 
     private void bi5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi5ActionPerformed
-
+        reto3.controlador.Cobro.bi5();
     }//GEN-LAST:event_bi5ActionPerformed
 
     private void mo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo2ActionPerformed
-
+        reto3.controlador.Cobro.mo2();
     }//GEN-LAST:event_mo2ActionPerformed
 
     private void mo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo1ActionPerformed
-
+        reto3.controlador.Cobro.mo1();
     }//GEN-LAST:event_mo1ActionPerformed
 
     private void mo05ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo05ActionPerformed
-
+        reto3.controlador.Cobro.mo05();
     }//GEN-LAST:event_mo05ActionPerformed
 
     private void mo02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo02ActionPerformed
-
+        reto3.controlador.Cobro.mo02();
     }//GEN-LAST:event_mo02ActionPerformed
 
     private void mo01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo01ActionPerformed
-
+        reto3.controlador.Cobro.mo01();
     }//GEN-LAST:event_mo01ActionPerformed
 
     private void mo005ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo005ActionPerformed
-       
+        reto3.controlador.Cobro.mo005();       
     }//GEN-LAST:event_mo005ActionPerformed
 
     private void mo002ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo002ActionPerformed
-
+        reto3.controlador.Cobro.mo002();
     }//GEN-LAST:event_mo002ActionPerformed
 
     private void mo001ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo001ActionPerformed
-
+        reto3.controlador.Cobro.mo001();
     }//GEN-LAST:event_mo001ActionPerformed
 
     private void bi200ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi200ActionPerformed
-
-        
+        reto3.controlador.Cobro.bi200();
     }//GEN-LAST:event_bi200ActionPerformed
 
     private void reiniciarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reiniciarPagoActionPerformed
-        //reiniciarPago();
+        reto3.controlador.Cobro.reiniciarPago();
     }//GEN-LAST:event_reiniciarPagoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

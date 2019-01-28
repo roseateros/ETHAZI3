@@ -2,7 +2,6 @@
 
 import java.awt.Image;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import reto3.controlador.crearCliente;
@@ -140,8 +139,11 @@ public class NoRegistrado extends javax.swing.JFrame {
             sexo= "Hombre";
         } else if (M.isSelected()){
             sexo= "Mujer";
-        }       
-        crearCliente crearCliente = new crearCliente (dni.getText(),nombre.getText(), apellidos.getText(),contraseña.getText(), sexo, (java.sql.Date) fecha_nac.getDate());
+        }        
+    
+    SimpleDateFormat dFormatter = new SimpleDateFormat("yyyy-MM-dd");
+
+    crearCliente crearCliente = new crearCliente (dni.getText(),nombre.getText(), apellidos.getText(),contraseña.getText(), sexo, fecha_nac.getDateFormatString());
         
     }//GEN-LAST:event_RegistrarActionPerformed
   

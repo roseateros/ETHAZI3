@@ -2,22 +2,21 @@
 package reto3.controlador;
 
 import javax.swing.JOptionPane;
-import reto3.vista.Adios;
 
 public class Cobro {
         
-    float precio, cambio=0, pago;
-    float billete200=0, billete100=0, billete50=0, billete20=0, billete10=0, billete5=0, moneda2=0, moneda1=0;  
-    float moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
+    public static float precio, cambio=0, pago;
+    public static float billete200=0, billete100=0, billete50=0, billete20=0, billete10=0, billete5=0, moneda2=0, moneda1=0;  
+    public static float moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
         
         //calcularTotal(); 
         //totalAPagar.setText(String.valueOf(precio+" €"));
-    
-    public void calcularTotal(){
+
+    public static void calcularTotal(){
 
     }
     
-    public void calcularPago(){
+    public static void calcularPago(){
          
         pago = (200*billete200)+(100*billete100)+(50*billete50)
                  +(20*billete20)+(10*billete10)+(5*billete5)+(2*moneda2)
@@ -27,15 +26,14 @@ public class Cobro {
         //actualizaPago.setText(String.valueOf(pago+" €"));
     } 
 
-    public void calcularCambio(){
+    public static void calcularCambio(){
          
             cambio = (pago-precio);
      
             cambio = (float)(Math.round(cambio*100f)/100f);
             billete200 = cambio / 200f;
             cambio = (cambio%200f);
-           
-          
+                    
             billete100 = cambio / 100f;
             cambio = (cambio%100f);
                            
@@ -91,28 +89,26 @@ public class Cobro {
                                                     + "Se devolveran: "+(int)moneda001+" Monedas de 1cent\n");       
      }
      
-    public void reiniciarPago(){
+    public static void reiniciarPago(){
         pago=0;
         //actualizaPago.setText(String.valueOf(pago+" €"));
     }
     
-    public void ConfirmarPedido(){    
+    public static void ConfirmarPedido(){    
         if (precio==pago){
-            Adios objPago= new Adios();
-            objPago.setVisible(true);
-            //dispose ();
+        reto3.controlador.pasar_pagina.cobro_a_imprimir();
+           // dispose ();
         }
         if (pago>precio){
             calcularCambio();
-            Adios objPago= new Adios();
-            objPago.setVisible(true);
+        reto3.controlador.pasar_pagina.cobro_a_imprimir();
             //dispose ();
         } else if (pago<precio){
             JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
         }
     }
     
-    public void bi200(){
+    public static void bi200(){
         billete200++;
         if (pago!=0){
             calcularPago();
@@ -124,7 +120,7 @@ public class Cobro {
         }
     }
     
-    public void bi100(){        
+    public static void bi100(){        
         billete100++;
         if (pago!=0){
             calcularPago();
@@ -136,7 +132,7 @@ public class Cobro {
         }
     }
     
-    public void bi50(){
+    public static void bi50(){
         billete50++;
         if (pago!=0){
             calcularPago();
@@ -148,7 +144,7 @@ public class Cobro {
         }
     }
     
-    public void bi20(){
+    public static void bi20(){
                 billete20++;
         if (pago!=0){
             calcularPago();
@@ -160,7 +156,7 @@ public class Cobro {
         }
     }
     
-    public void bi10(){
+    public static void bi10(){
                 billete10++;
 
         if (pago!=0){
@@ -173,7 +169,7 @@ public class Cobro {
         }
     }
     
-    public void bi5(){
+    public static void bi5(){
         billete5++;
         if (pago!=0){
             calcularPago();
@@ -185,7 +181,7 @@ public class Cobro {
         }
     }
     
-    public void mo2(){
+    public static void mo2(){
         moneda2++;
         if (pago!=0){
             calcularPago();
@@ -197,7 +193,7 @@ public class Cobro {
         }
     }
     
-    public void mo1(){
+    public static void mo1(){
         moneda1++;
         if (pago!=0){
             calcularPago();
@@ -209,7 +205,7 @@ public class Cobro {
         }
     }
     
-    public void mo05(){
+    public static void mo05(){
         moneda05++;
         if (pago!=0){
             calcularPago();
@@ -221,7 +217,7 @@ public class Cobro {
         }
     }
     
-    public void mo02(){
+    public static void mo02(){
         moneda02++;
         if (pago!=0){
             calcularPago();
@@ -233,7 +229,7 @@ public class Cobro {
         }
     }
     
-    public void mo01(){
+    public static void mo01(){
         moneda01++;
         if (pago!=0){
             calcularPago();
@@ -245,7 +241,7 @@ public class Cobro {
         }
     }
     
-    public void mo005(){
+    public static void mo005(){
         moneda005++;
         if (pago!=0){
             calcularPago();
@@ -257,7 +253,7 @@ public class Cobro {
         }
     }
     
-    public void mo002(){
+    public static void mo002(){
         moneda002++;
         if (pago!=0){
             calcularPago();
@@ -269,7 +265,7 @@ public class Cobro {
         }
     }
     
-    public void mo001(){
+    public static void mo001(){
         moneda001++;
         if (pago!=0){
             calcularPago();
