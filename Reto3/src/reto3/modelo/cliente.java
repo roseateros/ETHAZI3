@@ -2,15 +2,15 @@ package reto3.modelo;
 
 public class cliente {
     
-    public String dni,nombre,apellidos,contraseña, sexo, fecha_nac;
+    public String dni,nombre,apellidos,contraseña, sexo, fecha;
 
-    public cliente(String dni,String nombre,String apellidos,String contraseña, String fecha_nac, String sexo)
+    public cliente(String dni,String nombre,String apellidos,String contraseña, String fecha, String sexo)
     {
     this.dni=dni;
     this.nombre=nombre;
     this.apellidos=apellidos;
     this.contraseña=contraseña;
-    this.fecha_nac=fecha_nac;
+    this.fecha=fecha;
     this.sexo=sexo;
     }
 }

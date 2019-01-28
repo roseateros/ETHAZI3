@@ -1,7 +1,9 @@
   package reto3.vista;
 
 import java.awt.Image;
-import java.util.Calendar;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import reto3.controlador.crearCliente;
@@ -133,11 +135,15 @@ public class NoRegistrado extends javax.swing.JFrame {
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
         if (H.isSelected()){
-            sexo= "Hombre";
+            sexo= "V";
         } else if (M.isSelected()){
-            sexo= "Mujer";
+            sexo= "M";
         }        
-    //crearCliente crearCliente = new crearCliente (dni.getText(),nombre.getText(), apellidos.getText(),contraseña.getText(), sexo, fecha_nac.setDateFormatString());
+    
+    String fecha = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(fecha_nac.getDate());
+
+    crearCliente crearCliente = new crearCliente (dni.getText(), nombre.getText(), apellidos.getText(), fecha, sexo, contraseña.getText()) ;
+    
     if (aux>0){
     dispose();
     aux=0;
