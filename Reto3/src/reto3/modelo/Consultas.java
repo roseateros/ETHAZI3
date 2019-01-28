@@ -8,6 +8,7 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
     OBJETO EN LA CLASE CONSULTAS SOLO SE EJECUTARÀ ESTO conectar con =new conectar() Connection reg=con.conexion();*/
 public String us;
 public String pass;
+public String linea;
         conectar con =new conectar(); //SOLO ESTO AL INSTANCIAR, ES NECESARIA PARA HACER LA CONEXIÒN//
         Connection reg=con.conexion();// SOLO ESTO AL INSTACIAR, ES NECESARIA PARA HACER LA CONEXIÒN//
         //DEBES CREAR EL METODO DEL MISMO TIPO QUE LA CLASE DEL OBJETO QUE DEBES DEVOLVER//
@@ -20,14 +21,14 @@ public String pass;
             {
                  try //EN EL CASO DONDE NO EXISTA NINGÙN ERROR
                  {
-                     
+                     int count=0;
                      String query="select * from cliente where Nombre='"+us+"'";//SENTENCIA SQL
                       Statement sentencia= reg.createStatement();// CREAR VARIABLE PARA HACER LA SENTENCIA (ES NECESARIO)
                          ResultSet resultado=sentencia.executeQuery(query);// LA VARIABLE DONDE SE VA A ALOJAR EL RESULTADO (ES NECESARIO)
                          
                              while (resultado.next())//ESTO SE REPETIRÀ EL NUMERO DE FILAS QUE SE SELECCIONEN DE LA BASES DE DATOS
                                   {
-                                 
+                                  count++;
                                       String dni=resultado.getString("DNI");
                                       String nombre=resultado.getString("Nombre");
                                       String fecha_nac=resultado.getString("Fecha_nac");
@@ -37,7 +38,10 @@ public String pass;
                                       cliente cliente= new cliente(dni,nombre,apellidos,contrasena,fecha_nac,sexo);// SE DEBE CREAR EL OBJETO CLIENTE CON LOS VALORES OBTENIDOS DE LA CONSULTA
                                   return cliente;// DEVOLVEMOS EL OBJETO 
                              }
-                     
+                       if(count==0)
+                    {
+                        JOptionPane.showMessageDialog(null,"El usuario "+us+" No existe");
+                    }
                     
           
 
@@ -63,6 +67,7 @@ public String pass;
      
                  public lineas ObtenerLineas(String linea)
                 {
+                    
                         try 
                         {
                      String query="SELECT * FROM `linea` WHERE `Cod_Linea` LIKE '"+linea+"'";
@@ -70,10 +75,12 @@ public String pass;
                      ResultSet resultado=sentencia.executeQuery(query);
                       while (resultado.next())//ESTO SE REPETIRÀ EL NUMERO DE FILAS QUE SE SELECCIONEN DE LA BASES DE DATOS
                                   {
+                         
                           lineas lineas= new lineas(resultado.getString("Cod_Linea"),resultado.getString("Nombre"));
+                          System.out.println(lineas.nombre);
                         return lineas; 
                                  }
-                    
+                  
                          }
                         catch (Exception e) 
                         {
@@ -88,9 +95,3 @@ public String pass;
     }
       
 }
-//es para paradas
-//"SELECT * FROM parada, linea_parada, linea WHERE parada.Cod_Parada=linea_parada.Cod_Parada and linea.Cod_Linea=linea_parada.Cod_Linea AND linea.Cod_Linea like"+"'" +linea+"'""
-//
-//es para clientes
-//select * from cliente;
-//

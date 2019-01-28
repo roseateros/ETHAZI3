@@ -8,7 +8,10 @@ import reto3.modelo.cliente;
 import reto3.modelo.lineas;
 
 
+
+
 public class Seleccionar_linea {
+    
      public String lineax;
     public Seleccionar_linea(String lineax,cliente cliente)
     {
