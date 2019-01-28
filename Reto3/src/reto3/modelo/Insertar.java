@@ -16,7 +16,7 @@ public class Insertar {
         try {  
             
             Statement st = reg.createStatement();
-             st.executeUpdate("INSERT INTO cliente (DNI, Nombre, Apellidos, Fecha_nac, Sexo, Contraseña) VALUES ('"+dni+"', '"+nombre+"', '"+apellidos+"', '"+contraseña+"', '"+sexo+"', '"+fecha_nac+"')"); 
+             st.executeUpdate("INSERT INTO cliente (DNI, Nombre, Apellidos, Fecha_nac, Sexo, Contraseña) VALUES ('"+dni+"', '"+nombre+"', '"+apellidos+"', '"+fecha_nac+"', '"+sexo+"', '"+contraseña+"')"); 
            
             reg.close(); 
         } catch (Exception e) { 
@@ -31,7 +31,7 @@ public class Insertar {
     {
             try {  
             Statement st = reg.createStatement(); 
-            st.executeUpdate("INSERT INTO billete (Cod_Billete, NTrayecto, Cod_Linea, Cod_Bus, Cod_Parada_Inicio, Cod_Parada_Fin, Fecha, Hora, DNI, Precio) VALUES ("+cod_Billete+", "+NTrayecto+", '"+dni+"', '"+fecha+"', '"+hora+"', '"+Cod_Linea+"', '"+Cod_Bus+"', '"+Cod_Parada_Inicio+"', '"+Cod_Parada_Fin+"', "+precio+")"); 
+            st.executeUpdate("INSERT INTO billete (Cod_Billete, NTrayecto, DNI, Fecha, Hora, Cod_Linea, Cod_Bus, Cod_Parada_Inicio, Cod_Parada_Fin,  Precio) VALUES ("+cod_Billete+", "+NTrayecto+", '"+dni+"', '"+fecha+"', '"+hora+"', '"+Cod_Linea+"', '"+Cod_Bus+"', '"+Cod_Parada_Inicio+"', '"+Cod_Parada_Fin+"', "+precio+")"); 
             reg.close(); 
         } catch (Exception e) { 
             System.err.println("Got an exception! "); 
