@@ -8,7 +8,8 @@ import reto3.modelo.cliente;
 
 public class VerificarCliente 
 {
-
+public String us;
+public String pass;
 
 
      public VerificarCliente(String us,String  pass)//ESTA ES LA FUNCION CONSTRUCTORA DE LA CLASE VERIFICARCLIENTE 
