@@ -95,3 +95,6 @@ public String linea;
     }
       
 }
+
+//este de las paradas y eso!
+//SELECT * FROM (linea-parada join parada on linea-parada.Cod_Parada=parada.Cod_Parada) join linea on Cod_linea = Cod_linea 
