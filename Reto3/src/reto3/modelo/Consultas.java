@@ -95,9 +95,3 @@ public String linea;
     }
       
 }
-//es para paradas
-//"SELECT * FROM parada, linea_parada, linea WHERE parada.Cod_Parada=linea_parada.Cod_Parada and linea.Cod_Linea=linea_parada.Cod_Linea AND linea.Cod_Linea like"+"'" +linea+"'""
-//
-//es para clientes
-//select * from cliente;
-//
