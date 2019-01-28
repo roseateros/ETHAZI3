@@ -8,12 +8,11 @@ public class Cobro {
     public static float precio, cambio=0, pago;
     public static float billete200=0, billete100=0, billete50=0, billete20=0, billete10=0, billete5=0, moneda2=0, moneda1=0;  
     public static float moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
-        
-        //calcularTotal(); 
-        //totalAPagar.setText(String.valueOf(precio+" €"));
 
     public static void calcularTotal(){
-
+          precio =25;
+          precio=precio*1.21f;
+          precio =(float)(Math.round(precio*100d)/100d);
     }
     
     public static void calcularPago(){
@@ -23,7 +22,8 @@ public class Cobro {
                  +(1*moneda1)+(0.5f*moneda05)+(0.2f*moneda02)+(0.1f*moneda01)+(0.05f*moneda005)+(0.02f*moneda002)+(0.01f*moneda001);
          
         pago =(float)(Math.round(pago*100d)/100d);
-        //actualizaPago.setText(String.valueOf(pago+" €"));
+
+        
     } 
 
     public static void calcularCambio(){
@@ -88,10 +88,14 @@ public class Cobro {
                                                     + "Se devolveran: "+(int)moneda002+" Monedas de 2cents\n"
                                                     + "Se devolveran: "+(int)moneda001+" Monedas de 1cent\n");       
      }
-     
+    
+    public static void actualizaPago(){ 
+        calcularTotal();
+ 
+    }
     public static void reiniciarPago(){
         pago=0;
-        //actualizaPago.setText(String.valueOf(pago+" €"));
+       
     }
     
     public static void ConfirmarPedido(){    

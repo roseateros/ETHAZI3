@@ -4,12 +4,18 @@ package reto3.vista;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import static reto3.controlador.Cobro.pago;
+import static reto3.controlador.Cobro.precio;
 
 public final class Cobro extends javax.swing.JFrame {
     
     public Cobro() {    
         
         initComponents(); 
+        reto3.controlador.Cobro.calcularTotal();
+        totalAPagar.setText(String.valueOf(precio+" €"));
+        actualizaPago.setText(String.valueOf(pago+" €"));
+
         setLocationRelativeTo(null);
         setResizable (false);
         setTitle ("Cobro"); 
@@ -109,8 +115,8 @@ public final class Cobro extends javax.swing.JFrame {
         bi100 = new javax.swing.JButton();
         mo002 = new javax.swing.JButton();
         mo001 = new javax.swing.JButton();
-        bi200 = new javax.swing.JButton();
         actualizaPago = new javax.swing.JLabel();
+        bi200 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         reiniciarPago = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -263,15 +269,15 @@ public final class Cobro extends javax.swing.JFrame {
         });
         getContentPane().add(mo001, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 80, 60));
 
+        actualizaPago.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        getContentPane().add(actualizaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, 80, 30));
+
         bi200.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bi200ActionPerformed(evt);
             }
         });
         getContentPane().add(bi200, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 110, 60));
-
-        actualizaPago.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(actualizaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 80, 30));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
@@ -316,6 +322,7 @@ public final class Cobro extends javax.swing.JFrame {
 
     private void bi100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi100ActionPerformed
         reto3.controlador.Cobro.bi100();
+        actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_bi100ActionPerformed
 
     private void bi50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi50ActionPerformed
@@ -372,6 +379,7 @@ public final class Cobro extends javax.swing.JFrame {
 
     private void reiniciarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reiniciarPagoActionPerformed
         reto3.controlador.Cobro.reiniciarPago();
+        actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_reiniciarPagoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
