@@ -5,11 +5,14 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import reto3.modelo.cliente;
+import reto3.modelo.lineas;
 
 public class lista extends javax.swing.JFrame {
 public cliente clientex;
-    public lista(cliente cliente) {
+public lineas lineasx;
+    public lista(cliente cliente,lineas lineas) {
         initComponents();
+        lineasx=lineas;
         jLabel4.setText(cliente.nombre);
         clientex=cliente;
             setLocationRelativeTo(null);
@@ -81,7 +84,7 @@ public cliente clientex;
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnteriorActionPerformed
-        reto3.controlador.pasar_pagina.lista_a_paradas(clientex);
+        reto3.controlador.pasar_pagina.lista_a_paradas(clientex,lineasx);
         dispose();
     }//GEN-LAST:event_BotonAnteriorActionPerformed
 

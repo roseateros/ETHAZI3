@@ -5,11 +5,25 @@ import javax.swing.JOptionPane;
 import reto3.controlador.Seleccionar_linea;
 import reto3.modelo.Consultas;
 import reto3.modelo.cliente;
+import reto3.modelo.lineas;
 
 public class Linea extends javax.swing.JFrame  {
  
     public cliente clientex;
-    public Linea(cliente cliente) {
+    //cuando solo se recibe el cliente
+        public Linea(cliente cliente) {
+        initComponents();
+    clientex=cliente;
+     
+            setLocationRelativeTo(null);
+            setResizable (false);
+            setTitle ("Paradas");   
+            jLabel4.setText(cliente.nombre);
+            
+
+    }
+    //cuando se recibe el cliente y la linea
+    public Linea(cliente cliente,lineas lineas) {
         initComponents();
     clientex=cliente;
      

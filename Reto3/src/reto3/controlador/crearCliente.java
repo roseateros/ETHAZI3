@@ -11,8 +11,8 @@ import reto3.modelo.cliente;
 
 public class crearCliente {
     
-    public String dni,nombre,apellidos,contraseña, sexo;
-    public Date fecha_nac;
+
+    
 
     public crearCliente(String dni,String nombre,String apellidos,String contraseña, String sexo, Date fecha_nac){
         reto3.controlador.pasar_pagina.noregistrado_a_registrado();
