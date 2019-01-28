@@ -35,7 +35,7 @@ public class crearCliente {
         }
                     Insertar cone =new Insertar(); 
                      cliente cliente;
-                     cliente = cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);                    
+                     cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);                   
                      noregistrado_a_registrado();  
                      aux++;
     }
