@@ -5,12 +5,18 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import reto3.controlador.Comprar_billete;
 import reto3.modelo.cliente;
+import reto3.modelo.lineas;
 
 public class Paradas extends javax.swing.JFrame {
  public cliente clientex;
-    public Paradas(cliente cliente) {
+ public lineas lineasx;
+    public Paradas(cliente cliente,lineas lineas) {
+        
+        
         initComponents();
- clientex=cliente;
+        clientex=cliente;
+        lineasx=lineas;
+        jLabel2.setText("Lineas "+lineas.Cod_Linea);
             setLocationRelativeTo(null);
             setResizable (false);
             setTitle ("Lineas");
@@ -21,6 +27,12 @@ public class Paradas extends javax.swing.JFrame {
     this.repaint();
         
     }
+    
+    
+    
+    
+    
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -116,7 +128,7 @@ public class Paradas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnteriorActionPerformed
-        reto3.controlador.pasar_pagina.paradas_a_lineas(clientex);
+        reto3.controlador.pasar_pagina.paradas_a_lineas(clientex,lineasx);
         dispose();
     }//GEN-LAST:event_BotonAnteriorActionPerformed
 
@@ -126,7 +138,7 @@ public class Paradas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-        Comprar_billete comprar = new Comprar_billete(clientex);
+        Comprar_billete comprar = new Comprar_billete(clientex,lineasx);
         dispose();
     }//GEN-LAST:event_BuscarActionPerformed
 

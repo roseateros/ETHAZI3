@@ -1,6 +1,7 @@
 package reto3.controlador;
 
 import reto3.modelo.cliente;
+import reto3.modelo.lineas;
 import reto3.vista.Linea;
 import reto3.vista.NoRegistrado;
 import reto3.vista.Paradas;
@@ -15,74 +16,82 @@ public class pasar_pagina{
   
     public static int aux;
   
-    public  Saludo saludo1;
 
-    public pasar_pagina(Saludo saludo1) {
-            
-    }
+     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE SALUDO A REGISTRADO
     public static void classsaludoaregistrado(){
         //SE CREA EL OBJ DE LA CLASE REGISTRADO
         Registrado obj= new Registrado();
         obj.setVisible(true); 
-    }
-     
+    } ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE REGISTRADOR A NO REGISTRADO
     public static void registrado_a_noregistrado(){
         //SE CREA EL OBJ DE LA CLASE NOREGISTRADO
         NoRegistrado obj= new NoRegistrado ();
         obj.setVisible(true);
-    }
-    
+    } ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE NOREGISTRADO A REGISTRADO
     public static void noregistrado_a_registrado(){
         //SE CREA EL OBJ DE LA CLASE REGISTRADO
         Registrado obj= new Registrado ();
         obj.setVisible(true);
-    }   
-    
+    }    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE REGISTRADO A SALUDO
     public static void registrado_a_saludo(){
         //SE CREA EL OBJ DE LA CLASE SALUDO
         Saludo obj= new Saludo ();
         obj.setVisible(true);
-    }
-         
-    //FUNCION PARA PASAR DE REGISTRADO A LINEASS
-    public static void registrado_a_lineas(cliente cliente){
+    } ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////     
+    //FUNCIONES PARA PASAR DE REGISTRADO A LINEASS
+    //Se debe pasar El objeto CLiente con la case Cliente
+     public static void registrado_a_lineas(cliente cliente){
         //SE CREA EL OBJ DE LA CLASE LINEA
         Linea obj= new Linea (cliente);
         obj.setVisible(true);
-    }  
-    
-    
-    //FUNCION PARA PASAR DE LINEAS A REGISTRADO
-    public static void paradas_a_lineas(cliente cliente){
+    }   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     //Se debe pasar El objeto CLiente con la case Cliente y Lineas 
+    public static void registrado_a_lineas(cliente cliente,lineas lineas){
         //SE CREA EL OBJ DE LA CLASE LINEA
-         Linea obj= new Linea (cliente);
+        Linea obj= new Linea (cliente,lineas);
+        obj.setVisible(true);
+    }  
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR DE LINEAS A REGISTRADO
+    //Se debe pasar El objeto Cliente con la clase Cliente
+    public static void paradas_a_lineas(cliente cliente,lineas lineas){
+        //SE CREA EL OBJ DE LA CLASE LINEA
+         Linea obj= new Linea (cliente,lineas);
         obj.setVisible(true);
   
-    } 
-     
+    }  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE LINEAS A PARADAS
-    public static void lineas_a_paradas(cliente cliente){
+    //Se debe pasar El objeto Cliente y el Objeto lineas DE SUS RESPECTIVAS CLASES
+    public static void lineas_a_paradas(cliente cliente, lineas lineas){
         //SE CREA EL OBJ DE LA CLASE PARADAS
-        Paradas obj= new Paradas (cliente);
+        Paradas obj= new Paradas (cliente,lineas);
         obj.setVisible(true);
-    }  
-    
+    }   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // FUNCION PARA PASAR DE PARADAS A LISTA
-    public static void paradas_a_lista(cliente cliente){
+    public static void paradas_a_lista(cliente cliente,lineas lineas){
         //SE CREA EL OBJ DE LA CLASE LISTA
-        lista obj= new lista (cliente);
+        lista obj= new lista (cliente,lineas);
         obj.setVisible(true);
     } 
     
     //FUNCION PARA PASAR DE LISTA A PARADAS
-    public static void lista_a_paradas(cliente cliente)
+    public static void lista_a_paradas(cliente cliente,lineas lineas)
     {
     //SE CREA EL OBJ DE LA CLASE PARADAS    
-    Paradas obj= new Paradas (cliente);
+    Paradas obj= new Paradas (cliente,lineas);
     obj.setVisible(true);
     } 
 

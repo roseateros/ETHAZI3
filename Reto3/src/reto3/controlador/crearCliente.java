@@ -9,6 +9,7 @@ import reto3.modelo.cliente;
 
 public class crearCliente {
 
+
     public crearCliente(String dni,String nombre,String apellidos,String contraseña, String sexo, String fecha_nac){
         reto3.controlador.pasar_pagina.noregistrado_a_registrado();
         if ( (dni == null) || (dni.equals("")) )

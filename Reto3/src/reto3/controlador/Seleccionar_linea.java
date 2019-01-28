@@ -14,8 +14,7 @@ public class Seleccionar_linea {
     {
         Consultas cone =new Consultas();
         lineas linea=cone.ObtenerLineas(lineax);
-         JOptionPane.showMessageDialog(null,"Bienvenido "+cliente.nombre);
-        lineas_a_paradas(cliente);
+        lineas_a_paradas(cliente,linea);
         }    
 }
  
