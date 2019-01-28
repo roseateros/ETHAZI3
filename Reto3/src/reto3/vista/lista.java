@@ -13,8 +13,9 @@ public lineas lineasx;
     public lista(cliente cliente,lineas lineas) {
         initComponents();
         lineasx=lineas;
-        jLabel4.setText(cliente.nombre);
+        
         clientex=cliente;
+        jLabel4.setText(clientex.nombre);
             setLocationRelativeTo(null);
             setResizable (false);
             setTitle ("Lista");
