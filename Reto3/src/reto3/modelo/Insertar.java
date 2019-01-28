@@ -20,7 +20,7 @@ public class Insertar {
            
             reg.close(); 
         } catch (Exception e) { 
-            System.err.println("Got an exception! "); 
+            System.err.println("cannot insert!"+fecha_nac); 
             System.err.println(e.getMessage()); 
         } 
        
