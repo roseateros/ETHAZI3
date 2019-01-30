@@ -1,8 +1,5 @@
 package reto3.vista;
 
-import java.awt.Image;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import reto3.controlador.VerificarCliente;
 import static reto3.controlador.pasar_pagina.aux;
 
@@ -13,14 +10,7 @@ public class Registrado extends javax.swing.JFrame {
             setLocationRelativeTo(null);
             setResizable (false);
             setTitle ("Usuario");
-    
-    ImageIcon Imagen = new ImageIcon ("src/Imagenes/anterior.png");
-    Icon icono = new ImageIcon(Imagen.getImage().getScaledInstance(BotonAnterior.getWidth(), BotonAnterior.getHeight(), Image.SCALE_DEFAULT));
-    BotonAnterior.setIcon(icono);
-    this.repaint();
-    
     }
-
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -40,22 +30,30 @@ public class Registrado extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("LOGIN");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 100, 40));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Usuario:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
 
+        label1.setAlignment(java.awt.Label.CENTER);
         label1.setBackground(new java.awt.Color(255, 255, 255));
-        label1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        label1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        label1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
         label1.setText("Contraseña:");
-        getContentPane().add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
-        getContentPane().add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 130, 30));
+        getContentPane().add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
+
+        pass.setBackground(new java.awt.Color(255, 255, 255));
+        pass.setForeground(new java.awt.Color(0, 0, 0));
+        getContentPane().add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 130, 30));
         getContentPane().add(us, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 130, 30));
 
+        BotonAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/anterior.png"))); // NOI18N
         BotonAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonAnteriorActionPerformed(evt);
@@ -64,7 +62,8 @@ public class Registrado extends javax.swing.JFrame {
         getContentPane().add(BotonAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 120, 70));
 
         BotonSiguiente.setBackground(new java.awt.Color(255, 255, 51));
-        BotonSiguiente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        BotonSiguiente.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
+        BotonSiguiente.setForeground(new java.awt.Color(0, 0, 0));
         BotonSiguiente.setText("CONECTAR");
         BotonSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,7 +73,8 @@ public class Registrado extends javax.swing.JFrame {
         getContentPane().add(BotonSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 120, 70));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 51));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("CLICK AQUI");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,7 +83,7 @@ public class Registrado extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, 120, 50));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel4.setText("SI NO ESTAS REGISTRADO....");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, 220, 30));
 
