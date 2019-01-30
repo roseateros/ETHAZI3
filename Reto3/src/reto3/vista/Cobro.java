@@ -83,7 +83,6 @@ public final class Cobro extends javax.swing.JFrame {
         Icon icono14 = new ImageIcon(Imagen14.getImage().getScaledInstance(mo001.getWidth(), mo001.getHeight(), Image.SCALE_DEFAULT));mo001.setIcon(icono14);
         this.repaint();
     }      
-
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -145,6 +144,7 @@ public final class Cobro extends javax.swing.JFrame {
         cancelarCompra.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         cancelarCompra.setForeground(new java.awt.Color(0, 0, 0));
         cancelarCompra.setText("CANCELAR COMPRA");
+        cancelarCompra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         cancelarCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarCompraActionPerformed(evt);
@@ -156,6 +156,7 @@ public final class Cobro extends javax.swing.JFrame {
         confirmarPedido.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         confirmarPedido.setForeground(new java.awt.Color(0, 0, 0));
         confirmarPedido.setText("CONFIRMAR PEDIDO");
+        confirmarPedido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         confirmarPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmarPedidoActionPerformed(evt);
@@ -327,6 +328,7 @@ public final class Cobro extends javax.swing.JFrame {
     private void bi100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi100ActionPerformed
         reto3.controlador.Cobro.bi100();
         actualizaPago.setText(String.valueOf(pago+" €"));
+        
     }//GEN-LAST:event_bi100ActionPerformed
 
     private void bi50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi50ActionPerformed

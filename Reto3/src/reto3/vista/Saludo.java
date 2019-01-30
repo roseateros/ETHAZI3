@@ -39,13 +39,15 @@ public class Saludo extends javax.swing.JFrame {
         jLabel3.setText("BIENVENIDOS");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 260, 40));
 
+        BotonContinuar.setBackground(new java.awt.Color(51, 51, 51));
         BotonContinuar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/siguiente.png"))); // NOI18N
+        BotonContinuar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BotonContinuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonContinuarActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 540, 100, 60));
+        getContentPane().add(BotonContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 540, 90, 60));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
