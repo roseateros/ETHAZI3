@@ -122,5 +122,12 @@ public class pasar_pagina{
         Adios obj = new Adios();
         obj.setVisible(true);
     }
+       //FUNCIÒN PARA PASAR DE ADIOS A IMPRIMIR
+    public static void adios_a_saludo(){
+        //SE CREA EL OBJ DE LA CLASE ADIOS
+        Saludo obj = new Saludo();
+        obj.setVisible(true);
+    }
 }
+
 

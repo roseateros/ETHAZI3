@@ -35,15 +35,14 @@ public class crearCliente {
         }else if (contraseña.equals(password)==false)
         {
             JOptionPane.showMessageDialog(null,"No coinciden las contraseñas");           
-        }if (contraseña.equals(password) && ( (fecha == null) || (!fecha.equals("")) ) && ((dni == null) || (!dni.equals("")) ) && ( (nombre == null) || (!nombre.equals("")) ) && ( (apellidos == null) || (!apellidos.equals("")) ) && ( (sexo == null) || (!sexo.equals("")) ))
+        }if (contraseña.equals(password) && (!fecha.equals("")) && (!dni.equals("")) && (!nombre.equals("")) && (!apellidos.equals("")) && (!sexo.equals("")))
         {
             JOptionPane.showMessageDialog(null,"Registro correcto");
             Insertar cone =new Insertar(); 
                      cliente cliente;
                      cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);                   
                      noregistrado_a_registrado();  
-                     aux++;
-               
+                     aux++;               
         }
    }  
 }
