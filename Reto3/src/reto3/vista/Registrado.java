@@ -50,19 +50,22 @@ public class Registrado extends javax.swing.JFrame {
 
         pass.setBackground(new java.awt.Color(255, 255, 255));
         pass.setForeground(new java.awt.Color(0, 0, 0));
+        pass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         getContentPane().add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 130, 30));
         getContentPane().add(us, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 130, 30));
 
+        BotonAnterior.setBackground(new java.awt.Color(51, 51, 51));
         BotonAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/anterior.png"))); // NOI18N
+        BotonAnterior.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BotonAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonAnteriorActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 120, 70));
+        getContentPane().add(BotonAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 100, 70));
 
         BotonSiguiente.setBackground(new java.awt.Color(255, 255, 51));
-        BotonSiguiente.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
+        BotonSiguiente.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         BotonSiguiente.setForeground(new java.awt.Color(0, 0, 0));
         BotonSiguiente.setText("CONECTAR");
         BotonSiguiente.addActionListener(new java.awt.event.ActionListener() {
