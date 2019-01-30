@@ -1,6 +1,9 @@
 package reto3.modelo;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -60,9 +63,31 @@ public String linea;
         return "hola";
     }
      
-      public String ObtenerParadas()
+      public void ObtenerParadas(lineas lineas)
     {
-        return "hola";
+        String query="SELECT parada.Cod_Parada,parada.Nombre,parada.Calle,parada.Latitud,parada.Longitud FROM parada join linea_parada on linea_parada.Cod_Parada=parada.Cod_Parada where linea_parada.Cod_Linea='"+linea+"'";
+         
+    try {
+        Statement sentencia = reg.createStatement(); 
+        ResultSet resultado=sentencia.executeQuery(query);
+        ArrayList<Parada> paradox = null;
+         while (resultado.next())
+        {
+              Parada parax= new Parada(resultado.getInt("Cod_Parada"),resultado.getString("Nombre"),resultado.getString("Calle"),resultado.getFloat("Latitud"),resultado.getFloat("Longitud")); 
+              paradox.add(parax);
+        }
+        for(int i =0;i<paradox.size();i++)
+        {
+           System.out.println(paradox.get(i)); 
+        }
+         
+    } 
+    catch (SQLException ex) 
+    {
+        Logger.getLogger(Consultas.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        
+       
     }
      
                  public lineas ObtenerLineas(String linea)
@@ -97,4 +122,4 @@ public String linea;
 }
 
 //este de las paradas y eso!
-//SELECT * FROM (linea-parada join parada on linea-parada.Cod_Parada=parada.Cod_Parada) join linea on Cod_linea = Cod_linea 
+// 
