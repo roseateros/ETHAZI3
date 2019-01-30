@@ -36,10 +36,5 @@ public class Insertar {
             System.err.println(e.getMessage()); 
         } 
         return null;
-    }
-
-    public cliente InsertarCliente(String dni, String nombre, String apellidos, String contraseña, String sexo, Date fecha_nac) {
-        throw new UnsupportedOperationException("Not supported yet."); 
-    }
-      
+    }     
 }

@@ -9,7 +9,7 @@ import reto3.modelo.cliente;
 
 public class crearCliente {
 
-    public crearCliente(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña){
+    public crearCliente(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password){
 
         if ( (dni == null) || (dni.equals("")) )
         {
@@ -23,20 +23,27 @@ public class crearCliente {
         }else if ( (contraseña == null) || (contraseña.equals("")) )
         {
            JOptionPane.showMessageDialog(null,"No has ingresado la contraseña");
+        }else if ( (password == null) || (password.equals("")) )
+        {
+           JOptionPane.showMessageDialog(null,"No has ingresado la contraseña");
         }else if ( (sexo == null) || (sexo.equals("")) )
         {
            JOptionPane.showMessageDialog(null,"No has ingresado el sexo");
         }else if ( (fecha == null) || (fecha.equals("")) )
         {
            JOptionPane.showMessageDialog(null,"No has ingresado la Fecha de Nacimiento");
-        }else 
+        }else if (contraseña.equals(password)==false)
+        {
+            JOptionPane.showMessageDialog(null,"No coinciden las contraseñas");           
+        }if (contraseña.equals(password) && ( (fecha == null) || (!fecha.equals("")) ) && ((dni == null) || (!dni.equals("")) ) && ( (nombre == null) || (!nombre.equals("")) ) && ( (apellidos == null) || (!apellidos.equals("")) ) && ( (sexo == null) || (!sexo.equals("")) ))
         {
             JOptionPane.showMessageDialog(null,"Registro correcto");
-        }
-                    Insertar cone =new Insertar(); 
+            Insertar cone =new Insertar(); 
                      cliente cliente;
                      cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);                   
                      noregistrado_a_registrado();  
                      aux++;
-    }
+               
+        }
+   }  
 }

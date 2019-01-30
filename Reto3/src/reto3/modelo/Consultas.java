@@ -22,7 +22,7 @@ public String linea;
                  try //EN EL CASO DONDE NO EXISTA NINGÙN ERROR
                  {
                      int count=0;
-                     String query="select * from cliente where Nombre='"+us+"'";//SENTENCIA SQL
+                     String query="select * from cliente where Nombre='"+us+"' AND contraseña='"+pass+"'";//SENTENCIA SQL
                       Statement sentencia= reg.createStatement();// CREAR VARIABLE PARA HACER LA SENTENCIA (ES NECESARIO)
                          ResultSet resultado=sentencia.executeQuery(query);// LA VARIABLE DONDE SE VA A ALOJAR EL RESULTADO (ES NECESARIO)
                          
@@ -40,11 +40,8 @@ public String linea;
                              }
                        if(count==0)
                     {
-                        JOptionPane.showMessageDialog(null,"El usuario "+us+" No existe");
-                    }
-                    
-          
-
+                        JOptionPane.showMessageDialog(null,"El usuario "+us+" No existe o as introducido mal la contraseña");
+                    }                             
                  }
                  catch (Exception e) // SI SE PRODUCE UN ERROR
                  {
@@ -63,11 +60,9 @@ public String linea;
       public String ObtenerParadas()
     {
         return "hola";
-    }
-     
+    }    
                  public lineas ObtenerLineas(String linea)
-                {
-                    
+                {                    
                         try 
                         {
                      String query="SELECT * FROM `linea` WHERE `Cod_Linea` LIKE '"+linea+"'";
@@ -88,12 +83,7 @@ public String linea;
                              System.err.println(e.getMessage());
                             }
                           return null;
-                }  
-
-    public cliente ObtenerCliente(String dni, String nombre, String apellidos, String contraseña, String gruposexo, Date fecha_nac) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-      
+                }       
 }
 
 //este de las paradas y eso!
