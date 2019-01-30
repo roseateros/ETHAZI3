@@ -83,7 +83,6 @@ public final class Cobro extends javax.swing.JFrame {
         Icon icono14 = new ImageIcon(Imagen14.getImage().getScaledInstance(mo001.getWidth(), mo001.getHeight(), Image.SCALE_DEFAULT));mo001.setIcon(icono14);
         this.repaint();
     }      
-
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -327,6 +326,7 @@ public final class Cobro extends javax.swing.JFrame {
     private void bi100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi100ActionPerformed
         reto3.controlador.Cobro.bi100();
         actualizaPago.setText(String.valueOf(pago+" €"));
+        
     }//GEN-LAST:event_bi100ActionPerformed
 
     private void bi50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi50ActionPerformed

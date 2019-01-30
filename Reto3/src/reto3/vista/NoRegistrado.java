@@ -84,7 +84,7 @@ public class NoRegistrado extends javax.swing.JFrame {
                 RegistrarActionPerformed(evt);
             }
         });
-        getContentPane().add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 120, 40));
+        getContentPane().add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 120, 40));
 
         jlabel3.setBackground(new java.awt.Color(255, 255, 255));
         jlabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
@@ -147,12 +147,9 @@ public class NoRegistrado extends javax.swing.JFrame {
             sexo= "V";
         } else if (M.isSelected()){
             sexo= "M";
-        }        
-    
+        }          
     String fecha = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(fecha_nac.getDate());
-
-    crearCliente crearCliente = new crearCliente (dni.getText(), nombre.getText(), apellidos.getText(), fecha, sexo, contraseña.getText()) ;
-    
+    crearCliente crearCliente = new crearCliente (dni.getText(), nombre.getText(), apellidos.getText(), fecha, sexo, contraseña.getText(),password.getText()) ;   
     if (aux>0){
     dispose();
     aux=0;
