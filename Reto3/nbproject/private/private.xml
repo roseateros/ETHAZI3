@@ -2,21 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
             <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/vista/Registrado.java</file>
-            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/controlador/VerificarCliente.java</file>
-            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/modelo/Insertar.java</file>
-            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/vista/NoRegistrado.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/vista/Paradas.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/controlador/pasar_pagina.java</file>
             <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/controlador/crearCliente.java</file>
-            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/Reto3.java</file>
-            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/modelo/cliente.java</file>
-            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/modelo/paradas.java</file>
-            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/modelo/Consultas.java</file>
-            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/controlador/Seleccionar_linea.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/modelo/lineas.java</file>
         </group>
-=======
-        <group/>
->>>>>>> 27ab732c3b9ed65e17ca9c0bf255e8068e960e3d
     </open-files>
 </project-private>

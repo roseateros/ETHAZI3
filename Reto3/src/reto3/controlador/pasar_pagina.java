@@ -96,16 +96,23 @@ public class pasar_pagina{
     } 
 
     //FUNCION PARA PASAR DE LISTA A COBRO
-    public static void lista_a_cobro(){
+    public static void lista_a_cobro(cliente cliente,lineas lineas){
         //SE CREA EL OBJ DE LA CLASE COBRO
-        Cobro obj = new Cobro();
+        Cobro obj = new Cobro(cliente,lineas);
         obj.setVisible(true);
     }
       
-    //FUNCIÒN PARA PASAR DE COBRO A IMPRIMIR
-    public static void cobro_a_imprimir(){
+    //FUNCIÒN PARA PASAR DE COBRO A COBRO
+    public static void cobro_a_cobro(cliente cliente,lineas lineas){
         //SE CREA EL OBJ DE LA CLASE IMPRIMIR
-        ImprimirTicket obj = new ImprimirTicket();
+        Cobro obj = new Cobro(cliente, lineas);
+        obj.setVisible(true);
+    }
+    
+    //FUNCIÒN PARA PASAR DE COBRO A IMPRIMIR
+    public static void cobro_a_imprimir(cliente cliente, lineas lineas){
+        //SE CREA EL OBJ DE LA CLASE IMPRIMIR
+        ImprimirTicket obj = new ImprimirTicket(cliente, lineas);
         obj.setVisible(true);
     }
       
@@ -115,4 +122,12 @@ public class pasar_pagina{
         Adios obj = new Adios();
         obj.setVisible(true);
     }
+       //FUNCIÒN PARA PASAR DE ADIOS A IMPRIMIR
+    public static void adios_a_saludo(){
+        //SE CREA EL OBJ DE LA CLASE ADIOS
+        Saludo obj = new Saludo();
+        obj.setVisible(true);
+    }
 }
+
+

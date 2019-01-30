@@ -1,10 +1,5 @@
 package reto3.vista;
 
-import reto3.controlador.pasar_pagina;
-import java.awt.Image;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-
 public class Saludo extends javax.swing.JFrame {
 
     public Saludo() {
@@ -13,18 +8,7 @@ public class Saludo extends javax.swing.JFrame {
     setLocationRelativeTo(null);
     setResizable (false);
     setTitle ("¡BIENVENIDO!");
-    
-    ImageIcon Imagen = new ImageIcon ("src/Imagenes/logo.png");
-    Icon icono = new ImageIcon(Imagen.getImage().getScaledInstance(ImagenLogo.getWidth(), ImagenLogo.getHeight(), Image.SCALE_DEFAULT));
-    ImagenLogo.setIcon(icono);
-    this.repaint();
-    ImageIcon Imagen2 = new ImageIcon ("src/Imagenes/siguiente.png");
-    Icon icono2 = new ImageIcon(Imagen2.getImage().getScaledInstance(BotonContinuar.getWidth(), BotonContinuar.getHeight(), Image.SCALE_DEFAULT));
-    BotonContinuar.setIcon(icono2);
-    this.repaint();
-
     }
-
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -38,7 +22,9 @@ public class Saludo extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(ImagenLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 380, 350));
+
+        ImagenLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo.png"))); // NOI18N
+        getContentPane().add(ImagenLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 430, 280));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -53,12 +39,15 @@ public class Saludo extends javax.swing.JFrame {
         jLabel3.setText("BIENVENIDOS");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 260, 40));
 
+        BotonContinuar.setBackground(new java.awt.Color(51, 51, 51));
+        BotonContinuar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/siguiente.png"))); // NOI18N
+        BotonContinuar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BotonContinuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonContinuarActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 540, 100, 60));
+        getContentPane().add(BotonContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 540, 90, 60));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));

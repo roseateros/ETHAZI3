@@ -1,51 +1,40 @@
 
 package reto3.vista;
 
-import java.awt.Image;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import reto3.modelo.cliente;
+import reto3.modelo.lineas;
 
 public class ImprimirTicket extends javax.swing.JFrame {
-
-    public ImprimirTicket() {
+ public cliente clientex;
+ public lineas lineasx;
+    public ImprimirTicket(cliente cliente, lineas lineas) {
         initComponents(); 
+        clientex=cliente;
+        lineasx=lineas;
         setLocationRelativeTo(null);
         setResizable (false);
         setTitle ("ImprimirTicket");
-            
-    ImageIcon Imagen2 = new ImageIcon ("src/Imagenes/siguiente.png");
-    Icon icono2 = new ImageIcon(Imagen2.getImage().getScaledInstance(BotonSiguiente.getWidth(), BotonSiguiente.getHeight(), Image.SCALE_DEFAULT));
-    BotonSiguiente.setIcon(icono2);
-    this.repaint();
+        jLabel3.setText(cliente.nombre);      
     }
-    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lista = new javax.swing.JTextField();
-        BotonSiguiente = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        ImprimirTicket = new javax.swing.JButton();
+        finalizar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 280, 340));
-
-        BotonSiguiente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonSiguienteActionPerformed(evt);
-            }
-        });
-        getContentPane().add(BotonSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 550, 90, 50));
 
         jPanel1.setBackground(new java.awt.Color(102, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("ICONO");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel3.setText("ALEJANDRO");
@@ -53,23 +42,51 @@ public class ImprimirTicket extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 30));
 
+        ImprimirTicket.setBackground(new java.awt.Color(255, 255, 0));
+        ImprimirTicket.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        ImprimirTicket.setForeground(new java.awt.Color(0, 0, 0));
+        ImprimirTicket.setText("Imprimir Ticket");
+        ImprimirTicket.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ImprimirTicket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ImprimirTicketActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ImprimirTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 140, 70));
+
+        finalizar.setBackground(new java.awt.Color(255, 255, 0));
+        finalizar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        finalizar.setForeground(new java.awt.Color(0, 0, 0));
+        finalizar.setText("FINALIZAR");
+        finalizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        finalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                finalizarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(finalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 140, 70));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSiguienteActionPerformed
+    private void finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarActionPerformed
         reto3.controlador.pasar_pagina.imprimir_a_adios();
         dispose();
-    }//GEN-LAST:event_BotonSiguienteActionPerformed
+    }//GEN-LAST:event_finalizarActionPerformed
+
+    private void ImprimirTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImprimirTicketActionPerformed
+
+    }//GEN-LAST:event_ImprimirTicketActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotonSiguiente;
+    private javax.swing.JButton ImprimirTicket;
+    private javax.swing.JButton finalizar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField lista;
     // End of variables declaration//GEN-END:variables
 }
