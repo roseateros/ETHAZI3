@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/ImprimirTicket.java</file>
             <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/controlador/Comprar_billete.java</file>
@@ -26,5 +27,8 @@
             <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/controlador/crearCliente.java</file>
             <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/Adios.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> be4c74b23356d427a7df8cd95e9a39017202bc4f
     </open-files>
 </project-private>
