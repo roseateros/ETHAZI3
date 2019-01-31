@@ -9,7 +9,7 @@ public class Cobro {
     public static float billete200=0, billete100=0, billete50=0, billete20=0, billete10=0, billete5=0, moneda2=0, moneda1=0;  
     public static float moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
 
-    public static double calcularTotal(double distancia,double consumo_bus,int viajeros){
+    public static void calcularTotal(double distancia,double consumo_bus,int viajeros){
         
 		double precio=0;
 		final double combustible=0.80;
@@ -19,8 +19,7 @@ public class Cobro {
 		double beneficios= gasto_viaje*beneficio;
 		double total_viaje=beneficios+gasto_viaje;
 		precio=total_viaje/viajeros;
-				
-		return precio;		
+	
     }
         
     public static void calcularPago(){        

@@ -13,8 +13,7 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
     public String us;
     public String pass;
     public String linea;
-    public String Autobus;
-    public int Cod_bus;
+    public String color;
 
         conectar con =new conectar(); //SOLO ESTO AL INSTANCIAR, ES NECESARIA PARA HACER LA CONEXIÒN//
         Connection reg=con.conexion();// SOLO ESTO AL INSTACIAR, ES NECESARIA PARA HACER LA CONEXIÒN//
@@ -58,8 +57,8 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
                      JOptionPane.showMessageDialog(null,"Hubo un error");
                  }
        return null;// SI SE PRODUCE UN ERROR SE MANDA NULL
-    }   
-     
+    }
+
     public ArrayList<Parada> ObtenerParadas(lineas lineas)
     {
               
@@ -68,20 +67,20 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
         Statement sentencia = reg.createStatement(); 
         ResultSet resultado=sentencia.executeQuery(query);
         ArrayList<Parada> paradox=new ArrayList();
+
          while (resultado.next())
         {
               Parada parax= new Parada(resultado.getInt("Cod_Parada"),resultado.getString("Nombre"),resultado.getString("Calle"),resultado.getFloat("Latitud"),resultado.getFloat("Longitud")); 
               paradox.add(parax);
-
         }
          return paradox;
-             
+            
         }        
     
     catch (SQLException ex) 
     {
         Logger.getLogger(Consultas.class.getName()).log(Level.SEVERE, null, ex);
-    }        
+    }       
        return null;
     }   
 
@@ -92,7 +91,7 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
             String query="SELECT * FROM `linea` WHERE `Cod_Linea` LIKE '"+linea+"'";
             Statement sentencia= reg.createStatement();
             ResultSet resultado=sentencia.executeQuery(query);
-            while (resultado.next())//ESTO SE REPETIRÀ EL NUMERO DE FILAS QUE SE SELECCIONEN DE LA BASES DE DATOS
+            while (resultado.next())
             {                        
                 lineas lineas= new lineas(resultado.getString("Cod_Linea"),resultado.getString("Nombre"));
                 System.out.println(lineas.nombre);
@@ -110,19 +109,20 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
             return null;
         }  
         
-        public autobus datosAutobus(String linea,int Cod_bus) {
+        public ArrayList<autobus> datosAutobus(lineas lineas) {
 		
 	try {
-            String query=("SELECT * FROM autobus, linea_autobus, linea WHERE autobus.Cod_bus=linea_autobus.Cod_bus AND linea_autobus.Cod_Linea=linea.Cod_Linea AND linea.Cod_Linea LIKE"+"'" +linea+"' AND autobus.Cod_bus ='"+Cod_bus+"'");
+            String query=("SELECT * FROM autobus, linea_autobus, linea WHERE autobus.Cod_bus=linea_autobus.Cod_bus AND linea_autobus.Cod_Linea=linea.Cod_Linea AND linea.Cod_Linea LIKE"+"'" +linea+"' AND autobus.Cod_bus ='"+color+"'");
             Statement sentencia= reg.createStatement();
             ResultSet resultado=sentencia.executeQuery(query);
+            ArrayList<autobus> busx=new ArrayList();
             while (resultado.next()){
                         
                 autobus bus= new autobus(resultado.getString("color"), resultado.getInt("Cod_Bus"), resultado.getInt("N_Plazas"), resultado.getDouble("Consumo_km"));
-                
-                return bus;
+                busx.add(bus);
+
             }
-                  
+                return busx;    
             }
         catch (Exception e) 
         {
@@ -133,5 +133,3 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
             return null;
         }  
 }
-
-
