@@ -46,6 +46,7 @@ public class ImprimirTicket extends javax.swing.JFrame {
         ImprimirTicket.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         ImprimirTicket.setForeground(new java.awt.Color(0, 0, 0));
         ImprimirTicket.setText("Imprimir Ticket");
+        ImprimirTicket.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ImprimirTicket.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ImprimirTicketActionPerformed(evt);
@@ -57,6 +58,7 @@ public class ImprimirTicket extends javax.swing.JFrame {
         finalizar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         finalizar.setForeground(new java.awt.Color(0, 0, 0));
         finalizar.setText("FINALIZAR");
+        finalizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         finalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 finalizarActionPerformed(evt);

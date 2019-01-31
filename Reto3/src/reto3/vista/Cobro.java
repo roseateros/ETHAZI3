@@ -144,6 +144,7 @@ public final class Cobro extends javax.swing.JFrame {
         cancelarCompra.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         cancelarCompra.setForeground(new java.awt.Color(0, 0, 0));
         cancelarCompra.setText("CANCELAR COMPRA");
+        cancelarCompra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         cancelarCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarCompraActionPerformed(evt);
@@ -155,6 +156,7 @@ public final class Cobro extends javax.swing.JFrame {
         confirmarPedido.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         confirmarPedido.setForeground(new java.awt.Color(0, 0, 0));
         confirmarPedido.setText("CONFIRMAR PEDIDO");
+        confirmarPedido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         confirmarPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmarPedidoActionPerformed(evt);
