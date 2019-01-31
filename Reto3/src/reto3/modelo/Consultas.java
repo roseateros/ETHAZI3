@@ -72,22 +72,16 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
         {
               Parada parax= new Parada(resultado.getInt("Cod_Parada"),resultado.getString("Nombre"),resultado.getString("Calle"),resultado.getFloat("Latitud"),resultado.getFloat("Longitud")); 
               paradox.add(parax);
-              System.out.println("aqui estoy");
 
         }
          return paradox;
-
-         
-
-              
+             
         }        
-
-     
+    
     catch (SQLException ex) 
     {
         Logger.getLogger(Consultas.class.getName()).log(Level.SEVERE, null, ex);
-    }
-        
+    }        
        return null;
     }   
 
@@ -140,5 +134,4 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
         }  
 }
 
-//este de las paradas y eso!
-// 
+
