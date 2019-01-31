@@ -77,12 +77,8 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
         {
               Parada parax= new Parada(resultado.getInt("Cod_Parada"),resultado.getString("Nombre"),resultado.getString("Calle"),resultado.getFloat("Latitud"),resultado.getFloat("Longitud")); 
               paradox.add(parax);
-        }
-        for(int i =0;i<paradox.size();i++)
-        {
-           System.out.println(paradox.get(i)); 
-        }
-         
+              System.out.println(paradox.size()); 
+        }        
     } 
     catch (SQLException ex) 
     {
