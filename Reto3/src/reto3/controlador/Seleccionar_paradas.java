@@ -20,12 +20,11 @@ public class Seleccionar_paradas {
     {
          	
 
-ArrayList<Parada> paradax;
+        ArrayList<Parada> paradax;
         paradax = new ArrayList();
         Consultas cone =new Consultas();
+        paradax= cone.ObtenerParadas(lineas);
 
-     paradax= cone.ObtenerParadas(lineas);
-       lineas_a_paradas(cliente,lineas);
 
        
     
