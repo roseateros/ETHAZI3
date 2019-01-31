@@ -62,7 +62,7 @@ public class Paradas extends javax.swing.JFrame {
         Buscar.setBackground(new java.awt.Color(255, 255, 51));
         Buscar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         Buscar.setForeground(new java.awt.Color(0, 0, 0));
-        Buscar.setText("BUSCAR");
+        Buscar.setText("COMPRAR");
         Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuscarActionPerformed(evt);

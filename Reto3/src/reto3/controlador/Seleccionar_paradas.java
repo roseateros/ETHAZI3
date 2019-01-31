@@ -18,7 +18,7 @@ ArrayList<Parada> paradax;
         paradax = new ArrayList();
         Consultas cone =new Consultas();
        cone.ObtenerParadas(lineas);
-       // lineas_a_paradas(cliente,lineas);
+       lineas_a_paradas(cliente,lineas);
        
         
         

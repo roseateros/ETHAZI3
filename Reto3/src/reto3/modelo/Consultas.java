@@ -48,7 +48,7 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
                              }
                        if(count==0)
                     {
-                        JOptionPane.showMessageDialog(null,"El usuario "+us+" No existe o as introducido mal la contraseña");
+                        return null;
                     }                             
                  }
                  catch (Exception e) // SI SE PRODUCE UN ERROR
