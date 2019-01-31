@@ -58,12 +58,7 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
                      JOptionPane.showMessageDialog(null,"Hubo un error");
                  }
        return null;// SI SE PRODUCE UN ERROR SE MANDA NULL
-    }
-    
-    public String ObtenerBoleto()
-    {
-        return "hola";
-    }
+    }   
      
     public ArrayList<Parada> ObtenerParadas(lineas lineas)
     {
@@ -73,7 +68,6 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
         Statement sentencia = reg.createStatement(); 
         ResultSet resultado=sentencia.executeQuery(query);
         ArrayList<Parada> paradox=new ArrayList();
-       System.out.println("aqui estoy5");
          while (resultado.next())
         {
               Parada parax= new Parada(resultado.getInt("Cod_Parada"),resultado.getString("Nombre"),resultado.getString("Calle"),resultado.getFloat("Latitud"),resultado.getFloat("Longitud")); 
