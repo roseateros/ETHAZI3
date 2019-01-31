@@ -88,3 +88,6 @@ public String linea;
 
 //este de las paradas y eso!!
 //SELECT * FROM (linea-parada join parada on linea-parada.Cod_Parada=parada.Cod_Parada) join linea on Cod_linea = Cod_linea 
+
+//es para insert de billete
+//INSERT INTO `billete` (`Cod_Billete`, `NTrayecto`, `Cod_Linea`, `Cod_Bus`, `Cod_Parada_Inicio`, `Cod_Parada_Fin`, `Fecha`, `Hora`, `DNI`, `Precio`) VALUES (NULL, '', '', '', '', '', '', '', '', '')
