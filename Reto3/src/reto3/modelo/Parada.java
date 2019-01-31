@@ -14,5 +14,5 @@ public class Parada {
 		this.calle = calle;
 		this.latitud = latitud;
 		this.longitud = longitud;
-    }      
+    }        
 }

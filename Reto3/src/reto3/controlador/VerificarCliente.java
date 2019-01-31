@@ -28,7 +28,9 @@ public String pass;
                      Consultas cone =new Consultas(); // SE INSTANCIA EL OBJETO CONE EN LA CLASE CONSULTAS, LO CUAL DESPIERTA LA FURIA DE THANOS ._. , MENTIRA XD SOLO CONECTA A LA BASES DE DATOS
                      cliente cliente;// DECLARAMOS UN OBJETO CLIENTE , ESTE OBJETO VA A SERVIR PARA ALMACENAR EL OBJETO QUE SE CREA CUANDO HACEMOS LA CONSULTA
                      cliente = cone.ObtenerCliente(us,pass);// AQUÌ EJECUTAMOS LA FUNCIÒN Y NOS DEVUELVE EL OBJETO
-
+                     if (cliente==null){
+                         JOptionPane.showMessageDialog(null,"El usuario "+us+" No existe o as introducido mal la contraseña");
+                     }
                      JOptionPane.showMessageDialog(null,"Bienvenido "+cliente.nombre);
 
                      registrado_a_lineas(cliente);  
