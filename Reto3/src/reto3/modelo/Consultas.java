@@ -116,7 +116,8 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
     }   
 
     public lineas ObtenerLineas(String linea)
-    {                    
+    {           
+        
         try{
             String query="SELECT * FROM `linea` WHERE `Cod_Linea` LIKE '"+linea+"'";
             Statement sentencia= reg.createStatement();
