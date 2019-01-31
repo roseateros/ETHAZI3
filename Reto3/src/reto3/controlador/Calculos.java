@@ -2,6 +2,7 @@
 package reto3.controlador;
 
 import java.util.Calendar;
+ 
 
 public class Calculos {
     
@@ -33,7 +34,7 @@ public class Calculos {
 		return precio;		
 	}
     
-	public static String orduaAtera () {
+	public static String ObtenerHora () {
             
 		int hora,minutos = 0;
 		Calendar fecha = Calendar.getInstance();
@@ -58,7 +59,7 @@ public class Calculos {
 		return ordua;
 		}
         
-	public static String dataAtera () {
+	public static String ObtenerFecha () {
 		int año,mes,dia = 0;
 			
 		Calendar fecha = Calendar.getInstance();

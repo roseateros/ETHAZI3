@@ -5,7 +5,6 @@ import javax.swing.JOptionPane;
 import static reto3.controlador.pasar_pagina.aux;
 import static reto3.controlador.pasar_pagina.noregistrado_a_registrado;
 import reto3.modelo.Insertar;
-import reto3.modelo.cliente;
 
 public class crearCliente {
 
@@ -39,7 +38,6 @@ public class crearCliente {
         {
             JOptionPane.showMessageDialog(null,"Registro correcto");
             Insertar cone =new Insertar(); 
-                     cliente cliente;
                      cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);                   
                      noregistrado_a_registrado();  
                      aux++;               
