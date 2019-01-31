@@ -1,7 +1,11 @@
 package reto3.vista;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import reto3.controlador.Comprar_billete;
 import reto3.controlador.Seleccionar_paradas;
+import static reto3.controlador.Seleccionar_paradas.Seleccionar_paradas;
+import reto3.modelo.Parada;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
 
@@ -11,8 +15,14 @@ public class Paradas extends javax.swing.JFrame {
     public Paradas(cliente cliente,lineas lineas) {
                 
         initComponents();
-        Seleccionar_paradas para=new Seleccionar_paradas(lineas,cliente);
-              
+        ArrayList<Parada> paradax;
+        paradax = new ArrayList();
+       paradax= Seleccionar_paradas(lineas,cliente);
+        for(int i=0;i<paradax.size();i++)
+        {
+            jComboBox1.addItem(paradax.get(i).nombre);
+        
+        }
         clientex=cliente;
         lineasx=lineas;
         jLabel2.setText("Lineas "+lineas.Cod_Linea);
@@ -88,12 +98,21 @@ public class Paradas extends javax.swing.JFrame {
 
         jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 190, 30));
 
         jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox2.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 190, 30));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
@@ -145,6 +164,11 @@ public class Paradas extends javax.swing.JFrame {
         jComboBox3.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox3.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 110, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
@@ -167,6 +191,18 @@ public class Paradas extends javax.swing.JFrame {
         Comprar_billete comprar = new Comprar_billete(clientex,lineasx);
         dispose();
     }//GEN-LAST:event_BuscarActionPerformed
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+       JOptionPane.showMessageDialog(null,"Has cambiado un valor");
+    }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+       
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;

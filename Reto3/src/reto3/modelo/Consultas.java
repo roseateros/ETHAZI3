@@ -65,20 +65,22 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
         return "hola";
     }
      
-    public void ObtenerParadas(lineas lineas)
+    public ArrayList<Parada> ObtenerParadas(lineas lineas)
     {
               
     try {
-        String query="SELECT parada.Cod_Parada,parada.Nombre,parada.Calle,parada.Latitud,parada.Longitud FROM parada join linea_parada on linea_parada.Cod_Parada=parada.Cod_Parada where linea_parada.Cod_Linea='"+linea+"'";
+        String query="SELECT parada.Cod_Parada,parada.Nombre,parada.Calle,parada.Latitud,parada.Longitud FROM parada join linea_parada on linea_parada.Cod_Parada=parada.Cod_Parada where linea_parada.Cod_Linea='"+lineas.Cod_Linea+"'";
         Statement sentencia = reg.createStatement(); 
         ResultSet resultado=sentencia.executeQuery(query);
-        ArrayList<Parada> paradox = null;
+        ArrayList<Parada> paradox=new ArrayList();
+      
          while (resultado.next())
         {
               Parada parax= new Parada(resultado.getInt("Cod_Parada"),resultado.getString("Nombre"),resultado.getString("Calle"),resultado.getFloat("Latitud"),resultado.getFloat("Longitud")); 
               paradox.add(parax);
-              System.out.println(paradox.size()); 
+ 
         }
+         return paradox;
 
          
     } 
@@ -87,7 +89,7 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
         Logger.getLogger(Consultas.class.getName()).log(Level.SEVERE, null, ex);
     }
         
-       
+       return null;
     }   
 
     public lineas ObtenerLineas(String linea)
