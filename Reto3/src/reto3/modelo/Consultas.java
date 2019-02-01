@@ -58,7 +58,30 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
                  }
        return null;// SI SE PRODUCE UN ERROR SE MANDA NULL
     }
-
+    
+   // public String ObtenerBoleto()
+   // {                    
+     //   try{
+     //       String query="SELECT * FROM (linea-parada join parada on linea-parada.Cod_Parada=parada.Cod_Parada) join linea on Cod_linea = Cod_linea";
+      //      Statement sentencia= reg.createStatement();
+      //      ResultSet resultado=sentencia.executeQuery(query);
+      //      while (resultado.next())//ESTO SE REPETIRÀ EL NUMERO DE FILAS QUE SE SELECCIONEN DE LA BASES DE DATOS
+      //      {                        
+      //          ObtenerBoleto billete= new billete(resultado.getString(cod_Billete), resultado.getString(NTrayecto), resultado.getString(dni), resultado.getString(fecha), resultado.getString(hora), resultado.getString(Cod_Linea), resultado.getString(Cod_Bus), resultado.getString(Cod_Parada_Inicio), resultado.getString(Cod_Parada_Fin), resultado.getString(precio));
+      //          
+      //          return billete; 
+      //      }
+      //            
+      //      }
+      //  catch (Exception e) 
+      //  {
+     //       System.err.println("Hubo un Error ");
+     //       System.err.println(e.getMessage());
+     //       }
+     //   
+     //       return null;
+     //   }  
+     
     public ArrayList<Parada> ObtenerParadas(lineas lineas)
     {
       //SELECT         
@@ -130,5 +153,19 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
             System.err.println(e.getMessage());
             }       
             return null;
-        }    
+        }
+        
 }
+
+//  SELECT COUNT(*) FROM billete where color_bus = "'+azul+'"
+// plazas no disponible! //and
+//INSERT INTO `billete` (`Cod_Billete`, `NTrayecto`, `Cod_Linea`, `Cod_Bus`, `Cod_Parada_Inicio`, `Cod_Parada_Fin`, `Fecha`, `Hora`, `DNI`, `Precio`) VALUES (NULL, '', '', '', '', '', '', '', '', '')
+
+
+//este de las paradas y eso!!
+//SELECT * FROM (linea-parada join parada on linea-parada.Cod_Parada=parada.Cod_Parada) join linea on Cod_linea = Cod_linea 
+
+//es para insert de billete
+//INSERT INTO `billete` (`Cod_Billete`, `NTrayecto`, `Cod_Linea`, `Cod_Bus`, `Cod_Parada_Inicio`, `Cod_Parada_Fin`, `Fecha`, `Hora`, `DNI`, `Precio`) VALUES (NULL, '', '', '', '', '', '', '', '', '')
+//este de las paradas y eso!
+// 
