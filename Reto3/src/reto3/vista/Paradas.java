@@ -202,7 +202,7 @@ public class Paradas extends javax.swing.JFrame {
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         
-    
+
         dispose();
     }//GEN-LAST:event_BuscarActionPerformed
 
