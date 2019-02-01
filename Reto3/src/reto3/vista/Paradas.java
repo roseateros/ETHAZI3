@@ -31,12 +31,12 @@ public class Paradas extends javax.swing.JFrame {
         for(int i=0;i<busx.size();i++)
         {
             jComboBox3.addItem(busx.get(i).color);
-            plazas.setText("Numero de Plazas Disponible"+String.valueOf(busx.get(i).N_Plazas)); 
+            plazas.setText("Numero de Plazas Disponible: "+String.valueOf(busx.get(i).N_Plazas)); 
         }
 
         clientex=cliente;
         lineasx=lineas;
-        jLabel2.setText("Lineas "+lineas.Cod_Linea);
+        jLabel2.setText("Lineas: "+lineas.Cod_Linea);
             setLocationRelativeTo(null);
             setResizable (false);
             setTitle ("Lineas");
@@ -46,6 +46,7 @@ public class Paradas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         BotonAnterior = new javax.swing.JButton();
         Buscar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -58,13 +59,15 @@ public class Paradas extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
-        fecha = new com.toedter.calendar.JDateChooser();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        ida = new com.toedter.calendar.JDateChooser();
+        idaVuelta = new com.toedter.calendar.JDateChooser();
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
         plazas = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        idas = new javax.swing.JRadioButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,7 +93,7 @@ public class Paradas extends javax.swing.JFrame {
                 BuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 120, 70));
+        getContentPane().add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 120, 70));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT", 0, 64)); // NOI18N
         jLabel2.setText("Linea  2");
@@ -129,8 +132,9 @@ public class Paradas extends javax.swing.JFrame {
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("SOLO IDA");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 70, -1));
+        jLabel7.setText("IDA");
+        jLabel7.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 30, -1));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
@@ -154,17 +158,18 @@ public class Paradas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 120, 30));
+        getContentPane().add(ida, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 100, -1));
 
-        fecha.setDateFormatString("yyyy-MM-dd");
-        getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 100, 20));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 100, -1));
-        getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, 100, -1));
+        idaVuelta.setBackground(new java.awt.Color(255, 255, 255));
+        idaVuelta.setForeground(new java.awt.Color(0, 0, 0));
+        getContentPane().add(idaVuelta, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 100, -1));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("IDA Y VUELTA");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, -1, -1));
+        jLabel9.setText(" VUELTA");
+        jLabel9.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
@@ -181,7 +186,29 @@ public class Paradas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 110, -1));
-        getContentPane().add(plazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 80, 20));
+
+        plazas.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        getContentPane().add(plazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 230, 20));
+
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("TIPO DE TRAYECTO");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
+
+        idas.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(idas);
+        idas.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        idas.setForeground(new java.awt.Color(0, 0, 0));
+        idas.setText("IDA");
+        getContentPane().add(idas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, -1, -1));
+
+        jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jRadioButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButton1.setText("IDA/VUELTA");
+        getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
@@ -201,6 +228,7 @@ public class Paradas extends javax.swing.JFrame {
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         
+        reto3.controlador.pasar_pagina.paradas_a_lista(clientex, lineasx);
         dispose();
     }//GEN-LAST:event_BuscarActionPerformed
 
@@ -220,14 +248,16 @@ public class Paradas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
     private javax.swing.JButton Buscar;
-    public static com.toedter.calendar.JDateChooser fecha;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private com.toedter.calendar.JDateChooser ida;
+    private com.toedter.calendar.JDateChooser idaVuelta;
+    private javax.swing.JRadioButton idas;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -237,6 +267,7 @@ public class Paradas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JLabel plazas;
     // End of variables declaration//GEN-END:variables
 
