@@ -11,6 +11,7 @@ public class Comprar_billete {
     public cliente cliente;
     public lineas lineas;
     public Comprar_billete(int cod_Billete, int NTrayecto, String dni, String fecha, String hora, String Cod_Linea, String Cod_Bus, String Cod_Parada_Inicio, String Cod_Parada_Fin, double precio){
+        
         JOptionPane.showMessageDialog(null, "Compra realizada!");
         Insertar cone = new Insertar();
         cone.InsertarBillete(cod_Billete, NTrayecto, Cod_Linea, Cod_Bus, Cod_Parada_Inicio, Cod_Parada_Fin, fecha, hora, dni, precio);

@@ -1,7 +1,7 @@
 package reto3.vista;
 
+import java.awt.event.ItemEvent;
 import java.util.ArrayList;
-import reto3.controlador.Comprar_billete;
 import static reto3.controlador.Seleccionar_Autobus.Seleccionar_Autobus;
 import static reto3.controlador.Seleccionar_paradas.Seleccionar_paradas;
 import reto3.modelo.Parada;
@@ -12,37 +12,34 @@ import reto3.modelo.lineas;
 public class Paradas extends javax.swing.JFrame {
  public cliente clientex;
  public lineas lineasx;
- public autobus busx;
+        ArrayList<autobus> busx;
+                ArrayList<Parada> paradax;
     public Paradas(cliente cliente,lineas lineas) {
                 
         initComponents();
-        ArrayList<Parada> paradax;
+
         paradax = new ArrayList();
         paradax= Seleccionar_paradas(lineas,cliente);
         for(int i=0;i<paradax.size();i++)
         {
-            jComboBox1.addItem(paradax.get(i).nombre+" "+paradax.get(i).distancia);
-            jComboBox2.addItem(paradax.get(i).nombre);
-        
+            origen.addItem(paradax.get(i).nombre);       
         }
-        ArrayList<autobus> busx;
+
         busx = new ArrayList();
         busx= Seleccionar_Autobus(lineas,cliente);
         for(int i=0;i<busx.size();i++)
         {
             jComboBox3.addItem(busx.get(i).color);
-            plazas.setText("Numero de Plazas Disponible: "+String.valueOf(busx.get(i).N_Plazas)); 
         }
 
         clientex=cliente;
         lineasx=lineas;
-        jLabel2.setText("Lineas: "+lineas.Cod_Linea);
+        jLabel2.setText("Linea "+lineas.Cod_Linea);
             setLocationRelativeTo(null);
             setResizable (false);
             setTitle ("Lineas");
             jLabel4.setText(cliente.nombre);     
     }
-
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -53,8 +50,6 @@ public class Paradas extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -68,6 +63,8 @@ public class Paradas extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         idas = new javax.swing.JRadioButton();
         jRadioButton1 = new javax.swing.JRadioButton();
+        origen = new javax.swing.JComboBox<>();
+        destino = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -110,24 +107,6 @@ public class Paradas extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 30));
-
-        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 190, 30));
-
-        jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox2.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 190, 30));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
@@ -175,7 +154,7 @@ public class Paradas extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("TIPO DE AUTOBUS");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, -1, -1));
 
         jComboBox3.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox3.setForeground(new java.awt.Color(0, 0, 0));
@@ -185,10 +164,10 @@ public class Paradas extends javax.swing.JFrame {
                 jComboBox3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 110, -1));
+        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 110, -1));
 
         plazas.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        getContentPane().add(plazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 230, 20));
+        getContentPane().add(plazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 230, 20));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
@@ -209,6 +188,24 @@ public class Paradas extends javax.swing.JFrame {
         jRadioButton1.setForeground(new java.awt.Color(0, 0, 0));
         jRadioButton1.setText("IDA/VUELTA");
         getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, -1, -1));
+
+        origen.setBackground(new java.awt.Color(255, 255, 255));
+        origen.setForeground(new java.awt.Color(0, 0, 0));
+        origen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                origenActionPerformed(evt);
+            }
+        });
+        getContentPane().add(origen, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 140, -1));
+
+        destino.setBackground(new java.awt.Color(255, 255, 255));
+        destino.setForeground(new java.awt.Color(0, 0, 0));
+        destino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                destinoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 140, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
@@ -234,27 +231,48 @@ public class Paradas extends javax.swing.JFrame {
 
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
-
+        String ComboBox3 = (String) jComboBox3.getSelectedItem();
+         for(int i=0;i<busx.size();i++)
+        {
+                if(busx.get(i).color==ComboBox3)
+                {
+                plazas.setText("Numero de Plazas Disponible: "+String.valueOf(busx.get(i).N_Plazas)); 
+                }       
+        }
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    private void destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinoActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-       
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_destinoActionPerformed
+
+    private void origenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_origenActionPerformed
+        destino.removeAllItems();
+        String ComboBox1 = (String) origen.getSelectedItem();
+         for(int i=0;i<paradax.size();i++)
+        {
+                if(paradax.get(i).nombre==ComboBox1)
+                {
+                    System.out.println("Entrò3");
+                            for(int u=0;u<paradax.size();u++)
+                                {
+                                  if(u!=i)
+                                  {
+                                    destino.addItem(paradax.get(u).nombre);  
+                                  }                                    
+                                }
+                }       
+        }
+    }//GEN-LAST:event_origenActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
     private javax.swing.JButton Buscar;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> destino;
     private com.toedter.calendar.JDateChooser ida;
     private com.toedter.calendar.JDateChooser idaVuelta;
     private javax.swing.JRadioButton idas;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -268,6 +286,7 @@ public class Paradas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JComboBox<String> origen;
     private javax.swing.JLabel plazas;
     // End of variables declaration//GEN-END:variables
 
