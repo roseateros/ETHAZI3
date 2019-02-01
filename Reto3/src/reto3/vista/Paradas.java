@@ -21,7 +21,7 @@ public class Paradas extends javax.swing.JFrame {
         paradax= Seleccionar_paradas(lineas,cliente);
         for(int i=0;i<paradax.size();i++)
         {
-            jComboBox1.addItem(paradax.get(i).nombre);
+            jComboBox1.addItem(paradax.get(i).nombre+" "+paradax.get(i).distancia);
             jComboBox2.addItem(paradax.get(i).nombre);
         
         }

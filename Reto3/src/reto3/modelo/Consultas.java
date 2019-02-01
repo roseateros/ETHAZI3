@@ -61,7 +61,7 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
 
     public ArrayList<Parada> ObtenerParadas(lineas lineas)
     {
-              
+      //SELECT         
     try{
         String query="SELECT parada.Cod_Parada,parada.Nombre,parada.Calle,parada.Latitud,parada.Longitud FROM parada join linea_parada on linea_parada.Cod_Parada=parada.Cod_Parada where linea_parada.Cod_Linea='"+lineas.Cod_Linea+"'";
         Statement sentencia = reg.createStatement(); 
