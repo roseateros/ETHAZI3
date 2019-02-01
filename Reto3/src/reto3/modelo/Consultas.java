@@ -112,7 +112,7 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
         public  ArrayList<autobus> datosAutobus(lineas lineas) {
 		
 	try {
-            String query=(" SELECT autobus.Color, autobus.Cod_bus, autobus.N_plazas, autobus.Consumo_km, linea_autobus.Cod_bus from autobus INNER JOIN linea_autobus ON autobus.Cod_bus=linea_autobus.Cod_bus WHERE linea_autobus.Cod_linea='L1'");
+            String query=(" SELECT autobus.Color, autobus.Cod_bus, autobus.N_plazas, autobus.Consumo_km, linea_autobus.Cod_bus from autobus INNER JOIN linea_autobus ON autobus.Cod_bus=linea_autobus.Cod_bus WHERE linea_autobus.Cod_linea='"+lineas.Cod_Linea+"'");
             Statement sentencia= reg.createStatement();
             ResultSet resultado=sentencia.executeQuery(query);
             ArrayList<autobus> busx=new ArrayList();
