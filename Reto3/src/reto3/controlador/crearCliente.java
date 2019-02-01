@@ -37,16 +37,24 @@ public class crearCliente {
         {
             JOptionPane.showMessageDialog(null,"No coinciden las contraseñas");           
         }
+        dni = dni.toUpperCase();
         Pattern dniPattern = Pattern.compile("\\d{8}[A-HJ-NP-TV-Z]");
 	Matcher m = dniPattern.matcher(dni);
+        Pattern nombrePattern = Pattern.compile("[A-Z][a-zA-Z]*");
+	Matcher n = dniPattern.matcher(nombre);
+        
         if (contraseña.equals(password) && (!fecha.equals("")) && (!dni.equals("")) && (!nombre.equals("")) && (!apellidos.equals("")) && (!sexo.equals("")))
         {
 	if(m.matches()){
-                    JOptionPane.showMessageDialog(null,"Registro correcto");
+            if(n.matches()){
+                        JOptionPane.showMessageDialog(null,"Registro correcto");
                     Insertar cone =new Insertar(); 
                      cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);                   
                      noregistrado_a_registrado();  
-                     aux++;               
+                     aux++; 
+                     }else{
+                JOptionPane.showMessageDialog(null,"Nombre no puede contener numeros");
+            }                  
                 }else{
             JOptionPane.showMessageDialog(null,"DNI no valido! introduzca por este formato: 12345678A");
         }
