@@ -1,7 +1,7 @@
 package reto3.vista;
 
+import java.awt.event.ItemEvent;
 import java.util.ArrayList;
-import reto3.controlador.Comprar_billete;
 import static reto3.controlador.Seleccionar_Autobus.Seleccionar_Autobus;
 import static reto3.controlador.Seleccionar_paradas.Seleccionar_paradas;
 import reto3.modelo.Parada;
@@ -12,7 +12,7 @@ import reto3.modelo.lineas;
 public class Paradas extends javax.swing.JFrame {
  public cliente clientex;
  public lineas lineasx;
- public autobus busx;
+        ArrayList<autobus> busx;
     public Paradas(cliente cliente,lineas lineas) {
                 
         initComponents();
@@ -25,24 +25,22 @@ public class Paradas extends javax.swing.JFrame {
             jComboBox2.addItem(paradax.get(i).nombre);
         
         }
-        ArrayList<autobus> busx;
+
         busx = new ArrayList();
         busx= Seleccionar_Autobus(lineas,cliente);
         for(int i=0;i<busx.size();i++)
         {
             jComboBox3.addItem(busx.get(i).color);
-            plazas.setText("Numero de Plazas Disponible: "+String.valueOf(busx.get(i).N_Plazas)); 
         }
 
         clientex=cliente;
         lineasx=lineas;
-        jLabel2.setText("Lineas: "+lineas.Cod_Linea);
+        jLabel2.setText("Linea "+lineas.Cod_Linea);
             setLocationRelativeTo(null);
             setResizable (false);
             setTitle ("Lineas");
             jLabel4.setText(cliente.nombre);     
     }
-
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -175,7 +173,7 @@ public class Paradas extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("TIPO DE AUTOBUS");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, -1, -1));
 
         jComboBox3.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox3.setForeground(new java.awt.Color(0, 0, 0));
@@ -185,10 +183,10 @@ public class Paradas extends javax.swing.JFrame {
                 jComboBox3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 110, -1));
+        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 110, -1));
 
         plazas.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        getContentPane().add(plazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 230, 20));
+        getContentPane().add(plazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 230, 20));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
@@ -234,7 +232,14 @@ public class Paradas extends javax.swing.JFrame {
 
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
-
+        String ComboBox3 = (String) jComboBox3.getSelectedItem();
+         for(int i=0;i<busx.size();i++)
+        {
+                if(busx.get(i).color==ComboBox3)
+                {
+                plazas.setText("Numero de Plazas Disponible: "+String.valueOf(busx.get(i).N_Plazas)); 
+                }       
+        }
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
