@@ -1,6 +1,7 @@
 package reto3.vista;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import reto3.controlador.Comprar_billete;
 import static reto3.controlador.Seleccionar_Autobus.Seleccionar_Autobus;
 import static reto3.controlador.Seleccionar_paradas.Seleccionar_paradas;
@@ -205,7 +206,7 @@ public class Paradas extends javax.swing.JFrame {
     }//GEN-LAST:event_BuscarActionPerformed
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
-
+JOptionPane.showMessageDialog(null,"Bienvenido ");
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
