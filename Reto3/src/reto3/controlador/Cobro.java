@@ -9,12 +9,19 @@ public class Cobro {
     public static float billete200=0, billete100=0, billete50=0, billete20=0, billete10=0, billete5=0, moneda2=0, moneda1=0;  
     public static float moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
 
-    public static void calcularTotal(){
-          precio =25;
-          precio=precio*1.21f;
-          precio =(float)(Math.round(precio*100d)/100d);
+    public static void calcularTotal(double distancia,double consumo_bus,int viajeros){
+        
+		double precio=0;
+		final double combustible=0.80;
+		final double beneficio=0.20;
+		double consumo_combustible=combustible*consumo_bus;
+		double gasto_viaje=distancia*consumo_combustible;
+		double beneficios= gasto_viaje*beneficio;
+		double total_viaje=beneficios+gasto_viaje;
+		precio=total_viaje/viajeros;
+	
     }
-    
+        
     public static void calcularPago(){        
         pago = (200*billete200)+(100*billete100)+(50*billete50)
                  +(20*billete20)+(10*billete10)+(5*billete5)+(2*moneda2)

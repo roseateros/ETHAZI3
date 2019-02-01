@@ -1,6 +1,8 @@
 
 package reto3.controlador;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import static reto3.controlador.pasar_pagina.aux;
 import static reto3.controlador.pasar_pagina.noregistrado_a_registrado;
@@ -34,13 +36,20 @@ public class crearCliente {
         }else if (contraseña.equals(password)==false)
         {
             JOptionPane.showMessageDialog(null,"No coinciden las contraseñas");           
-        }if (contraseña.equals(password) && (!fecha.equals("")) && (!dni.equals("")) && (!nombre.equals("")) && (!apellidos.equals("")) && (!sexo.equals("")))
+        }
+        Pattern dniPattern = Pattern.compile("(\\d{1,8})");
+	Matcher m = dniPattern.matcher(dni);
+        if (contraseña.equals(password) && (!fecha.equals("")) && (!dni.equals("")) && (!nombre.equals("")) && (!apellidos.equals("")) && (!sexo.equals("")))
         {
-            JOptionPane.showMessageDialog(null,"Registro correcto");
-            Insertar cone =new Insertar(); 
+	if(m.matches()){
+                    {
+                    JOptionPane.showMessageDialog(null,"Registro correcto");
+                    Insertar cone =new Insertar(); 
                      cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);                   
                      noregistrado_a_registrado();  
                      aux++;               
-        }
-   }  
+                    }
+                        }
+        }  
+    }
 }

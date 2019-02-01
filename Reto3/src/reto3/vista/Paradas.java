@@ -1,28 +1,39 @@
 package reto3.vista;
 
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import reto3.controlador.Comprar_billete;
-import reto3.controlador.Seleccionar_paradas;
+import static reto3.controlador.Seleccionar_Autobus.Seleccionar_Autobus;
 import static reto3.controlador.Seleccionar_paradas.Seleccionar_paradas;
 import reto3.modelo.Parada;
+import reto3.modelo.autobus;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
 
 public class Paradas extends javax.swing.JFrame {
  public cliente clientex;
  public lineas lineasx;
+ public autobus busx;
     public Paradas(cliente cliente,lineas lineas) {
                 
         initComponents();
         ArrayList<Parada> paradax;
         paradax = new ArrayList();
-       paradax= Seleccionar_paradas(lineas,cliente);
+        paradax= Seleccionar_paradas(lineas,cliente);
         for(int i=0;i<paradax.size();i++)
         {
-            jComboBox1.addItem(paradax.get(i).nombre);
+            jComboBox1.addItem(paradax.get(i).nombre+" "+paradax.get(i).distancia);
+            jComboBox2.addItem(paradax.get(i).nombre);
         
         }
+        ArrayList<autobus> busx;
+        busx = new ArrayList();
+        busx= Seleccionar_Autobus(lineas,cliente);
+        for(int i=0;i<busx.size();i++)
+        {
+            jComboBox3.addItem(busx.get(i).color);
+            plazas.setText("Numero de Plazas Disponible"+String.valueOf(busx.get(i).N_Plazas)); 
+        }
+
         clientex=cliente;
         lineasx=lineas;
         jLabel2.setText("Lineas "+lineas.Cod_Linea);
@@ -53,6 +64,7 @@ public class Paradas extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
+        plazas = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -107,7 +119,6 @@ public class Paradas extends javax.swing.JFrame {
 
         jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox2.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -163,13 +174,14 @@ public class Paradas extends javax.swing.JFrame {
 
         jComboBox3.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox3.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.setToolTipText("");
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox3ActionPerformed(evt);
             }
         });
         getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 110, -1));
+        getContentPane().add(plazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 80, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
@@ -195,7 +207,7 @@ public class Paradas extends javax.swing.JFrame {
 
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
-       JOptionPane.showMessageDialog(null,"Has cambiado un valor");
+
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -226,5 +238,7 @@ public class Paradas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel plazas;
     // End of variables declaration//GEN-END:variables
+
 }
