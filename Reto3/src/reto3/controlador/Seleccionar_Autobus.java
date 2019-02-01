@@ -15,7 +15,6 @@ public class Seleccionar_Autobus {
         bus = new ArrayList();
         Consultas cone =new Consultas();
         bus= cone.datosAutobus(lineas);
-        //bus= cone.datosAutobusPlazas(lineas); Nose si esto se puede hacer asi
         
         return bus; 
     } 

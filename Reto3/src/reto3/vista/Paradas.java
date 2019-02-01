@@ -238,4 +238,5 @@ public class Paradas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel plazas;
     // End of variables declaration//GEN-END:variables
+
 }
