@@ -48,7 +48,7 @@ public class crearCliente {
                      noregistrado_a_registrado();  
                      aux++;               
                 }else{
-            System.out.println(dni +"  no es valido!");
+            JOptionPane.showMessageDialog(null,"DNI no valido! introduzca por este formato: 12345678A");
         }
         }  
     }
