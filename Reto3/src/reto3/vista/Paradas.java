@@ -201,7 +201,6 @@ public class Paradas extends javax.swing.JFrame {
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         
-        Comprar_billete comprar = new Comprar_billete(cod_Billete, NTrayecto.getText(), int dni, String fecha, String hora, String Cod_Linea, String Cod_Bus, String Cod_Parada_Inicio, String Cod_Parada_Fin, double precio);
         dispose();
     }//GEN-LAST:event_BuscarActionPerformed
 

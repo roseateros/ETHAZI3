@@ -37,19 +37,19 @@ public class crearCliente {
         {
             JOptionPane.showMessageDialog(null,"No coinciden las contraseñas");           
         }
-        Pattern dniPattern = Pattern.compile("(\\d{1,8})");
+        Pattern dniPattern = Pattern.compile("\\d{8}[A-HJ-NP-TV-Z]");
 	Matcher m = dniPattern.matcher(dni);
         if (contraseña.equals(password) && (!fecha.equals("")) && (!dni.equals("")) && (!nombre.equals("")) && (!apellidos.equals("")) && (!sexo.equals("")))
         {
 	if(m.matches()){
-                    {
                     JOptionPane.showMessageDialog(null,"Registro correcto");
                     Insertar cone =new Insertar(); 
                      cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);                   
                      noregistrado_a_registrado();  
                      aux++;               
-                    }
-                        }
+                }else{
+            System.out.println(dni +"  no es valido!");
+        }
         }  
     }
 }
