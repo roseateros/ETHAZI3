@@ -109,10 +109,10 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
             return null;
         }  
         
-        public ArrayList<autobus> datosAutobus(lineas lineas) {
+        public  ArrayList<autobus> datosAutobus(lineas lineas) {
 		
 	try {
-            String query=("SELECT * FROM autobus, linea_autobus, linea WHERE autobus.Cod_bus=linea_autobus.Cod_bus AND linea_autobus.Cod_Linea=linea.Cod_Linea AND linea.Cod_Linea LIKE"+"'" +linea+"' AND autobus.Cod_bus ='"+color+"'");
+            String query=(" SELECT autobus.Color, autobus.Cod_bus, autobus.N_plazas, autobus.Consumo_km, linea_autobus.Cod_bus from autobus INNER JOIN linea_autobus ON autobus.Cod_bus=linea_autobus.Cod_bus WHERE linea_autobus.Cod_linea='L1'");
             Statement sentencia= reg.createStatement();
             ResultSet resultado=sentencia.executeQuery(query);
             ArrayList<autobus> busx=new ArrayList();
@@ -128,8 +128,7 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
         {
             System.err.println("Hubo un Error ");
             System.err.println(e.getMessage());
-            }
-        
+            }       
             return null;
-        }  
+        }    
 }

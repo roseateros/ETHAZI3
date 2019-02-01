@@ -30,7 +30,8 @@ public class Paradas extends javax.swing.JFrame {
         busx= Seleccionar_Autobus(lineas,cliente);
         for(int i=0;i<busx.size();i++)
         {
-            jComboBox3.addItem(busx.get(i).color);      
+            jComboBox3.addItem(busx.get(i).color);
+            //plazas.addItem(busx.get(i).N_Plazas);  Nose si esto se puede hacer :)
         }
 
         clientex=cliente;
@@ -63,6 +64,7 @@ public class Paradas extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
+        plazas = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -179,6 +181,7 @@ public class Paradas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 110, -1));
+        getContentPane().add(plazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 80, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
@@ -233,5 +236,7 @@ public class Paradas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel plazas;
     // End of variables declaration//GEN-END:variables
+
 }
