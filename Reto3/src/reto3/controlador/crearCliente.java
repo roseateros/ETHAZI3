@@ -1,6 +1,8 @@
 
 package reto3.controlador;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import static reto3.controlador.pasar_pagina.aux;
 import static reto3.controlador.pasar_pagina.noregistrado_a_registrado;
@@ -34,13 +36,28 @@ public class crearCliente {
         }else if (contraseña.equals(password)==false)
         {
             JOptionPane.showMessageDialog(null,"No coinciden las contraseñas");           
-        }if (contraseña.equals(password) && (!fecha.equals("")) && (!dni.equals("")) && (!nombre.equals("")) && (!apellidos.equals("")) && (!sexo.equals("")))
+        }
+        dni = dni.toUpperCase();
+        Pattern dniPattern = Pattern.compile("\\d{8}[A-HJ-NP-TV-Z]");
+	Matcher m = dniPattern.matcher(dni);
+        Pattern nombrePattern = Pattern.compile("[A-Z][a-zA-Z]*");
+	Matcher n = dniPattern.matcher(nombre);
+        
+        if (contraseña.equals(password) && (!fecha.equals("")) && (!dni.equals("")) && (!nombre.equals("")) && (!apellidos.equals("")) && (!sexo.equals("")))
         {
-            JOptionPane.showMessageDialog(null,"Registro correcto");
-            Insertar cone =new Insertar(); 
+	if(m.matches()){
+            if(n.matches()){
+                        JOptionPane.showMessageDialog(null,"Registro correcto");
+                    Insertar cone =new Insertar(); 
                      cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);                   
                      noregistrado_a_registrado();  
-                     aux++;               
+                     aux++; 
+                     }else{
+                JOptionPane.showMessageDialog(null,"Nombre no puede contener numeros");
+            }                  
+                }else{
+            JOptionPane.showMessageDialog(null,"DNI no valido! introduzca por este formato: 12345678A");
         }
-   }  
+        }  
+    }
 }

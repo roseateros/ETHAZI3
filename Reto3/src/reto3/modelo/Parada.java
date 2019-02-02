@@ -7,6 +7,7 @@ public class Parada {
 	public String calle;
 	public float latitud;
 	public float longitud;
+    public double distancia;
 	
 	public Parada(int codParada, String nombre, String calle,float latitud,float longitud) {
 		this.codParada = codParada;
@@ -14,5 +15,6 @@ public class Parada {
 		this.calle = calle;
 		this.latitud = latitud;
 		this.longitud = longitud;
+                this.distancia=0;
     }        
 }
