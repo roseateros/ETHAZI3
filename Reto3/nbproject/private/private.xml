@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/controlador/Comprar_billete.java</file>
             <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/Registrado.java</file>
             <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/Saludo.java</file>
@@ -22,6 +23,14 @@
             <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/modelo/Insertar.java</file>
             <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/Reto3.java</file>
             <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/modelo/conectar.java</file>
+=======
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/controlador/Comprar_billete.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/modelo/Parada.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/modelo/Insertar.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/vista/Paradas.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/vista/lista.java</file>
+            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/controlador/Cobro.java</file>
+>>>>>>> 704c92e58621b1caf42a441bd0bdcb33d3a734b7
         </group>
     </open-files>
 </project-private>
