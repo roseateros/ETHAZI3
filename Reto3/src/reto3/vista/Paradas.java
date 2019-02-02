@@ -31,7 +31,7 @@ public class Paradas extends javax.swing.JFrame {
         for(int i=0;i<busx.size();i++)
         {
             jComboBox3.addItem(busx.get(i).color);
-            //plazas.addItem(busx.get(i).N_Plazas);  Nose si esto se puede hacer :)
+            //plazas.addItem(busx.get(i).N_Plazas); 
         }
 
         clientex=cliente;

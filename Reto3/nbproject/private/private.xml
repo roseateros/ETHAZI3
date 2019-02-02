@@ -3,35 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/vista/lista.java</file>
-            <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/modelo/lineas.java</file>
-=======
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/ImprimirTicket.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/controlador/Comprar_billete.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/Cobro.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/Registrado.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/controlador/Seleccionar_linea.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/Saludo.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/modelo/lineas.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/modelo/Parada.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/modelo/cliente.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/Linea.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/controlador/pasar_pagina.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/controlador/VerificarCliente.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/modelo/Consultas.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/NoRegistrado.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/Paradas.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/controlador/Calculos.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/lista.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/controlador/Cobro.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/modelo/Insertar.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/Reto3.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/modelo/conectar.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/controlador/Seleccionar_paradas.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/controlador/crearCliente.java</file>
-            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/Adios.java</file>
->>>>>>> cb84f424f5ac4ee87e58beef43c135ae992a0426
+            <file>file:/C:/mai/ETHAZI3/Reto3/src/reto3/modelo/Consultas.java</file>
+            <file>file:/C:/mai/ETHAZI3/Reto3/src/reto3/controlador/Seleccionar_paradas.java</file>
+            <file>file:/C:/mai/ETHAZI3/Reto3/src/reto3/controlador/Seleccionar_Autobus.java</file>
+            <file>file:/C:/mai/ETHAZI3/Reto3/src/reto3/vista/Paradas.java</file>
         </group>
     </open-files>
 </project-private>
