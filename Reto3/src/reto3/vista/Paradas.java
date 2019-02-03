@@ -2,6 +2,7 @@ package reto3.vista;
 
 import java.awt.event.ItemEvent;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import static reto3.controlador.Seleccionar_Autobus.Seleccionar_Autobus;
 import static reto3.controlador.Seleccionar_paradas.Seleccionar_paradas;
 import reto3.modelo.Parada;
@@ -17,7 +18,8 @@ public class Paradas extends javax.swing.JFrame {
     public Paradas(cliente cliente,lineas lineas) {
                 
         initComponents();
-
+         idaVuelta.setEnabled(false);
+        ida.setEnabled(false);
         paradax = new ArrayList();
         paradax= Seleccionar_paradas(lineas,cliente);
         for(int i=0;i<paradax.size();i++)
@@ -180,6 +182,11 @@ public class Paradas extends javax.swing.JFrame {
         idas.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         idas.setForeground(new java.awt.Color(0, 0, 0));
         idas.setText("IDA");
+        idas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idasActionPerformed(evt);
+            }
+        });
         getContentPane().add(idas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, -1, -1));
 
         jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
@@ -187,6 +194,11 @@ public class Paradas extends javax.swing.JFrame {
         jRadioButton1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jRadioButton1.setForeground(new java.awt.Color(0, 0, 0));
         jRadioButton1.setText("IDA/VUELTA");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, -1, -1));
 
         origen.setBackground(new java.awt.Color(255, 255, 255));
@@ -263,6 +275,17 @@ public class Paradas extends javax.swing.JFrame {
                 }       
         }
     }//GEN-LAST:event_origenActionPerformed
+
+    private void idasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idasActionPerformed
+idaVuelta.setEnabled(false);
+ida.setEnabled(true);
+    }//GEN-LAST:event_idasActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+
+       
+        idaVuelta.setEnabled(true);
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
