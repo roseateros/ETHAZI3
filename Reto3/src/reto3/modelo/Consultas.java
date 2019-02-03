@@ -58,35 +58,31 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
     }
     
     public  cliente BorrarCliente(String us,String pass){
-        try {  
-            
+        
+        try {              
             Statement st = reg.createStatement();
-             st.executeUpdate("delete from cliente where Nombre='"+us+"' AND contraseña='"+pass+"'"); 
-           
+            st.executeUpdate("delete from cliente where Nombre='"+us+"' AND contraseña='"+pass+"'");            
             reg.close(); 
+            
         } catch (Exception e) { 
-
             System.err.println(e.getMessage()); 
-        } 
-       
+        }       
         return null;
     }
     
     public cliente ActualizarCliente( String dni,String nombre,String apellidos,String contraseña, String sexo, String fecha)
         {
-        try {  
-            
+        try {             
             Statement st = reg.createStatement();
-             st.executeUpdate("UPDATE `cliente` SET `Nombre`='"+nombre+"',`Apellidos`='"+apellidos+"',`Fecha_nac`='"+fecha+"',`Sexo`='"+sexo+"',`Contraseña`='"+contraseña+"' WHERE DNI='"+dni+"'"); 
-           
+            st.executeUpdate("UPDATE `cliente` SET `Nombre`='"+nombre+"',`Apellidos`='"+apellidos+"',`Fecha_nac`='"+fecha+"',`Sexo`='"+sexo+"',`Contraseña`='"+contraseña+"' WHERE DNI='"+dni+"'");           
             reg.close(); 
+            
         } catch (Exception e) { 
-
             System.err.println(e.getMessage()); 
-        } 
-       
+        }        
         return null;
     } 
+    
    // public String ObtenerBoleto()
    // {                    
      //   try{

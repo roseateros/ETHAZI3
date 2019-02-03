@@ -41,18 +41,27 @@ public class ActualizarCliente {
         dni = dni.toUpperCase();
         Pattern dniPattern = Pattern.compile("\\d{8}[A-HJ-NP-TV-Z]");
 	Matcher m = dniPattern.matcher(dni);
-        Pattern nombrePattern = Pattern.compile("[A-Z][a-zA-Z]*");
-	Matcher n = dniPattern.matcher(nombre);
+        Pattern nombrePattern = Pattern.compile("[a-zA-Z]*");
+	Matcher n = nombrePattern.matcher(nombre);
         
         if (contraseña.equals(password) && (!fecha.equals("")) && (!dni.equals("")) && (!nombre.equals("")) && (!apellidos.equals("")) && (!sexo.equals("")))
         {
-
+	if(m.matches()){
+            if(n.matches()){
                     JOptionPane.showMessageDialog(null,"Usuario actualizado");
                     Consultas cone =new Consultas(); 
                     cone.ActualizarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);                   
                     noregistrado_a_registrado();  
                     aux++; 
-                    }
+                }
+            else{
+                JOptionPane.showMessageDialog(null,"Nombre no valido! No puede contener numeros");
+            }                                 
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"DNI no valido! Introduzca este formato: 12345678A");
+            }
+        }  
     }
 }
 
