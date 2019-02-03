@@ -2,9 +2,6 @@
 package reto3.controlador;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-
 import reto3.modelo.Consultas;
 import reto3.modelo.Parada;
 import reto3.modelo.cliente;
@@ -24,9 +21,7 @@ public class Seleccionar_paradas {
             paradax.get(i).distancia=cal.calcularDistancia(paradax.get(0).latitud,paradax.get(0).longitud,paradax.get(i).latitud,paradax.get(i).longitud);
 
         }
-
-        
-        
+       
         return paradax; 
     }
     
