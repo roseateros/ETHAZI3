@@ -6,11 +6,12 @@ import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import static reto3.controlador.pasar_pagina.aux;
 import static reto3.controlador.pasar_pagina.noregistrado_a_registrado;
-import reto3.modelo.Insertar;
+import reto3.modelo.Consultas;
 
-public class crearCliente {
 
-    public crearCliente(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password){
+public class ActualizarCliente {
+    
+    public ActualizarCliente(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password){
 
         if ( (dni == null) || (dni.equals("")) )
         {
@@ -39,19 +40,19 @@ public class crearCliente {
         }
         dni = dni.toUpperCase();
         Pattern dniPattern = Pattern.compile("\\d{8}[A-HJ-NP-TV-Z]");
-	//Matcher m = dniPattern.matcher(dni);
-        //Pattern nombrePattern = Pattern.compile("[A-Z][a-zA-Z]*"); NO FUNCIONA
+	Matcher m = dniPattern.matcher(dni);
+        Pattern nombrePattern = Pattern.compile("[A-Z][a-zA-Z]*");
 	Matcher n = dniPattern.matcher(nombre);
         
         if (contraseña.equals(password) && (!fecha.equals("")) && (!dni.equals("")) && (!nombre.equals("")) && (!apellidos.equals("")) && (!sexo.equals("")))
         {
 
-                    JOptionPane.showMessageDialog(null,"Registro correcto");
-                    Insertar cone =new Insertar(); 
-                    cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);                   
+                    JOptionPane.showMessageDialog(null,"Usuario actualizado");
+                    Consultas cone =new Consultas(); 
+                    cone.ActualizarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);                   
                     noregistrado_a_registrado();  
                     aux++; 
-                     }
+                    }
     }
 }
 

@@ -8,7 +8,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class conectar {
-String  maquina,  usuario,  clave, servidor, baseDatos;
+String  maquina,  usuario,  clave, servidor;
 int puerto= 3306;
 Connection conectar=null;
 
@@ -43,7 +43,7 @@ public Connection conexion(){
     		      System.out.println("Excepcion leyendo fichero "+ fichero + ": " + e);
     		    }
     	
-    	this.servidor="jdbc:mysql://"+this.maquina+":"+ this.puerto+"/"+baseDatos;
+    	this.servidor="jdbc:mysql://"+this.maquina+":"+ this.puerto+"/";
 
         //Registrar el driver
         try {
@@ -60,7 +60,7 @@ public Connection conexion(){
             System.err.println("ERROR AL CONECTAR CON EL SERVIDOR");
             System.exit(0); //parar la ejecución
         }
-        System.out.println("Conectado a "+baseDatos);
+        System.out.println("Conectado a BBDD");
         
     return conectar;
 }
