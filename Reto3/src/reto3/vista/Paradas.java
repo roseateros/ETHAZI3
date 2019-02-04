@@ -2,7 +2,16 @@ package reto3.vista;
 
 
 import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+import reto3.controlador.Comprar_billete;
+import reto3.controlador.Nplazas;
+
+
+
 import static reto3.controlador.Seleccionar_Autobus.Seleccionar_Autobus;
+import reto3.controlador.Seleccionar_linea;
 import static reto3.controlador.Seleccionar_paradas.Seleccionar_paradas;
 import reto3.modelo.Parada;
 import reto3.modelo.autobus;
@@ -40,6 +49,14 @@ public class Paradas extends javax.swing.JFrame {
 
         busx = new ArrayList();
         busx= Seleccionar_Autobus(lineas,cliente);
+
+        for(int i=0;i<busx.size();i++)
+        {
+            jComboBox3.addItem(busx.get(i).color);
+
+ 
+
+        }
 
 
         clientex=cliente;
@@ -254,20 +271,27 @@ public class Paradas extends javax.swing.JFrame {
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         
+
+
+
         reto3.controlador.pasar_pagina.paradas_a_lista(clientex, lineasx);
         dispose();
     }//GEN-LAST:event_BuscarActionPerformed
 
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+
         String ComboBox3 = (String) jComboBox3.getSelectedItem();
          for(int i=0;i<busx.size();i++)
         {
                 if(busx.get(i).color==ComboBox3)
                 {
-                plazas.setText("Numero de Plazas Disponible: "+String.valueOf(busx.get(i).N_Plazas)); 
+                Nplazas nplaza= new Nplazas();   
+                int numero= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas);
+                plazas.setText("Numero de Plazas Disponible: "+String.valueOf(numero)); 
                 }       
         }
+
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinoActionPerformed

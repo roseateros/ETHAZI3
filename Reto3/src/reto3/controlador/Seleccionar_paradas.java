@@ -21,7 +21,28 @@ public class Seleccionar_paradas {
             paradax.get(i).distancia=cal.calcularDistancia(paradax.get(0).latitud,paradax.get(0).longitud,paradax.get(i).latitud,paradax.get(i).longitud);
 
         }
+
+        Parada parad;
+        for(int k=0;k<(paradax.size()-1);k++)
+        {
+            System.out.println("Dentro del For 1");
+            System.out.println(paradax.size());
+        for(int f=0;f<((paradax.size()-k)-1);f++)
+        {
+            System.out.println("Dentro del For 2");
+        if(paradax.get(f).distancia>paradax.get(f+1).distancia)
+        {
+        parad=paradax.get(f+1);
        
+        paradax.set(f+1,paradax.get(f));
+        paradax.set(f,parad);
+        System.out.println("Valor :"+(f+1)+paradax.get(f+1).nombre+" valor : "+f+paradax.get(f).nombre);
+        }
+        }
+        }
+        
+        
+
         return paradax; 
     }
     
