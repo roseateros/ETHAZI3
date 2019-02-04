@@ -12,6 +12,7 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
     public String pass;
     public String linea;
     public String color;
+    
 
         conectar con =new conectar(); //SOLO ESTO AL INSTANCIAR, ES NECESARIA PARA HACER LA CONEXIÒN//
         Connection reg=con.conexion();// SOLO ESTO AL INSTACIAR, ES NECESARIA PARA HACER LA CONEXIÒN//
@@ -61,8 +62,9 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
         
         try {              
             Statement st = reg.createStatement();
-            st.executeUpdate("delete from cliente where Nombre='"+us+"' AND contraseña='"+pass+"'");            
-            reg.close(); 
+            st.executeUpdate("DELETE from cliente where Nombre='"+us+"' AND contraseña='"+pass+"'");            
+            reg.close();
+            
             
         } catch (Exception e) { 
             System.err.println(e.getMessage()); 
@@ -76,6 +78,29 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
             Statement st = reg.createStatement();
             st.executeUpdate("UPDATE `cliente` SET `Nombre`='"+nombre+"',`Apellidos`='"+apellidos+"',`Fecha_nac`='"+fecha+"',`Sexo`='"+sexo+"',`Contraseña`='"+contraseña+"' WHERE DNI='"+dni+"'");           
             reg.close(); 
+            
+        } catch (Exception e) { 
+            System.err.println(e.getMessage()); 
+        }        
+        return null;
+    } 
+    
+        public Integer NPlazas(int Cod_Bus)
+        {
+        try {             
+            
+            String query="SELECT COUNT(billete.Cod_bus) As 'cantidad' from billete where billete.Cod_bus =(SELECT autobus.Cod_bus from autobus where autobus.Cod_bus="+Cod_Bus+")";           
+            Statement sentencia= reg.createStatement();
+            ResultSet resultado=sentencia.executeQuery(query);
+            
+            while (resultado.next())//ESTO SE REPETIRÀ EL NUMERO DE FILAS QUE SE SELECCIONEN DE LA BASES DE DATOS
+                                  {
+                                    int vuelta=resultado.getInt("cantidad");
+                                 
+                                  return vuelta;// DEVOLVEMOS EL OBJETO 
+                                    }
+            
+            
             
         } catch (Exception e) { 
             System.err.println(e.getMessage()); 

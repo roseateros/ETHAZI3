@@ -59,7 +59,7 @@ public class ActualizarCliente {
             }                                 
         }
         else{
-            JOptionPane.showMessageDialog(null,"DNI no valido! Introduzca este formato: 12345678A");
+            JOptionPane.showMessageDialog(null,"DNI no valido!");
             }
         }  
     }

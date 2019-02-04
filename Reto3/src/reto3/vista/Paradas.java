@@ -1,13 +1,17 @@
 package reto3.vista;
 
-import java.awt.event.ItemEvent;
+
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 import reto3.controlador.Comprar_billete;
+import reto3.controlador.Nplazas;
+
 
 
 import static reto3.controlador.Seleccionar_Autobus.Seleccionar_Autobus;
+import reto3.controlador.Seleccionar_linea;
 import static reto3.controlador.Seleccionar_paradas.Seleccionar_paradas;
 import reto3.modelo.Parada;
 import reto3.modelo.autobus;
@@ -17,12 +21,13 @@ import reto3.modelo.lineas;
 public class Paradas extends javax.swing.JFrame {
  public cliente clientex;
  public lineas lineasx;
-        ArrayList<autobus> busx;
-                ArrayList<Parada> paradax;
+ ArrayList<autobus> busx;
+ ArrayList<Parada> paradax;
+ 
     public Paradas(cliente cliente,lineas lineas) {
                 
         initComponents();
-         idaVuelta.setEnabled(false);
+        idaVuelta.setEnabled(false);
         ida.setEnabled(false);
         paradax = new ArrayList();
         paradax= Seleccionar_paradas(lineas,cliente);
@@ -259,7 +264,9 @@ public class Paradas extends javax.swing.JFrame {
         {
                 if(busx.get(i).color==ComboBox3)
                 {
-                plazas.setText("Numero de Plazas Disponible: "+String.valueOf(busx.get(i).N_Plazas)); 
+                Nplazas nplaza= new Nplazas();   
+                int numero= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas);
+                plazas.setText("Numero de Plazas Disponible: "+String.valueOf(numero)); 
                 }       
         }
 
@@ -267,6 +274,7 @@ public class Paradas extends javax.swing.JFrame {
 
     private void destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinoActionPerformed
 
+        
     }//GEN-LAST:event_destinoActionPerformed
 
     private void origenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_origenActionPerformed
