@@ -3,6 +3,7 @@ package reto3.vista;
 
 import java.util.ArrayList;
 
+import reto3.controlador.Calculos;
 import reto3.controlador.Nplazas;
 import static reto3.controlador.Seleccionar_Autobus.Seleccionar_Autobus;
 import static reto3.controlador.Seleccionar_paradas.Seleccionar_paradas;
@@ -17,14 +18,15 @@ public class Paradas extends javax.swing.JFrame {
         public lineas lineasx;
         ArrayList<autobus> busx;
         ArrayList<Parada> paradax;
- 
+        public int uno,dos,busesito;
+
     public Paradas(cliente cliente,lineas lineas) {
                 
         initComponents();
         idaVuelta.setEnabled(false);
         ida.setEnabled(false);
         Buscar.setEnabled(false);
-       
+
         paradax = new ArrayList();
         paradax= Seleccionar_paradas(lineas,cliente);
         for(int i=0;i<paradax.size();i++)
@@ -70,7 +72,7 @@ public class Paradas extends javax.swing.JFrame {
         plazas = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         idas = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        vueltas = new javax.swing.JRadioButton();
         origen = new javax.swing.JComboBox<>();
         destino = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
@@ -123,19 +125,19 @@ public class Paradas extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("IDA");
         jLabel7.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 30, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 30, -1));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("DESTINO");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("ORIGEN ");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, -1));
 
         jButton5.setBackground(new java.awt.Color(204, 0, 51));
         jButton5.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
@@ -147,24 +149,24 @@ public class Paradas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 120, 30));
-        getContentPane().add(ida, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 100, -1));
+        getContentPane().add(ida, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 100, -1));
 
         idaVuelta.setBackground(new java.awt.Color(255, 255, 255));
         idaVuelta.setForeground(new java.awt.Color(0, 0, 0));
-        getContentPane().add(idaVuelta, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 100, -1));
+        getContentPane().add(idaVuelta, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 100, -1));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText(" VUELTA");
         jLabel9.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, -1, -1));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("TIPO DE AUTOBUS");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, -1, -1));
 
         jComboBox3.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox3.setForeground(new java.awt.Color(0, 0, 0));
@@ -174,16 +176,16 @@ public class Paradas extends javax.swing.JFrame {
                 jComboBox3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 110, -1));
+        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 110, -1));
 
         plazas.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        getContentPane().add(plazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 230, 20));
+        getContentPane().add(plazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 230, 20));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("TIPO DE TRAYECTO");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
 
         idas.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(idas);
@@ -195,19 +197,19 @@ public class Paradas extends javax.swing.JFrame {
                 idasActionPerformed(evt);
             }
         });
-        getContentPane().add(idas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, -1, -1));
+        getContentPane().add(idas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
 
-        jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton1.setText("IDA/VUELTA");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        vueltas.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(vueltas);
+        vueltas.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        vueltas.setForeground(new java.awt.Color(0, 0, 0));
+        vueltas.setText("IDA/VUELTA");
+        vueltas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                vueltasActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, -1, -1));
+        getContentPane().add(vueltas, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, -1, -1));
 
         origen.setBackground(new java.awt.Color(255, 255, 255));
         origen.setForeground(new java.awt.Color(0, 0, 0));
@@ -231,8 +233,8 @@ public class Paradas extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("PRECIO");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, -1, -1));
-        getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 400, 70, 30));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, -1, -1));
+        getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 350, 70, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
@@ -259,7 +261,7 @@ public class Paradas extends javax.swing.JFrame {
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
 
         String ComboBox3 = (String) jComboBox3.getSelectedItem();
-         for(int i=0;i<busx.size();i++)
+         for(int i=0;i<busx.size();i++)//numero de plazas disponibles
         {
                 if(busx.get(i).color==ComboBox3)
                 {
@@ -269,7 +271,37 @@ public class Paradas extends javax.swing.JFrame {
                 }       
                 
         }
+        
+        String ComboBox1 = (String) origen.getSelectedItem();
+        for(int p=0;p<paradax.size();p++)//seleccionar parada de origen
+        {
+                if(paradax.get(p).nombre.equals(ComboBox1)){
+                uno=p;
+                }
+        }
 
+        String ComboBox2 = (String) destino.getSelectedItem();
+        for(int p=0;p<paradax.size();p++)//selecionar parada de destino
+        {
+                if(paradax.get(p).nombre.equals(ComboBox2)){
+                dos=p;
+                }
+        }
+
+         for(int i=0;i<busx.size();i++)// seleccionar tipo de autobus
+        {
+                if(busx.get(i).color==ComboBox3)
+                { 
+                busesito=i;
+                }       
+        }       
+         
+        if(idas.isSelected() || vueltas.isSelected()){ //recoger todos los datos para hacer el calculo del precio
+            Calculos cal= new Calculos();   
+            double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
+            double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
+            precio.setText(String.valueOf(total_precio));
+        }        
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinoActionPerformed
@@ -284,7 +316,7 @@ public class Paradas extends javax.swing.JFrame {
         {
                 if(paradax.get(i).nombre==ComboBox1)
                 {
-                    System.out.println("Entrò3");
+                    
                             for(int u=0;u<paradax.size();u++)
                                 {
                                   if(u!=i)
@@ -297,34 +329,100 @@ public class Paradas extends javax.swing.JFrame {
     }//GEN-LAST:event_origenActionPerformed
 
     private void idasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idasActionPerformed
+
 idaVuelta.setEnabled(false);
 ida.setEnabled(true);
-jComboBox3.removeAllItems();
-        for(int i=0;i<busx.size();i++)
+String ComboBox1 = (String) origen.getSelectedItem();
+
+
+
+for(int p=0;p<paradax.size();p++)
+    {
+    if(paradax.get(p).nombre.equals(ComboBox1)){
+        uno=p;
+    }
+
+}
+String ComboBox2 = (String) destino.getSelectedItem();
+for(int p=0;p<paradax.size();p++)
+    {
+    if(paradax.get(p).nombre.equals(ComboBox2)){
+        dos=p;
+    }
+
+}
+
+
+        String ComboBox3 = (String) jComboBox3.getSelectedItem();
+         for(int i=0;i<busx.size();i++)
         {
-            jComboBox3.addItem(busx.get(i).color);
+                if(busx.get(i).color==ComboBox3)
+                { 
+               busesito=i;
+                }       
         }
+         
+
+
           if(jComboBox3.getItemCount() > 0){
         System.out.println("HA ENTRADO");
+        Calculos cal= new Calculos();  
+     
+        double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
+        double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
         Buscar.setEnabled(true);
-        
+        precio.setText(String.valueOf(total_precio));
     }
 
     }//GEN-LAST:event_idasActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-jComboBox3.removeAllItems();
-        for(int i=0;i<busx.size();i++)
+    private void vueltasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vueltasActionPerformed
+
+String ComboBox1 = (String) origen.getSelectedItem();
+
+
+
+for(int p=0;p<paradax.size();p++)
+    {
+    if(paradax.get(p).nombre.equals(ComboBox1)){
+        uno=p;
+    }
+
+}
+String ComboBox2 = (String) destino.getSelectedItem();
+for(int p=0;p<paradax.size();p++)
+    {
+    if(paradax.get(p).nombre.equals(ComboBox2)){
+        dos=p;
+    }
+
+}
+
+
+        String ComboBox3 = (String) jComboBox3.getSelectedItem();
+         for(int i=0;i<busx.size();i++)
         {
-            jComboBox3.addItem(busx.get(i).color);
+                if(busx.get(i).color==ComboBox3)
+                { 
+               busesito=i;
+                }       
         }
+         
+
+
           if(jComboBox3.getItemCount() > 0){
         System.out.println("HA ENTRADO");
+        Calculos cal= new Calculos();  
+     
+        double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
+        double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
+        total_precio=total_precio+total_precio;
         Buscar.setEnabled(true);
+        precio.setText(String.valueOf(total_precio));
     }
 
         idaVuelta.setEnabled(true);
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_vueltasActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
@@ -348,10 +446,10 @@ jComboBox3.removeAllItems();
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JComboBox<String> origen;
     private javax.swing.JLabel plazas;
     private javax.swing.JLabel precio;
+    private javax.swing.JRadioButton vueltas;
     // End of variables declaration//GEN-END:variables
 
 }

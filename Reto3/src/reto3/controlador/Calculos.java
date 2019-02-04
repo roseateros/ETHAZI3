@@ -3,7 +3,7 @@ package reto3.controlador;
  
 public class Calculos {
     
-    public double calcularDistancia(float Lat, float Long, float latitud, float longitud) {
+    public static double calcularDistancia(float Lat, float Long, float latitud, float longitud) {
         
 		double radioTierra = 6371;//en kilometros
 		double dlat = Math.toRadians(Lat - latitud); 
@@ -16,9 +16,10 @@ public class Calculos {
 		double distancia = radioTierra * va2;
 
 		return distancia; // distancia en kms entre dos puntos(paradaInicio-paradaFin)
+                
     }
     
-        public static void calcularTotal(double distancia,double consumo_bus){
+        public static double calcularTotal(double distancia,double consumo_bus){
         
 		double precio=0;
 		final double combustible=0.80;
@@ -27,7 +28,7 @@ public class Calculos {
 		double gasto_viaje=distancia*consumo_combustible;
 		double beneficios= gasto_viaje*beneficio;
 		double total_viaje=beneficios+gasto_viaje;
-		
+		return total_viaje;
 	
     }
         
