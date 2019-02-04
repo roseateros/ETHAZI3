@@ -243,6 +243,7 @@ public class Paradas extends javax.swing.JFrame {
 
     private void destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinoActionPerformed
 
+        
     }//GEN-LAST:event_destinoActionPerformed
 
     private void origenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_origenActionPerformed
