@@ -2,8 +2,6 @@ package reto3.modelo;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -14,6 +12,7 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
     public String pass;
     public String linea;
     public String color;
+    
 
         conectar con =new conectar(); //SOLO ESTO AL INSTANCIAR, ES NECESARIA PARA HACER LA CONEXIÒN//
         Connection reg=con.conexion();// SOLO ESTO AL INSTACIAR, ES NECESARIA PARA HACER LA CONEXIÒN//
@@ -59,6 +58,45 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
        return null;// SI SE PRODUCE UN ERROR SE MANDA NULL
     }
     
+    public  cliente BorrarCliente(String us,String pass){
+        
+        try {              
+            Statement st = reg.createStatement();
+            st.executeUpdate("DELETE from cliente where Nombre='"+us+"' AND contraseña='"+pass+"'");            
+            reg.close(); 
+            
+        } catch (Exception e) { 
+            System.err.println(e.getMessage()); 
+        }       
+        return null;
+    }
+    
+    public cliente ActualizarCliente( String dni,String nombre,String apellidos,String contraseña, String sexo, String fecha)
+        {
+        try {             
+            Statement st = reg.createStatement();
+            st.executeUpdate("UPDATE `cliente` SET `Nombre`='"+nombre+"',`Apellidos`='"+apellidos+"',`Fecha_nac`='"+fecha+"',`Sexo`='"+sexo+"',`Contraseña`='"+contraseña+"' WHERE DNI='"+dni+"'");           
+            reg.close(); 
+            
+        } catch (Exception e) { 
+            System.err.println(e.getMessage()); 
+        }        
+        return null;
+    } 
+    
+        public Integer NPlazas(int Cod_Bus)
+        {
+        try {             
+            Statement st = reg.createStatement();
+            st.executeUpdate("Select count (Cod_Bus) from autobus where Cod_Bus = ( SELECT count (Cod_Bus) from billete where Cod_Bus ='"+Cod_Bus+"'");           
+            reg.close(); 
+            
+        } catch (Exception e) { 
+            System.err.println(e.getMessage()); 
+        }        
+        return null;
+    } 
+    
    // public String ObtenerBoleto()
    // {                    
      //   try{
@@ -102,7 +140,7 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
     
     catch (SQLException ex) 
     {
-        Logger.getLogger(Consultas.class.getName()).log(Level.SEVERE, null, ex);
+        System.err.println("Hubo un Error ");
     }       
        return null;
     }   

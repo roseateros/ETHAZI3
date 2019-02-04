@@ -15,7 +15,7 @@ public class Seleccionar_Autobus {
         bus = new ArrayList();
         Consultas cone =new Consultas();
         bus= cone.datosAutobus(lineas);
-        
+  
         return bus; 
     } 
 }

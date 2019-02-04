@@ -6,11 +6,12 @@ import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import static reto3.controlador.pasar_pagina.aux;
 import static reto3.controlador.pasar_pagina.noregistrado_a_registrado;
-import reto3.modelo.Insertar;
+import reto3.modelo.Consultas;
 
-public class crearCliente {
 
-    public crearCliente(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password){
+public class ActualizarCliente {
+    
+    public ActualizarCliente(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password){
 
         if ( (dni == null) || (dni.equals("")) )
         {
@@ -47,9 +48,9 @@ public class crearCliente {
         {
 	if(m.matches()){
             if(n.matches()){
-                    JOptionPane.showMessageDialog(null,"Registro correcto");
-                    Insertar cone =new Insertar(); 
-                    cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);                   
+                    JOptionPane.showMessageDialog(null,"Usuario actualizado");
+                    Consultas cone =new Consultas(); 
+                    cone.ActualizarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);                   
                     noregistrado_a_registrado();  
                     aux++; 
                 }
@@ -58,8 +59,9 @@ public class crearCliente {
             }                                 
         }
         else{
-            JOptionPane.showMessageDialog(null,"DNI no valido! introduzca por este formato: 12345678A");
+            JOptionPane.showMessageDialog(null,"DNI no valido!");
             }
         }  
     }
 }
+
