@@ -4,6 +4,7 @@ package reto3.vista;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+import reto3.controlador.Calculos;
 
 import reto3.controlador.Comprar_billete;
 import reto3.controlador.Nplazas;
@@ -23,7 +24,7 @@ public class Paradas extends javax.swing.JFrame {
  public lineas lineasx;
  ArrayList<autobus> busx;
  ArrayList<Parada> paradax;
- 
+ public int uno,dos,busesito;
     public Paradas(cliente cliente,lineas lineas) {
                 
         initComponents();
@@ -31,10 +32,7 @@ public class Paradas extends javax.swing.JFrame {
         ida.setEnabled(false);
         Buscar.setEnabled(false);
         
-        
-        
-
-  
+      
 
         
         
@@ -53,9 +51,6 @@ public class Paradas extends javax.swing.JFrame {
         for(int i=0;i<busx.size();i++)
         {
             jComboBox3.addItem(busx.get(i).color);
-
- 
-
         }
 
 
@@ -292,6 +287,44 @@ public class Paradas extends javax.swing.JFrame {
                 }       
         }
 
+         
+         String ComboBox1 = (String) origen.getSelectedItem();
+
+for(int p=0;p<paradax.size();p++)
+    {
+    if(paradax.get(p).nombre.equals(ComboBox1)){
+        uno=p;
+    }
+    }
+
+String ComboBox2 = (String) destino.getSelectedItem();
+for(int p=0;p<paradax.size();p++)
+    {
+    if(paradax.get(p).nombre.equals(ComboBox2)){
+        dos=p;
+    }
+
+}
+
+         for(int i=0;i<busx.size();i++)
+        {
+                if(busx.get(i).color==ComboBox3)
+                { 
+               busesito=i;
+                }       
+        }
+         
+         
+                   if(idas.isSelected() || jRadioButton1.isSelected()){
+        System.out.println("HA ENTRADO");
+        Calculos cal= new Calculos();  
+     
+        double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
+        double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
+        precio.setText(String.valueOf(total_precio));
+    }
+         
+         
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinoActionPerformed
@@ -306,7 +339,7 @@ public class Paradas extends javax.swing.JFrame {
         {
                 if(paradax.get(i).nombre==ComboBox1)
                 {
-                    System.out.println("Entrò3");
+                    
                             for(int u=0;u<paradax.size();u++)
                                 {
                                   if(u!=i)
@@ -319,30 +352,96 @@ public class Paradas extends javax.swing.JFrame {
     }//GEN-LAST:event_origenActionPerformed
 
     private void idasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idasActionPerformed
+
 idaVuelta.setEnabled(false);
 ida.setEnabled(true);
-jComboBox3.removeAllItems();
-        for(int i=0;i<busx.size();i++)
+String ComboBox1 = (String) origen.getSelectedItem();
+
+
+
+for(int p=0;p<paradax.size();p++)
+    {
+    if(paradax.get(p).nombre.equals(ComboBox1)){
+        uno=p;
+    }
+
+}
+String ComboBox2 = (String) destino.getSelectedItem();
+for(int p=0;p<paradax.size();p++)
+    {
+    if(paradax.get(p).nombre.equals(ComboBox2)){
+        dos=p;
+    }
+
+}
+
+
+        String ComboBox3 = (String) jComboBox3.getSelectedItem();
+         for(int i=0;i<busx.size();i++)
         {
-            jComboBox3.addItem(busx.get(i).color);
+                if(busx.get(i).color==ComboBox3)
+                { 
+               busesito=i;
+                }       
         }
+         
+
+
           if(jComboBox3.getItemCount() > 0){
         System.out.println("HA ENTRADO");
+        Calculos cal= new Calculos();  
+     
+        double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
+        double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
         Buscar.setEnabled(true);
-        
+        precio.setText(String.valueOf(total_precio));
     }
 
     }//GEN-LAST:event_idasActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-jComboBox3.removeAllItems();
-        for(int i=0;i<busx.size();i++)
+
+String ComboBox1 = (String) origen.getSelectedItem();
+
+
+
+for(int p=0;p<paradax.size();p++)
+    {
+    if(paradax.get(p).nombre.equals(ComboBox1)){
+        uno=p;
+    }
+
+}
+String ComboBox2 = (String) destino.getSelectedItem();
+for(int p=0;p<paradax.size();p++)
+    {
+    if(paradax.get(p).nombre.equals(ComboBox2)){
+        dos=p;
+    }
+
+}
+
+
+        String ComboBox3 = (String) jComboBox3.getSelectedItem();
+         for(int i=0;i<busx.size();i++)
         {
-            jComboBox3.addItem(busx.get(i).color);
+                if(busx.get(i).color==ComboBox3)
+                { 
+               busesito=i;
+                }       
         }
+         
+
+
           if(jComboBox3.getItemCount() > 0){
         System.out.println("HA ENTRADO");
+        Calculos cal= new Calculos();  
+     
+        double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
+        double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
+        total_precio=total_precio+total_precio;
         Buscar.setEnabled(true);
+        precio.setText(String.valueOf(total_precio));
     }
 
         idaVuelta.setEnabled(true);
