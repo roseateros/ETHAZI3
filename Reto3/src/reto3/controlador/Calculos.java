@@ -30,5 +30,10 @@ public class Calculos {
 		
 	
     }
+        
+        public static double Redondear(double total_viaje){
+            
+		return Math.rint(total_viaje*100)/100;
+    }
 }
 

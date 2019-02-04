@@ -5,7 +5,7 @@ import java.sql.*;
 
 public class Insertar {
     
-   public  int vari=5;
+        public  int vari=5;
         conectar con =new conectar();
         Connection reg=con.conexion();
         
@@ -29,7 +29,7 @@ public class Insertar {
     {
             try {  
             Statement st = reg.createStatement(); 
-            st.executeUpdate("INSERT INTO billete (Cod_Billete, NTrayecto, DNI, Fecha, Hora, Cod_Linea, Cod_Bus, Cod_Parada_Inicio, Cod_Parada_Fin,  Precio) VALUES ("+cod_Billete+", "+NTrayecto+", '"+Cod_Linea+"', '"+Cod_Bus+"', '"+Cod_Parada_Inicio+"', '"+Cod_Parada_Fin+"', '"+fecha+"', '"+hora+"', '"+dni+"', "+precio+")"); 
+            st.executeUpdate("INSERT INTO `billete`(`NTrayecto`, `Cod_Linea`, `Cod_Bus`, `Cod_Parada_Inicio`, `Cod_Parada_Fin`, `Fecha`, `Hora`, `DNI`, `Precio`) VALUES ("+NTrayecto+", '"+Cod_Linea+"', '"+Cod_Bus+"', '"+Cod_Parada_Inicio+"', '"+Cod_Parada_Fin+"', '"+fecha+"', '"+hora+"', '"+dni+"', "+precio+")"); 
             reg.close(); 
         } catch (Exception e) { 
             System.err.println("Got an exception! "); 

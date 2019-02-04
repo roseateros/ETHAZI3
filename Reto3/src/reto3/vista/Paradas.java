@@ -3,15 +3,8 @@ package reto3.vista;
 
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
-
-import reto3.controlador.Comprar_billete;
 import reto3.controlador.Nplazas;
-
-
-
 import static reto3.controlador.Seleccionar_Autobus.Seleccionar_Autobus;
-import reto3.controlador.Seleccionar_linea;
 import static reto3.controlador.Seleccionar_paradas.Seleccionar_paradas;
 import reto3.modelo.Parada;
 import reto3.modelo.autobus;
@@ -19,10 +12,11 @@ import reto3.modelo.cliente;
 import reto3.modelo.lineas;
 
 public class Paradas extends javax.swing.JFrame {
- public cliente clientex;
- public lineas lineasx;
- ArrayList<autobus> busx;
- ArrayList<Parada> paradax;
+    
+        public cliente clientex;
+        public lineas lineasx;
+        ArrayList<autobus> busx;
+        ArrayList<Parada> paradax;
  
     public Paradas(cliente cliente,lineas lineas) {
                 
@@ -30,16 +24,7 @@ public class Paradas extends javax.swing.JFrame {
         idaVuelta.setEnabled(false);
         ida.setEnabled(false);
         Buscar.setEnabled(false);
-        
-        
-        
-
-  
-
-        
-        
-        
-        
+       
         paradax = new ArrayList();
         paradax= Seleccionar_paradas(lineas,cliente);
         for(int i=0;i<paradax.size();i++)
@@ -53,11 +38,7 @@ public class Paradas extends javax.swing.JFrame {
         for(int i=0;i<busx.size();i++)
         {
             jComboBox3.addItem(busx.get(i).color);
-
- 
-
         }
-
 
         clientex=cliente;
         lineasx=lineas;
@@ -270,10 +251,6 @@ public class Paradas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-        
-
-
-
         reto3.controlador.pasar_pagina.paradas_a_lista(clientex, lineasx);
         dispose();
     }//GEN-LAST:event_BuscarActionPerformed
@@ -290,6 +267,7 @@ public class Paradas extends javax.swing.JFrame {
                 int numero= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas);
                 plazas.setText("Numero de Plazas Disponible: "+String.valueOf(numero)); 
                 }       
+                
         }
 
     }//GEN-LAST:event_jComboBox3ActionPerformed
