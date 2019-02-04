@@ -15,7 +15,7 @@ public class Comprar_billete {
         JOptionPane.showMessageDialog(null, "Compra realizada!");
         Insertar cone = new Insertar();
         cone.InsertarBillete(cod_Billete, NTrayecto, Cod_Linea, Cod_Bus, Cod_Parada_Inicio, Cod_Parada_Fin, fecha, hora, dni, precio);
-    reto3.controlador.pasar_pagina.paradas_a_lista(cliente,lineas);   
+        reto3.controlador.pasar_pagina.paradas_a_lista(cliente,lineas);   
     }  
     	public static String ObtenerHora () {
             

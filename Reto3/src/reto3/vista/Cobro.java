@@ -20,7 +20,7 @@ public final class Cobro extends javax.swing.JFrame {
         clientex=cliente;
         lineasx=lineas;
         jLabel3.setText(clientex.nombre);
-        reto3.controlador.Cobro.calcularTotal(WIDTH, SOMEBITS, FRAMEBITS);
+
         totalAPagar.setText(String.valueOf(precio+" €"));
 
         setLocationRelativeTo(null);

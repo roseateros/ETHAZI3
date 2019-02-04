@@ -5,8 +5,8 @@ public class Calculos {
     
     public double calcularDistancia(float Lat, float Long, float latitud, float longitud) {
         
-		double radioTierra = 6371;
-		double dlat = Math.toRadians(Lat - latitud); //
+		double radioTierra = 6371;//en kilometros
+		double dlat = Math.toRadians(Lat - latitud); 
 		double dlng = Math.toRadians(Long - longitud);
 		double sindLat = Math.sin(dlat / 2);
 		double sindLng = Math.sin(dlng / 2);
@@ -15,7 +15,20 @@ public class Calculos {
 		double va2 = 2 * Math.atan2(Math.sqrt(va1), Math.sqrt(1 - va1));
 		double distancia = radioTierra * va2;
 
-		return distancia;
+		return distancia; // distancia en kms entre dos puntos(paradaInicio-paradaFin)
+    }
+    
+        public static void calcularTotal(double distancia,double consumo_bus){
+        
+		double precio=0;
+		final double combustible=0.80;
+		final double beneficio=0.20;
+		double consumo_combustible=combustible*consumo_bus;
+		double gasto_viaje=distancia*consumo_combustible;
+		double beneficios= gasto_viaje*beneficio;
+		double total_viaje=beneficios+gasto_viaje;
+		
+	
     }
 }
 
