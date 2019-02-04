@@ -2,8 +2,6 @@ package reto3.modelo;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -59,6 +57,32 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
        return null;// SI SE PRODUCE UN ERROR SE MANDA NULL
     }
     
+    public  cliente BorrarCliente(String us,String pass){
+        
+        try {              
+            Statement st = reg.createStatement();
+            st.executeUpdate("delete from cliente where Nombre='"+us+"' AND contraseña='"+pass+"'");            
+            reg.close(); 
+            
+        } catch (Exception e) { 
+            System.err.println(e.getMessage()); 
+        }       
+        return null;
+    }
+    
+    public cliente ActualizarCliente( String dni,String nombre,String apellidos,String contraseña, String sexo, String fecha)
+        {
+        try {             
+            Statement st = reg.createStatement();
+            st.executeUpdate("UPDATE `cliente` SET `Nombre`='"+nombre+"',`Apellidos`='"+apellidos+"',`Fecha_nac`='"+fecha+"',`Sexo`='"+sexo+"',`Contraseña`='"+contraseña+"' WHERE DNI='"+dni+"'");           
+            reg.close(); 
+            
+        } catch (Exception e) { 
+            System.err.println(e.getMessage()); 
+        }        
+        return null;
+    } 
+    
    // public String ObtenerBoleto()
    // {                    
      //   try{
@@ -102,7 +126,7 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
     
     catch (SQLException ex) 
     {
-        Logger.getLogger(Consultas.class.getName()).log(Level.SEVERE, null, ex);
+        System.err.println("Hubo un Error ");
     }       
        return null;
     }   

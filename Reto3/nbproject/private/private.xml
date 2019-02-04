@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/ImprimirTicket.java</file>
             <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/controlador/Comprar_billete.java</file>
             <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/Cobro.java</file>
@@ -28,6 +29,13 @@
             <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/Reto3.java</file>
             <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/controlador/Seleccionar_paradas.java</file>
             <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/Adios.java</file>
+=======
+            <file>file:/C:/mai/ETHAZI3/Reto3/src/reto3/controlador/ImprimirTicket.java</file>
+            <file>file:/C:/mai/ETHAZI3/Reto3/src/reto3/controlador/BorrarCliente.java</file>
+            <file>file:/C:/mai/ETHAZI3/Reto3/src/reto3/controlador/Comprar_billete.java</file>
+            <file>file:/C:/mai/ETHAZI3/Reto3/src/reto3/vista/ImprimirTicket.java</file>
+            <file>file:/C:/mai/ETHAZI3/Reto3/src/reto3/controlador/Seleccionar_Autobus.java</file>
+>>>>>>> b77217985176468be6f83ea53955400221bed00f
         </group>
     </open-files>
 </project-private>
