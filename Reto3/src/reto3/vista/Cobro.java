@@ -12,8 +12,10 @@ import reto3.modelo.cliente;
 import reto3.modelo.lineas;
 
 public final class Cobro extends javax.swing.JFrame {
+    
     public cliente clientex;
     public lineas lineasx;
+    
     public Cobro(cliente cliente, lineas lineas) {    
 
         initComponents(); 

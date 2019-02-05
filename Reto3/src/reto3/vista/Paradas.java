@@ -1,8 +1,6 @@
 package reto3.vista;
 
-
 import java.util.ArrayList;
-
 import reto3.controlador.Calculos;
 import reto3.controlador.Nplazas;
 import static reto3.controlador.Seleccionar_Autobus.Seleccionar_Autobus;
@@ -25,7 +23,7 @@ public class Paradas extends javax.swing.JFrame {
         initComponents();
         idaVuelta.setEnabled(false);
         ida.setEnabled(false);
-        Buscar.setEnabled(false);
+        Comprar.setEnabled(false);
 
         paradax = new ArrayList();
         paradax= Seleccionar_paradas(lineas,cliente);
@@ -55,7 +53,7 @@ public class Paradas extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         BotonAnterior = new javax.swing.JButton();
-        Buscar = new javax.swing.JButton();
+        Comprar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -77,6 +75,8 @@ public class Paradas extends javax.swing.JFrame {
         destino = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         precio = new javax.swing.JLabel();
+        horaIda = new javax.swing.JComboBox<>();
+        horaVuelta = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -93,16 +93,16 @@ public class Paradas extends javax.swing.JFrame {
         });
         getContentPane().add(BotonAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 100, 70));
 
-        Buscar.setBackground(new java.awt.Color(255, 255, 51));
-        Buscar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        Buscar.setForeground(new java.awt.Color(0, 0, 0));
-        Buscar.setText("COMPRAR");
-        Buscar.addActionListener(new java.awt.event.ActionListener() {
+        Comprar.setBackground(new java.awt.Color(255, 255, 51));
+        Comprar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        Comprar.setForeground(new java.awt.Color(0, 0, 0));
+        Comprar.setText("COMPRAR");
+        Comprar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscarActionPerformed(evt);
+                ComprarActionPerformed(evt);
             }
         });
-        getContentPane().add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 120, 70));
+        getContentPane().add(Comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 120, 70));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT", 0, 64)); // NOI18N
         jLabel2.setText("Linea  2");
@@ -125,7 +125,7 @@ public class Paradas extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("IDA");
         jLabel7.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 30, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 30, -1));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
@@ -149,18 +149,21 @@ public class Paradas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 120, 30));
-        getContentPane().add(ida, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 100, -1));
+
+        ida.setDateFormatString("yyyy-MM-dd");
+        getContentPane().add(ida, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 100, -1));
 
         idaVuelta.setBackground(new java.awt.Color(255, 255, 255));
         idaVuelta.setForeground(new java.awt.Color(0, 0, 0));
-        getContentPane().add(idaVuelta, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 100, -1));
+        idaVuelta.setDateFormatString("yyyy-MM-dd");
+        getContentPane().add(idaVuelta, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 100, -1));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText(" VUELTA");
         jLabel9.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, -1, -1));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
@@ -176,16 +179,16 @@ public class Paradas extends javax.swing.JFrame {
                 jComboBox3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 110, -1));
+        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 80, -1));
 
         plazas.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        getContentPane().add(plazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 230, 20));
+        getContentPane().add(plazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 210, 20));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("TIPO DE TRAYECTO");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, -1));
 
         idas.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(idas);
@@ -197,7 +200,7 @@ public class Paradas extends javax.swing.JFrame {
                 idasActionPerformed(evt);
             }
         });
-        getContentPane().add(idas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
+        getContentPane().add(idas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, -1, -1));
 
         vueltas.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(vueltas);
@@ -209,7 +212,7 @@ public class Paradas extends javax.swing.JFrame {
                 vueltasActionPerformed(evt);
             }
         });
-        getContentPane().add(vueltas, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, -1, -1));
+        getContentPane().add(vueltas, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, -1, -1));
 
         origen.setBackground(new java.awt.Color(255, 255, 255));
         origen.setForeground(new java.awt.Color(0, 0, 0));
@@ -218,7 +221,7 @@ public class Paradas extends javax.swing.JFrame {
                 origenActionPerformed(evt);
             }
         });
-        getContentPane().add(origen, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 140, -1));
+        getContentPane().add(origen, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 200, -1));
 
         destino.setBackground(new java.awt.Color(255, 255, 255));
         destino.setForeground(new java.awt.Color(0, 0, 0));
@@ -227,14 +230,31 @@ public class Paradas extends javax.swing.JFrame {
                 destinoActionPerformed(evt);
             }
         });
-        getContentPane().add(destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 140, -1));
+        getContentPane().add(destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 200, -1));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("PRECIO");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, -1, -1));
-        getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 350, 70, 30));
+        jLabel11.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, -1, 30));
+
+        precio.setBackground(new java.awt.Color(255, 255, 255));
+        precio.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        precio.setForeground(new java.awt.Color(0, 0, 0));
+        precio.setToolTipText("");
+        getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 390, 70, 30));
+
+        horaIda.setBackground(new java.awt.Color(255, 255, 255));
+        horaIda.setForeground(new java.awt.Color(0, 0, 0));
+        horaIda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "09:00", "12:00", "20:00" }));
+        getContentPane().add(horaIda, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, -1, -1));
+
+        horaVuelta.setBackground(new java.awt.Color(255, 255, 255));
+        horaVuelta.setForeground(new java.awt.Color(0, 0, 0));
+        horaVuelta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "09:00", "12:00", "20:00" }));
+        getContentPane().add(horaVuelta, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
@@ -252,16 +272,17 @@ public class Paradas extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+    private void ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarActionPerformed
         reto3.controlador.pasar_pagina.paradas_a_lista(clientex, lineasx);
+        String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
+        String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(idaVuelta.getDate());
         dispose();
-    }//GEN-LAST:event_BuscarActionPerformed
+    }//GEN-LAST:event_ComprarActionPerformed
 
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
-
         String ComboBox3 = (String) jComboBox3.getSelectedItem();
-         for(int i=0;i<busx.size();i++)//numero de plazas disponibles
+        for(int i=0;i<busx.size();i++)//numero de plazas disponibles
         {
                 if(busx.get(i).color==ComboBox3)
                 {
@@ -300,7 +321,9 @@ public class Paradas extends javax.swing.JFrame {
             Calculos cal= new Calculos();   
             double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
             double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
-            precio.setText(String.valueOf(total_precio));
+            double redondo=Calculos.Redondear(total_precio);
+            Comprar.setEnabled(true);
+            precio.setText(String.valueOf(redondo+"€"));
         }        
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
@@ -314,121 +337,105 @@ public class Paradas extends javax.swing.JFrame {
         String ComboBox1 = (String) origen.getSelectedItem();
          for(int i=0;i<paradax.size();i++)
         {
-                if(paradax.get(i).nombre==ComboBox1)
+            if(paradax.get(i).nombre==ComboBox1)
+            {                   
+                for(int u=0;u<paradax.size();u++)
                 {
-                    
-                            for(int u=0;u<paradax.size();u++)
-                                {
-                                  if(u!=i)
-                                  {
-                                    destino.addItem(paradax.get(u).nombre);  
-                                  }                                    
-                                }
-                }       
-        }
+                    if(u!=i)
+                {
+                    destino.addItem(paradax.get(u).nombre);  
+                }                                    
+            }
+        }       
+    }
     }//GEN-LAST:event_origenActionPerformed
 
     private void idasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idasActionPerformed
-
-idaVuelta.setEnabled(false);
-ida.setEnabled(true);
-String ComboBox1 = (String) origen.getSelectedItem();
-
-
-
-for(int p=0;p<paradax.size();p++)
-    {
-    if(paradax.get(p).nombre.equals(ComboBox1)){
-        uno=p;
-    }
-
-}
-String ComboBox2 = (String) destino.getSelectedItem();
-for(int p=0;p<paradax.size();p++)
-    {
-    if(paradax.get(p).nombre.equals(ComboBox2)){
-        dos=p;
-    }
-
-}
-
+        idaVuelta.setEnabled(false);
+        ida.setEnabled(true);
+        
+        String ComboBox1 = (String) origen.getSelectedItem();
+        for(int p=0;p<paradax.size();p++)
+        {
+            if(paradax.get(p).nombre.equals(ComboBox1)){
+            uno=p;
+            }
+        }
+        
+        String ComboBox2 = (String) destino.getSelectedItem();
+        for(int p=0;p<paradax.size();p++)
+        {   
+            if(paradax.get(p).nombre.equals(ComboBox2)){
+            dos=p;
+            }
+        }   
 
         String ComboBox3 = (String) jComboBox3.getSelectedItem();
          for(int i=0;i<busx.size();i++)
         {
-                if(busx.get(i).color==ComboBox3)
-                { 
+            if(busx.get(i).color==ComboBox3)
+            { 
                busesito=i;
-                }       
+            }       
         }
-         
 
-
-          if(jComboBox3.getItemCount() > 0){
-        System.out.println("HA ENTRADO");
-        Calculos cal= new Calculos();  
-     
-        double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
-        double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
-        Buscar.setEnabled(true);
-        precio.setText(String.valueOf(total_precio));
-    }
-
+        if(jComboBox3.getItemCount() > 0){
+            Calculos cal= new Calculos();  
+            double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
+            double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
+            double redondo=Calculos.Redondear(total_precio);
+            Comprar.setEnabled(true);
+            precio.setText(String.valueOf(redondo+"€"));
+        }
     }//GEN-LAST:event_idasActionPerformed
 
     private void vueltasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vueltasActionPerformed
-
-String ComboBox1 = (String) origen.getSelectedItem();
-
-
-
-for(int p=0;p<paradax.size();p++)
-    {
-    if(paradax.get(p).nombre.equals(ComboBox1)){
-        uno=p;
-    }
-
-}
-String ComboBox2 = (String) destino.getSelectedItem();
-for(int p=0;p<paradax.size();p++)
-    {
-    if(paradax.get(p).nombre.equals(ComboBox2)){
-        dos=p;
-    }
-
-}
-
+        String ComboBox1 = (String) origen.getSelectedItem();
+        for(int p=0;p<paradax.size();p++)
+        {
+            if(paradax.get(p).nombre.equals(ComboBox1)){
+            uno=p;
+            }
+        }
+        
+        String ComboBox2 = (String) destino.getSelectedItem();
+        for(int p=0;p<paradax.size();p++)
+        {
+            if(paradax.get(p).nombre.equals(ComboBox2)){
+            dos=p;
+            }
+        }
 
         String ComboBox3 = (String) jComboBox3.getSelectedItem();
          for(int i=0;i<busx.size();i++)
         {
                 if(busx.get(i).color==ComboBox3)
                 { 
-               busesito=i;
+                    busesito=i;
                 }       
         }
-         
 
-
-          if(jComboBox3.getItemCount() > 0){
-        System.out.println("HA ENTRADO");
-        Calculos cal= new Calculos();  
-     
-        double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
-        double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
-        total_precio=total_precio+total_precio;
-        Buscar.setEnabled(true);
-        precio.setText(String.valueOf(total_precio));
-    }
-
+        if(jComboBox3.getItemCount() > 0){
+            System.out.println("HA ENTRADO");
+            Calculos cal= new Calculos();  
+            double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
+            double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
+            total_precio=total_precio+total_precio;
+            double redondo=Calculos.Redondear(total_precio);
+            Comprar.setEnabled(true);
+            precio.setText(String.valueOf(redondo+"€"));
+        }
+        
         idaVuelta.setEnabled(true);
     }//GEN-LAST:event_vueltasActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
-    private javax.swing.JButton Buscar;
+    private javax.swing.JButton Comprar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> destino;
+    private javax.swing.JComboBox<String> horaIda;
+    private javax.swing.JComboBox<String> horaVuelta;
     private com.toedter.calendar.JDateChooser ida;
     private com.toedter.calendar.JDateChooser idaVuelta;
     private javax.swing.JRadioButton idas;

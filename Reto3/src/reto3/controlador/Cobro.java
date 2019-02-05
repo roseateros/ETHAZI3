@@ -11,9 +11,7 @@ public class Cobro {
 
     public static void calcularTotal(){
         
-		double precio=0;
-
-	
+	double precio= 0;
     }
         
     public static void calcularPago(){        

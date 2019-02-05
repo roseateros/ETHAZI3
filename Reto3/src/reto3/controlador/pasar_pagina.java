@@ -10,13 +10,12 @@ import reto3.vista.Saludo;
 import reto3.vista.Cobro;
 import reto3.vista.Adios;
 import reto3.vista.ImprimirTicket;
-import reto3.vista.lista;
+import reto3.vista.Lista;
 
 public class pasar_pagina{
   
     public static int aux;
   
-
      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE SALUDO A REGISTRADO
     public static void classsaludoaregistrado(){
@@ -83,16 +82,15 @@ public class pasar_pagina{
     // FUNCION PARA PASAR DE PARADAS A LISTA
     public static void paradas_a_lista(cliente cliente,lineas lineas){
         //SE CREA EL OBJ DE LA CLASE LISTA
-        lista obj= new lista (cliente,lineas);
+        Lista obj= new Lista (cliente,lineas);
         obj.setVisible(true);
     } 
     
     //FUNCION PARA PASAR DE LISTA A PARADAS
-    public static void lista_a_paradas(cliente cliente,lineas lineas)
-    {
-    //SE CREA EL OBJ DE LA CLASE PARADAS    
-    Paradas obj= new Paradas (cliente,lineas);
-    obj.setVisible(true);
+    public static void lista_a_paradas(cliente cliente,lineas lineas){
+        //SE CREA EL OBJ DE LA CLASE PARADAS    
+        Paradas obj= new Paradas (cliente,lineas);
+        obj.setVisible(true);
     } 
 
     //FUNCION PARA PASAR DE LISTA A COBRO
@@ -116,13 +114,13 @@ public class pasar_pagina{
         obj.setVisible(true);
     }
       
-   //FUNCIÒN PARA PASAR DE IMPRIMIR A ADIOS 
+    //FUNCIÒN PARA PASAR DE IMPRIMIR A ADIOS 
     public static void imprimir_a_adios(){
         //SE CREA EL OBJ DE LA CLASE ADIOS
         Adios obj = new Adios();
         obj.setVisible(true);
     }
-       //FUNCIÒN PARA PASAR DE ADIOS A IMPRIMIR
+    //FUNCIÒN PARA PASAR DE ADIOS A IMPRIMIR
     public static void adios_a_saludo(){
         //SE CREA EL OBJ DE LA CLASE ADIOS
         Saludo obj = new Saludo();

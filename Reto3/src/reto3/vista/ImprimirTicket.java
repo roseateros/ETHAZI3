@@ -5,8 +5,10 @@ import reto3.modelo.cliente;
 import reto3.modelo.lineas;
 
 public class ImprimirTicket extends javax.swing.JFrame {
+    
  public cliente clientex;
  public lineas lineasx;
+ 
     public ImprimirTicket(cliente cliente, lineas lineas) {
         initComponents(); 
         clientex=cliente;

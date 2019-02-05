@@ -4,10 +4,12 @@ package reto3.vista;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
 
-public class lista extends javax.swing.JFrame {
+public class Lista extends javax.swing.JFrame {
+    
 public cliente clientex;
 public lineas lineasx;
-    public lista(cliente cliente,lineas lineas) {
+
+    public Lista(cliente cliente,lineas lineas) {
         initComponents();
         lineasx=lineas;    
         clientex=cliente;
