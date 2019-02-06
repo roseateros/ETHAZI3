@@ -2,6 +2,7 @@ package reto3.vista;
 
 import java.util.ArrayList;
 import reto3.controlador.Calculos;
+import reto3.controlador.Comprar_billete;
 import reto3.controlador.Nplazas;
 import static reto3.controlador.Seleccionar_Autobus.Seleccionar_Autobus;
 import static reto3.controlador.Seleccionar_paradas.Seleccionar_paradas;
@@ -273,7 +274,7 @@ public class Paradas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarActionPerformed
-        reto3.controlador.pasar_pagina.paradas_a_lista(clientex, lineasx);
+        Comprar_billete comprar= new Comprar_billete();
         String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
         String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(idaVuelta.getDate());
         dispose();
