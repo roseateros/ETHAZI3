@@ -362,7 +362,28 @@ public class Paradas extends javax.swing.JFrame {
 
     private void destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinoActionPerformed
 
-        
+                String ComboBox2 = (String) destino.getSelectedItem();
+         for(int i=0;i<paradax.size();i++)
+        {
+             if(paradax.get(i).nombre==ComboBox2)
+            {
+       
+               for(int p=0;p<paradax.size();p++)
+            {   
+            String ComboBox1 = (String) origen.getSelectedItem();
+            if(paradax.get(p).nombre.equals(ComboBox1)){
+            dos=p;
+            }
+        }  
+            if(idas.isSelected() || vueltas.isSelected()){ //recoger todos los datos para hacer el calculo del precio
+            Calculos cal= new Calculos();   
+            double result=Calculos.calcularDistancia(paradax.get(dos).latitud,paradax.get(dos).longitud,paradax.get(i).latitud,paradax.get(i).longitud);
+            double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
+            double redondo=Calculos.Redondear(total_precio);
+            Comprar.setEnabled(true);
+            precio.setText(String.valueOf(redondo+"€"));
+            }}
+        }
     }//GEN-LAST:event_destinoActionPerformed
 
     private void origenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_origenActionPerformed
@@ -371,16 +392,36 @@ public class Paradas extends javax.swing.JFrame {
          for(int i=0;i<paradax.size();i++)
         {
             if(paradax.get(i).nombre==ComboBox1)
-            {                   
+            {
+                
                 for(int u=0;u<paradax.size();u++)
                 {
                     if(u!=i)
                 {
                     destino.addItem(paradax.get(u).nombre);  
-                }                                    
+                }
+                    
+                   String ComboBox2 = (String) destino.getSelectedItem();
+        for(int p=0;p<paradax.size();p++)
+        {
+            if(paradax.get(p).nombre.equals(ComboBox2)){
+            dos=p;
+            }
+        }    
+                    
+                    
+                    
+            if(idas.isSelected() || vueltas.isSelected()){ //recoger todos los datos para hacer el calculo del precio
+            Calculos cal= new Calculos();   
+            double result=Calculos.calcularDistancia(paradax.get(i).latitud,paradax.get(i).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
+            double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
+            double redondo=Calculos.Redondear(total_precio);
+            Comprar.setEnabled(true);
+            precio.setText(String.valueOf(redondo+"€"));
+            }     
             }
                 
-               
+         
                 
         }       
     }
