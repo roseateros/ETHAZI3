@@ -425,7 +425,7 @@ public class Paradas extends javax.swing.JFrame {
             Comprar.setEnabled(true);
             precio.setText(String.valueOf(redondo+"€"));
         }
-        
+        ida.setEnabled(true);
         idaVuelta.setEnabled(true);
     }//GEN-LAST:event_vueltasActionPerformed
 
