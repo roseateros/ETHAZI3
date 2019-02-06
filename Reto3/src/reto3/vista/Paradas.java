@@ -188,9 +188,7 @@ public class Paradas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 80, -1));
-
-        plazas.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        getContentPane().add(plazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 200, 20));
+        getContentPane().add(plazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 120, 20));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
@@ -268,7 +266,7 @@ public class Paradas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(horaVuelta, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, -1, -1));
-        getContentPane().add(plazas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 200, 20));
+        getContentPane().add(plazas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 120, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
@@ -318,11 +316,9 @@ public class Paradas extends javax.swing.JFrame {
                 int numero2= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas,horavuelta);
                 plazas.setText("Plazas Disponible: "+String.valueOf(numero)); 
                 plazas2.setText("Plazas Disponible: "+String.valueOf(numero));
-                    }   
-                 
-                     
+                    }                        
                 }
-                }
+            }
                 
         }
         
@@ -386,12 +382,10 @@ public class Paradas extends javax.swing.JFrame {
     private void idasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idasActionPerformed
         plazas.setText(" ");
         plazas2.setText(" ");
-        
-       
-        
+     
        String horaida= (String) horaIda.getSelectedItem();
-
        String ComboBox3 = (String) jComboBox3.getSelectedItem();
+       
                for(int i=0;i<busx.size();i++)//numero de plazas disponibles
         {
                 if(busx.get(i).color==ComboBox3)
@@ -399,8 +393,8 @@ public class Paradas extends javax.swing.JFrame {
                 Nplazas nplaza= new Nplazas();   
                 int numero= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas,horaida);
                 plazas.setText("Plazas Disponible: "+String.valueOf(numero)); 
-                }       
                 
+                }                     
         }
         
         idaVuelta.setEnabled(false);

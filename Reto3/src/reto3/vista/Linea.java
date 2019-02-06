@@ -149,25 +149,25 @@ public class Linea extends javax.swing.JFrame  {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     String  lineax="L1";
+        String  lineax="L1";
         Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex);
         dispose (); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
- String  lineax="L2";
+        String  lineax="L2";
         Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex);
         dispose (); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-  String  lineax="L3";
+        String  lineax="L3";
         Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex);
         dispose ();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
- String  lineax="L4";
+        String  lineax="L4";
         Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex);
         dispose ();
     }//GEN-LAST:event_jButton4ActionPerformed
