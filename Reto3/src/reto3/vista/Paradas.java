@@ -274,6 +274,7 @@ public class Paradas extends javax.swing.JFrame {
 
     private void ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarActionPerformed
         reto3.controlador.pasar_pagina.paradas_a_lista(clientex, lineasx);
+        
         String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
         String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(idaVuelta.getDate());
         dispose();
@@ -425,7 +426,7 @@ public class Paradas extends javax.swing.JFrame {
             Comprar.setEnabled(true);
             precio.setText(String.valueOf(redondo+"€"));
         }
-        
+        ida.setEnabled(true);
         idaVuelta.setEnabled(true);
     }//GEN-LAST:event_vueltasActionPerformed
 
