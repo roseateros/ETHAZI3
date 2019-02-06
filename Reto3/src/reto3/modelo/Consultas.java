@@ -85,11 +85,11 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
         return null;
     } 
     
-        public Integer NPlazas(int Cod_Bus)
+        public Integer NPlazas(int Cod_Bus,String horaida)
         {
         try {             
             
-            String query="SELECT COUNT(billete.Cod_bus) As 'cantidad' from billete where billete.Cod_bus =(SELECT autobus.Cod_bus from autobus where autobus.Cod_bus="+Cod_Bus+")";           
+            String query="SELECT COUNT(billete.Cod_bus) As 'cantidad' from billete where billete.Cod_bus =(SELECT autobus.Cod_bus from autobus where autobus.Cod_bus="+Cod_Bus+" and hora='"+horaida+"')";           
             Statement sentencia= reg.createStatement();
             ResultSet resultado=sentencia.executeQuery(query);
             
