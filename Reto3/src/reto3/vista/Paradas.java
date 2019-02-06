@@ -379,6 +379,9 @@ public class Paradas extends javax.swing.JFrame {
                     destino.addItem(paradax.get(u).nombre);  
                 }                                    
             }
+                
+               
+                
         }       
     }
     }//GEN-LAST:event_origenActionPerformed
@@ -433,14 +436,14 @@ public class Paradas extends javax.swing.JFrame {
             }       
         }
 
-        if(jComboBox3.getItemCount() > 0){
+        
             Calculos cal= new Calculos();  
             double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
             double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
             double redondo=Calculos.Redondear(total_precio);
             Comprar.setEnabled(true);
             precio.setText(String.valueOf(redondo+"€"));
-        }
+       
     }//GEN-LAST:event_idasActionPerformed
 
     private void vueltasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vueltasActionPerformed
@@ -490,7 +493,7 @@ public class Paradas extends javax.swing.JFrame {
                 }       
         }
 
-        if(jComboBox3.getItemCount() > 0){
+        
             Calculos cal= new Calculos();  
             double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
             double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
@@ -498,7 +501,7 @@ public class Paradas extends javax.swing.JFrame {
             double redondo=Calculos.Redondear(total_precio);
             Comprar.setEnabled(true);
             precio.setText(String.valueOf(redondo+"€"));
-        }
+        
         ida.setEnabled(true);
         idaVuelta.setEnabled(true);
         horaIda.setEnabled(true);
