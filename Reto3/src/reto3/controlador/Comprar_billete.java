@@ -18,9 +18,4 @@ public class Comprar_billete {
         //cone.InsertarBillete(cod_Billete, NTrayecto, Cod_Linea, Cod_Bus, Cod_Parada_Inicio, Cod_Parada_Fin, ida, idaVuelta, horaida, horaVuelta, dni, precio);
         reto3.controlador.pasar_pagina.paradas_a_lista(cliente,lineas);   
     }  
-
-    public Comprar_billete() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }
