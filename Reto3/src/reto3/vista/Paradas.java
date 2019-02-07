@@ -1,7 +1,11 @@
 package reto3.vista;
 
+import com.toedter.calendar.JDateChooser;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import reto3.controlador.Calculos;
+import reto3.controlador.Comprar_billete;
 import reto3.controlador.Nplazas;
 import static reto3.controlador.Seleccionar_Autobus.Seleccionar_Autobus;
 import static reto3.controlador.Seleccionar_paradas.Seleccionar_paradas;
@@ -28,6 +32,8 @@ public class Paradas extends javax.swing.JFrame {
         horaIda.setEnabled(false);
         horaVuelta.setEnabled(false);
         Comprar.setEnabled(false);
+        JDateChooser dateChooser = new JDateChooser();
+        dateChooser.getDateEditor().setEnabled(false);//para que el usuario no pueda introducir a mano una fecha
 
         horas = new ArrayList();
         horas.add(0, "08:00");
@@ -168,21 +174,13 @@ public class Paradas extends javax.swing.JFrame {
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 120, 30));
 
         ida.setDateFormatString("yyyy-MM-dd");
-        ida.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                idaMouseClicked(evt);
-            }
-        });
+        ida.setMaxSelectableDate(new java.util.Date(1577750479000L));
         getContentPane().add(ida, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 100, -1));
 
         idaVuelta.setBackground(new java.awt.Color(255, 255, 255));
         idaVuelta.setForeground(new java.awt.Color(0, 0, 0));
         idaVuelta.setDateFormatString("yyyy-MM-dd");
-        idaVuelta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                idaVueltaMouseClicked(evt);
-            }
-        });
+        idaVuelta.setMaxSelectableDate(new java.util.Date(1577750479000L));
         getContentPane().add(idaVuelta, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 100, -1));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
@@ -250,11 +248,6 @@ public class Paradas extends javax.swing.JFrame {
 
         destino.setBackground(new java.awt.Color(255, 255, 255));
         destino.setForeground(new java.awt.Color(0, 0, 0));
-        destino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                destinoActionPerformed(evt);
-            }
-        });
         getContentPane().add(destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 200, -1));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
@@ -302,6 +295,11 @@ public class Paradas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarActionPerformed
+        //Comprar_billete comprar= new Comprar_billete();
+        
+        String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
+        String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(idaVuelta.getDate());
+
         reto3.controlador.pasar_pagina.paradas_a_lista(clientex, lineasx);        
         dispose();
     }//GEN-LAST:event_ComprarActionPerformed
@@ -335,8 +333,7 @@ public class Paradas extends javax.swing.JFrame {
                 plazas2.setText("Plazas Disponibles: "+String.valueOf(numero));
                     }                        
                 }
-            }
-                
+            }                
         }
         
         String ComboBox1 = (String) origen.getSelectedItem();
@@ -373,6 +370,7 @@ public class Paradas extends javax.swing.JFrame {
         }        
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
+
     private void destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinoActionPerformed
 
                 String ComboBox2 = (String) destino.getSelectedItem();
@@ -399,10 +397,11 @@ public class Paradas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_destinoActionPerformed
 
+
     private void origenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_origenActionPerformed
         destino.removeAllItems();
         String ComboBox1 = (String) origen.getSelectedItem();
-         for(int i=0;i<paradax.size();i++)
+        for(int i=0;i<paradax.size();i++)
         {
             if(paradax.get(i).nombre==ComboBox1)
             {
@@ -452,14 +451,13 @@ public class Paradas extends javax.swing.JFrame {
        String horaida= (String) horaIda.getSelectedItem();
        String ComboBox3 = (String) jComboBox3.getSelectedItem();
        
-               for(int i=0;i<busx.size();i++)
+        for(int i=0;i<busx.size();i++)
         {
-                if(busx.get(i).color==ComboBox3)
+            if(busx.get(i).color==ComboBox3)
                 {
                 Nplazas nplaza= new Nplazas();   
                 int numero= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas,horaida);
-                plazas.setText("Plazas Disponibles: "+String.valueOf(numero)); 
-                
+                plazas.setText("Plazas Disponibles: "+String.valueOf(numero));                
                 }                     
         }
         
@@ -561,22 +559,10 @@ public class Paradas extends javax.swing.JFrame {
         horaVuelta.setEnabled(true);
     }//GEN-LAST:event_vueltasActionPerformed
 
-    private void idaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idaMouseClicked
-    String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
-        
-        try {              
-
-            
-            
-        } catch (Exception e) { 
-            System.err.println(e.getMessage()); 
-        }       
-    
-    }//GEN-LAST:event_idaMouseClicked
-
     private void horaIdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaIdaActionPerformed
         String horaida = (String)horaIda.getSelectedItem();
         horaVuelta.removeAllItems();
+
     //    String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
         
     //    String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(idaVuelta.getDate());
@@ -597,11 +583,25 @@ public class Paradas extends javax.swing.JFrame {
             }
         //}
         
-    }//GEN-LAST:event_horaIdaActionPerformed
 
-    private void idaVueltaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idaVueltaMouseClicked
-    String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(idaVuelta.getDate());
-    }//GEN-LAST:event_idaVueltaMouseClicked
+        ida.getJCalendar().setMinSelectableDate(new Date());//para elegir la fecha del calendario desde el dia actual
+        //idaVuelta.getJCalendar().setMinSelectableDate(ida);
+ 
+                if(horas.get(0).equals(horaida)){
+                    horaVuelta.addItem(horas.get(1));
+                    horaVuelta.addItem(horas.get(2));
+                    horaVuelta.addItem(horas.get(3));
+                }
+                
+                if(horas.get(1).equals(horaida)){
+                    horaVuelta.addItem(horas.get(2));
+                    horaVuelta.addItem(horas.get(3));
+                }
+                if(horas.get(2).equals(horaida)){
+                    horaVuelta.addItem(horas.get(3));
+                }      
+
+    }//GEN-LAST:event_horaIdaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
@@ -633,5 +633,4 @@ public class Paradas extends javax.swing.JFrame {
     private javax.swing.JLabel precio;
     private javax.swing.JRadioButton vueltas;
     // End of variables declaration//GEN-END:variables
-
 }
