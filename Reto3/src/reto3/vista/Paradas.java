@@ -335,8 +335,7 @@ public class Paradas extends javax.swing.JFrame {
                 plazas2.setText("Plazas Disponibles: "+String.valueOf(numero));
                     }                        
                 }
-            }
-                
+            }             
         }
         
         String ComboBox1 = (String) origen.getSelectedItem();
