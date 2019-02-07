@@ -1,6 +1,9 @@
 
 package reto3.vista;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import reto3.modelo.billete;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
 
@@ -8,17 +11,18 @@ public class Lista extends javax.swing.JFrame {
     
 public cliente clientex;
 public lineas lineasx;
+public ArrayList<billete> billetex;
 
-    public Lista(cliente cliente,lineas lineas) {
+    public Lista(cliente cliente,lineas lineas, ArrayList<billete> billete) {
         initComponents();
-        lineasx=lineas;    
+        billetex = new ArrayList();
+        billetex.add(billete.get(0));
+        lineasx=lineas;
+        JOptionPane.showMessageDialog(null,billetex.get(0).Cod_Bus);
         clientex=cliente;
-        //lista.setText("Usuario: "+cliente.nombre);
+
         lista.setText("Linea: "+lineas.Cod_Linea);
-        //lista.setText("Parada Inicio: "+billete.Cod_Parada_Inicio);
-        //lista.setText("Parada Fin: "+billete.Cod_Parada_Fin);
-        //lista.setText("Fecha: "+billete.Fecha);
-        //lista.setText("Hora: "+billete.Hora);
+     
         jLabel4.setText(clientex.nombre);
             setLocationRelativeTo(null);
             setResizable (false);
@@ -114,7 +118,7 @@ public lineas lineasx;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        reto3.controlador.pasar_pagina.lista_a_cobro(clientex, lineasx);
+        reto3.controlador.pasar_pagina.lista_a_cobro(clientex, lineasx,billetex);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 

@@ -27,7 +27,7 @@ public class Seleccionar_paradas {
             System.out.println(paradax.size());
             for(int f=0;f<((paradax.size()-k)-1);f++)
             {
-                System.out.println("Dentro del For 2");
+                
                 if(paradax.get(f).distancia>paradax.get(f+1).distancia)
                 {
                     parad=paradax.get(f+1);

@@ -1,13 +1,17 @@
 package reto3.vista;
 
 import com.toedter.calendar.JDateChooser;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import reto3.controlador.Calculos;
 import reto3.controlador.Comprar_billete;
 import reto3.controlador.Nplazas;
 import static reto3.controlador.Seleccionar_Autobus.Seleccionar_Autobus;
+import reto3.controlador.Seleccionar_linea;
 import static reto3.controlador.Seleccionar_paradas.Seleccionar_paradas;
 import reto3.modelo.Parada;
 import reto3.modelo.autobus;
@@ -23,10 +27,12 @@ public class Paradas extends javax.swing.JFrame {
         ArrayList<String> horas;
         ArrayList<String> horavuelta;
         public int uno,dos,busesito;
+        public double redondo;
 
     public Paradas(cliente cliente,lineas lineas) {
                 
         initComponents();
+
         idaVuelta.setEnabled(false);
         ida.setEnabled(false);
         horaIda.setEnabled(false);
@@ -35,6 +41,21 @@ public class Paradas extends javax.swing.JFrame {
         JDateChooser dateChooser = new JDateChooser();
         dateChooser.getDateEditor().setEnabled(false);//para que el usuario no pueda introducir a mano una fecha
 
+        ida.getJCalendar().setMinSelectableDate(new Date());//para elegir la fecha del calendario desde el dia actual     
+        ida.getDateEditor().addPropertyChangeListener(new PropertyChangeListener(){ 
+        public void propertyChange(PropertyChangeEvent e) {
+            
+          System.out.println("Estoy en hora");  
+            
+        idaVuelta.getJCalendar().setMinSelectableDate(ida.getDate());
+/*        int año = ida.getCalendar().get(Calendar.YEAR);
+        int mes = ida.getCalendar().get(Calendar.MARCH);
+        int dia = ida.getCalendar().get(Calendar.DAY_OF_MONTH);
+
+        String fecha1 =(año+"-"+mes+"-"+dia);*/
+        System.out.println(ida.getDate()+"Estoy ");
+        }
+        });
         horas = new ArrayList();
         horas.add(0, "08:00");
         horas.add(1, "12:00");
@@ -175,6 +196,23 @@ public class Paradas extends javax.swing.JFrame {
 
         ida.setDateFormatString("yyyy-MM-dd");
         ida.setMaxSelectableDate(new java.util.Date(1577750479000L));
+        ida.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                idaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                idaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                idaMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                idaMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                idaMouseReleased(evt);
+            }
+        });
         getContentPane().add(ida, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 100, -1));
 
         idaVuelta.setBackground(new java.awt.Color(255, 255, 255));
@@ -248,6 +286,11 @@ public class Paradas extends javax.swing.JFrame {
 
         destino.setBackground(new java.awt.Color(255, 255, 255));
         destino.setForeground(new java.awt.Color(0, 0, 0));
+        destino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                destinoActionPerformed(evt);
+            }
+        });
         getContentPane().add(destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 200, -1));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
@@ -295,12 +338,40 @@ public class Paradas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarActionPerformed
-        //Comprar_billete comprar= new Comprar_billete();
-        
-        String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
-        String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(idaVuelta.getDate());
 
-        reto3.controlador.pasar_pagina.paradas_a_lista(clientex, lineasx);        
+          String ComboBox3 = (String) jComboBox3.getSelectedItem();
+                for(int i=0;i<busx.size();i++)//numero de plazas disponibles
+                {
+                if(busx.get(i).color==ComboBox3)
+                {
+                    int uno=i;
+                }
+                }
+                
+             for(int p=0;p<paradax.size();p++)
+            {   
+            String ComboBox1 = (String) origen.getSelectedItem();
+            if(paradax.get(p).nombre.equals(ComboBox1)){
+            uno=p;
+            }
+            }     
+            
+             
+                for(int p=0;p<paradax.size();p++)
+            {   
+            String ComboBox2 = (String) destino.getSelectedItem();
+            if(paradax.get(p).nombre.equals(ComboBox2)){
+            dos=p;
+            }
+            } 
+                
+                
+           String horaida = (String)horaIda.getSelectedItem();      
+        String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
+         Comprar_billete compra= new Comprar_billete(1,clientex.dni,fecha1,horaida,lineasx.Cod_Linea,busx.get(uno).Cod_bus,paradax.get(uno).codParada,paradax.get(dos).codParada,redondo);
+        
+        
+        
         dispose();
     }//GEN-LAST:event_ComprarActionPerformed
 
@@ -334,6 +405,7 @@ public class Paradas extends javax.swing.JFrame {
                     }                        
                 }
             }                
+
         }
         
         String ComboBox1 = (String) origen.getSelectedItem();
@@ -364,7 +436,7 @@ public class Paradas extends javax.swing.JFrame {
             Calculos cal= new Calculos();   
             double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
             double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
-            double redondo=Calculos.Redondear(total_precio);
+             redondo=Calculos.Redondear(total_precio);
             Comprar.setEnabled(true);
             precio.setText(String.valueOf(redondo+"€"));
         }        
@@ -390,7 +462,7 @@ public class Paradas extends javax.swing.JFrame {
             Calculos cal= new Calculos();   
             double result=Calculos.calcularDistancia(paradax.get(dos).latitud,paradax.get(dos).longitud,paradax.get(i).latitud,paradax.get(i).longitud);
             double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
-            double redondo=Calculos.Redondear(total_precio);
+             redondo=Calculos.Redondear(total_precio);
             Comprar.setEnabled(true);
             precio.setText(String.valueOf(redondo+"€"));
             }}
@@ -428,7 +500,7 @@ public class Paradas extends javax.swing.JFrame {
             Calculos cal= new Calculos();   
             double result=Calculos.calcularDistancia(paradax.get(i).latitud,paradax.get(i).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
             double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
-            double redondo=Calculos.Redondear(total_precio);
+             redondo=Calculos.Redondear(total_precio);
             Comprar.setEnabled(true);
             precio.setText(String.valueOf(redondo+"€"));
             }     
@@ -494,7 +566,7 @@ public class Paradas extends javax.swing.JFrame {
             Calculos cal= new Calculos();  
             double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
             double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
-            double redondo=Calculos.Redondear(total_precio);
+             redondo=Calculos.Redondear(total_precio);
             Comprar.setEnabled(true);
             precio.setText(String.valueOf(redondo+"€"));
        
@@ -549,7 +621,7 @@ public class Paradas extends javax.swing.JFrame {
             double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
             double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
             total_precio=total_precio+total_precio;
-            double redondo=Calculos.Redondear(total_precio);
+             redondo=Calculos.Redondear(total_precio);
             Comprar.setEnabled(true);
             precio.setText(String.valueOf(redondo+"€"));
         
@@ -562,6 +634,7 @@ public class Paradas extends javax.swing.JFrame {
     private void horaIdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaIdaActionPerformed
         String horaida = (String)horaIda.getSelectedItem();
         horaVuelta.removeAllItems();
+
 
     //    String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
         
@@ -587,6 +660,7 @@ public class Paradas extends javax.swing.JFrame {
         ida.getJCalendar().setMinSelectableDate(new Date());//para elegir la fecha del calendario desde el dia actual
         //idaVuelta.getJCalendar().setMinSelectableDate(ida);
  
+
                 if(horas.get(0).equals(horaida)){
                     horaVuelta.addItem(horas.get(1));
                     horaVuelta.addItem(horas.get(2));
@@ -599,10 +673,33 @@ public class Paradas extends javax.swing.JFrame {
                 }
                 if(horas.get(2).equals(horaida)){
                     horaVuelta.addItem(horas.get(3));
-                }      
+
+                }  
+            
 
     }//GEN-LAST:event_horaIdaActionPerformed
 
+    private void idaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idaMouseClicked
+
+    }//GEN-LAST:event_idaMouseClicked
+
+    private void idaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idaMouseEntered
+
+    }//GEN-LAST:event_idaMouseEntered
+
+    private void idaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idaMouseExited
+
+    }//GEN-LAST:event_idaMouseExited
+
+    private void idaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idaMousePressed
+
+    }//GEN-LAST:event_idaMousePressed
+
+    private void idaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idaMouseReleased
+
+    }//GEN-LAST:event_idaMouseReleased
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
     private javax.swing.JButton Comprar;
