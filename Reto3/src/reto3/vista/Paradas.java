@@ -1,9 +1,12 @@
 package reto3.vista;
 
 import com.toedter.calendar.JDateChooser;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import reto3.controlador.Calculos;
 import reto3.controlador.Comprar_billete;
 import reto3.controlador.Nplazas;
@@ -35,6 +38,21 @@ public class Paradas extends javax.swing.JFrame {
         JDateChooser dateChooser = new JDateChooser();
         dateChooser.getDateEditor().setEnabled(false);//para que el usuario no pueda introducir a mano una fecha
 
+        ida.getJCalendar().setMinSelectableDate(new Date());//para elegir la fecha del calendario desde el dia actual     
+        ida.getDateEditor().addPropertyChangeListener(new PropertyChangeListener(){ 
+        public void propertyChange(PropertyChangeEvent e) {
+            
+          System.out.println("Estoy en hora");  
+            
+        idaVuelta.getJCalendar().setMinSelectableDate(ida.getDate());
+/*        int año = ida.getCalendar().get(Calendar.YEAR);
+        int mes = ida.getCalendar().get(Calendar.MARCH);
+        int dia = ida.getCalendar().get(Calendar.DAY_OF_MONTH);
+
+        String fecha1 =(año+"-"+mes+"-"+dia);*/
+        System.out.println(ida.getDate()+"Estoy ");
+        }
+        });
         horas = new ArrayList();
         horas.add(0, "08:00");
         horas.add(1, "12:00");
@@ -507,9 +525,7 @@ public class Paradas extends javax.swing.JFrame {
     private void horaIdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaIdaActionPerformed
         String horaida = (String)horaIda.getSelectedItem();
         horaVuelta.removeAllItems();
-        ida.getJCalendar().setMinSelectableDate(new Date());//para elegir la fecha del calendario desde el dia actual
-        //idaVuelta.getJCalendar().setMinSelectableDate(ida);
- 
+        
                 if(horas.get(0).equals(horaida)){
                     horaVuelta.addItem(horas.get(1));
                     horaVuelta.addItem(horas.get(2));
@@ -522,9 +538,10 @@ public class Paradas extends javax.swing.JFrame {
                 }
                 if(horas.get(2).equals(horaida)){
                     horaVuelta.addItem(horas.get(3));
-                }      
+                }  
+            
     }//GEN-LAST:event_horaIdaActionPerformed
-
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
     private javax.swing.JButton Comprar;
