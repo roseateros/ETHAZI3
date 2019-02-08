@@ -2,6 +2,7 @@ package reto3.vista;
 
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import reto3.controlador.Calculos;
 import reto3.controlador.Comprar_billete;
 import reto3.controlador.Nplazas;
@@ -27,6 +28,7 @@ public class Paradas extends javax.swing.JFrame {
     public Paradas(cliente cliente,lineas lineas) {
                 
         initComponents();
+           JOptionPane.showMessageDialog(null, "Estoy en el uno de Paradas");
         horaVuelta.setEnabled(false); 
         idaVuelta.setEnabled(false);
         horaIda.setEnabled(false);
@@ -65,14 +67,16 @@ public class Paradas extends javax.swing.JFrame {
             setLocationRelativeTo(null);
             setResizable (false);
             setTitle ("Lineas");
-            jLabel4.setText(cliente.nombre);     
+               
     }
     //UNO
     
     //DOS
       public Paradas(cliente cliente,lineas lineas,ArrayList<billete> billete) {
+          
                 
         initComponents();
+         JOptionPane.showMessageDialog(null, "Estoy en el dos de paradas");
         billetex=billete;
         horaVuelta.setEnabled(false); 
         idaVuelta.setEnabled(false);
@@ -388,15 +392,33 @@ public class Paradas extends javax.swing.JFrame {
                
         String horaida = (String)horaIda.getSelectedItem();      
         String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
-        if(null==billetex.get(0).Cod_Linea)
+
+
+        //Date date = ida.getDate();
+        //java.sql.Date sDate = new java.sql.Date(date.getTime());
+        try{
+        if(billetex.size()>0)
         {
-        Comprar_billete compra= new Comprar_billete(1,clientex.dni,fecha1,horaida,lineasx.Cod_Linea,busx.get(uno).Cod_bus,paradax.get(uno).codParada,paradax.get(dos).codParada,redondo);           
+          JOptionPane.showMessageDialog(null, "Estoy en el dos de paradas try");
+           Comprar_billete compra= new Comprar_billete(1,clientex.dni,fecha1,horaida,lineasx.Cod_Linea,busx.get(uno).Cod_bus,paradax.get(uno).codParada,paradax.get(dos).codParada,redondo,billetex); 
         dispose();
+        
+         
+           
         }
-        else
-        {
-          Comprar_billete compra= new Comprar_billete(1,clientex.dni,fecha1,horaida,lineasx.Cod_Linea,busx.get(uno).Cod_bus,paradax.get(uno).codParada,paradax.get(dos).codParada,redondo,billetex);    
-        }    
+         
+        
+        
+        }catch(Exception e){
+       JOptionPane.showMessageDialog(null, "Estoy en el uno de paradas catch");
+         Comprar_billete compra= new Comprar_billete(1,clientex.dni,fecha1,horaida,lineasx.Cod_Linea,busx.get(uno).Cod_bus,paradax.get(uno).codParada,paradax.get(dos).codParada,redondo); 
+
+        dispose();
+        
+        }
+        
+       
+          
     }//GEN-LAST:event_ComprarActionPerformed
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed

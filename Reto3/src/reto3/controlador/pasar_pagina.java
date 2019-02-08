@@ -83,7 +83,7 @@ public class pasar_pagina{
     //Se debe pasar El objeto Cliente y el Objeto lineas DE SUS RESPECTIVAS CLASES
     public static void lineas_a_paradas(cliente cliente, lineas lineas,ArrayList<billete> billete){
         //SE CREA EL OBJ DE LA CLASE PARADAS
-        Paradas obj= new Paradas (cliente,lineas);
+        Paradas obj= new Paradas (cliente,lineas,billete);
         obj.setVisible(true);
     }  
     public static void lineas_a_paradas(cliente cliente, lineas lineas){

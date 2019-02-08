@@ -12,12 +12,14 @@ public class Comprar_billete {
     
     public cliente cliente;
     public lineas lineas;
+
     
     public Comprar_billete( int NTrayecto, String dni, String ida, String horaida, String Cod_Linea, int Cod_Bus, int Cod_Parada_Inicio, int Cod_Parada_Fin, double precio,ArrayList<billete> billete){
         
-        JOptionPane.showMessageDialog(null, "Compra realizada!");
+        JOptionPane.showMessageDialog(null, "Compra realizada! del dos");
 
-       
+        
+        
         billete billetico=new billete(NTrayecto,dni,ida,horaida,Cod_Linea,Cod_Bus,Cod_Parada_Inicio,Cod_Parada_Fin,precio);
         billete.add(billetico);
         
@@ -26,10 +28,9 @@ public class Comprar_billete {
     
         public Comprar_billete( int NTrayecto, String dni, String ida, String horaida, String Cod_Linea, int Cod_Bus, int Cod_Parada_Inicio, int Cod_Parada_Fin, double precio){
         
-        JOptionPane.showMessageDialog(null, "Compra realizada!");
-
-        ArrayList<billete> billete;
-        billete = new ArrayList();
+        JOptionPane.showMessageDialog(null, "Compra realizada! del uno");
+     ArrayList<billete> billete;
+       billete = new ArrayList();
         billete billetico=new billete(NTrayecto,dni,ida,horaida,Cod_Linea,Cod_Bus,Cod_Parada_Inicio,Cod_Parada_Fin,precio);
         billete.add(billetico);
         
