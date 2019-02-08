@@ -19,8 +19,8 @@ public ArrayList<billete> billetex;
         
         DefaultListModel modelio = new DefaultListModel();
         lista.setModel(modelio);
-        billetex = new ArrayList();
-        
+        billetex =new ArrayList();
+       
         
         
         
@@ -35,7 +35,7 @@ public ArrayList<billete> billetex;
         
         
         lineasx=lineas;
-        JOptionPane.showMessageDialog(null,billetex.get(0).Cod_Bus);
+        
         clientex=cliente;
         
         
