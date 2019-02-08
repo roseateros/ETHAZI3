@@ -1,14 +1,16 @@
   package reto3.vista;
 
 
+import javax.swing.JOptionPane;
 import reto3.controlador.ActualizarCliente;
 import reto3.controlador.crearCliente;
 import static reto3.controlador.pasar_pagina.aux;
+import reto3.modelo.cliente;
 
-public class NoRegistrado extends javax.swing.JFrame {
-
-    public NoRegistrado() {
-    
+public class Actulizar extends javax.swing.JFrame {
+public cliente cliente;
+    public Actulizar(cliente clientex) {
+    cliente=clientex;
         initComponents();
             setLocationRelativeTo(null);
             setResizable (false);
@@ -25,7 +27,6 @@ public class NoRegistrado extends javax.swing.JFrame {
         BotonAnterior = new javax.swing.JButton();
         jlabel2 = new javax.swing.JLabel();
         jlabel1 = new javax.swing.JLabel();
-        Registrar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jlabel3 = new javax.swing.JLabel();
         pass = new javax.swing.JLabel();
@@ -39,6 +40,7 @@ public class NoRegistrado extends javax.swing.JFrame {
         contraseña = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         password = new javax.swing.JPasswordField();
+        actualizar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,8 +48,8 @@ public class NoRegistrado extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("DATOS USUARIO");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 130, 30));
+        jLabel2.setText("ACTULIZAR DATOS DE USUARIO");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 250, 30));
 
         BotonAnterior.setBackground(new java.awt.Color(51, 51, 51));
         BotonAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/anterior.png"))); // NOI18N
@@ -70,17 +72,6 @@ public class NoRegistrado extends javax.swing.JFrame {
         jlabel1.setForeground(new java.awt.Color(0, 0, 0));
         jlabel1.setText("DNI:");
         getContentPane().add(jlabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 30, 20));
-
-        Registrar.setBackground(new java.awt.Color(255, 255, 51));
-        Registrar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        Registrar.setForeground(new java.awt.Color(0, 0, 0));
-        Registrar.setText("RESGISTRAR");
-        Registrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegistrarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, 120, 40));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
@@ -129,6 +120,17 @@ public class NoRegistrado extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, -1, -1));
         getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 130, -1));
 
+        actualizar.setBackground(new java.awt.Color(255, 255, 51));
+        actualizar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        actualizar.setForeground(new java.awt.Color(0, 0, 0));
+        actualizar.setText("ACTUALIZAR");
+        actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actualizarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 130, 30));
+
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         jLabel1.setText("SI  QUIERE CAMBIAR LOS DATOS...");
@@ -142,25 +144,25 @@ public class NoRegistrado extends javax.swing.JFrame {
         dispose (); 
     }//GEN-LAST:event_BotonAnteriorActionPerformed
 
-    private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
+    private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
         if (H.isSelected()){
             sexo= "V";
         } else if (M.isSelected()){
             sexo= "M";
-        }          
+        }  
     String fecha = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(fecha_nac.getDate());
-    crearCliente crearCliente = new crearCliente (dni.getText(), nombre.getText(), apellidos.getText(), fecha, sexo, contraseña.getText(),password.getText()) ;   
+    ActualizarCliente ActualizarCliente = new ActualizarCliente (dni.getText(), nombre.getText(), apellidos.getText(), fecha, sexo, contraseña.getText(),password.getText()) ; 
     if (aux>0){
     dispose();
     aux=0;
     }
-    }//GEN-LAST:event_RegistrarActionPerformed
+    }//GEN-LAST:event_actualizarActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
     private javax.swing.JRadioButton H;
     private javax.swing.JRadioButton M;
-    private javax.swing.JButton Registrar;
+    private javax.swing.JButton actualizar;
     private javax.swing.JTextField apellidos;
     private javax.swing.JPasswordField contraseña;
     private javax.swing.JTextField dni;

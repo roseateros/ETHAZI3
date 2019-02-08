@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import reto3.modelo.billete;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
+import reto3.vista.Actulizar;
 import reto3.vista.Linea;
 import reto3.vista.NoRegistrado;
 import reto3.vista.Paradas;
@@ -128,6 +129,10 @@ public class pasar_pagina{
         Saludo obj = new Saludo();
         obj.setVisible(true);
     }
+     public static void linia_a_actulizar(cliente clientex){
+         Actulizar obj = new Actulizar(clientex);
+         obj.setVisible(true);
+     }
 
 
 }
