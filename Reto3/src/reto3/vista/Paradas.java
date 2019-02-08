@@ -1,13 +1,7 @@
 package reto3.vista;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import reto3.controlador.Calculos;
 import reto3.controlador.Comprar_billete;
 import reto3.controlador.Nplazas;
@@ -45,7 +39,7 @@ public class Paradas extends javax.swing.JFrame {
         
         for(int i=0;i<horas.size();i++)
         {          
-            horaIda.addItem(horas.get(i));          
+            horaIda.addItem(horas.get(i));  
         }
         
         paradax = new ArrayList();
@@ -288,6 +282,11 @@ public class Paradas extends javax.swing.JFrame {
         idaVuelta.setMaxSelectableDate(new java.util.Date(1576108882000L));
         idaVuelta.setMinSelectableDate(new java.util.Date(-62135769518000L));
         idaVuelta.setWeekOfYearVisible(false);
+        idaVuelta.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                idaVueltaPropertyChange(evt);
+            }
+        });
         getContentPane().add(idaVuelta, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, 200, 140));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
@@ -336,8 +335,6 @@ public class Paradas extends javax.swing.JFrame {
                
         String horaida = (String)horaIda.getSelectedItem();      
         String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
-        //Date date = ida.getDate();
-        //java.sql.Date sDate = new java.sql.Date(date.getTime());
         Comprar_billete compra= new Comprar_billete(1,clientex.dni,fecha1,horaida,lineasx.Cod_Linea,busx.get(uno).Cod_bus,paradax.get(uno).codParada,paradax.get(dos).codParada,redondo);        
         dispose();
     }//GEN-LAST:event_ComprarActionPerformed
@@ -604,22 +601,27 @@ public class Paradas extends javax.swing.JFrame {
             }
             if(horas.get(3).equals(horaida)){
                 horaVuelta.addItem("No Disponible");
-            }   
-            else{
-                for(int i=0;i<horas.size();i++)
-                {          
-                    horaVuelta.addItem(horas.get(i));          
-                }
             }
+    }
+    if ((fecha1.compareTo(fecha2) >0)){
+        if(horas.get(0).equals(horaida)){
+            for(int i=0;i<horas.size();i++)
+            {          
+                horaVuelta.addItem(horas.get(i));  
+            }   
+        }       
     }
     }//GEN-LAST:event_horaIdaActionPerformed
 
     private void idaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_idaPropertyChange
-    
     if (vueltas.isSelected()){
         idaVuelta.setMinSelectableDate(ida.getDate());
     } 
     }//GEN-LAST:event_idaPropertyChange
+
+    private void idaVueltaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_idaVueltaPropertyChange
+
+    }//GEN-LAST:event_idaVueltaPropertyChange
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
