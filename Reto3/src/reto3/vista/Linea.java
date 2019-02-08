@@ -1,16 +1,20 @@
 
 package reto3.vista;
 
+import java.util.ArrayList;
 import reto3.controlador.Seleccionar_linea;
+import reto3.modelo.billete;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
 
 public class Linea extends javax.swing.JFrame  {
- 
+ public ArrayList<billete> billetex;
+
     public cliente clientex;
     //cuando solo se recibe el cliente
         public Linea(cliente cliente) {
         initComponents();
+        
             clientex=cliente;
             setLocationRelativeTo(null);
             setResizable (false);
@@ -22,6 +26,17 @@ public class Linea extends javax.swing.JFrame  {
         initComponents();
     clientex=cliente;
      
+            setLocationRelativeTo(null);
+            setResizable (false);
+            setTitle ("Paradas");   
+            jLabel4.setText(cliente.nombre);            
+    }
+    //cuando se recbe el cliente, la linea y el billete
+        public Linea(cliente cliente,lineas lineas,ArrayList<billete> billete) {
+        initComponents();
+    clientex=cliente;
+      billetex = new ArrayList();
+      billetex=billete;
             setLocationRelativeTo(null);
             setResizable (false);
             setTitle ("Paradas");   
@@ -150,25 +165,25 @@ public class Linea extends javax.swing.JFrame  {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String  lineax="L1";
-        Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex);
+        Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex,billetex);
         dispose (); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String  lineax="L2";
-        Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex);
+        Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex,billetex);
         dispose (); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String  lineax="L3";
-        Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex);
+        Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex,billetex);
         dispose ();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         String  lineax="L4";
-        Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex);
+        Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex,billetex);
         dispose ();
     }//GEN-LAST:event_jButton4ActionPerformed
 

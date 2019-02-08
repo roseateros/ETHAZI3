@@ -15,6 +15,7 @@ import static reto3.controlador.Seleccionar_Autobus.Seleccionar_Autobus;
 import static reto3.controlador.Seleccionar_paradas.Seleccionar_paradas;
 import reto3.modelo.Parada;
 import reto3.modelo.autobus;
+import reto3.modelo.billete;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
 
@@ -23,11 +24,12 @@ public class Paradas extends javax.swing.JFrame {
         public cliente clientex;
         public lineas lineasx;
         ArrayList<autobus> busx;
+        ArrayList<billete> billetex;
         ArrayList<Parada> paradax;
         ArrayList<String> horas;
         public int uno,dos,busesito;
         public double redondo;
-
+//Uno
     public Paradas(cliente cliente,lineas lineas) {
                 
         initComponents();
@@ -71,6 +73,58 @@ public class Paradas extends javax.swing.JFrame {
             setTitle ("Lineas");
             jLabel4.setText(cliente.nombre);     
     }
+    //UNO
+    
+    //DOS
+      public Paradas(cliente cliente,lineas lineas,ArrayList<billete> billete) {
+                
+        initComponents();
+        billetex=billete;
+        horaVuelta.setEnabled(false); 
+        idaVuelta.setEnabled(false);
+        horaIda.setEnabled(false);
+        ida.setEnabled(false);
+        Comprar.setEnabled(false);
+         if(billetex.isEmpty())
+        {
+            System.out.println("gola");
+        }
+        horas = new ArrayList();    
+        horas.add(0, "08:00");
+        horas.add(1, "12:00");
+        horas.add(2, "16:00");
+        horas.add(3, "20:00"); 
+        
+        for(int i=0;i<horas.size();i++)
+        {          
+            horaIda.addItem(horas.get(i));          
+        }
+        
+        paradax = new ArrayList();
+        paradax= Seleccionar_paradas(lineas,cliente);
+        for(int i=0;i<paradax.size();i++)
+        {
+            origen.addItem(paradax.get(i).nombre);       
+        }
+
+        busx = new ArrayList();
+        busx= Seleccionar_Autobus(lineas,cliente);
+
+        for(int i=0;i<busx.size();i++)
+        {
+            jComboBox3.addItem(busx.get(i).color);
+        }
+
+        clientex=cliente;
+        lineasx=lineas;
+        jLabel2.setText("Linea "+lineas.Cod_Linea);
+            setLocationRelativeTo(null);
+            setResizable (false);
+            setTitle ("Lineas");
+            jLabel4.setText(cliente.nombre);     
+    }
+    //DOS
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -297,7 +351,7 @@ public class Paradas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnteriorActionPerformed
-        reto3.controlador.pasar_pagina.paradas_a_lineas(clientex,lineasx);
+        reto3.controlador.pasar_pagina.paradas_a_lineas(clientex,lineasx,billetex);
         dispose();
     }//GEN-LAST:event_BotonAnteriorActionPerformed
 
@@ -338,8 +392,16 @@ public class Paradas extends javax.swing.JFrame {
         String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
         //Date date = ida.getDate();
         //java.sql.Date sDate = new java.sql.Date(date.getTime());
-        Comprar_billete compra= new Comprar_billete(1,clientex.dni,fecha1,horaida,lineasx.Cod_Linea,busx.get(uno).Cod_bus,paradax.get(uno).codParada,paradax.get(dos).codParada,redondo);        
+        if(null==billetex.get(0).Cod_Linea)
+        {
+       /*aqui està el error*/     Comprar_billete compra= new Comprar_billete(1,clientex.dni,fecha1,horaida,lineasx.Cod_Linea,busx.get(uno).Cod_bus,paradax.get(uno).codParada,paradax.get(dos).codParada,redondo);
+           
         dispose();
+        }
+        else
+        {
+          Comprar_billete compra= new Comprar_billete(1,clientex.dni,fecha1,horaida,lineasx.Cod_Linea,busx.get(uno).Cod_bus,paradax.get(uno).codParada,paradax.get(dos).codParada,redondo,billetex);    
+        }    
     }//GEN-LAST:event_ComprarActionPerformed
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed

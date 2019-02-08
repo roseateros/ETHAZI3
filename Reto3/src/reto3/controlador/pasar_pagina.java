@@ -70,16 +70,35 @@ public class pasar_pagina{
          Linea obj= new Linea (cliente,lineas);
         obj.setVisible(true);
   
-    }  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    }
+    
+        public static void paradas_a_lineas(cliente cliente,lineas lineas,ArrayList<billete> billete){
+        //SE CREA EL OBJ DE LA CLASE LINEA
+         Linea obj= new Linea (cliente,lineas,billete);
+        obj.setVisible(true);
+  
+    }
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE LINEAS A PARADAS
     //Se debe pasar El objeto Cliente y el Objeto lineas DE SUS RESPECTIVAS CLASES
+    public static void lineas_a_paradas(cliente cliente, lineas lineas,ArrayList<billete> billete){
+        //SE CREA EL OBJ DE LA CLASE PARADAS
+        Paradas obj= new Paradas (cliente,lineas);
+        obj.setVisible(true);
+    }  
     public static void lineas_a_paradas(cliente cliente, lineas lineas){
         //SE CREA EL OBJ DE LA CLASE PARADAS
         Paradas obj= new Paradas (cliente,lineas);
         obj.setVisible(true);
-    }   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    }    
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // FUNCION PARA PASAR DE PARADAS A LISTA
     public static void paradas_a_lista(cliente cliente,lineas lineas,ArrayList<billete> billete){
@@ -101,7 +120,13 @@ public class pasar_pagina{
         Cobro obj = new Cobro(cliente,lineas,billete);
         obj.setVisible(true);
     }
-      
+    //FUNCION PARA PASAR DE LISTA A LINEAS
+    public static void lista_a_lineas(cliente cliente,lineas lineas,ArrayList<billete> billete){
+        //SE CREA EL OBJ DE LA CLASE LINEA
+         Linea obj= new Linea (cliente,lineas,billete);
+        obj.setVisible(true);
+  
+    }
     //FUNCIÒN PARA PASAR DE COBRO A COBRO
     public static void cobro_a_cobro(cliente cliente,lineas lineas, ArrayList<billete> billete){
         //SE CREA EL OBJ DE LA CLASE IMPRIMIR
