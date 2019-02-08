@@ -7,12 +7,13 @@ import javax.swing.JOptionPane;
 import static reto3.controlador.pasar_pagina.aux;
 import static reto3.controlador.pasar_pagina.noregistrado_a_registrado;
 import reto3.modelo.Consultas;
+import reto3.modelo.cliente;
 
 
 public class ActualizarCliente {
-    
-    public ActualizarCliente(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password){
 
+    public ActualizarCliente(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password){
+       
         if ( (dni == null) || (dni.equals("")) )
         {
            JOptionPane.showMessageDialog(null,"No has ingresado el Dni");
