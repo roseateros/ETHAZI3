@@ -1,9 +1,13 @@
 package reto3.vista;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import reto3.controlador.Calculos;
 import reto3.controlador.Comprar_billete;
 import reto3.controlador.Nplazas;
@@ -27,19 +31,12 @@ public class Paradas extends javax.swing.JFrame {
     public Paradas(cliente cliente,lineas lineas) {
                 
         initComponents();
-
+        horaVuelta.setEnabled(false); 
         idaVuelta.setEnabled(false);
-        ida.setEnabled(false);
         horaIda.setEnabled(false);
-        horaVuelta.setEnabled(false);
+        ida.setEnabled(false);
         Comprar.setEnabled(false);
 
-        ida.getJCalendar().setMinSelectableDate(new Date());//para elegir la fecha del calendario desde el dia actual     
-        ida.getDateEditor().addPropertyChangeListener(new PropertyChangeListener(){ 
-        public void propertyChange(PropertyChangeEvent e) {           
-        idaVuelta.getJCalendar().setMinSelectableDate(ida.getDate());}
-        });
-        
         horas = new ArrayList();    
         horas.add(0, "08:00");
         horas.add(1, "12:00");
@@ -88,8 +85,6 @@ public class Paradas extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
-        ida = new com.toedter.calendar.JDateChooser();
-        idaVuelta = new com.toedter.calendar.JDateChooser();
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
@@ -104,6 +99,8 @@ public class Paradas extends javax.swing.JFrame {
         horaIda = new javax.swing.JComboBox<>();
         horaVuelta = new javax.swing.JComboBox<>();
         plazas2 = new javax.swing.JLabel();
+        ida = new com.toedter.calendar.JCalendar();
+        idaVuelta = new com.toedter.calendar.JCalendar();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -129,7 +126,7 @@ public class Paradas extends javax.swing.JFrame {
                 ComprarActionPerformed(evt);
             }
         });
-        getContentPane().add(Comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 120, 70));
+        getContentPane().add(Comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 520, 120, 70));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT", 0, 64)); // NOI18N
         jLabel2.setText("Linea  2");
@@ -152,19 +149,19 @@ public class Paradas extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("IDA");
         jLabel7.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 30, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 30, -1));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("DESTINO");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("ORIGEN ");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, -1, -1));
 
         jButton5.setBackground(new java.awt.Color(204, 0, 51));
         jButton5.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
@@ -177,28 +174,18 @@ public class Paradas extends javax.swing.JFrame {
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 120, 30));
 
-        ida.setDateFormatString("yyyy-MM-dd");
-        ida.setMaxSelectableDate(new java.util.Date(1577750479000L));
-        getContentPane().add(ida, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 100, -1));
-
-        idaVuelta.setBackground(new java.awt.Color(255, 255, 255));
-        idaVuelta.setForeground(new java.awt.Color(0, 0, 0));
-        idaVuelta.setDateFormatString("yyyy-MM-dd");
-        idaVuelta.setMaxSelectableDate(new java.util.Date(1577750479000L));
-        getContentPane().add(idaVuelta, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 100, -1));
-
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText(" VUELTA");
         jLabel9.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, -1, -1));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("TIPO DE AUTOBUS");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, -1, -1));
 
         jComboBox3.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox3.setForeground(new java.awt.Color(0, 0, 0));
@@ -208,14 +195,14 @@ public class Paradas extends javax.swing.JFrame {
                 jComboBox3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 80, -1));
-        getContentPane().add(plazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 140, 20));
+        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 80, -1));
+        getContentPane().add(plazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 140, 20));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("TIPO DE TRAYECTO");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, -1, -1));
 
         idas.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(idas);
@@ -227,7 +214,7 @@ public class Paradas extends javax.swing.JFrame {
                 idasActionPerformed(evt);
             }
         });
-        getContentPane().add(idas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, -1, -1));
+        getContentPane().add(idas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, -1, -1));
 
         vueltas.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(vueltas);
@@ -239,7 +226,7 @@ public class Paradas extends javax.swing.JFrame {
                 vueltasActionPerformed(evt);
             }
         });
-        getContentPane().add(vueltas, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, -1, -1));
+        getContentPane().add(vueltas, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, -1, -1));
 
         origen.setBackground(new java.awt.Color(255, 255, 255));
         origen.setForeground(new java.awt.Color(0, 0, 0));
@@ -248,7 +235,7 @@ public class Paradas extends javax.swing.JFrame {
                 origenActionPerformed(evt);
             }
         });
-        getContentPane().add(origen, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 200, -1));
+        getContentPane().add(origen, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 200, -1));
 
         destino.setBackground(new java.awt.Color(255, 255, 255));
         destino.setForeground(new java.awt.Color(0, 0, 0));
@@ -257,21 +244,21 @@ public class Paradas extends javax.swing.JFrame {
                 destinoActionPerformed(evt);
             }
         });
-        getContentPane().add(destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 200, -1));
+        getContentPane().add(destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 200, -1));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("PRECIO");
         jLabel11.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, -1, 30));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 540, -1, 30));
 
         precio.setBackground(new java.awt.Color(255, 255, 255));
         precio.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
-        precio.setForeground(new java.awt.Color(0, 0, 0));
+        precio.setForeground(new java.awt.Color(255, 255, 51));
         precio.setToolTipText("");
-        getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 390, 70, 30));
+        getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 540, 70, 30));
 
         horaIda.setBackground(new java.awt.Color(255, 255, 255));
         horaIda.setForeground(new java.awt.Color(0, 0, 0));
@@ -280,12 +267,28 @@ public class Paradas extends javax.swing.JFrame {
                 horaIdaActionPerformed(evt);
             }
         });
-        getContentPane().add(horaIda, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, -1, -1));
+        getContentPane().add(horaIda, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, 110, -1));
 
         horaVuelta.setBackground(new java.awt.Color(255, 255, 255));
         horaVuelta.setForeground(new java.awt.Color(0, 0, 0));
-        getContentPane().add(horaVuelta, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, -1, -1));
-        getContentPane().add(plazas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 120, 20));
+        getContentPane().add(horaVuelta, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 470, 110, -1));
+        getContentPane().add(plazas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, 140, 20));
+
+        ida.setMaxSelectableDate(new java.util.Date(1576108895000L));
+        ida.setName(""); // NOI18N
+        ida.setWeekOfYearVisible(false);
+        ida.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                idaPropertyChange(evt);
+            }
+        });
+        getContentPane().add(ida, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 200, 140));
+
+        idaVuelta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        idaVuelta.setMaxSelectableDate(new java.util.Date(1576108882000L));
+        idaVuelta.setMinSelectableDate(new java.util.Date(-62135769518000L));
+        idaVuelta.setWeekOfYearVisible(false);
+        getContentPane().add(idaVuelta, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, 200, 140));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
@@ -333,6 +336,8 @@ public class Paradas extends javax.swing.JFrame {
                
         String horaida = (String)horaIda.getSelectedItem();      
         String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
+        //Date date = ida.getDate();
+        //java.sql.Date sDate = new java.sql.Date(date.getTime());
         Comprar_billete compra= new Comprar_billete(1,clientex.dni,fecha1,horaida,lineasx.Cod_Linea,busx.get(uno).Cod_bus,paradax.get(uno).codParada,paradax.get(dos).codParada,redondo);        
         dispose();
     }//GEN-LAST:event_ComprarActionPerformed
@@ -350,7 +355,7 @@ public class Paradas extends javax.swing.JFrame {
                     String horaida= (String) horaIda.getSelectedItem();
                     Nplazas nplaza= new Nplazas();   
                     int numero= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas,horaida);
-                    plazas.setText("Plazas Disponible: "+String.valueOf(numero)); 
+                    plazas.setText("Plazas Disponibles: "+String.valueOf(numero)); 
                     }
                     else if(vueltas.isSelected()){
                     plazas.setText(" "); 
@@ -512,8 +517,9 @@ public class Paradas extends javax.swing.JFrame {
             Comprar.setEnabled(true);
             precio.setText(String.valueOf(redondo+"€"));
             
-        ida.setEnabled(true);
         horaIda.setEnabled(true);
+        ida.setEnabled(true);     
+        ida.setMinSelectableDate(new Date());
         horaVuelta.setEnabled(false);  
         idaVuelta.setEnabled(false);
     }//GEN-LAST:event_idasActionPerformed
@@ -532,10 +538,9 @@ public class Paradas extends javax.swing.JFrame {
                 Nplazas nplaza= new Nplazas();   
                 int numero= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas,horaida);
                 int numero2= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas,horavuelta);
-                plazas.setText("Plazas Disponible: "+String.valueOf(numero)); 
-                plazas2.setText("Plazas Disponible: "+String.valueOf(numero2));
-                }       
-                
+                plazas.setText("Plazas Disponibles: "+String.valueOf(numero)); 
+                plazas2.setText("Plazas Disponibles: "+String.valueOf(numero2));
+                }                       
         }
        
         String ComboBox1 = (String) origen.getSelectedItem();
@@ -566,20 +571,24 @@ public class Paradas extends javax.swing.JFrame {
             double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
             double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
             total_precio=total_precio+total_precio;
-             redondo=Calculos.Redondear(total_precio);
+            redondo=Calculos.Redondear(total_precio);
             Comprar.setEnabled(true);
-            precio.setText(String.valueOf(redondo+"€"));
-        
-        ida.setEnabled(true);
-        idaVuelta.setEnabled(true);
+            precio.setText(String.valueOf(redondo+"€")); 
+            
         horaIda.setEnabled(true);
-        horaVuelta.setEnabled(true);
+        ida.setEnabled(true);     
+        horaVuelta.setEnabled(true);  
+        idaVuelta.setEnabled(true);
+        ida.setMinSelectableDate(new Date());
+        idaVuelta.setMinSelectableDate(new Date());
     }//GEN-LAST:event_vueltasActionPerformed
 
     private void horaIdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaIdaActionPerformed
-        String horaida = (String)horaIda.getSelectedItem();
-        horaVuelta.removeAllItems();
-
+    String horaida = (String)horaIda.getSelectedItem();
+    horaVuelta.removeAllItems();
+    String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
+    String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(idaVuelta.getDate());
+    if ((fecha1.compareTo(fecha2) ==0)){
             if(horas.get(0).equals(horaida)){
                 horaVuelta.addItem(horas.get(1));
                 horaVuelta.addItem(horas.get(2));
@@ -592,8 +601,25 @@ public class Paradas extends javax.swing.JFrame {
             }
             if(horas.get(2).equals(horaida)){
                 horaVuelta.addItem(horas.get(3));
-            }            
+            }
+            if(horas.get(3).equals(horaida)){
+                horaVuelta.addItem("No Disponible");
+            }   
+            else{
+                for(int i=0;i<horas.size();i++)
+                {          
+                    horaVuelta.addItem(horas.get(i));          
+                }
+            }
+    }
     }//GEN-LAST:event_horaIdaActionPerformed
+
+    private void idaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_idaPropertyChange
+    
+    if (vueltas.isSelected()){
+        idaVuelta.setMinSelectableDate(ida.getDate());
+    } 
+    }//GEN-LAST:event_idaPropertyChange
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
@@ -602,8 +628,8 @@ public class Paradas extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> destino;
     private javax.swing.JComboBox<String> horaIda;
     private javax.swing.JComboBox<String> horaVuelta;
-    private com.toedter.calendar.JDateChooser ida;
-    private com.toedter.calendar.JDateChooser idaVuelta;
+    private com.toedter.calendar.JCalendar ida;
+    private com.toedter.calendar.JCalendar idaVuelta;
     private javax.swing.JRadioButton idas;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox3;
