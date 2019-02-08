@@ -12,24 +12,35 @@ public class BorrarCliente {
 
     public BorrarCliente(String us,String  pass){
 
-        if ( (us.equals("")) || (pass.equals("")) ){
-        JOptionPane.showMessageDialog(null, "Ingrese Usuario y/o Contraseña");
+        if ( (us == null) || (us.equals("")) )
+        {
+           JOptionPane.showMessageDialog(null,"No has ingresado el Nombre del usuario");
         }
-        if((!us.equals("")) || (!pass.equals("")) ){
-        int n= JOptionPane.showConfirmDialog(null, "Esta seguro que quiere borrar su usuario?", "An Inane Question" , JOptionPane.YES_NO_OPTION);
-        if (n == JOptionPane.YES_OPTION) {
-          
-          JOptionPane.showMessageDialog(null, "Deseamos que vuelva pronto");
-                Consultas cone =new Consultas(); 
-                cliente cliente; 
-                cliente = cone.BorrarCliente(us,pass); 
-        }
-        else {
-           JOptionPane.showMessageDialog(null, "GRACIAS");
-            }
-        }   
-    }
+             else if ( (pass == null) || (pass.equals("")) )
+             {
+                JOptionPane.showMessageDialog(null,"No has ingresado la Contraseña");
+             }
+                else if ( (pass != null) || us != null )
+                {                    
+                        int n= JOptionPane.showConfirmDialog(null, "Esta seguro que quiere borrar su usuario?", "An Inane Question" , JOptionPane.YES_NO_OPTION);
+                        if (n == JOptionPane.YES_OPTION) 
+                        {
+                            JOptionPane.showMessageDialog(null, "Deseamos que vuelva pronto");
+                            Consultas cone =new Consultas(); 
+                            cliente cliente; 
+                            cliente = cone.BorrarCliente(us,pass); 
+                            if (cliente==null){
+                                JOptionPane.showMessageDialog(null,"No se ha podido borrar el usuario "+us+" porque no existe o has introducido mal la contraseña");
+                            }
+
+                        }
+                            else {
+                                JOptionPane.showMessageDialog(null, "GRACIAS");
+                            }
+                }
+    }        
 }
+    
 
       
 

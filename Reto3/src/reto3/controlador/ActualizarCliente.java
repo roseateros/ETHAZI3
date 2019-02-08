@@ -7,12 +7,13 @@ import javax.swing.JOptionPane;
 import static reto3.controlador.pasar_pagina.aux;
 import static reto3.controlador.pasar_pagina.noregistrado_a_registrado;
 import reto3.modelo.Consultas;
+import reto3.modelo.cliente;
 
 
 public class ActualizarCliente {
-    
-    public ActualizarCliente(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password){
 
+    public ActualizarCliente(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password){
+       
         if ( (dni == null) || (dni.equals("")) )
         {
            JOptionPane.showMessageDialog(null,"No has ingresado el Dni");
@@ -38,30 +39,28 @@ public class ActualizarCliente {
         {
             JOptionPane.showMessageDialog(null,"No coinciden las contraseñas");           
         }
-        dni = dni.toUpperCase();
-        Pattern dniPattern = Pattern.compile("\\d{8}[A-HJ-NP-TV-Z]");
-	Matcher m = dniPattern.matcher(dni);
+        
         Pattern nombrePattern = Pattern.compile("[a-zA-Z]*");
 	Matcher n = nombrePattern.matcher(nombre);
         
         if (contraseña.equals(password) && (!fecha.equals("")) && (!dni.equals("")) && (!nombre.equals("")) && (!apellidos.equals("")) && (!sexo.equals("")))
         {
-	if(m.matches()){
             if(n.matches()){
                     JOptionPane.showMessageDialog(null,"Usuario actualizado");
                     Consultas cone =new Consultas(); 
+                    cliente cliente;
                     cone.ActualizarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);                   
                     noregistrado_a_registrado();  
-                    aux++; 
+                    aux++;                    
                 }
             else{
                 JOptionPane.showMessageDialog(null,"Nombre no valido! No puede contener numeros");
             }                                 
         }
         else{
-            JOptionPane.showMessageDialog(null,"DNI no valido!");
+            JOptionPane.showMessageDialog(null,"El DNI no se puede modificar!");
             }
         }  
     }
-}
+
 

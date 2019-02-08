@@ -13,7 +13,18 @@ public class Comprar_billete {
     public cliente cliente;
     public lineas lineas;
     
-    public Comprar_billete( int NTrayecto, String dni, String ida, String horaida, String Cod_Linea, int Cod_Bus, int Cod_Parada_Inicio, int Cod_Parada_Fin, double precio){
+    public Comprar_billete( int NTrayecto, String dni, String ida, String horaida, String Cod_Linea, int Cod_Bus, int Cod_Parada_Inicio, int Cod_Parada_Fin, double precio,ArrayList<billete> billete){
+        
+        JOptionPane.showMessageDialog(null, "Compra realizada!");
+
+       
+        billete billetico=new billete(NTrayecto,dni,ida,horaida,Cod_Linea,Cod_Bus,Cod_Parada_Inicio,Cod_Parada_Fin,precio);
+        billete.add(billetico);
+        
+        reto3.controlador.pasar_pagina.paradas_a_lista(cliente,lineas,billete);   
+    }  
+    
+        public Comprar_billete( int NTrayecto, String dni, String ida, String horaida, String Cod_Linea, int Cod_Bus, int Cod_Parada_Inicio, int Cod_Parada_Fin, double precio){
         
         JOptionPane.showMessageDialog(null, "Compra realizada!");
 
@@ -23,5 +34,5 @@ public class Comprar_billete {
         billete.add(billetico);
         
         reto3.controlador.pasar_pagina.paradas_a_lista(cliente,lineas,billete);   
-    }  
+    }
 }

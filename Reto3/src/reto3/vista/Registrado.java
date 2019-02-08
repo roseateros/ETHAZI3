@@ -1,6 +1,7 @@
 package reto3.vista;
 
 import reto3.controlador.BorrarCliente;
+import reto3.controlador.LlamarCliente;
 import reto3.controlador.VerificarCliente;
 import static reto3.controlador.pasar_pagina.aux;
 
@@ -23,9 +24,8 @@ public class Registrado extends javax.swing.JFrame {
         BotonAnterior = new javax.swing.JButton();
         BotonSiguiente = new javax.swing.JButton();
         jButton = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         delete = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -76,41 +76,40 @@ public class Registrado extends javax.swing.JFrame {
                 BotonSiguienteActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 120, 70));
+        getContentPane().add(BotonSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 160, 80));
 
-        jButton.setBackground(new java.awt.Color(255, 255, 51));
+        jButton.setBackground(new java.awt.Color(153, 102, 255));
         jButton.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jButton.setForeground(new java.awt.Color(0, 0, 0));
-        jButton.setText("CLICK AQUI");
+        jButton.setText("NUEVO USUARIO");
         jButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 120, 50));
+        getContentPane().add(jButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, 160, 40));
 
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("SI NO ESTAS REGISTRADO....");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, 220, 30));
-
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("SI DESEA ELIMINAR USUARIO...");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, -1, -1));
-
-        delete.setBackground(new java.awt.Color(255, 255, 51));
+        delete.setBackground(new java.awt.Color(255, 0, 51));
         delete.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        delete.setForeground(new java.awt.Color(0, 0, 0));
-        delete.setText("CLICK AQUI");
+        delete.setForeground(new java.awt.Color(255, 255, 255));
+        delete.setText("ELIMINAR USUARIO");
         delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteActionPerformed(evt);
             }
         });
-        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 410, 120, 50));
+        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 160, 40));
+
+        jButton1.setBackground(new java.awt.Color(102, 255, 0));
+        jButton1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("ACTUALIZAR DATOS");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 160, 40));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
@@ -142,16 +141,23 @@ public class Registrado extends javax.swing.JFrame {
     BorrarCliente borrar= new BorrarCliente(us.getText(),pass.getText());
     }//GEN-LAST:event_deleteActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    LlamarCliente llamar= new LlamarCliente(us.getText(),pass.getText()); 
+    if (aux>0){
+        dispose();
+        aux=0;
+    }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
     private javax.swing.JButton BotonSiguiente;
     private javax.swing.JButton delete;
     private javax.swing.JButton jButton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private java.awt.Label label1;
     private javax.swing.JPasswordField pass;
     private java.awt.TextField us;
