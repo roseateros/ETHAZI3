@@ -1,5 +1,7 @@
 package reto3.controlador;
 
+import java.util.ArrayList;
+import reto3.modelo.billete;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
 import reto3.vista.Linea;
@@ -80,9 +82,9 @@ public class pasar_pagina{
     }   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // FUNCION PARA PASAR DE PARADAS A LISTA
-    public static void paradas_a_lista(cliente cliente,lineas lineas){
+    public static void paradas_a_lista(cliente cliente,lineas lineas,ArrayList<billete> billete){
         //SE CREA EL OBJ DE LA CLASE LISTA
-        Lista obj= new Lista (cliente,lineas);
+        Lista obj= new Lista (cliente,lineas,billete);
         obj.setVisible(true);
     } 
     
@@ -94,16 +96,16 @@ public class pasar_pagina{
     } 
 
     //FUNCION PARA PASAR DE LISTA A COBRO
-    public static void lista_a_cobro(cliente cliente,lineas lineas){
+    public static void lista_a_cobro(cliente cliente,lineas lineas, ArrayList<billete> billete){
         //SE CREA EL OBJ DE LA CLASE COBRO
-        Cobro obj = new Cobro(cliente,lineas);
+        Cobro obj = new Cobro(cliente,lineas,billete);
         obj.setVisible(true);
     }
       
     //FUNCIÒN PARA PASAR DE COBRO A COBRO
-    public static void cobro_a_cobro(cliente cliente,lineas lineas){
+    public static void cobro_a_cobro(cliente cliente,lineas lineas, ArrayList<billete> billete){
         //SE CREA EL OBJ DE LA CLASE IMPRIMIR
-        Cobro obj = new Cobro(cliente, lineas);
+        Cobro obj = new Cobro(cliente, lineas,billete);
         obj.setVisible(true);
     }
     
@@ -126,6 +128,8 @@ public class pasar_pagina{
         Saludo obj = new Saludo();
         obj.setVisible(true);
     }
+
+
 }
 
 

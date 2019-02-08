@@ -2,12 +2,14 @@
 package reto3.vista;
 
 import java.awt.Image;
+import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import static reto3.controlador.Cobro.calcularCambio;
 import static reto3.controlador.Cobro.pago;
 import static reto3.controlador.Cobro.precio;
+import reto3.modelo.billete;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
 
@@ -16,7 +18,7 @@ public final class Cobro extends javax.swing.JFrame {
     public cliente clientex;
     public lineas lineasx;
     
-    public Cobro(cliente cliente, lineas lineas) {    
+    public Cobro(cliente cliente, lineas lineas, ArrayList<billete> billete) {    
 
         initComponents(); 
         clientex=cliente;

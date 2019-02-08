@@ -1,8 +1,8 @@
 package reto3.vista;
 
-import com.toedter.calendar.JDateChooser;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import reto3.controlador.Calculos;
 import reto3.controlador.Comprar_billete;
@@ -21,30 +21,34 @@ public class Paradas extends javax.swing.JFrame {
         ArrayList<autobus> busx;
         ArrayList<Parada> paradax;
         ArrayList<String> horas;
-        ArrayList<String> horavuelta;
         public int uno,dos,busesito;
+        public double redondo;
 
     public Paradas(cliente cliente,lineas lineas) {
                 
         initComponents();
+
         idaVuelta.setEnabled(false);
         ida.setEnabled(false);
         horaIda.setEnabled(false);
         horaVuelta.setEnabled(false);
         Comprar.setEnabled(false);
-        JDateChooser dateChooser = new JDateChooser();
-        dateChooser.getDateEditor().setEnabled(false);//para que el usuario no pueda introducir a mano una fecha
 
-        horas = new ArrayList();
+        ida.getJCalendar().setMinSelectableDate(new Date());//para elegir la fecha del calendario desde el dia actual     
+        ida.getDateEditor().addPropertyChangeListener(new PropertyChangeListener(){ 
+        public void propertyChange(PropertyChangeEvent e) {           
+        idaVuelta.getJCalendar().setMinSelectableDate(ida.getDate());}
+        });
+        
+        horas = new ArrayList();    
         horas.add(0, "08:00");
         horas.add(1, "12:00");
         horas.add(2, "16:00");
-        horas.add(3, "20:00");
-   
+        horas.add(3, "20:00"); 
+        
         for(int i=0;i<horas.size();i++)
         {          
-            horaIda.addItem(horas.get(i));
-            
+            horaIda.addItem(horas.get(i));          
         }
         
         paradax = new ArrayList();
@@ -248,6 +252,11 @@ public class Paradas extends javax.swing.JFrame {
 
         destino.setBackground(new java.awt.Color(255, 255, 255));
         destino.setForeground(new java.awt.Color(0, 0, 0));
+        destino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                destinoActionPerformed(evt);
+            }
+        });
         getContentPane().add(destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 200, -1));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
@@ -295,22 +304,45 @@ public class Paradas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarActionPerformed
-        //Comprar_billete comprar= new Comprar_billete();
-        
+        String ComboBox3 = (String) jComboBox3.getSelectedItem();
+            for(int i=0;i<busx.size();i++)//numero de plazas disponibles
+            {
+                if(busx.get(i).color==ComboBox3)
+                {
+                    int uno=i;
+                }
+            }
+                
+             for(int p=0;p<paradax.size();p++)
+            {   
+                String ComboBox1 = (String) origen.getSelectedItem();
+                if(paradax.get(p).nombre.equals(ComboBox1))
+                {
+                    uno=p;
+                }
+            }              
+             
+            for(int p=0;p<paradax.size();p++)
+            {   
+                String ComboBox2 = (String) destino.getSelectedItem();
+                if(paradax.get(p).nombre.equals(ComboBox2))
+                {
+                dos=p;
+                }
+            } 
+               
+        String horaida = (String)horaIda.getSelectedItem();      
         String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
-        String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(idaVuelta.getDate());
-
-        reto3.controlador.pasar_pagina.paradas_a_lista(clientex, lineasx);        
+        Comprar_billete compra= new Comprar_billete(1,clientex.dni,fecha1,horaida,lineasx.Cod_Linea,busx.get(uno).Cod_bus,paradax.get(uno).codParada,paradax.get(dos).codParada,redondo);        
         dispose();
     }//GEN-LAST:event_ComprarActionPerformed
-
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
         String ComboBox3 = (String) jComboBox3.getSelectedItem();
         for(int i=0;i<busx.size();i++)//numero de plazas disponibles
         {
-                if(busx.get(i).color==ComboBox3)
-                {
+            if(busx.get(i).color==ComboBox3)
+            {
                 if(idas.isSelected() || vueltas.isSelected()){ 
                     if(idas.isSelected()){
                     plazas.setText(" "); 
@@ -364,11 +396,37 @@ public class Paradas extends javax.swing.JFrame {
             Calculos cal= new Calculos();   
             double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
             double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
-            double redondo=Calculos.Redondear(total_precio);
+            redondo=Calculos.Redondear(total_precio);
             Comprar.setEnabled(true);
             precio.setText(String.valueOf(redondo+"€"));
         }        
     }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinoActionPerformed
+        String ComboBox2 = (String) destino.getSelectedItem();
+         for(int i=0;i<paradax.size();i++)
+        {
+             if(paradax.get(i).nombre==ComboBox2)
+            {
+       
+               for(int p=0;p<paradax.size();p++)
+            {   
+            String ComboBox1 = (String) origen.getSelectedItem();
+            if(paradax.get(p).nombre.equals(ComboBox1)){
+            dos=p;
+            }
+        }  
+            if(idas.isSelected() || vueltas.isSelected()){ 
+            Calculos cal= new Calculos();   
+            double result=Calculos.calcularDistancia(paradax.get(dos).latitud,paradax.get(dos).longitud,paradax.get(i).latitud,paradax.get(i).longitud);
+            double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
+            redondo=Calculos.Redondear(total_precio);
+            Comprar.setEnabled(true);
+            precio.setText(String.valueOf(redondo+"€"));
+            }
+        }
+    }
+    }//GEN-LAST:event_destinoActionPerformed
 
     private void origenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_origenActionPerformed
         destino.removeAllItems();
@@ -376,24 +434,41 @@ public class Paradas extends javax.swing.JFrame {
         for(int i=0;i<paradax.size();i++)
         {
             if(paradax.get(i).nombre==ComboBox1)
-            {                   
+            {                
                 for(int u=0;u<paradax.size();u++)
                 {
                     if(u!=i)
                 {
                     destino.addItem(paradax.get(u).nombre);  
-                }                                    
-            }               
-        }       
-    }
+                }
+                    
+        String ComboBox2 = (String) destino.getSelectedItem();
+        for(int p=0;p<paradax.size();p++)
+        {
+            if(paradax.get(p).nombre.equals(ComboBox2)){
+            dos=p;
+            }
+        }    
+                    
+                if(idas.isSelected() || vueltas.isSelected()){ 
+                    Calculos cal= new Calculos();   
+                    double result=Calculos.calcularDistancia(paradax.get(i).latitud,paradax.get(i).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
+                    double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
+                    redondo=Calculos.Redondear(total_precio);
+                    Comprar.setEnabled(true);
+                    precio.setText(String.valueOf(redondo+"€"));
+                    }     
+                }
+            }       
+        }
     }//GEN-LAST:event_origenActionPerformed
 
     private void idasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idasActionPerformed
         plazas.setText(" ");
         plazas2.setText(" ");
      
-       String horaida= (String) horaIda.getSelectedItem();
-       String ComboBox3 = (String) jComboBox3.getSelectedItem();
+        String horaida= (String) horaIda.getSelectedItem();
+        String ComboBox3 = (String) jComboBox3.getSelectedItem();
        
         for(int i=0;i<busx.size();i++)
         {
@@ -403,12 +478,7 @@ public class Paradas extends javax.swing.JFrame {
                 int numero= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas,horaida);
                 plazas.setText("Plazas Disponibles: "+String.valueOf(numero));                
                 }                     
-        }
-        
-        idaVuelta.setEnabled(false);
-        ida.setEnabled(true);
-        horaIda.setEnabled(true);
-        horaVuelta.setEnabled(false);
+        }       
         
         String ComboBox1 = (String) origen.getSelectedItem();
         for(int p=0;p<paradax.size();p++)
@@ -438,16 +508,19 @@ public class Paradas extends javax.swing.JFrame {
             Calculos cal= new Calculos();  
             double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
             double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
-            double redondo=Calculos.Redondear(total_precio);
+            redondo=Calculos.Redondear(total_precio);
             Comprar.setEnabled(true);
             precio.setText(String.valueOf(redondo+"€"));
-       
+            
+        ida.setEnabled(true);
+        horaIda.setEnabled(true);
+        horaVuelta.setEnabled(false);  
+        idaVuelta.setEnabled(false);
     }//GEN-LAST:event_idasActionPerformed
 
     private void vueltasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vueltasActionPerformed
         plazas2.setText(" ");
-        
-        
+                
         String horaida= (String) horaIda.getSelectedItem();
         String horavuelta= (String) horaVuelta.getSelectedItem();
         String ComboBox3 = (String) jComboBox3.getSelectedItem();
@@ -493,7 +566,7 @@ public class Paradas extends javax.swing.JFrame {
             double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
             double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
             total_precio=total_precio+total_precio;
-            double redondo=Calculos.Redondear(total_precio);
+             redondo=Calculos.Redondear(total_precio);
             Comprar.setEnabled(true);
             precio.setText(String.valueOf(redondo+"€"));
         
@@ -506,24 +579,22 @@ public class Paradas extends javax.swing.JFrame {
     private void horaIdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaIdaActionPerformed
         String horaida = (String)horaIda.getSelectedItem();
         horaVuelta.removeAllItems();
-        ida.getJCalendar().setMinSelectableDate(new Date());//para elegir la fecha del calendario desde el dia actual
-        //idaVuelta.getJCalendar().setMinSelectableDate(ida);
- 
-                if(horas.get(0).equals(horaida)){
-                    horaVuelta.addItem(horas.get(1));
-                    horaVuelta.addItem(horas.get(2));
-                    horaVuelta.addItem(horas.get(3));
-                }
-                
-                if(horas.get(1).equals(horaida)){
-                    horaVuelta.addItem(horas.get(2));
-                    horaVuelta.addItem(horas.get(3));
-                }
-                if(horas.get(2).equals(horaida)){
-                    horaVuelta.addItem(horas.get(3));
-                }      
-    }//GEN-LAST:event_horaIdaActionPerformed
 
+            if(horas.get(0).equals(horaida)){
+                horaVuelta.addItem(horas.get(1));
+                horaVuelta.addItem(horas.get(2));
+                horaVuelta.addItem(horas.get(3));
+            }
+
+            if(horas.get(1).equals(horaida)){
+                horaVuelta.addItem(horas.get(2));
+                horaVuelta.addItem(horas.get(3));
+            }
+            if(horas.get(2).equals(horaida)){
+                horaVuelta.addItem(horas.get(3));
+            }            
+    }//GEN-LAST:event_horaIdaActionPerformed
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
     private javax.swing.JButton Comprar;
