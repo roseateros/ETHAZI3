@@ -146,8 +146,6 @@ public class pasar_pagina{
          Actualizar obj = new Actualizar(clientex);
          obj.setVisible(true);
      }
-
-
 }
 
 
