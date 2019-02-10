@@ -24,16 +24,17 @@ public class Paradas extends javax.swing.JFrame {
         ArrayList<String> horas;
         public int uno,dos,busesito;
         public double redondo;
+        public int unox;
 //Uno
     public Paradas(cliente cliente,lineas lineas) {
                 
         initComponents();
-           JOptionPane.showMessageDialog(null, "Estoy en el uno de Paradas");
+Comprar.setEnabled(false);
         horaVuelta.setEnabled(false); 
         idaVuelta.setEnabled(false);
         horaIda.setEnabled(false);
         ida.setEnabled(false);
-        Comprar.setEnabled(false);
+
 
         horas = new ArrayList();    
         horas.add(0, "08:00");
@@ -62,6 +63,7 @@ public class Paradas extends javax.swing.JFrame {
         }
 
         clientex=cliente;
+        jLabel4.setText(clientex.nombre);
         lineasx=lineas;
         jLabel2.setText("Linea "+lineas.Cod_Linea);
             setLocationRelativeTo(null);
@@ -76,13 +78,14 @@ public class Paradas extends javax.swing.JFrame {
           
                 
         initComponents();
-         JOptionPane.showMessageDialog(null, "Estoy en el dos de paradas");
+        Comprar.setEnabled(false);
+ 
         billetex=billete;
         horaVuelta.setEnabled(false); 
         idaVuelta.setEnabled(false);
         horaIda.setEnabled(false);
         ida.setEnabled(false);
-        Comprar.setEnabled(false);
+   
          if(billetex.isEmpty())
         {
             System.out.println("gola");
@@ -114,6 +117,8 @@ public class Paradas extends javax.swing.JFrame {
         }
 
         clientex=cliente;
+       jLabel4.setText(clientex.nombre);
+        jLabel4.setText(clientex.nombre);
         lineasx=lineas;
         jLabel2.setText("Linea "+lineas.Cod_Linea);
             setLocationRelativeTo(null);
@@ -368,39 +373,46 @@ public class Paradas extends javax.swing.JFrame {
             {
                 if(busx.get(i).color==ComboBox3)
                 {
-                    int uno=i;
+                   
+                    unox=i;
                 }
             }
-                
-             for(int p=0;p<paradax.size();p++)
-            {   
-                String ComboBox1 = (String) origen.getSelectedItem();
-                if(paradax.get(p).nombre.equals(ComboBox1))
-                {
-                    uno=p;
-                }
-            }              
-             
+            
+              String ComboBox2 = (String) destino.getSelectedItem();
             for(int p=0;p<paradax.size();p++)
             {   
-                String ComboBox2 = (String) destino.getSelectedItem();
+                
                 if(paradax.get(p).nombre.equals(ComboBox2))
                 {
+                  System.out.println(paradax.get(p).nombre);  
                 dos=p;
+                System.out.println(dos);
                 }
             } 
+            
+               String ComboBox1 = (String) origen.getSelectedItem(); 
+             for(int r=0;r<paradax.size();r++)
+            {   
+                
+                if(paradax.get(r).nombre.equals(ComboBox1))
+                {
+                    System.out.println(paradax.get(r).nombre); 
+                    uno=r;
+                    System.out.println(uno);
+                }
+            }              
+           
                
         String horaida = (String)horaIda.getSelectedItem();      
         String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
 
 
-        //Date date = ida.getDate();
-        //java.sql.Date sDate = new java.sql.Date(date.getTime());
         try{
         if(billetex.size()>0)
         {
-          JOptionPane.showMessageDialog(null, "Estoy en el dos de paradas try");
-           Comprar_billete compra= new Comprar_billete(1,clientex.dni,fecha1,horaida,lineasx.Cod_Linea,busx.get(uno).Cod_bus,paradax.get(uno).codParada,paradax.get(dos).codParada,redondo,billetex); 
+            int numerico=paradax.get(uno).codParada; 
+            System.out.println(numerico);
+           Comprar_billete compra= new Comprar_billete( ComboBox1,ComboBox2,1,clientex,fecha1,horaida,lineasx,busx.get(unox).Cod_bus,numerico,paradax.get(dos).codParada,redondo,billetex); 
         dispose();
         
          
@@ -410,12 +422,14 @@ public class Paradas extends javax.swing.JFrame {
         
         
         }catch(Exception e){
-       JOptionPane.showMessageDialog(null, "Estoy en el uno de paradas catch");
-         Comprar_billete compra= new Comprar_billete(1,clientex.dni,fecha1,horaida,lineasx.Cod_Linea,busx.get(uno).Cod_bus,paradax.get(uno).codParada,paradax.get(dos).codParada,redondo); 
-
+  int numerico=paradax.get(uno).codParada;
+   System.out.println(numerico);
+         Comprar_billete compra= new Comprar_billete(ComboBox1,ComboBox2,1,clientex,fecha1,horaida,lineasx,busx.get(unox).Cod_bus,numerico,paradax.get(dos).codParada,redondo); 
+         
         dispose();
         
         }
+
         
        
           
@@ -505,7 +519,7 @@ public class Paradas extends javax.swing.JFrame {
             double result=Calculos.calcularDistancia(paradax.get(dos).latitud,paradax.get(dos).longitud,paradax.get(i).latitud,paradax.get(i).longitud);
             double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
             redondo=Calculos.Redondear(total_precio);
-            Comprar.setEnabled(true);
+        
             precio.setText(String.valueOf(redondo+"€"));
             }
         }
@@ -539,7 +553,7 @@ public class Paradas extends javax.swing.JFrame {
                     double result=Calculos.calcularDistancia(paradax.get(i).latitud,paradax.get(i).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
                     double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
                     redondo=Calculos.Redondear(total_precio);
-                    Comprar.setEnabled(true);
+                    
                     precio.setText(String.valueOf(redondo+"€"));
                     }     
                 }

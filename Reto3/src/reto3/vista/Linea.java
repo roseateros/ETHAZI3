@@ -16,7 +16,7 @@ public class Linea extends javax.swing.JFrame  {
     //cuando solo se recibe el cliente
         public Linea(cliente cliente) {
         initComponents();
-        JOptionPane.showMessageDialog(null, "Estoy en el 0 de linea main"); 
+
             clientex=cliente;
             setLocationRelativeTo(null);
             setResizable (false);
@@ -27,7 +27,7 @@ public class Linea extends javax.swing.JFrame  {
     public Linea(cliente cliente,lineas lineas) {
         initComponents();
     clientex=cliente;
-     JOptionPane.showMessageDialog(null, "Estoy en el 1 de linea main"); 
+
             setLocationRelativeTo(null);
             setResizable (false);
             setTitle ("Paradas");   
@@ -35,7 +35,7 @@ public class Linea extends javax.swing.JFrame  {
     }
     //cuando se recbe el cliente, la linea y el billete
         public Linea(cliente cliente,lineas lineas,ArrayList<billete> billete) {
-           JOptionPane.showMessageDialog(null, "Estoy en el dos de linea main"); 
+
         initComponents();
     clientex=cliente;
       billetex = new ArrayList();
@@ -174,7 +174,7 @@ public class Linea extends javax.swing.JFrame  {
           try{
         if(billetex.size()>0)
         {
-         JOptionPane.showMessageDialog(null, "Estoy en el dos de linea try");
+
          Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex,billetex);
           
         dispose();
@@ -182,11 +182,11 @@ public class Linea extends javax.swing.JFrame  {
          
            
         }
-         JOptionPane.showMessageDialog(null, "Estoy en el dos de linea try2");
+
         
         
         }catch(Exception e){
-                    JOptionPane.showMessageDialog(null, "Estoy en el uno de Linea catch");
+      
          Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex);
          
         dispose();

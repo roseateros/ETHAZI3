@@ -4,6 +4,8 @@ package reto3.vista;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import static reto3.controlador.Seleccionar_paradas.Seleccionar_paradas;
+import reto3.modelo.Parada;
 import reto3.modelo.billete;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
@@ -13,6 +15,8 @@ public class Lista extends javax.swing.JFrame {
 public cliente clientex;
 public lineas lineasx;
 public ArrayList<billete> billetex;
+public ArrayList<Parada> paradax;
+public ArrayList<String> nombres;
 //Main uno
     public Lista(cliente cliente,lineas lineas, ArrayList<billete> billete) {
         initComponents();
@@ -20,16 +24,14 @@ public ArrayList<billete> billetex;
         DefaultListModel modelio = new DefaultListModel();
         lista.setModel(modelio);
         billetex =new ArrayList();
+       nombres =new ArrayList();
+
+        
        
-        
-        
-        
-        
-        modelio.addElement("Linea:    Paradas:       Fecha:");
         for(int x=0;x<billete.size();x++)
         {
         billetex.add(billete.get(x));
-        modelio.addElement((x+1)+") "+String.valueOf(billetex.get(x).Cod_Linea)+"   " +"      "+String.valueOf(billetex.get(x).fecha));
+        modelio.addElement((x+1)+") Linea "+String.valueOf(billetex.get(x).Cod_Linea)+"   "+billetex.get(x).inicio+"-"+billetex.get(x).finale+"       Fecha:   "+String.valueOf(billetex.get(x).fecha)+"   Hora:   "+billetex.get(x).hora);
         }
         
         
@@ -115,7 +117,7 @@ public ArrayList<billete> billetex;
 
         jScrollPane1.setViewportView(lista);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 310, 250));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 510, 250));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
