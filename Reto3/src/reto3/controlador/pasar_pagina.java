@@ -120,9 +120,9 @@ public class pasar_pagina{
         obj.setVisible(true);
     }///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCIÒN PARA PASAR DE COBRO A IMPRIMIR
-    public static void cobro_a_imprimir(cliente cliente, lineas lineas){
+    public static void cobro_a_imprimir(cliente cliente){
         //SE CREA EL OBJ DE LA CLASE IMPRIMIR
-        ImprimirTicket obj = new ImprimirTicket(cliente, lineas);
+        ImprimirTicket obj = new ImprimirTicket(cliente);
         obj.setVisible(true);
     }///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCIÒN PARA PASAR DE IMPRIMIR A ADIOS 

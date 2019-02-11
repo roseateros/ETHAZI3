@@ -25,7 +25,7 @@ public final class Cobro extends javax.swing.JFrame {
         initComponents(); 
         clientex=cliente;
         lineasx=lineas;
-        jLabel3.setText(clientex.nombre);
+        jLabel3.setText(cliente.nombre);
         billetex =new ArrayList();
         
 
@@ -311,12 +311,12 @@ public final class Cobro extends javax.swing.JFrame {
     private void confirmarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarPedidoActionPerformed
         if (valor==pago){
             JOptionPane.showMessageDialog(null, "Pago realizado");
-            InsertarBillete insertar= new InsertarBillete(billetex);
+            InsertarBillete insertar= new InsertarBillete(billetex,clientex);
             dispose();
         }
         if (pago>valor){
             calcularCambio();
-            InsertarBillete insertar= new InsertarBillete(billetex);
+            InsertarBillete insertar= new InsertarBillete(billetex,clientex);
             dispose();
         } else if (pago<valor){
             JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");

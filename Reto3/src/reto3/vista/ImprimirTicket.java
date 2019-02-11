@@ -9,7 +9,7 @@ public class ImprimirTicket extends javax.swing.JFrame {
  public cliente clientex;
  public lineas lineasx;
  
-    public ImprimirTicket(cliente cliente, lineas lineas) {
+    public ImprimirTicket(cliente cliente) {
         initComponents(); 
         clientex=cliente;
         lineasx=lineas;
