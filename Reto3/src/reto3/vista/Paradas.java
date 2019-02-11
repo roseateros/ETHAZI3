@@ -354,8 +354,21 @@ public class Paradas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnteriorActionPerformed
-        reto3.controlador.pasar_pagina.paradas_a_lineas(clientex,lineasx);
-        dispose();
+       
+        
+        
+        try{
+        if(billetex.size()>0)
+        {
+               reto3.controlador.pasar_pagina.paradas_a_lineas(clientex,lineasx,billetex);
+               dispose();
+        }
+       
+        }catch(Exception e){
+            reto3.controlador.pasar_pagina.paradas_a_lineas(clientex,lineasx);
+            dispose(); 
+        } 
+        
     }//GEN-LAST:event_BotonAnteriorActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -401,15 +414,32 @@ public class Paradas extends javax.swing.JFrame {
         if(billetex.size()>0)
         {
             int numerico=paradax.get(uno).codParada; 
-            System.out.println(numerico);
-            Comprar_billete compra= new Comprar_billete( ComboBox1,ComboBox2,1,clientex,fecha1,horaida,lineasx,busx.get(unox).Cod_bus,numerico,paradax.get(dos).codParada,redondo,billetex); 
+                if(idas.isSelected())
+                {
+                Comprar_billete compra= new Comprar_billete( ComboBox1,ComboBox2,1,clientex,fecha1,horaida,lineasx,busx.get(unox).Cod_bus,numerico,paradax.get(dos).codParada,redondo,billetex);
+                }
+                else if(vueltas.isSelected())
+                {
+                    String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(idaVuelta.getDate());
+                  Comprar_billete compra2= new Comprar_billete( ComboBox1,ComboBox2,1,clientex,fecha1,horaida,lineasx,busx.get(unox).Cod_bus,numerico,paradax.get(dos).codParada,redondo,billetex,paradax.get(dos).codParada,numerico,fecha2);
+                }
+             
             dispose();          
         }
        
         }catch(Exception e){
-            int numerico=paradax.get(uno).codParada;
-            System.out.println(numerico);
+           int numerico=paradax.get(uno).codParada;
+            if(idas.isSelected())
+                {
             Comprar_billete compra= new Comprar_billete(ComboBox1,ComboBox2,1,clientex,fecha1,horaida,lineasx,busx.get(unox).Cod_bus,numerico,paradax.get(dos).codParada,redondo); 
+                }
+            else if(vueltas.isSelected())
+                {
+                    String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(idaVuelta.getDate());
+                  Comprar_billete compra2= new Comprar_billete( ComboBox1,ComboBox2,2,clientex,fecha1,horaida,lineasx,busx.get(unox).Cod_bus,numerico,paradax.get(dos).codParada,redondo,paradax.get(dos).codParada,numerico,fecha2);
+                }    
+            
+            
             dispose(); 
         }         
             Comprar.setEnabled(false);
@@ -701,8 +731,7 @@ public class Paradas extends javax.swing.JFrame {
         for(int i=0;i<horas.size();i++)
         {          
             horaVuelta.addItem(horas.get(i));
-        }
-        
+        }       
     }               
     }//GEN-LAST:event_horaIdaActionPerformed
 
