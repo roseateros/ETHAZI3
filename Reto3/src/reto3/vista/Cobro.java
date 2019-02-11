@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import static reto3.controlador.Cobro.calcularCambio;
 import static reto3.controlador.Cobro.pago;
-import static reto3.controlador.Cobro.precio;
+import reto3.controlador.InsertarBillete;
 import reto3.modelo.billete;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
@@ -17,6 +17,8 @@ public final class Cobro extends javax.swing.JFrame {
     
     public cliente clientex;
     public lineas lineasx;
+    public ArrayList<billete> billetex;
+    public double valor;
     
     public Cobro(cliente cliente, lineas lineas, ArrayList<billete> billete) {    
 
@@ -24,8 +26,16 @@ public final class Cobro extends javax.swing.JFrame {
         clientex=cliente;
         lineasx=lineas;
         jLabel3.setText(clientex.nombre);
+        billetex =new ArrayList();
+        
 
-        totalAPagar.setText(String.valueOf(precio+" €"));
+        for(int x=0;x<billete.size();x++)
+        {
+        billetex.add(billete.get(x));
+        valor = valor + billetex.get(x).precio;
+        }
+
+        totalAPagar.setText(String.valueOf(valor+" €"));
 
         setLocationRelativeTo(null);
         setResizable (false);
@@ -299,18 +309,19 @@ public final class Cobro extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarCompraActionPerformed
 
     private void confirmarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarPedidoActionPerformed
-        if (precio==pago){
+        if (valor==pago){
             JOptionPane.showMessageDialog(null, "Pago realizado");
-            reto3.controlador.pasar_pagina.cobro_a_imprimir(clientex, lineasx);
+            InsertarBillete insertar= new InsertarBillete(billetex);
             dispose();
         }
-        if (pago>precio){
+        if (pago>valor){
             calcularCambio();
-            reto3.controlador.pasar_pagina.cobro_a_imprimir(clientex, lineasx);
+            InsertarBillete insertar= new InsertarBillete(billetex);
             dispose();
-        } else if (pago<precio){
+        } else if (pago<valor){
             JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
         }
+        
     }//GEN-LAST:event_confirmarPedidoActionPerformed
 
     private void bi100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi100ActionPerformed

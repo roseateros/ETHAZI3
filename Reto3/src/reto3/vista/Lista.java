@@ -16,6 +16,7 @@ public lineas lineasx;
 public ArrayList<billete> billetex;
 public ArrayList<Parada> paradax;
 public ArrayList<String> nombres;
+public double valor;
 //Main uno
     public Lista(cliente cliente,lineas lineas, ArrayList<billete> billete) {
         initComponents();
@@ -28,7 +29,8 @@ public ArrayList<String> nombres;
         for(int x=0;x<billete.size();x++)
         {
         billetex.add(billete.get(x));
-        modelio.addElement((x+1)+") Linea "+String.valueOf(billetex.get(x).Cod_Linea)+"   "+billetex.get(x).inicio+"-"+billetex.get(x).finale+"       Fecha:   "+String.valueOf(billetex.get(x).fecha)+"   Hora:   "+billetex.get(x).hora);
+        modelio.addElement((x+1)+") Linea "+String.valueOf(billetex.get(x).Cod_Linea)+"   "+billetex.get(x).inicio+"-"+billetex.get(x).finale+"       Fecha:   "+String.valueOf(billetex.get(x).fecha)+"   Hora:   "+billetex.get(x).hora);       
+        valor = valor + billetex.get(x).precio;
         }
         
         lineasx=lineas;        
@@ -36,7 +38,9 @@ public ArrayList<String> nombres;
        
             setLocationRelativeTo(null);
             setResizable (false);
-            setTitle ("Lista");         
+            setTitle ("Lista");
+        
+        cobro.setText(String.valueOf(valor)+" €");
     }
 //Main uno      
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -50,7 +54,7 @@ public ArrayList<String> nombres;
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         lista = new javax.swing.JList<>();
-        jLabel7 = new javax.swing.JLabel();
+        cobro = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -106,9 +110,11 @@ public ArrayList<String> nombres;
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 510, 230));
 
-        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel7.setForeground(new java.awt.Color(255, 255, 0));
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 500, 60, 20));
+        cobro.setBackground(new java.awt.Color(255, 255, 255));
+        cobro.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        cobro.setForeground(new java.awt.Color(255, 255, 0));
+        cobro.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(cobro, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 70, 30));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
@@ -168,6 +174,7 @@ public ArrayList<String> nombres;
     }//GEN-LAST:event_jButton5ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel cobro;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
@@ -176,7 +183,6 @@ public ArrayList<String> nombres;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> lista;

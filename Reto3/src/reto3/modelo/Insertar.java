@@ -25,7 +25,7 @@ public class Insertar {
         return null;
     }
     
-     public String InsertarBillete(int cod_Billete, int NTrayecto, String dni, String fecha, String hora, String Cod_Linea, String Cod_Bus, String Cod_Parada_Inicio, String Cod_Parada_Fin, double precio)
+     public void InsertarBillete( int NTrayecto, String dni, String fecha, String hora, String Cod_Linea, int Cod_Bus, int Cod_Parada_Inicio, int Cod_Parada_Fin, double precio)
     {
             try {  
             Statement st = reg.createStatement(); 
@@ -35,6 +35,5 @@ public class Insertar {
             System.err.println("Got an exception! "); 
             System.err.println(e.getMessage()); 
         } 
-        return null;
     }    
 }
