@@ -13,11 +13,12 @@ public class InsertarBillete {
 public cliente clientex;
 public lineas lineasx;
 ArrayList<billete> billetex;   
-    public InsertarBillete(ArrayList<billete> billete){
+    public InsertarBillete(ArrayList<billete> billete,cliente cliente){
         
         JOptionPane.showMessageDialog(null,"Pago Realizado");
         Insertar cone =new Insertar(); 
-                billetex =new ArrayList();
+           billetex =new ArrayList();
+           clientex=cliente;
         
 
         for(int x=0;x<billete.size();x++)

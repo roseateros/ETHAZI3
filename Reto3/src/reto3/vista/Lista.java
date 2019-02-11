@@ -25,7 +25,7 @@ public double valor;
         lista.setModel(modelio);
         billetex =new ArrayList();
         nombres =new ArrayList();
-
+        jLabel4.setText(cliente.nombre);
         for(int x=0;x<billete.size();x++)
         {
         billetex.add(billete.get(x));
