@@ -352,7 +352,7 @@ public class Paradas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnteriorActionPerformed
-        reto3.controlador.pasar_pagina.paradas_a_lineas(clientex,lineasx,billetex);
+        reto3.controlador.pasar_pagina.paradas_a_lineas(clientex,lineasx);
         dispose();
     }//GEN-LAST:event_BotonAnteriorActionPerformed
 
@@ -473,7 +473,8 @@ public class Paradas extends javax.swing.JFrame {
             double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
             redondo=Calculos.Redondear(total_precio);
             precio.setText(String.valueOf(redondo+"€"));
-        }        
+        }   
+        Comprar.setEnabled(false);
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinoActionPerformed
@@ -585,6 +586,7 @@ public class Paradas extends javax.swing.JFrame {
         ida.setMinSelectableDate(new Date());
         horaVuelta.setEnabled(false);  
         idaVuelta.setEnabled(false);
+        Comprar.setEnabled(true);
     }//GEN-LAST:event_idasActionPerformed
 
     private void vueltasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vueltasActionPerformed
@@ -648,7 +650,7 @@ public class Paradas extends javax.swing.JFrame {
 
     private void horaIdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaIdaActionPerformed
     horaVuelta.removeAllItems();  
-        
+    Comprar.setEnabled(true);    
         horas = new ArrayList();    
         horas.add(0, "08:00");
         horas.add(1, "12:00");
@@ -675,7 +677,9 @@ public class Paradas extends javax.swing.JFrame {
             }
             if(horas.get(3).equals(horaida)){
                 horaVuelta.addItem("No Disponible");
-                Comprar.setEnabled(false);
+                if(vueltas.isSelected()){
+                    Comprar.setEnabled(false);
+                }
             }
             else{
                 Comprar.setEnabled(true);
@@ -697,7 +701,7 @@ public class Paradas extends javax.swing.JFrame {
 
     private void idaVueltaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_idaVueltaPropertyChange
     horaVuelta.removeAllItems();  
-        
+    Comprar.setEnabled(true);     
         horas = new ArrayList();    
         horas.add(0, "08:00");
         horas.add(1, "12:00");

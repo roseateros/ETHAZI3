@@ -3,8 +3,6 @@ package reto3.vista;
 
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-import javax.swing.JOptionPane;
-import static reto3.controlador.Seleccionar_paradas.Seleccionar_paradas;
 import reto3.modelo.Parada;
 import reto3.modelo.billete;
 import reto3.modelo.cliente;
@@ -24,33 +22,22 @@ public ArrayList<String> nombres;
         DefaultListModel modelio = new DefaultListModel();
         lista.setModel(modelio);
         billetex =new ArrayList();
-       nombres =new ArrayList();
+        nombres =new ArrayList();
 
-        
-       
         for(int x=0;x<billete.size();x++)
         {
         billetex.add(billete.get(x));
         modelio.addElement((x+1)+") Linea "+String.valueOf(billetex.get(x).Cod_Linea)+"   "+billetex.get(x).inicio+"-"+billetex.get(x).finale+"       Fecha:   "+String.valueOf(billetex.get(x).fecha)+"   Hora:   "+billetex.get(x).hora);
         }
         
-        
-        
-        lineasx=lineas;
-        
+        lineasx=lineas;        
         clientex=cliente;
-        
-        
- 
-     
        
             setLocationRelativeTo(null);
             setResizable (false);
             setTitle ("Lista");         
     }
-//Main uno    
-    
-    
+//Main uno      
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 

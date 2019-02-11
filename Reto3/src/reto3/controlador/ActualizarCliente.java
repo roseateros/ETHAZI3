@@ -22,7 +22,7 @@ public class ActualizarCliente {
            JOptionPane.showMessageDialog(null,"No has ingresado los Apellidos"); 
         }else if ( (sexo.isEmpty()) || (sexo.equals("")) )
         {
-           JOptionPane.showMessageDialog(null,"No has ingresado los Apellidos"); 
+           JOptionPane.showMessageDialog(null,"No has ingresado el Sexo"); 
         }else if ( (contraseña == null) || (contraseña.equals("")) )
         {
            JOptionPane.showMessageDialog(null,"No has ingresado la contraseña");

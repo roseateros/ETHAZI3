@@ -71,6 +71,7 @@ public class Registrado extends javax.swing.JFrame {
         BotonSiguiente.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         BotonSiguiente.setForeground(new java.awt.Color(0, 0, 0));
         BotonSiguiente.setText("CONECTAR");
+        BotonSiguiente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BotonSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonSiguienteActionPerformed(evt);
@@ -82,6 +83,7 @@ public class Registrado extends javax.swing.JFrame {
         jButton.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jButton.setForeground(new java.awt.Color(0, 0, 0));
         jButton.setText("NUEVO USUARIO");
+        jButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonActionPerformed(evt);
@@ -93,6 +95,7 @@ public class Registrado extends javax.swing.JFrame {
         delete.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         delete.setForeground(new java.awt.Color(255, 255, 255));
         delete.setText("ELIMINAR USUARIO");
+        delete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteActionPerformed(evt);
@@ -104,6 +107,7 @@ public class Registrado extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("ACTUALIZAR DATOS");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
