@@ -1,29 +1,42 @@
 
 package reto3.controlador;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import reto3.modelo.billete;
 
-public class Cobro {
+public class Pago {
         
-    public static float precio, cambio=0, pago;
-    public static float billete200=0, billete100=0, billete50=0, billete20=0, billete10=0, billete5=0, moneda2=0, moneda1=0;  
-    public static float moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
-
-    public static void calcularTotal(){
+    public float precio, cambio=0, pago;
+    public float billete200=0, billete100=0, billete50=0, billete20=0, billete10=0, billete5=0, moneda2=0, moneda1=0;  
+    public float moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
+    public ArrayList<billete> billetex;
+    public double valor;
+    
+    
+    public void calcularTotal(ArrayList<billete> billete){
         
-	double precio= 0;
+        billetex =new ArrayList();
+    
+        for(int x=0;x<billete.size();x++)
+        {
+        billetex.add(billete.get(x));
+        valor = valor + billetex.get(x).precio;
+        }
+	
     }
         
-    public static void calcularPago(){        
+    public double calcularPago(){        
         pago = (200*billete200)+(100*billete100)+(50*billete50)
                  +(20*billete20)+(10*billete10)+(5*billete5)+(2*moneda2)
                  +(1*moneda1)+(0.5f*moneda05)+(0.2f*moneda02)+(0.1f*moneda01)+(0.05f*moneda005)+(0.02f*moneda002)+(0.01f*moneda001);         
         pago =(float)(Math.round(pago*100d)/100d);       
+        return pago;
     } 
 
-    public static void calcularCambio(){
+    public double calcularCambio(){
          
-            cambio = (pago-precio);
+            cambio = (float) (valor-pago);
      
             cambio = (float)(Math.round(cambio*100f)/100f);
             billete200 = cambio / 200f;
@@ -82,13 +95,15 @@ public class Cobro {
                                                     + "Se devolveran: "+(int)moneda005+" Monedas de 5cents\n"
                                                     + "Se devolveran: "+(int)moneda002+" Monedas de 2cents\n"
                                                     + "Se devolveran: "+(int)moneda001+" Monedas de 1cent\n");       
+        return pago;
      }
 
-    public static void reiniciarPago(){
+    public double reiniciarPago(){
         pago=0;      
+        return pago;
     }
     
-    public static void bi200(){
+    public double bi200(){
         billete200++;
         if (pago!=0){
             calcularPago();
@@ -98,9 +113,10 @@ public class Cobro {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
+        return pago;
     }
     
-    public static void bi100(){        
+    public double bi100(){        
         billete100++;
         if (pago!=0){
             calcularPago();
@@ -110,9 +126,10 @@ public class Cobro {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
+        return pago;
     }
     
-    public static void bi50(){
+    public double bi50(){
         billete50++;
         if (pago!=0){
             calcularPago();
@@ -122,9 +139,10 @@ public class Cobro {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
+        return pago;
     }
     
-    public static void bi20(){
+    public double bi20(){
                 billete20++;
         if (pago!=0){
             calcularPago();
@@ -134,9 +152,10 @@ public class Cobro {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
+        return pago;
     }
     
-    public static void bi10(){
+    public double bi10(){
                 billete10++;
 
         if (pago!=0){
@@ -147,9 +166,10 @@ public class Cobro {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
+        return pago;
     }
     
-    public static void bi5(){
+    public double bi5(){
         billete5++;
         if (pago!=0){
             calcularPago();
@@ -159,9 +179,10 @@ public class Cobro {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
+        return pago;
     }
     
-    public static void mo2(){
+    public double mo2(){
         moneda2++;
         if (pago!=0){
             calcularPago();
@@ -171,9 +192,10 @@ public class Cobro {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
+        return pago;
     }
     
-    public static void mo1(){
+    public double mo1(){
         moneda1++;
         if (pago!=0){
             calcularPago();
@@ -183,9 +205,10 @@ public class Cobro {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
+        return pago;
     }
     
-    public static void mo05(){
+    public double mo05(){
         moneda05++;
         if (pago!=0){
             calcularPago();
@@ -195,9 +218,10 @@ public class Cobro {
             moneda05=1; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
+        return pago;
     }
     
-    public static void mo02(){
+    public double mo02(){
         moneda02++;
         if (pago!=0){
             calcularPago();
@@ -207,9 +231,10 @@ public class Cobro {
             moneda05=0; moneda02=1; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
+        return pago;
     }
     
-    public static void mo01(){
+    public double mo01(){
         moneda01++;
         if (pago!=0){
             calcularPago();
@@ -219,9 +244,10 @@ public class Cobro {
             moneda05=0; moneda02=0; moneda01=1; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
+        return pago;
     }
     
-    public static void mo005(){
+    public double mo005(){
         moneda005++;
         if (pago!=0){
             calcularPago();
@@ -231,9 +257,10 @@ public class Cobro {
             moneda05=0; moneda02=0; moneda01=0; moneda005=1; moneda002=0; moneda001=0;
             calcularPago();
         }
+        return pago;
     }
     
-    public static void mo002(){
+    public double mo002(){
         moneda002++;
         if (pago!=0){
             calcularPago();
@@ -243,9 +270,10 @@ public class Cobro {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=1; moneda001=0;
             calcularPago();
         }
+        return pago;
     }
     
-    public static void mo001(){
+    public double mo001(){
         moneda001++;
         if (pago!=0){
             calcularPago();
@@ -255,5 +283,6 @@ public class Cobro {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=1;
             calcularPago();
         }
+        return pago;
     }
 }

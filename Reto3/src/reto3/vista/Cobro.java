@@ -6,19 +6,19 @@ import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import static reto3.controlador.Cobro.calcularCambio;
-import static reto3.controlador.Cobro.pago;
 import reto3.controlador.InsertarBillete;
+import reto3.controlador.Pago;
 import reto3.modelo.billete;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
 
-public final class Cobro extends javax.swing.JFrame {
+public class Cobro extends javax.swing.JFrame {
     
     public cliente clientex;
     public lineas lineasx;
     public ArrayList<billete> billetex;
     public double valor;
+    private double pago;
     
     public Cobro(cliente cliente, lineas lineas, ArrayList<billete> billete) {    
 
@@ -26,15 +26,13 @@ public final class Cobro extends javax.swing.JFrame {
         clientex=cliente;
         lineasx=lineas;
         jLabel3.setText(clientex.nombre);
-        billetex =new ArrayList();
         
-
+        billetex =new ArrayList();
         for(int x=0;x<billete.size();x++)
         {
         billetex.add(billete.get(x));
         valor = valor + billetex.get(x).precio;
         }
-
         totalAPagar.setText(String.valueOf(valor+" €"));
 
         setLocationRelativeTo(null);
@@ -96,6 +94,7 @@ public final class Cobro extends javax.swing.JFrame {
         ImageIcon Imagen14 = new ImageIcon ("src/Imagenes/1 cent.jpg");
         Icon icono14 = new ImageIcon(Imagen14.getImage().getScaledInstance(mo001.getWidth(), mo001.getHeight(), Image.SCALE_DEFAULT));mo001.setIcon(icono14);
         this.repaint();
+        
     }      
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -165,7 +164,7 @@ public final class Cobro extends javax.swing.JFrame {
                 confirmarPedidoActionPerformed(evt);
             }
         });
-        getContentPane().add(confirmarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(466, 544, 140, 60));
+        getContentPane().add(confirmarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 550, 140, 50));
 
         totalAPagar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(totalAPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 80, 30));
@@ -298,7 +297,7 @@ public final class Cobro extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 220, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -315,7 +314,8 @@ public final class Cobro extends javax.swing.JFrame {
             dispose();
         }
         if (pago>valor){
-            calcularCambio();
+            Pago calcular = new Pago();
+            calcular.calcularCambio();
             InsertarBillete insertar= new InsertarBillete(billetex);
             dispose();
         } else if (pago<valor){
@@ -325,78 +325,93 @@ public final class Cobro extends javax.swing.JFrame {
     }//GEN-LAST:event_confirmarPedidoActionPerformed
 
     private void bi100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi100ActionPerformed
-        reto3.controlador.Cobro.bi100();
+        Pago calcular = new Pago();
+        calcular.bi100();
         actualizaPago.setText(String.valueOf(pago+" €"));
         
     }//GEN-LAST:event_bi100ActionPerformed
 
     private void bi50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi50ActionPerformed
-        reto3.controlador.Cobro.bi50();
+        Pago calcular = new Pago();
+        calcular.bi50();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_bi50ActionPerformed
 
     private void bi20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi20ActionPerformed
-        reto3.controlador.Cobro.bi20();
+        Pago calcular = new Pago();
+        calcular.bi20();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_bi20ActionPerformed
 
     private void bi10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi10ActionPerformed
-        reto3.controlador.Cobro.bi10();
+        Pago calcular = new Pago();
+        calcular.bi10();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_bi10ActionPerformed
 
     private void bi5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi5ActionPerformed
-        reto3.controlador.Cobro.bi5();
+        Pago calcular = new Pago();
+        calcular.bi5();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_bi5ActionPerformed
 
     private void mo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo2ActionPerformed
-        reto3.controlador.Cobro.mo2();
+        Pago calcular = new Pago();
+        calcular.mo2();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_mo2ActionPerformed
 
     private void mo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo1ActionPerformed
-        reto3.controlador.Cobro.mo1();
+        Pago calcular = new Pago();
+        calcular.mo1();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_mo1ActionPerformed
 
     private void mo05ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo05ActionPerformed
-        reto3.controlador.Cobro.mo05();
+        Pago calcular = new Pago();
+        calcular.mo05();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_mo05ActionPerformed
 
     private void mo02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo02ActionPerformed
-        reto3.controlador.Cobro.mo02();
+        Pago calcular = new Pago();
+        calcular.mo02();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_mo02ActionPerformed
 
     private void mo01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo01ActionPerformed
-        reto3.controlador.Cobro.mo01();
+        Pago calcular = new Pago();
+        calcular.mo01();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_mo01ActionPerformed
 
     private void mo005ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo005ActionPerformed
-        reto3.controlador.Cobro.mo005();  
+        Pago calcular = new Pago();
+        calcular.mo005();  
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_mo005ActionPerformed
 
     private void mo002ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo002ActionPerformed
-        reto3.controlador.Cobro.mo002();
+        Pago calcular = new Pago();
+        calcular.mo002();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_mo002ActionPerformed
 
     private void mo001ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo001ActionPerformed
-        reto3.controlador.Cobro.mo001();
+        Pago calcular = new Pago();
+        calcular.mo001();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_mo001ActionPerformed
 
     private void bi200ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi200ActionPerformed
-        reto3.controlador.Cobro.bi200();
+        Pago calcular = new Pago();
+        calcular.bi200();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_bi200ActionPerformed
 
     private void reiniciarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reiniciarPagoActionPerformed
-        reto3.controlador.Cobro.reiniciarPago();
+        Pago calcular = new Pago();
+        calcular.reiniciarPago();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_reiniciarPagoActionPerformed
 
@@ -405,11 +420,11 @@ public final class Cobro extends javax.swing.JFrame {
     private javax.swing.JButton bi10;
     private javax.swing.JButton bi100;
     private javax.swing.JButton bi20;
-    private javax.swing.JButton bi200;
+    public javax.swing.JButton bi200;
     private javax.swing.JButton bi5;
     private javax.swing.JButton bi50;
     private javax.swing.JButton cancelarCompra;
-    private javax.swing.JButton confirmarPedido;
+    public javax.swing.JButton confirmarPedido;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -428,4 +443,5 @@ public final class Cobro extends javax.swing.JFrame {
     private javax.swing.JButton reiniciarPago;
     private javax.swing.JLabel totalAPagar;
     // End of variables declaration//GEN-END:variables
+
 }
