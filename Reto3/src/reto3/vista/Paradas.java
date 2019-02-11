@@ -73,8 +73,7 @@ public class Paradas extends javax.swing.JFrame {
     
     //DOS
       public Paradas(cliente cliente,lineas lineas,ArrayList<billete> billete) {
-          
-                
+                         
         initComponents();
          JOptionPane.showMessageDialog(null, "Estoy en el dos de paradas");
         billetex=billete;
