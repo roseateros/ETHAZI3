@@ -17,7 +17,8 @@ public class Actualizar extends javax.swing.JFrame {
             setLocationRelativeTo(null);
             setResizable (false);
             setTitle ("Actualizar");   
-
+        
+        dni.setEnabled(false);
         dni.setText(cliente.dni);
         nombre.setText(cliente.nombre);
         apellidos.setText(cliente.apellidos);

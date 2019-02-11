@@ -43,7 +43,8 @@ public class Paradas extends javax.swing.JFrame {
         
         for(int i=0;i<horas.size();i++)
         {          
-            horaIda.addItem(horas.get(i));  
+            horaIda.addItem(horas.get(i)); 
+            horaVuelta.addItem(horas.get(i)); 
         }
         
         paradax = new ArrayList();
@@ -93,7 +94,7 @@ public class Paradas extends javax.swing.JFrame {
         
         for(int i=0;i<horas.size();i++)
         {          
-            horaIda.addItem(horas.get(i));          
+            horaIda.addItem(horas.get(i));
         }
         
         paradax = new ArrayList();
@@ -411,6 +412,8 @@ public class Paradas extends javax.swing.JFrame {
             Comprar_billete compra= new Comprar_billete(ComboBox1,ComboBox2,1,clientex,fecha1,horaida,lineasx,busx.get(unox).Cod_bus,numerico,paradax.get(dos).codParada,redondo); 
             dispose(); 
         }         
+            Comprar.setEnabled(false);
+            
     }//GEN-LAST:event_ComprarActionPerformed
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
@@ -475,7 +478,13 @@ public class Paradas extends javax.swing.JFrame {
             redondo=Calculos.Redondear(total_precio);
             precio.setText(String.valueOf(redondo+"€"));
         }   
-        Comprar.setEnabled(false);
+        
+        if (idas.isSelected() || vueltas.isSelected()){
+            if (horaVuelta.getSelectedItem() != "No Disponible"){  
+                Comprar.setEnabled(true);}
+        }else{
+            Comprar.setEnabled(false);
+        }
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinoActionPerformed
@@ -651,6 +660,7 @@ public class Paradas extends javax.swing.JFrame {
 
     private void horaIdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaIdaActionPerformed
     horaVuelta.removeAllItems();  
+    
     Comprar.setEnabled(true);    
         horas = new ArrayList();    
         horas.add(0, "08:00");
@@ -677,7 +687,7 @@ public class Paradas extends javax.swing.JFrame {
                 horaVuelta.addItem(horas.get(3));
             }
             if(horas.get(3).equals(horaida)){
-                horaVuelta.addItem("No Disponible");
+                horaVuelta.addItem("No Disponible");                
                 if(vueltas.isSelected()){
                     Comprar.setEnabled(false);
                 }
@@ -686,23 +696,27 @@ public class Paradas extends javax.swing.JFrame {
                 Comprar.setEnabled(true);
             }
     }
-            for(int i=0;i<horas.size();i++)
-            {          
-                horaVuelta.addItem(horas.get(i));  
-            }
-            
     
+    if((fecha1.compareTo(fecha2) !=0)){
+        for(int i=0;i<horas.size();i++)
+        {          
+            horaVuelta.addItem(horas.get(i));
+        }
+        
+    }               
     }//GEN-LAST:event_horaIdaActionPerformed
 
     private void idaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_idaPropertyChange
     if (vueltas.isSelected()){
         idaVuelta.setMinSelectableDate(ida.getDate());
+        Comprar.setEnabled(false);
     } 
     }//GEN-LAST:event_idaPropertyChange
 
     private void idaVueltaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_idaVueltaPropertyChange
     horaVuelta.removeAllItems();  
-    Comprar.setEnabled(true);     
+    Comprar.setEnabled(true);  
+    
         horas = new ArrayList();    
         horas.add(0, "08:00");
         horas.add(1, "12:00");
@@ -735,11 +749,14 @@ public class Paradas extends javax.swing.JFrame {
                 Comprar.setEnabled(true);
             }
     }
-            for(int i=0;i<horas.size();i++)
-            {          
-                horaVuelta.addItem(horas.get(i));  
-            }
-            
+          
+        if((fecha1.compareTo(fecha2) !=0)){
+        for(int i=0;i<horas.size();i++)
+        {          
+            horaVuelta.addItem(horas.get(i));
+        }
+        
+    } 
            
     }//GEN-LAST:event_idaVueltaPropertyChange
   
