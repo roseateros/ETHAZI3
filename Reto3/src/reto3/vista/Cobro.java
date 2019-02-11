@@ -90,7 +90,6 @@ public final class Cobro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -121,16 +120,6 @@ public final class Cobro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton1.setBackground(new java.awt.Color(204, 0, 51));
-        jButton1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jButton1.setText("Cerrar Sesión");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(102, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -304,11 +293,6 @@ public final class Cobro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        reto3.controlador.pasar_pagina.classsaludoaregistrado();
-        dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void cancelarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarCompraActionPerformed
         reto3.controlador.pasar_pagina.registrado_a_saludo();
         dispose ();
@@ -415,7 +399,6 @@ public final class Cobro extends javax.swing.JFrame {
     private javax.swing.JButton bi50;
     private javax.swing.JButton cancelarCompra;
     private javax.swing.JButton confirmarPedido;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

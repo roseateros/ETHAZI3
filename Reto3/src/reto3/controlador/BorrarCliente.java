@@ -27,7 +27,7 @@ public class BorrarCliente {
                         if (clientex==null){
                                 JOptionPane.showMessageDialog(null,"No se ha podido borrar el usuario "+us+" porque no existe o has introducido mal la contraseña");
                         } else {     
-                        int n= JOptionPane.showConfirmDialog(null, "Esta seguro que quiere borrar su usuario?", "An Inane Question" , JOptionPane.YES_NO_OPTION);
+                        int n= JOptionPane.showConfirmDialog(null, "¿Quiere borrar su usuario?", "Borrar Usuario" , JOptionPane.YES_NO_OPTION);
                         if (n == JOptionPane.YES_OPTION) 
                         {
                             JOptionPane.showMessageDialog(null, "Deseamos que vuelva pronto");

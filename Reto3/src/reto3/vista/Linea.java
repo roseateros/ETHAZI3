@@ -2,6 +2,7 @@
 package reto3.vista;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import reto3.controlador.Seleccionar_linea;
 import reto3.modelo.billete;
 import reto3.modelo.cliente;
@@ -57,11 +58,11 @@ public class Linea extends javax.swing.JFrame  {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -129,17 +130,6 @@ public class Linea extends javax.swing.JFrame  {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 30));
 
-        jButton5.setBackground(new java.awt.Color(204, 0, 51));
-        jButton5.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Cerrar Sesión");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 120, 30));
-
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("TERMIBUS-PLENTZIA");
@@ -159,6 +149,18 @@ public class Linea extends javax.swing.JFrame  {
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("TERMIBUS-DURANGO");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, -1, -1));
+
+        jButton5.setBackground(new java.awt.Color(204, 0, 51));
+        jButton5.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setText("Cerrar Sesión");
+        jButton5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 120, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
@@ -227,8 +229,25 @@ public class Linea extends javax.swing.JFrame  {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        reto3.controlador.pasar_pagina.classsaludoaregistrado();
-        dispose();
+        try{
+            if(billetex.size()>0)
+            {
+                int n= JOptionPane.showConfirmDialog(null, "¿Quiere Cerrar Sesion? \n Has comprado: "+billetex.size(), "Cerrar Sesion" , JOptionPane.YES_NO_OPTION);
+                if (n == JOptionPane.YES_OPTION)
+                {
+                    reto3.controlador.pasar_pagina.classsaludoaregistrado();
+                    dispose();
+                }
+            }
+        }
+        catch(Exception e){
+            int n= JOptionPane.showConfirmDialog(null, "¿Quiere Cerrar Sesion?", "Cerrar Sesion" , JOptionPane.YES_NO_OPTION);
+            if (n == JOptionPane.YES_OPTION)
+            {
+                reto3.controlador.pasar_pagina.classsaludoaregistrado();
+                dispose();
+            }
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

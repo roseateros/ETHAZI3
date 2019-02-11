@@ -2,6 +2,7 @@ package reto3.vista;
 
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import reto3.controlador.Calculos;
 import reto3.controlador.Comprar_billete;
 import reto3.controlador.Nplazas;
@@ -136,7 +137,6 @@ public class Paradas extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
@@ -153,6 +153,7 @@ public class Paradas extends javax.swing.JFrame {
         plazas2 = new javax.swing.JLabel();
         ida = new com.toedter.calendar.JCalendar();
         idaVuelta = new com.toedter.calendar.JCalendar();
+        jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -214,17 +215,6 @@ public class Paradas extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("ORIGEN ");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, -1, -1));
-
-        jButton5.setBackground(new java.awt.Color(204, 0, 51));
-        jButton5.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Cerrar Sesión");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 120, 30));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
@@ -347,6 +337,18 @@ public class Paradas extends javax.swing.JFrame {
         });
         getContentPane().add(idaVuelta, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, 200, 140));
 
+        jButton5.setBackground(new java.awt.Color(204, 0, 51));
+        jButton5.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setText("Cerrar Sesión");
+        jButton5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 120, 30));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
 
@@ -370,11 +372,6 @@ public class Paradas extends javax.swing.JFrame {
         } 
         
     }//GEN-LAST:event_BotonAnteriorActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        reto3.controlador.pasar_pagina.classsaludoaregistrado();
-        dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
 
     private void ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarActionPerformed
 
@@ -788,6 +785,28 @@ public class Paradas extends javax.swing.JFrame {
     } 
            
     }//GEN-LAST:event_idaVueltaPropertyChange
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        try{
+            if(billetex.size()>0)
+            {
+                int n= JOptionPane.showConfirmDialog(null, "¿Quiere Cerrar Sesion? \n Has comprado: "+billetex.size(), "Cerrar Sesion" , JOptionPane.YES_NO_OPTION);
+                if (n == JOptionPane.YES_OPTION)
+                {
+                    reto3.controlador.pasar_pagina.classsaludoaregistrado();
+                    dispose();
+                }
+            }
+        }
+        catch(Exception e){
+            int n= JOptionPane.showConfirmDialog(null, "¿Quiere Cerrar Sesion?", "Cerrar Sesion" , JOptionPane.YES_NO_OPTION);
+            if (n == JOptionPane.YES_OPTION)
+            {
+                reto3.controlador.pasar_pagina.classsaludoaregistrado();
+                dispose();
+            }
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
