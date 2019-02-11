@@ -4,7 +4,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-
 public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECIR, AL INSTANCIAR UN 
     OBJETO EN LA CLASE CONSULTAS SOLO SE EJECUTARÀ ESTO conectar con =new conectar() Connection reg=con.conexion();*/
 
@@ -72,7 +71,7 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
         return null;
     }
     
-    public cliente ActualizarCliente( String dni,String nombre,String apellidos,String contraseña, String sexo, String fecha)
+    public cliente ActualizarCliente( String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña)
         {
         try {             
             Statement st = reg.createStatement();
@@ -84,7 +83,6 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
         }        
         return null;
     } 
-    
         public Integer NPlazas(int Cod_Bus,String horaida)
         {
         try {             
@@ -203,7 +201,6 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
             }       
             return null;
         }
-        
 }
 
 //  SELECT COUNT(*) FROM billete where color_bus = "'+azul+'"

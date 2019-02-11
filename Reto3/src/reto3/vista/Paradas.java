@@ -2,7 +2,6 @@ package reto3.vista;
 
 import java.util.ArrayList;
 import java.util.Date;
-import javax.swing.JOptionPane;
 import reto3.controlador.Calculos;
 import reto3.controlador.Comprar_billete;
 import reto3.controlador.Nplazas;
@@ -24,11 +23,12 @@ public class Paradas extends javax.swing.JFrame {
         ArrayList<String> horas;
         public int uno,dos,busesito;
         public double redondo;
+        public int unox;
 //Uno
     public Paradas(cliente cliente,lineas lineas) {
                 
         initComponents();
-           JOptionPane.showMessageDialog(null, "Estoy en el uno de Paradas");
+
         horaVuelta.setEnabled(false); 
         idaVuelta.setEnabled(false);
         horaIda.setEnabled(false);
@@ -62,6 +62,7 @@ public class Paradas extends javax.swing.JFrame {
         }
 
         clientex=cliente;
+        jLabel4.setText(clientex.nombre);
         lineasx=lineas;
         jLabel2.setText("Linea "+lineas.Cod_Linea);
             setLocationRelativeTo(null);
@@ -72,20 +73,18 @@ public class Paradas extends javax.swing.JFrame {
     //UNO
     
     //DOS
-      public Paradas(cliente cliente,lineas lineas,ArrayList<billete> billete) {
+
+    public Paradas(cliente cliente,lineas lineas,ArrayList<billete> billete) {
                          
         initComponents();
-         JOptionPane.showMessageDialog(null, "Estoy en el dos de paradas");
+        
         billetex=billete;
         horaVuelta.setEnabled(false); 
         idaVuelta.setEnabled(false);
         horaIda.setEnabled(false);
         ida.setEnabled(false);
         Comprar.setEnabled(false);
-         if(billetex.isEmpty())
-        {
-            System.out.println("gola");
-        }
+        
         horas = new ArrayList();    
         horas.add(0, "08:00");
         horas.add(1, "12:00");
@@ -113,6 +112,8 @@ public class Paradas extends javax.swing.JFrame {
         }
 
         clientex=cliente;
+        jLabel4.setText(clientex.nombre);
+        jLabel4.setText(clientex.nombre);
         lineasx=lineas;
         jLabel2.setText("Linea "+lineas.Cod_Linea);
             setLocationRelativeTo(null);
@@ -352,7 +353,7 @@ public class Paradas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnteriorActionPerformed
-        reto3.controlador.pasar_pagina.paradas_a_lineas(clientex,lineasx,billetex);
+        reto3.controlador.pasar_pagina.paradas_a_lineas(clientex,lineasx);
         dispose();
     }//GEN-LAST:event_BotonAnteriorActionPerformed
 
@@ -362,62 +363,54 @@ public class Paradas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarActionPerformed
+
         String ComboBox3 = (String) jComboBox3.getSelectedItem();
             for(int i=0;i<busx.size();i++)//numero de plazas disponibles
             {
                 if(busx.get(i).color==ComboBox3)
-                {
-                    int uno=i;
+                {                  
+                    unox=i;
                 }
-            }
-                
-             for(int p=0;p<paradax.size();p++)
-            {   
-                String ComboBox1 = (String) origen.getSelectedItem();
-                if(paradax.get(p).nombre.equals(ComboBox1))
-                {
-                    uno=p;
-                }
-            }              
-             
+            }            
+        String ComboBox2 = (String) destino.getSelectedItem();
             for(int p=0;p<paradax.size();p++)
-            {   
-                String ComboBox2 = (String) destino.getSelectedItem();
+            {                   
                 if(paradax.get(p).nombre.equals(ComboBox2))
                 {
+                  System.out.println(paradax.get(p).nombre);  
                 dos=p;
+                System.out.println(dos);
                 }
-            } 
-               
+            }            
+        String ComboBox1 = (String) origen.getSelectedItem(); 
+             for(int r=0;r<paradax.size();r++)
+            {                   
+                if(paradax.get(r).nombre.equals(ComboBox1))
+                {
+                    System.out.println(paradax.get(r).nombre); 
+                    uno=r;
+                    System.out.println(uno);
+                }
+            }              
+                         
         String horaida = (String)horaIda.getSelectedItem();      
         String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
 
-
-        //Date date = ida.getDate();
-        //java.sql.Date sDate = new java.sql.Date(date.getTime());
         try{
         if(billetex.size()>0)
         {
-          JOptionPane.showMessageDialog(null, "Estoy en el dos de paradas try");
-           Comprar_billete compra= new Comprar_billete(1,clientex.dni,fecha1,horaida,lineasx.Cod_Linea,busx.get(uno).Cod_bus,paradax.get(uno).codParada,paradax.get(dos).codParada,redondo,billetex); 
-        dispose();
-        
-         
-           
+            int numerico=paradax.get(uno).codParada; 
+            System.out.println(numerico);
+            Comprar_billete compra= new Comprar_billete( ComboBox1,ComboBox2,1,clientex,fecha1,horaida,lineasx,busx.get(unox).Cod_bus,numerico,paradax.get(dos).codParada,redondo,billetex); 
+            dispose();          
         }
-         
-        
-        
-        }catch(Exception e){
-       JOptionPane.showMessageDialog(null, "Estoy en el uno de paradas catch");
-         Comprar_billete compra= new Comprar_billete(1,clientex.dni,fecha1,horaida,lineasx.Cod_Linea,busx.get(uno).Cod_bus,paradax.get(uno).codParada,paradax.get(dos).codParada,redondo); 
-
-        dispose();
-        
-        }
-        
        
-          
+        }catch(Exception e){
+            int numerico=paradax.get(uno).codParada;
+            System.out.println(numerico);
+            Comprar_billete compra= new Comprar_billete(ComboBox1,ComboBox2,1,clientex,fecha1,horaida,lineasx,busx.get(unox).Cod_bus,numerico,paradax.get(dos).codParada,redondo); 
+            dispose(); 
+        }         
     }//GEN-LAST:event_ComprarActionPerformed
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
@@ -480,31 +473,29 @@ public class Paradas extends javax.swing.JFrame {
             double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
             double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
             redondo=Calculos.Redondear(total_precio);
-            Comprar.setEnabled(true);
             precio.setText(String.valueOf(redondo+"€"));
-        }        
+        }   
+        Comprar.setEnabled(false);
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinoActionPerformed
         String ComboBox2 = (String) destino.getSelectedItem();
-         for(int i=0;i<paradax.size();i++)
+        for(int i=0;i<paradax.size();i++)
         {
              if(paradax.get(i).nombre==ComboBox2)
-            {
-       
+            {       
                for(int p=0;p<paradax.size();p++)
             {   
             String ComboBox1 = (String) origen.getSelectedItem();
             if(paradax.get(p).nombre.equals(ComboBox1)){
             dos=p;
             }
-        }  
+            }  
             if(idas.isSelected() || vueltas.isSelected()){ 
             Calculos cal= new Calculos();   
             double result=Calculos.calcularDistancia(paradax.get(dos).latitud,paradax.get(dos).longitud,paradax.get(i).latitud,paradax.get(i).longitud);
             double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
-            redondo=Calculos.Redondear(total_precio);
-            Comprar.setEnabled(true);
+            redondo=Calculos.Redondear(total_precio);        
             precio.setText(String.valueOf(redondo+"€"));
             }
         }
@@ -531,14 +522,12 @@ public class Paradas extends javax.swing.JFrame {
             if(paradax.get(p).nombre.equals(ComboBox2)){
             dos=p;
             }
-        }    
-                    
+        }                        
                 if(idas.isSelected() || vueltas.isSelected()){ 
                     Calculos cal= new Calculos();   
                     double result=Calculos.calcularDistancia(paradax.get(i).latitud,paradax.get(i).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
                     double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
-                    redondo=Calculos.Redondear(total_precio);
-                    Comprar.setEnabled(true);
+                    redondo=Calculos.Redondear(total_precio);                   
                     precio.setText(String.valueOf(redondo+"€"));
                     }     
                 }
@@ -578,7 +567,6 @@ public class Paradas extends javax.swing.JFrame {
             dos=p;
             }
         }   
-
     
          for(int i=0;i<busx.size();i++)
         {
@@ -592,7 +580,6 @@ public class Paradas extends javax.swing.JFrame {
             double result=Calculos.calcularDistancia(paradax.get(uno).latitud,paradax.get(uno).longitud,paradax.get(dos).latitud,paradax.get(dos).longitud);
             double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
             redondo=Calculos.Redondear(total_precio);
-            Comprar.setEnabled(true);
             precio.setText(String.valueOf(redondo+"€"));
             
         horaIda.setEnabled(true);
@@ -600,6 +587,7 @@ public class Paradas extends javax.swing.JFrame {
         ida.setMinSelectableDate(new Date());
         horaVuelta.setEnabled(false);  
         idaVuelta.setEnabled(false);
+        Comprar.setEnabled(true);
     }//GEN-LAST:event_idasActionPerformed
 
     private void vueltasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vueltasActionPerformed
@@ -650,9 +638,9 @@ public class Paradas extends javax.swing.JFrame {
             double total_precio=Calculos.calcularTotal(result,busx.get(busesito).Consumo_km);
             total_precio=total_precio+total_precio;
             redondo=Calculos.Redondear(total_precio);
-            Comprar.setEnabled(true);
             precio.setText(String.valueOf(redondo+"€")); 
             
+        Comprar.setEnabled(false);
         horaIda.setEnabled(true);
         ida.setEnabled(true);     
         horaVuelta.setEnabled(true);  
@@ -662,10 +650,18 @@ public class Paradas extends javax.swing.JFrame {
     }//GEN-LAST:event_vueltasActionPerformed
 
     private void horaIdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaIdaActionPerformed
+    horaVuelta.removeAllItems();  
+    Comprar.setEnabled(true);    
+        horas = new ArrayList();    
+        horas.add(0, "08:00");
+        horas.add(1, "12:00");
+        horas.add(2, "16:00");
+        horas.add(3, "20:00"); 
+
     String horaida = (String)horaIda.getSelectedItem();
-    horaVuelta.removeAllItems();
     String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
     String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(idaVuelta.getDate());
+    
     if ((fecha1.compareTo(fecha2) ==0)){
             if(horas.get(0).equals(horaida)){
                 horaVuelta.addItem(horas.get(1));
@@ -682,14 +678,20 @@ public class Paradas extends javax.swing.JFrame {
             }
             if(horas.get(3).equals(horaida)){
                 horaVuelta.addItem("No Disponible");
+                if(vueltas.isSelected()){
+                    Comprar.setEnabled(false);
+                }
+            }
+            else{
+                Comprar.setEnabled(true);
             }
     }
-    if ((fecha1.compareTo(fecha2) >0)){
-        if(horas.get(0).equals(horaida)){         
-                horaVuelta.addItem(horas.get(1));  
-            }   
-        }       
-   
+            for(int i=0;i<horas.size();i++)
+            {          
+                horaVuelta.addItem(horas.get(i));  
+            }
+            
+    
     }//GEN-LAST:event_horaIdaActionPerformed
 
     private void idaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_idaPropertyChange
@@ -699,7 +701,46 @@ public class Paradas extends javax.swing.JFrame {
     }//GEN-LAST:event_idaPropertyChange
 
     private void idaVueltaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_idaVueltaPropertyChange
+    horaVuelta.removeAllItems();  
+    Comprar.setEnabled(true);     
+        horas = new ArrayList();    
+        horas.add(0, "08:00");
+        horas.add(1, "12:00");
+        horas.add(2, "16:00");
+        horas.add(3, "20:00"); 
 
+    String horaida = (String)horaIda.getSelectedItem();
+    String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
+    String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(idaVuelta.getDate());
+    
+    if ((fecha1.compareTo(fecha2) ==0)){
+            if(horas.get(0).equals(horaida)){
+                horaVuelta.addItem(horas.get(1));
+                horaVuelta.addItem(horas.get(2));
+                horaVuelta.addItem(horas.get(3));
+            }
+
+            if(horas.get(1).equals(horaida)){
+                horaVuelta.addItem(horas.get(2));
+                horaVuelta.addItem(horas.get(3));
+            }
+            if(horas.get(2).equals(horaida)){
+                horaVuelta.addItem(horas.get(3));
+            }
+            if(horas.get(3).equals(horaida)){
+                horaVuelta.addItem("No Disponible");
+                Comprar.setEnabled(false);
+            }
+            else{
+                Comprar.setEnabled(true);
+            }
+    }
+            for(int i=0;i<horas.size();i++)
+            {          
+                horaVuelta.addItem(horas.get(i));  
+            }
+            
+           
     }//GEN-LAST:event_idaVueltaPropertyChange
   
     // Variables declaration - do not modify//GEN-BEGIN:variables

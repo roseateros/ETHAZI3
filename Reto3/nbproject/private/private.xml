@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/controlador/ImprimirTicket.java</file>
             <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/controlador/VerificarCliente.java</file>
             <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/controlador/ImprimirCliente.java</file>
@@ -11,6 +12,13 @@
             <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/controlador/BorrarCliente.java</file>
             <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/controlador/ActualizarCliente.java</file>
             <file>file:/C:/Maialen/ETHAZI3/Reto3/src/reto3/controlador/pasar_pagina.java</file>
+=======
+            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/controlador/Comprar_billete.java</file>
+            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/Paradas.java</file>
+            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/controlador/Seleccionar_linea.java</file>
+            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/controlador/Seleccionar_paradas.java</file>
+            <file>file:/C:/dimaggio/ETHAZI3/Reto3/src/reto3/vista/Linea.java</file>
+>>>>>>> 8e9f5e71ef5d063d460a51df71246b5045122d85
         </group>
     </open-files>
 </project-private>

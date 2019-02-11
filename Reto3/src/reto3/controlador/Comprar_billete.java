@@ -10,28 +10,28 @@ import reto3.modelo.lineas;
 
 public class Comprar_billete {
     
-    public cliente cliente;
-    public lineas lineas;
+    public cliente clientex;
+    public lineas lineasx;
 
     
-    public Comprar_billete( int NTrayecto, String dni, String ida, String horaida, String Cod_Linea, int Cod_Bus, int Cod_Parada_Inicio, int Cod_Parada_Fin, double precio,ArrayList<billete> billete){
+    public Comprar_billete( String inicio, String Finale,int NTrayecto, cliente cliente, String ida, String horaida,  lineas lineas, int Cod_Bus,int Cod_Parada_Inicio, int Cod_Parada_Fin, double precio,ArrayList<billete> billete){
         
-        JOptionPane.showMessageDialog(null, "Compra realizada! del dos");
+      System.out.println("Marico estoy en compra");
 
         
         
-        billete billetico=new billete(NTrayecto,dni,ida,horaida,Cod_Linea,Cod_Bus,Cod_Parada_Inicio,Cod_Parada_Fin,precio);
+        billete billetico=new billete(NTrayecto,cliente.dni,ida,horaida,lineas.Cod_Linea,Cod_Bus,Cod_Parada_Inicio,Cod_Parada_Fin,precio,inicio,Finale);
         billete.add(billetico);
         
         reto3.controlador.pasar_pagina.paradas_a_lista(cliente,lineas,billete);   
     }  
     
-        public Comprar_billete( int NTrayecto, String dni, String ida, String horaida, String Cod_Linea, int Cod_Bus, int Cod_Parada_Inicio, int Cod_Parada_Fin, double precio){
+        public Comprar_billete(String inicio, String Finale, int NTrayecto,cliente cliente, String ida, String horaida, lineas lineas, int Cod_Bus, int Cod_Parada_Inicio, int Cod_Parada_Fin, double precio){
         
-        JOptionPane.showMessageDialog(null, "Compra realizada! del uno");
+       System.out.println("Marico estoy en compra");
      ArrayList<billete> billete;
        billete = new ArrayList();
-        billete billetico=new billete(NTrayecto,dni,ida,horaida,Cod_Linea,Cod_Bus,Cod_Parada_Inicio,Cod_Parada_Fin,precio);
+        billete billetico=new billete(NTrayecto,cliente.dni,ida,horaida,lineas.Cod_Linea,Cod_Bus,Cod_Parada_Inicio,Cod_Parada_Fin,precio,inicio,Finale);
         billete.add(billetico);
         
         reto3.controlador.pasar_pagina.paradas_a_lista(cliente,lineas,billete);   

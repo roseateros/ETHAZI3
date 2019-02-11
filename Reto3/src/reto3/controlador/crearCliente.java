@@ -27,10 +27,10 @@ public class crearCliente {
         }else if ( (password == null) || (password.equals("")) )
         {
            JOptionPane.showMessageDialog(null,"No has ingresado la contraseña");
-        }else if ( (sexo == null) || (sexo.equals("")) )
+        }else if ( (sexo.isEmpty()))
         {
            JOptionPane.showMessageDialog(null,"No has ingresado el sexo");
-        }else if ( (fecha == null) || (fecha.equals("")) )
+        }else if ( (fecha == null) || (fecha.equals(""))  )
         {
            JOptionPane.showMessageDialog(null,"No has ingresado la Fecha de Nacimiento");
         }else if (contraseña.equals(password)==false)
@@ -43,7 +43,7 @@ public class crearCliente {
         Pattern nombrePattern = Pattern.compile("[a-zA-Z]*");
 	Matcher n = nombrePattern.matcher(nombre);
         
-        if (contraseña.equals(password) && (!fecha.equals("")) && (!dni.equals("")) && (!nombre.equals("")) && (!apellidos.equals("")) && (!sexo.equals("")))
+        if (contraseña.equals(password) && (!fecha.equals("")) && (!dni.equals("")) && (!nombre.equals("")) && (!apellidos.equals("")) && (!sexo.isEmpty()))
         {
 	if(m.matches()){
             if(n.matches()){

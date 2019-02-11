@@ -1,9 +1,7 @@
 
 package reto3.vista;
 
-import static java.lang.System.exit;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import reto3.controlador.Seleccionar_linea;
 import reto3.modelo.billete;
 import reto3.modelo.cliente;
@@ -16,7 +14,7 @@ public class Linea extends javax.swing.JFrame  {
     //cuando solo se recibe el cliente
         public Linea(cliente cliente) {
         initComponents();
-        JOptionPane.showMessageDialog(null, "Estoy en el 0 de linea main"); 
+
             clientex=cliente;
             setLocationRelativeTo(null);
             setResizable (false);
@@ -27,26 +25,25 @@ public class Linea extends javax.swing.JFrame  {
     public Linea(cliente cliente,lineas lineas) {
         initComponents();
     clientex=cliente;
-     JOptionPane.showMessageDialog(null, "Estoy en el 1 de linea main"); 
+
             setLocationRelativeTo(null);
             setResizable (false);
             setTitle ("Paradas");   
             jLabel4.setText(cliente.nombre);            
     }
     //cuando se recbe el cliente, la linea y el billete
-        public Linea(cliente cliente,lineas lineas,ArrayList<billete> billete) {
-           JOptionPane.showMessageDialog(null, "Estoy en el dos de linea main"); 
+    public Linea(cliente cliente,lineas lineas,ArrayList<billete> billete) {
+
         initComponents();
-    clientex=cliente;
-      billetex = new ArrayList();
+        clientex=cliente;
+        billetex = new ArrayList();
         for(int x=0;x<billete.size();x++)
         {
         billetex.add(billete.get(x));
         }
             setLocationRelativeTo(null);
             setResizable (false);
-            setTitle ("Paradas");   
-          
+            setTitle ("Paradas");            
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -174,111 +171,59 @@ public class Linea extends javax.swing.JFrame  {
           try{
         if(billetex.size()>0)
         {
-         JOptionPane.showMessageDialog(null, "Estoy en el dos de linea try");
-         Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex,billetex);
-          
-        dispose();
-       
-         
-           
+         Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex,billetex);          
+         dispose();
         }
-         JOptionPane.showMessageDialog(null, "Estoy en el dos de linea try2");
         
-        
-        }catch(Exception e){
-                    JOptionPane.showMessageDialog(null, "Estoy en el uno de Linea catch");
+        }catch(Exception e){     
          Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex);
-         
-        dispose();
-           
-        
+         dispose();
         }
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String  lineax="L2";
-        
-                  try{
+        String  lineax="L2";     
+        try{
         if(billetex.size()>0)
         {
          Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex,billetex);
-          
-        dispose();
-        
-         
-           
+         dispose();        
         }
-         
-        
-        
+      
         }catch(Exception e){
-         Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex);
-         
-        dispose();
+         Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex); 
+         dispose();
         }
-        
-        
-        
-        
-
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String  lineax="L3";
-        
-                  try{
+        String  lineax="L3";    
+        try{
         if(billetex.size()>0)
         {
          Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex,billetex);
-          
-        dispose();
-        
-         
-           
+         dispose();   
         }
-         
-        
-        
+
         }catch(Exception e){
-         Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex);
-         
-        dispose();
-        }
-        
-        
-        
-        
-        
-        
+         Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex); 
+         dispose();
+        }    
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        String  lineax="L4";
-      
-                  try{
+        String  lineax="L4";      
+        try{
         if(billetex.size()>0)
         {
          Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex,billetex);
-          
-        dispose();
-        
-         
-           
+         dispose();     
         }
-         
-        
         
         }catch(Exception e){
          Seleccionar_linea seleccion= new Seleccionar_linea(lineax,clientex);
-         
-        dispose();
-        }
-        
-        
-        
-        
-        
+         dispose();
+        }       
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

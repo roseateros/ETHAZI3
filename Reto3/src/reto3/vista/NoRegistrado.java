@@ -1,5 +1,7 @@
   package reto3.vista;
 
+import java.util.Date;
+import javax.swing.JOptionPane;
 import reto3.controlador.crearCliente;
 import static reto3.controlador.pasar_pagina.aux;
 
@@ -145,7 +147,11 @@ public class NoRegistrado extends javax.swing.JFrame {
             sexo= "V";
         } else if (M.isSelected()){
             sexo= "M";
-        }          
+        } 
+    Date date = fecha_nac.getDate();
+    if (date == null) {
+      JOptionPane.showMessageDialog(null, "No has ingresado la Fecha de Nacimiento");
+    }
     String fecha = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(fecha_nac.getDate());
     crearCliente crearCliente = new crearCliente (dni.getText(), nombre.getText(), apellidos.getText(), fecha, sexo, contraseña.getText(),password.getText()) ;   
     if (aux>0){
