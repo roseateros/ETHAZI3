@@ -1,8 +1,11 @@
 package reto3.modelo;
 
+import com.toedter.calendar.JDateChooser;
 import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 
 public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECIR, AL INSTANCIAR UN 
@@ -72,11 +75,11 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
         return null;
     }
     
-    public cliente ActualizarCliente( String dni,String nombre,String apellidos,String contraseña, String sexo, String fecha)
+    public cliente ActualizarCliente( String dni,String nombre,String apellidos,String contraseña)
         {
         try {             
             Statement st = reg.createStatement();
-            st.executeUpdate("UPDATE `cliente` SET `Nombre`='"+nombre+"',`Apellidos`='"+apellidos+"',`Fecha_nac`='"+fecha+"',`Sexo`='"+sexo+"',`Contraseña`='"+contraseña+"' WHERE DNI='"+dni+"'");           
+            st.executeUpdate("UPDATE `cliente` SET `Nombre`='"+nombre+"',`Apellidos`='"+apellidos+"',`Contraseña`='"+contraseña+"' WHERE DNI='"+dni+"'");           
             reg.close(); 
             
         } catch (Exception e) { 
@@ -84,7 +87,6 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
         }        
         return null;
     } 
-    
         public Integer NPlazas(int Cod_Bus,String horaida)
         {
         try {             
@@ -203,7 +205,6 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
             }       
             return null;
         }
-        
 }
 
 //  SELECT COUNT(*) FROM billete where color_bus = "'+azul+'"

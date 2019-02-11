@@ -1,23 +1,30 @@
 package reto3.vista;
 
-
 import reto3.controlador.ActualizarCliente;
 import static reto3.controlador.pasar_pagina.aux;
 import reto3.modelo.cliente;
 
 public class Actualizar extends javax.swing.JFrame {
     
-    public cliente cliente;
+    public cliente clientex;
 
-    public Actualizar(cliente clientex) {   
-    cliente=clientex;
-    
+    public Actualizar(cliente cliente) {  
+        
+        clientex=cliente;
         initComponents();
             setLocationRelativeTo(null);
             setResizable (false);
-            setTitle ("Actualizar");
-    }    
+            setTitle ("Actualizar");   
+            
+        dni.setEnabled(false);
+        dni.setText(cliente.dni);
+        nombre.setText(cliente.nombre);
+        apellidos.setText(cliente.apellidos);
+        contraseña.setText(cliente.contraseña);
+        password.setText(cliente.contraseña);
 
+
+    }
     public String sexo = "";
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -29,15 +36,10 @@ public class Actualizar extends javax.swing.JFrame {
         jlabel2 = new javax.swing.JLabel();
         jlabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jlabel3 = new javax.swing.JLabel();
         jlabel = new javax.swing.JLabel();
-        H = new javax.swing.JRadioButton();
-        M = new javax.swing.JRadioButton();
         dni = new javax.swing.JTextField();
         nombre = new javax.swing.JTextField();
         apellidos = new javax.swing.JTextField();
-        fecha_nac = new com.toedter.calendar.JDateChooser();
-        jLabel8 = new javax.swing.JLabel();
         contraseña = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         password = new javax.swing.JPasswordField();
@@ -80,46 +82,23 @@ public class Actualizar extends javax.swing.JFrame {
         jLabel5.setText("APELLIDOS:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, -1));
 
-        jlabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jlabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        jlabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jlabel3.setText("SEXO:");
-        getContentPane().add(jlabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 30, -1));
-
         jlabel.setBackground(new java.awt.Color(255, 255, 255));
         jlabel.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
         jlabel.setForeground(new java.awt.Color(0, 0, 0));
         jlabel.setText("CONTRASEÑA:");
-        getContentPane().add(jlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, -1, -1));
-
-        gruposexo.add(H);
-        H.setText("Hombre");
-        getContentPane().add(H, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, -1, -1));
-
-        gruposexo.add(M);
-        M.setText("Mujer");
-        getContentPane().add(M, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, -1, -1));
+        getContentPane().add(jlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
         getContentPane().add(dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 130, -1));
         getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 100, -1));
         getContentPane().add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 130, -1));
 
-        fecha_nac.setDateFormatString("yyyy-MM-dd");
-        getContentPane().add(fecha_nac, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 100, 20));
-
-        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("FECHA DE NACIMIENTO:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 130, -1));
-
         contraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        getContentPane().add(contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 130, -1));
+        getContentPane().add(contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 130, -1));
 
         jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("REPETIR CONTRASEÑA:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, -1, -1));
-        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 130, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 130, -1));
 
         actualizar.setBackground(new java.awt.Color(255, 255, 51));
         actualizar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
@@ -130,7 +109,7 @@ public class Actualizar extends javax.swing.JFrame {
                 actualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 130, 30));
+        getContentPane().add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 130, 40));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
@@ -146,13 +125,7 @@ public class Actualizar extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonAnteriorActionPerformed
 
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
-        if (H.isSelected()){
-            sexo= "V";
-        } else if (M.isSelected()){
-            sexo= "M";
-        }  
-    String fecha = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(fecha_nac.getDate());
-    ActualizarCliente ActualizarCliente = new ActualizarCliente (dni.getText(), nombre.getText(), apellidos.getText(), fecha, sexo, contraseña.getText(),password.getText()) ; 
+    ActualizarCliente ActualizarCliente = new ActualizarCliente (dni.getText(), nombre.getText(), apellidos.getText(), contraseña.getText(),password.getText()) ; 
     if (aux>0){
     dispose();
     aux=0;
@@ -161,24 +134,20 @@ public class Actualizar extends javax.swing.JFrame {
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
-    private javax.swing.JRadioButton H;
-    private javax.swing.JRadioButton M;
     private javax.swing.JButton actualizar;
     private javax.swing.JTextField apellidos;
     private javax.swing.JPasswordField contraseña;
     private javax.swing.JTextField dni;
-    public static com.toedter.calendar.JDateChooser fecha_nac;
     private javax.swing.ButtonGroup gruposexo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jlabel;
     private javax.swing.JLabel jlabel1;
     private javax.swing.JLabel jlabel2;
-    private javax.swing.JLabel jlabel3;
     private javax.swing.JTextField nombre;
     private javax.swing.JPasswordField password;
     // End of variables declaration//GEN-END:variables
+
 }

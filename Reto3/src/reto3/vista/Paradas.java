@@ -647,8 +647,15 @@ public class Paradas extends javax.swing.JFrame {
     }//GEN-LAST:event_vueltasActionPerformed
 
     private void horaIdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaIdaActionPerformed
+    horaVuelta.removeAllItems();  
+        
+        horas = new ArrayList();    
+        horas.add(0, "08:00");
+        horas.add(1, "12:00");
+        horas.add(2, "16:00");
+        horas.add(3, "20:00"); 
+
     String horaida = (String)horaIda.getSelectedItem();
-    horaVuelta.removeAllItems();
     String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
     String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(idaVuelta.getDate());
     
@@ -674,18 +681,12 @@ public class Paradas extends javax.swing.JFrame {
                 Comprar.setEnabled(true);
             }
     }
-    if ((fecha1.compareTo(fecha2) <0)){
-        for(int i=0;i<horas.size();i++)
-        {
-            if(horas.get(i).equals(horaida)){         
-                horaVuelta.addItem(horas.get(0));
-                horaVuelta.addItem(horas.get(1));
-                horaVuelta.addItem(horas.get(2));
-                horaVuelta.addItem(horas.get(3));               
-            }   
-        }  
-        Comprar.setEnabled(true);
-    }
+            for(int i=0;i<horas.size();i++)
+            {          
+                horaVuelta.addItem(horas.get(i));  
+            }
+            
+    
     }//GEN-LAST:event_horaIdaActionPerformed
 
     private void idaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_idaPropertyChange
@@ -695,7 +696,46 @@ public class Paradas extends javax.swing.JFrame {
     }//GEN-LAST:event_idaPropertyChange
 
     private void idaVueltaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_idaVueltaPropertyChange
-    Comprar.setEnabled(false);
+    horaVuelta.removeAllItems();  
+        
+        horas = new ArrayList();    
+        horas.add(0, "08:00");
+        horas.add(1, "12:00");
+        horas.add(2, "16:00");
+        horas.add(3, "20:00"); 
+
+    String horaida = (String)horaIda.getSelectedItem();
+    String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
+    String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(idaVuelta.getDate());
+    
+    if ((fecha1.compareTo(fecha2) ==0)){
+            if(horas.get(0).equals(horaida)){
+                horaVuelta.addItem(horas.get(1));
+                horaVuelta.addItem(horas.get(2));
+                horaVuelta.addItem(horas.get(3));
+            }
+
+            if(horas.get(1).equals(horaida)){
+                horaVuelta.addItem(horas.get(2));
+                horaVuelta.addItem(horas.get(3));
+            }
+            if(horas.get(2).equals(horaida)){
+                horaVuelta.addItem(horas.get(3));
+            }
+            if(horas.get(3).equals(horaida)){
+                horaVuelta.addItem("No Disponible");
+                Comprar.setEnabled(false);
+            }
+            else{
+                Comprar.setEnabled(true);
+            }
+    }
+            for(int i=0;i<horas.size();i++)
+            {          
+                horaVuelta.addItem(horas.get(i));  
+            }
+            
+           
     }//GEN-LAST:event_idaVueltaPropertyChange
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
