@@ -2,20 +2,65 @@
 package reto3.vista;
 
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import reto3.controlador.Seleccionar_linea;
+import static reto3.controlador.poblac.poblac;
 import reto3.modelo.billete;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
 
 public class Linea extends javax.swing.JFrame  {
  public ArrayList<billete> billetex;
+ public ArrayList<String> uno;
+  public ArrayList<String> dos;
+   public ArrayList<String> tres;
+    public ArrayList<String> cuatro;
 
     public cliente clientex;
     //cuando solo se recibe el cliente
         public Linea(cliente cliente) {
         initComponents();
-
+        uno =new ArrayList();
+        dos =new ArrayList();
+        tres =new ArrayList();
+        cuatro= new ArrayList();
+        
+        
+      uno=  poblac("L1");
+      dos= poblac("L2");  
+       tres= poblac("L3");  
+       cuatro= poblac("L4"); 
+       
+       
+       
+       
+       DefaultListModel modelio = new DefaultListModel();
+       lista1.setModel(modelio);
+       
+       DefaultListModel modelio2 = new DefaultListModel();
+       lista2.setModel(modelio2);
+       
+       DefaultListModel modelio3 = new DefaultListModel();
+       lista3.setModel(modelio3);
+       
+       DefaultListModel modelio4 = new DefaultListModel();
+       lista4.setModel(modelio4);
+       
+       
+       
+        modelio.addElement(""+uno.get(0)+"--"+uno.get(1)+"--"+uno.get(2)+"--"+uno.get(3)+"--"+uno.get(4)+"--"+uno.get(5));       
+        
+        
+    modelio2.addElement(""+dos.get(0)+"--"+dos.get(1)+"--"+dos.get(2)+"--"+dos.get(3));
+         
+   modelio3.addElement(""+tres.get(0)+"--"+tres.get(1)+"--"+tres.get(2)+"--"+tres.get(3));
+        
+  
+     modelio4.addElement(""+cuatro.get(0)+"--"+cuatro.get(1)+"--"+cuatro.get(2)+"--"+cuatro.get(3));   
+       
+       
+       
             clientex=cliente;
             setLocationRelativeTo(null);
             setResizable (false);
@@ -25,6 +70,39 @@ public class Linea extends javax.swing.JFrame  {
     //cuando se recibe el cliente y la linea
     public Linea(cliente cliente,lineas lineas) {
         initComponents();
+        
+                uno =new ArrayList();
+        dos =new ArrayList();
+        tres =new ArrayList();
+        cuatro= new ArrayList();
+        
+        
+      uno=  poblac("L1");
+      dos= poblac("L2");  
+       tres= poblac("L3");  
+       cuatro= poblac("L4"); 
+        
+ DefaultListModel modelio = new DefaultListModel();
+       lista1.setModel(modelio);
+       
+       DefaultListModel modelio2 = new DefaultListModel();
+       lista2.setModel(modelio2);
+       
+       DefaultListModel modelio3 = new DefaultListModel();
+       lista3.setModel(modelio3);
+       
+       DefaultListModel modelio4 = new DefaultListModel();
+       lista4.setModel(modelio4);
+        modelio.addElement(""+uno.get(0)+"--"+uno.get(1)+"--"+uno.get(2)+"--"+uno.get(3)+"--"+uno.get(4)+"--"+uno.get(5));       
+        
+        
+    modelio2.addElement(""+dos.get(0)+"--"+dos.get(1)+"--"+dos.get(2)+"--"+dos.get(3));
+         
+   modelio3.addElement(""+tres.get(0)+"--"+tres.get(1)+"--"+tres.get(2)+"--"+tres.get(3));
+        
+  
+     modelio4.addElement(""+cuatro.get(0)+"--"+cuatro.get(1)+"--"+cuatro.get(2)+"--"+cuatro.get(3));   
+       
     clientex=cliente;
 
             setLocationRelativeTo(null);
@@ -36,6 +114,39 @@ public class Linea extends javax.swing.JFrame  {
     public Linea(cliente cliente,lineas lineas,ArrayList<billete> billete) {
 
         initComponents();
+        
+        uno =new ArrayList();
+        dos =new ArrayList();
+        tres =new ArrayList();
+        cuatro= new ArrayList();
+        
+        
+      uno=  poblac("L1");
+      dos= poblac("L2");  
+       tres= poblac("L3");  
+       cuatro= poblac("L4"); 
+        
+         DefaultListModel modelio = new DefaultListModel();
+       lista1.setModel(modelio);
+       
+       DefaultListModel modelio2 = new DefaultListModel();
+       lista2.setModel(modelio2);
+       
+       DefaultListModel modelio3 = new DefaultListModel();
+       lista3.setModel(modelio3);
+       
+       DefaultListModel modelio4 = new DefaultListModel();
+       lista4.setModel(modelio4);
+        modelio.addElement(""+uno.get(0)+"--"+uno.get(1)+"--"+uno.get(2)+"--"+uno.get(3)+"--"+uno.get(4)+"--"+uno.get(5));       
+        
+        
+    modelio2.addElement(""+dos.get(0)+"--"+dos.get(1)+"--"+dos.get(2)+"--"+dos.get(3));
+         
+   modelio3.addElement(""+tres.get(0)+"--"+tres.get(1)+"--"+tres.get(2)+"--"+tres.get(3));
+        
+  
+     modelio4.addElement(""+cuatro.get(0)+"--"+cuatro.get(1)+"--"+cuatro.get(2)+"--"+cuatro.get(3));   
+       
         clientex=cliente;
         billetex = new ArrayList();
         for(int x=0;x<billete.size();x++)
@@ -58,11 +169,16 @@ public class Linea extends javax.swing.JFrame  {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lista4 = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lista1 = new javax.swing.JList<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        lista2 = new javax.swing.JList<>();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        lista3 = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,11 +187,11 @@ public class Linea extends javax.swing.JFrame  {
 
         jLabel3.setFont(new java.awt.Font("Tw Cen MT", 0, 64)); // NOI18N
         jLabel3.setText("UNA LÍNEA");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 320, 40));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 320, 40));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT", 0, 64)); // NOI18N
         jLabel2.setText("SELECCIONA");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 380, 40));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 380, 40));
 
         jButton1.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
         jButton1.setText("L1");
@@ -85,7 +201,7 @@ public class Linea extends javax.swing.JFrame  {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 150, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 190, 70));
 
         jButton2.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
         jButton2.setText("L2");
@@ -95,7 +211,7 @@ public class Linea extends javax.swing.JFrame  {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 150, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 190, 70));
 
         jButton3.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
         jButton3.setText("L3");
@@ -105,7 +221,7 @@ public class Linea extends javax.swing.JFrame  {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 150, 40));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 190, 70));
 
         jButton4.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
         jButton4.setText("L4");
@@ -115,7 +231,7 @@ public class Linea extends javax.swing.JFrame  {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 150, 40));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 190, 70));
 
         jPanel1.setBackground(new java.awt.Color(102, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -130,26 +246,6 @@ public class Linea extends javax.swing.JFrame  {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 30));
 
-        jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("TERMIBUS-PLENTZIA");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 110, 20));
-
-        jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("TERMIBUS-MUSKIZ");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 100, 20));
-
-        jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("TERMIBUS-BALMASEDA");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, -1, -1));
-
-        jLabel9.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("TERMIBUS-DURANGO");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, -1, -1));
-
         jButton5.setBackground(new java.awt.Color(204, 0, 51));
         jButton5.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
@@ -161,6 +257,30 @@ public class Linea extends javax.swing.JFrame  {
             }
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 120, 30));
+
+        jLabel10.setText("Mapa de Poblaciones");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 130, -1));
+
+        lista4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jScrollPane1.setViewportView(lista4);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, 230, 30));
+
+        lista1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lista1.setFocusable(false);
+        jScrollPane2.setViewportView(lista1);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 300, 30));
+
+        lista2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jScrollPane3.setViewportView(lista2);
+
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 280, 30));
+
+        lista3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jScrollPane4.setViewportView(lista3);
+
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, 260, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
@@ -257,14 +377,21 @@ public class Linea extends javax.swing.JFrame  {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JList<String> lista1;
+    private javax.swing.JList<String> lista2;
+    private javax.swing.JList<String> lista3;
+    private javax.swing.JList<String> lista4;
     // End of variables declaration//GEN-END:variables
+
+
 }
