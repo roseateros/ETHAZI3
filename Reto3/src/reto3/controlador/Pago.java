@@ -4,39 +4,45 @@ package reto3.controlador;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import reto3.modelo.billete;
+import reto3.modelo.cliente;
+import reto3.modelo.lineas;
+import reto3.vista.Cobro;
 
 public class Pago {
         
-    public float precio, cambio=0, pago;
+    public float cambio=0, pago;
     public float billete200=0, billete100=0, billete50=0, billete20=0, billete10=0, billete5=0, moneda2=0, moneda1=0;  
     public float moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
-    public ArrayList<billete> billetex;
-    public double valor;
+    public  ArrayList<billete> billetex;
+    public  double valor;
+    public cliente clientex;
+    public lineas lineasx;
     
     
-    public void calcularTotal(ArrayList<billete> billete){
-        
+    public double calcularTotal(lineas lineas, cliente cliente, ArrayList<billete> billete){ 
+        clientex=cliente;
+        lineasx=lineas;
         billetex =new ArrayList();
-    
-        for(int x=0;x<billete.size();x++)
-        {
-        billetex.add(billete.get(x));
-        valor = valor + billetex.get(x).precio;
-        }
-	
+        Cobro co = new Cobro(clientex, lineasx, billetex);
+        double valor1 = co.valor;
+        double pago1 =co.pago;
+        return valor1;	
     }
         
-    public double calcularPago(){        
+    public double calcularPago(){  
+        
         pago = (200*billete200)+(100*billete100)+(50*billete50)
                  +(20*billete20)+(10*billete10)+(5*billete5)+(2*moneda2)
                  +(1*moneda1)+(0.5f*moneda05)+(0.2f*moneda02)+(0.1f*moneda01)+(0.05f*moneda005)+(0.02f*moneda002)+(0.01f*moneda001);         
-        pago =(float)(Math.round(pago*100d)/100d);       
+        pago =(float)(Math.round(pago*100d)/100d);    
+        
         return pago;
     } 
 
     public double calcularCambio(){
-         
-            cambio = (float) (valor-pago);
+
+            float mostrarcambio = (float) (pago-valor);  
+            cambio = (float) (pago-valor);
      
             cambio = (float)(Math.round(cambio*100f)/100f);
             billete200 = cambio / 200f;
@@ -81,21 +87,54 @@ public class Pago {
             moneda001 = cambio / 0.01f;
             moneda001 = (Math.round(moneda001*100f)/100f);
             
-               JOptionPane.showMessageDialog(null,  "\nSe devolveran: "+(int)billete200+" Billetes de 200€\n"
-                                                    + "Se devolveran: "+(int)billete100+" Billetes de 100€\n"
-                                                    + "Se devolveran: "+(int)billete50+" Billetes de 50€\n"
-                                                    + "Se devolveran: "+(int)billete20+" Billetes de 20€\n"
-                                                    + "Se devolveran: "+(int)billete10+" Billetes de 10€\n"
-                                                    + "Se devolveran: "+(int)billete5+" Billetes de 5€\n"
-                                                    + "Se devolveran: "+(int)moneda2+" Monedas de 2€\n"
-                                                    + "Se devolveran: "+(int)moneda1+" Monedas de 1€\n"
-                                                    + "Se devolveran: "+(int)moneda05+" Monedas de 50cents\n"
-                                                    + "Se devolveran: "+(int)moneda02+" Monedas de 20cents\n"
-                                                    + "Se devolveran: "+(int)moneda01+" Monedas de 10cents\n"
-                                                    + "Se devolveran: "+(int)moneda005+" Monedas de 5cents\n"
-                                                    + "Se devolveran: "+(int)moneda002+" Monedas de 2cents\n"
-                                                    + "Se devolveran: "+(int)moneda001+" Monedas de 1cent\n");       
-        return pago;
+            String Change = "\nSu cambio es de: "+ mostrarcambio + "€.\n" +"Se le devolvera en: \n";
+            
+            if (billete200>=1){
+            Change += (int)billete200+" Billete(s) de 200€\n";
+            }
+            if (billete100>=1){
+            Change += (int)billete100+" Billete(s) de 100€\n";
+            }
+            if (billete50>=1){
+            Change += (int)billete50+" Billete(s) de 50\n";
+            }
+            if (billete20>=1){
+            Change += (int)billete20+" Billete(s) de 20€\n";
+            }
+            if (billete10>=1){
+            Change += (int)billete10+" Billete(s) de 10€\n";
+            }
+            if (billete5>=1){
+            Change += (int)billete5+" Billete(s) de 5€\n";
+            }
+            if (moneda2>=1){
+            Change += (int)moneda2+" Moneda(s) de 2€\n";
+            }
+            if (moneda1>=1){
+            Change += (int)moneda1+" Moneda(s) de 1€\n";
+            }
+            if (moneda05>=1){
+            Change += (int)moneda05+" Moneda(s) de 50c\n";
+            }
+            if (moneda02>=1){
+            Change += (int)moneda02+" Moneda(s) de 20c\n";
+            }
+            if (moneda01>=1){
+            Change += (int)moneda01+" Moneda(s) de 10c\n";
+            }
+            if (moneda005>=1){
+            Change += (int)moneda005+" Moneda(s) de 5c\n";
+            }
+            if (moneda002>=1){
+            Change += (int)moneda002+" Moneda(s) de 2c\n";
+            }
+            if (moneda001>=1){
+            Change += (int)moneda001+" Moneda(s) de 1c\n";
+            }
+            
+            JOptionPane.showMessageDialog(null,Change);
+            
+        return cambio;
      }
 
     public double reiniciarPago(){
@@ -126,7 +165,7 @@ public class Pago {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
-        return pago;
+        return billete100;
     }
     
     public double bi50(){
@@ -139,11 +178,11 @@ public class Pago {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
-        return pago;
+        return billete50;
     }
     
     public double bi20(){
-                billete20++;
+        billete20++;
         if (pago!=0){
             calcularPago();
         }
@@ -152,11 +191,11 @@ public class Pago {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
-        return pago;
+        return billete20;
     }
     
     public double bi10(){
-                billete10++;
+        billete10++;
 
         if (pago!=0){
             calcularPago();
@@ -166,7 +205,7 @@ public class Pago {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
-        return pago;
+        return billete10;
     }
     
     public double bi5(){
@@ -179,7 +218,7 @@ public class Pago {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
-        return pago;
+        return billete5;
     }
     
     public double mo2(){
@@ -192,7 +231,7 @@ public class Pago {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
-        return pago;
+        return moneda2;
     }
     
     public double mo1(){
@@ -205,7 +244,7 @@ public class Pago {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
-        return pago;
+        return moneda1;
     }
     
     public double mo05(){
@@ -218,7 +257,7 @@ public class Pago {
             moneda05=1; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
-        return pago;
+        return moneda05;
     }
     
     public double mo02(){
@@ -231,7 +270,7 @@ public class Pago {
             moneda05=0; moneda02=1; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
-        return pago;
+        return moneda02;
     }
     
     public double mo01(){
@@ -244,7 +283,7 @@ public class Pago {
             moneda05=0; moneda02=0; moneda01=1; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
-        return pago;
+        return moneda01;
     }
     
     public double mo005(){
@@ -257,7 +296,7 @@ public class Pago {
             moneda05=0; moneda02=0; moneda01=0; moneda005=1; moneda002=0; moneda001=0;
             calcularPago();
         }
-        return pago;
+        return moneda005;
     }
     
     public double mo002(){
@@ -270,7 +309,7 @@ public class Pago {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=1; moneda001=0;
             calcularPago();
         }
-        return pago;
+        return moneda002;
     }
     
     public double mo001(){
@@ -283,6 +322,6 @@ public class Pago {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=1;
             calcularPago();
         }
-        return pago;
+        return moneda001;
     }
 }
