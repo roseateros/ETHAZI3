@@ -10,11 +10,11 @@ import reto3.vista.Cobro;
 
 public class Pago {
         
-    public float cambio=0, pago;
-    public float billete200=0, billete100=0, billete50=0, billete20=0, billete10=0, billete5=0, moneda2=0, moneda1=0;  
-    public float moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
+    public double cambio=0, pago=0;
+    public double billete200=0, billete100=0, billete50=0, billete20=0, billete10=0, billete5=0, moneda2=0, moneda1=0;  
+    public double moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
     public  ArrayList<billete> billetex;
-    public  double valor;
+    public  double valor1;
     public cliente clientex;
     public lineas lineasx;
     
@@ -24,68 +24,67 @@ public class Pago {
         lineasx=lineas;
         billetex =new ArrayList();
         Cobro co = new Cobro(clientex, lineasx, billetex);
-        double valor1 = co.valor;
-        double pago1 =co.pago;
-        return valor1;	
+        valor1 = co.valor;
+        return valor1;
     }
         
     public double calcularPago(){  
         
         pago = (200*billete200)+(100*billete100)+(50*billete50)
                  +(20*billete20)+(10*billete10)+(5*billete5)+(2*moneda2)
-                 +(1*moneda1)+(0.5f*moneda05)+(0.2f*moneda02)+(0.1f*moneda01)+(0.05f*moneda005)+(0.02f*moneda002)+(0.01f*moneda001);         
-        pago =(float)(Math.round(pago*100d)/100d);    
+                 +(1*moneda1)+(0.5*moneda05)+(0.2*moneda02)+(0.1*moneda01)+(0.05*moneda005)+(0.02*moneda002)+(0.01*moneda001);         
+        pago =(Math.round(pago*100d)/100d);    
         
         return pago;
     } 
 
     public double calcularCambio(){
 
-            float mostrarcambio = (float) (pago-valor);  
-            cambio = (float) (pago-valor);
+            double mostrarcambio = pago-valor1;  
+            cambio = pago-valor1;
      
-            cambio = (float)(Math.round(cambio*100f)/100f);
-            billete200 = cambio / 200f;
-            cambio = (cambio%200f);
+            cambio = (Math.round(cambio*100d)/100d);
+            billete200 = cambio / 200;
+            cambio = (cambio%200);
                     
-            billete100 = cambio / 100f;
-            cambio = (cambio%100f);
+            billete100 = cambio / 100;
+            cambio = (cambio%100);
                            
-            billete50 = cambio / 50f;
-            cambio = (cambio%50f);
+            billete50 = cambio / 50;
+            cambio = (cambio%50);
                   
-            billete20 = cambio / 20f;
-            cambio = (cambio%20f);
+            billete20 = cambio / 20;
+            cambio = (cambio%20);
                       
-            billete10 = cambio / 10f;
-            cambio = (cambio%10f);
+            billete10 = cambio / 10;
+            cambio = (cambio%10);
                       
-            billete5 = cambio / 5f;
-            cambio = (cambio%5f);
+            billete5 = cambio / 5;
+            cambio = (cambio%5);
                  
-            moneda2 = cambio / 2f;
-            cambio = (cambio%2f);
+            moneda2 = cambio / 2;
+            cambio = (cambio%2);
                      
-            moneda1 = cambio / 1f;
-            cambio = (cambio%1f);            
+            moneda1 = cambio / 1;
+            cambio = (cambio%1);            
            
-            moneda05 = cambio / 0.5f;
-            cambio =  (cambio%0.5f);
+            moneda05 = cambio / 0.5;
+            cambio =  (cambio%0.5);
                       
-            moneda02 = cambio / 0.2f;
-            cambio =  (cambio%0.2f);          
+            moneda02 = cambio / 0.2;
+            cambio =  (cambio%0.2);          
          
-            moneda01 = cambio / 0.1f;
-            cambio = (cambio%0.1f);        
+            moneda01 = cambio / 0.1;
+            cambio = (cambio%0.1);        
       
-            moneda005 = cambio / 0.05f;
-            cambio =  (cambio%0.05f);            
+            moneda005 = cambio / 0.05;
+            cambio =  (cambio%0.05);            
      
-            moneda002 = cambio / 0.02f;
-            cambio =  (cambio%0.02f);
+            moneda002 = cambio / 0.02;
+            cambio =  (cambio%0.02);
              
-            moneda001 = cambio / 0.01f;
-            moneda001 = (Math.round(moneda001*100f)/100f);
+            moneda001 = cambio / 0.01;
+            moneda001 = (Math.round(moneda001*100d)/100d);
             
             String Change = "\nSu cambio es de: "+ mostrarcambio + "€.\n" +"Se le devolvera en: \n";
             
@@ -165,7 +164,7 @@ public class Pago {
             moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
             calcularPago();
         }
-        return billete100;
+        return pago;
     }
     
     public double bi50(){

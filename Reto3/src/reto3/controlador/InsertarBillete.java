@@ -12,21 +12,20 @@ import reto3.modelo.lineas;
 public class InsertarBillete {
 public cliente clientex;
 public lineas lineasx;
-ArrayList<billete> billetex;   
+ArrayList<billete> billetex; 
+
     public InsertarBillete(ArrayList<billete> billete,cliente cliente){
         
         JOptionPane.showMessageDialog(null,"Pago Realizado");
         Insertar cone =new Insertar(); 
-           billetex =new ArrayList();
-           clientex=cliente;
+        billetex =new ArrayList();
+        clientex=cliente;
         
-
         for(int x=0;x<billete.size();x++)
         {
         billetex.add(billete.get(x));
         cone.InsertarBillete(billetex.get(x).NTrayecto,billetex.get(x).dni,billetex.get(x).fecha, billetex.get(x).hora, billetex.get(x).Cod_Linea, billetex.get(x).Cod_Bus, billetex.get(x).Cod_Parada_Inicio, billetex.get(x).Cod_Parada_Fin, billetex.get(x).precio);  
-        }
-                         
+        }                         
         reto3.controlador.pasar_pagina.cobro_a_imprimir(clientex, lineasx);
         aux++;    
     }   
