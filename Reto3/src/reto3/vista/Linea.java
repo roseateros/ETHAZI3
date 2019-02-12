@@ -5,16 +5,17 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import reto3.controlador.Seleccionar_linea;
-import static reto3.controlador.poblac.poblac;
+import static reto3.controlador.Poblacion.poblac;
 import reto3.modelo.billete;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
 
 public class Linea extends javax.swing.JFrame  {
- public ArrayList<billete> billetex;
- public ArrayList<String> uno;
-  public ArrayList<String> dos;
-   public ArrayList<String> tres;
+    
+    public ArrayList<billete> billetex;
+    public ArrayList<String> uno;
+    public ArrayList<String> dos;
+    public ArrayList<String> tres;
     public ArrayList<String> cuatro;
 
     public cliente clientex;
@@ -24,16 +25,12 @@ public class Linea extends javax.swing.JFrame  {
         uno =new ArrayList();
         dos =new ArrayList();
         tres =new ArrayList();
-        cuatro= new ArrayList();
+        cuatro= new ArrayList();        
         
-        
-      uno=  poblac("L1");
-      dos= poblac("L2");  
-       tres= poblac("L3");  
-       cuatro= poblac("L4"); 
-       
-       
-       
+        uno=  poblac("L1");
+        dos= poblac("L2");  
+        tres= poblac("L3");  
+        cuatro= poblac("L4");                    
        
        DefaultListModel modelio = new DefaultListModel();
        lista1.setModel(modelio);
@@ -46,21 +43,12 @@ public class Linea extends javax.swing.JFrame  {
        
        DefaultListModel modelio4 = new DefaultListModel();
        lista4.setModel(modelio4);
-       
-       
-       
-        modelio.addElement(""+uno.get(0)+"--"+uno.get(1)+"--"+uno.get(2)+"--"+uno.get(3)+"--"+uno.get(4)+"--"+uno.get(5));       
-        
-        
-    modelio2.addElement(""+dos.get(0)+"--"+dos.get(1)+"--"+dos.get(2)+"--"+dos.get(3));
-         
-   modelio3.addElement(""+tres.get(0)+"--"+tres.get(1)+"--"+tres.get(2)+"--"+tres.get(3));
-        
-  
-     modelio4.addElement(""+cuatro.get(0)+"--"+cuatro.get(1)+"--"+cuatro.get(2)+"--"+cuatro.get(3));   
-       
-       
-       
+                   
+       modelio.addElement(""+uno.get(0)+"--"+uno.get(1)+"--"+uno.get(2)+"--"+uno.get(3)+"--"+uno.get(4)+"--"+uno.get(5));       
+       modelio2.addElement(""+dos.get(0)+"--"+dos.get(1)+"--"+dos.get(2)+"--"+dos.get(3));
+       modelio3.addElement(""+tres.get(0)+"--"+tres.get(1)+"--"+tres.get(2)+"--"+tres.get(3));
+       modelio4.addElement(""+cuatro.get(0)+"--"+cuatro.get(1)+"--"+cuatro.get(2)+"--"+cuatro.get(3));   
+      
             clientex=cliente;
             setLocationRelativeTo(null);
             setResizable (false);
@@ -71,37 +59,32 @@ public class Linea extends javax.swing.JFrame  {
     public Linea(cliente cliente,lineas lineas) {
         initComponents();
         
-                uno =new ArrayList();
+        uno =new ArrayList();
         dos =new ArrayList();
         tres =new ArrayList();
         cuatro= new ArrayList();
+               
+        uno=  poblac("L1");
+        dos= poblac("L2");  
+        tres= poblac("L3");  
+        cuatro= poblac("L4"); 
         
+        DefaultListModel modelio = new DefaultListModel();
+        lista1.setModel(modelio);
+       
+        DefaultListModel modelio2 = new DefaultListModel();
+        lista2.setModel(modelio2);
+       
+        DefaultListModel modelio3 = new DefaultListModel();
+        lista3.setModel(modelio3);
+       
+        DefaultListModel modelio4 = new DefaultListModel();
+        lista4.setModel(modelio4);
         
-      uno=  poblac("L1");
-      dos= poblac("L2");  
-       tres= poblac("L3");  
-       cuatro= poblac("L4"); 
-        
- DefaultListModel modelio = new DefaultListModel();
-       lista1.setModel(modelio);
-       
-       DefaultListModel modelio2 = new DefaultListModel();
-       lista2.setModel(modelio2);
-       
-       DefaultListModel modelio3 = new DefaultListModel();
-       lista3.setModel(modelio3);
-       
-       DefaultListModel modelio4 = new DefaultListModel();
-       lista4.setModel(modelio4);
         modelio.addElement(""+uno.get(0)+"--"+uno.get(1)+"--"+uno.get(2)+"--"+uno.get(3)+"--"+uno.get(4)+"--"+uno.get(5));       
-        
-        
-    modelio2.addElement(""+dos.get(0)+"--"+dos.get(1)+"--"+dos.get(2)+"--"+dos.get(3));
-         
-   modelio3.addElement(""+tres.get(0)+"--"+tres.get(1)+"--"+tres.get(2)+"--"+tres.get(3));
-        
-  
-     modelio4.addElement(""+cuatro.get(0)+"--"+cuatro.get(1)+"--"+cuatro.get(2)+"--"+cuatro.get(3));   
+        modelio2.addElement(""+dos.get(0)+"--"+dos.get(1)+"--"+dos.get(2)+"--"+dos.get(3));
+        modelio3.addElement(""+tres.get(0)+"--"+tres.get(1)+"--"+tres.get(2)+"--"+tres.get(3));
+        modelio4.addElement(""+cuatro.get(0)+"--"+cuatro.get(1)+"--"+cuatro.get(2)+"--"+cuatro.get(3));   
        
     clientex=cliente;
 
@@ -121,31 +104,27 @@ public class Linea extends javax.swing.JFrame  {
         cuatro= new ArrayList();
         
         
-      uno=  poblac("L1");
-      dos= poblac("L2");  
-       tres= poblac("L3");  
-       cuatro= poblac("L4"); 
+        uno=  poblac("L1");
+        dos= poblac("L2");  
+        tres= poblac("L3");  
+        cuatro= poblac("L4"); 
         
-         DefaultListModel modelio = new DefaultListModel();
-       lista1.setModel(modelio);
+        DefaultListModel modelio = new DefaultListModel();
+        lista1.setModel(modelio);
        
-       DefaultListModel modelio2 = new DefaultListModel();
-       lista2.setModel(modelio2);
+        DefaultListModel modelio2 = new DefaultListModel();
+        lista2.setModel(modelio2);
        
-       DefaultListModel modelio3 = new DefaultListModel();
-       lista3.setModel(modelio3);
+        DefaultListModel modelio3 = new DefaultListModel();
+        lista3.setModel(modelio3);
        
-       DefaultListModel modelio4 = new DefaultListModel();
-       lista4.setModel(modelio4);
+        DefaultListModel modelio4 = new DefaultListModel();
+        lista4.setModel(modelio4);
+        
         modelio.addElement(""+uno.get(0)+"--"+uno.get(1)+"--"+uno.get(2)+"--"+uno.get(3)+"--"+uno.get(4)+"--"+uno.get(5));       
-        
-        
-    modelio2.addElement(""+dos.get(0)+"--"+dos.get(1)+"--"+dos.get(2)+"--"+dos.get(3));
-         
-   modelio3.addElement(""+tres.get(0)+"--"+tres.get(1)+"--"+tres.get(2)+"--"+tres.get(3));
-        
-  
-     modelio4.addElement(""+cuatro.get(0)+"--"+cuatro.get(1)+"--"+cuatro.get(2)+"--"+cuatro.get(3));   
+        modelio2.addElement(""+dos.get(0)+"--"+dos.get(1)+"--"+dos.get(2)+"--"+dos.get(3));
+        modelio3.addElement(""+tres.get(0)+"--"+tres.get(1)+"--"+tres.get(2)+"--"+tres.get(3));
+        modelio4.addElement(""+cuatro.get(0)+"--"+cuatro.get(1)+"--"+cuatro.get(2)+"--"+cuatro.get(3));   
        
         clientex=cliente;
         billetex = new ArrayList();
