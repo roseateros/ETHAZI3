@@ -193,45 +193,53 @@ public class Linea extends javax.swing.JFrame  {
         jLabel2.setText("SELECCIONA");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 380, 40));
 
-        jButton1.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(255, 255, 51));
+        jButton1.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("L1");
-        jButton1.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), null));
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 190, 70));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 90, 70));
 
-        jButton2.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
+        jButton2.setBackground(new java.awt.Color(255, 255, 51));
+        jButton2.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("L2");
-        jButton2.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), null));
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 190, 70));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 90, 70));
 
-        jButton3.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
+        jButton3.setBackground(new java.awt.Color(255, 255, 51));
+        jButton3.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("L3");
-        jButton3.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), null));
+        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 190, 70));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 90, 70));
 
-        jButton4.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
+        jButton4.setBackground(new java.awt.Color(255, 255, 51));
+        jButton4.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("L4");
-        jButton4.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), null));
+        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 190, 70));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, 90, 70));
 
         jPanel1.setBackground(new java.awt.Color(102, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -258,29 +266,32 @@ public class Linea extends javax.swing.JFrame  {
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 120, 30));
 
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Mapa de Poblaciones");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 130, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 180, -1));
 
-        lista4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lista4.setForeground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(lista4);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, 230, 30));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 520, 300, 30));
 
         lista1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lista1.setFocusable(false);
         jScrollPane2.setViewportView(lista1);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 300, 30));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 300, 30));
 
         lista2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jScrollPane3.setViewportView(lista2);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 280, 30));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 300, 30));
 
         lista3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jScrollPane4.setViewportView(lista3);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, 260, 30));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, 300, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
