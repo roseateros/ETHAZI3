@@ -172,7 +172,7 @@ public class Linea extends javax.swing.JFrame  {
         jLabel2.setText("SELECCIONA");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 380, 40));
 
-        jButton1.setBackground(new java.awt.Color(153, 153, 153));
+        jButton1.setBackground(new java.awt.Color(255, 255, 0));
         jButton1.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("L1");
@@ -184,7 +184,7 @@ public class Linea extends javax.swing.JFrame  {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 90, 70));
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setBackground(new java.awt.Color(255, 255, 0));
         jButton2.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("L2");
@@ -196,7 +196,7 @@ public class Linea extends javax.swing.JFrame  {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 90, 70));
 
-        jButton3.setBackground(new java.awt.Color(153, 153, 153));
+        jButton3.setBackground(new java.awt.Color(255, 255, 0));
         jButton3.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("L3");
@@ -208,7 +208,7 @@ public class Linea extends javax.swing.JFrame  {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 90, 70));
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
+        jButton4.setBackground(new java.awt.Color(255, 255, 0));
         jButton4.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
         jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("L4");
@@ -249,31 +249,31 @@ public class Linea extends javax.swing.JFrame  {
         jLabel10.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Mapa de Poblaciones");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 180, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 180, -1));
 
         lista4.setBackground(new java.awt.Color(255, 255, 255));
         lista4.setForeground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(lista4);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 520, 300, 30));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 540, 300, 30));
 
-        lista1.setBackground(new java.awt.Color(153, 153, 153));
+        lista1.setBackground(new java.awt.Color(255, 255, 255));
         lista1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lista1.setFocusable(false);
         jScrollPane2.setViewportView(lista1);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 300, 30));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 300, 30));
 
         lista2.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane3.setViewportView(lista2);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 300, 30));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, 300, 30));
 
-        lista3.setBackground(new java.awt.Color(153, 153, 153));
+        lista3.setBackground(new java.awt.Color(255, 255, 255));
         lista3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jScrollPane4.setViewportView(lista3);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, 300, 30));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 300, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));

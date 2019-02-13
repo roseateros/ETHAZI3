@@ -5,36 +5,31 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
 public class ArchivoTxtUsuario {
-        public ArrayList<billete> billetex;
+    
+        public cliente clientex;
         public ArrayList<String> Insertar;
         String ruta= "src\\reto3\\modelo\\Usuarios.txt";
         
-    public ArchivoTxtUsuario(ArrayList<billete> billete){
+    public ArchivoTxtUsuario(cliente cliente){
        
-        billetex =new ArrayList();
-        for(int x=0;x<billete.size();x++)
-        {
-        billetex.add(billete.get(x));
+        clientex=cliente; 
         String mensaje =         " \n"
-				+"                                                             TERMIBUS BILBAO S.L.                        "+" \t\n"
+				+"                                                             CLIENTES                        "+" \t\n"
 				+" **********************************************************************************************************************"+" \t\n"
-				
-				+" -Código del billete:  \t"+"-Cantidad de viajes: " +billete.size()+" \n\n"  
-				+" -Linea: " +billete.get(x).Cod_Linea+" \t\t"+ "-Autobus: " + billete.get(x).Cod_Bus+" \t\n"
-				+" **********************************************************************************************************************"+" \t\n"
-				
-				+" -Parada de salida: " + billete.get(x).inicio+"     "+ "-Parada de destino: " + billete.get(x).finale+" \t\n"+" \t\n" 
-				+" -Fecha de ida: " + billete.get(x).fecha+"                  \t\n" 
-				+" **********************************************************************************************************************"+" \t\n"
-				
-				+" -Precio final: " + billete.get(x).precio+" €";
+				+" -DNI:"+clientex.dni+"  \t"
+				+" -Nombre:"+clientex.nombre+"  \t"+"-Apellidos: " +clientex.apellidos+" \n\n"  
+				+" -Sexo: " +clientex.sexo+" \t\t"+ "-Fecha de Nacimiento: " +clientex.fecha+" \t\n"
+				+"-Contraseña"+clientex.contraseña+"  \t"
+				+" **********************************************************************************************************************"+" \t\n";
+
         Insertar =new ArrayList();
         Insertar.add(mensaje);
         generarTXT();
-        }
+        
     }
-	
+    	
     public void generarTXT(){
             try{
                 FileWriter archivo = new FileWriter(this.ruta);
@@ -45,7 +40,5 @@ public class ArchivoTxtUsuario {
             }catch(IOException e){
                 e.getMessage();
             }
-        }
-	
+        }	
 }
-   
