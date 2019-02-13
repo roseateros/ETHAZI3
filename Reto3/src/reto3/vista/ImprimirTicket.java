@@ -1,18 +1,29 @@
 
 package reto3.vista;
 
+import java.util.ArrayList;
+import reto3.modelo.ArchivoTxtBillete;
+import reto3.modelo.billete;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
+
 
 public class ImprimirTicket extends javax.swing.JFrame {
     
  public cliente clientex;
  public lineas lineasx;
- 
-    public ImprimirTicket(cliente cliente, lineas lineas) {
+  public ArrayList<billete> billetex;
+  
+    public ImprimirTicket(cliente cliente, ArrayList<billete> billete) {
+        
         initComponents(); 
-        clientex=cliente;
-        lineasx=lineas;
+        
+        clientex=cliente;       
+        billetex = new ArrayList();
+        for(int x=0;x<billete.size();x++)
+        {
+        billetex.add(billete.get(x));
+        }
         setLocationRelativeTo(null);
         setResizable (false);
         setTitle ("ImprimirTicket");
@@ -87,7 +98,8 @@ public class ImprimirTicket extends javax.swing.JFrame {
     }//GEN-LAST:event_finalizarActionPerformed
 
     private void ImprimirTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImprimirTicketActionPerformed
-        //reto3.controlador.ImprimirTicket();
+        ArchivoTxtBillete txt = new ArchivoTxtBillete(billetex);
+        reto3.controlador.pasar_pagina.imprimir_a_adios();
         dispose();
     }//GEN-LAST:event_ImprimirTicketActionPerformed
 

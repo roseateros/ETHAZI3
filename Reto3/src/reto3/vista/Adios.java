@@ -1,18 +1,30 @@
 
 package reto3.vista;
 
-import reto3.controlador.pasar_pagina;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Adios extends javax.swing.JFrame {
     
     public Adios() {
+        
         initComponents();
+        
         setResizable (false);
         setLocationRelativeTo(null);
         setTitle ("Hasta Luego");
-        pasar_pagina pasar = new pasar_pagina();
-        pasar.volverBienvenida();
-        dispose(); 
+        
+        Timer timer = new Timer();
+        TimerTask task;
+        task = new TimerTask() {
+            @Override
+            public void run() {
+                reto3.controlador.pasar_pagina.adios_a_saludo();
+                dispose(); 
+            }
+        };
+         timer.schedule(task, 5000); 
+    
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

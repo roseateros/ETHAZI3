@@ -1,45 +1,25 @@
 
 package reto3.controlador;
 
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import reto3.modelo.billete;
-import reto3.modelo.cliente;
-import reto3.modelo.lineas;
-import reto3.vista.Cobro;
 
 public class Pago {
     public double cambio=0, pago=0;
     public double billete200=0, billete100=0, billete50=0, billete20=0, billete10=0, billete5=0, moneda2=0, moneda1=0;  
     public double moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
-    public  ArrayList<billete> billetex;
-    public  double valor1;
-    public cliente clientex;
-    public lineas lineasx;   
-    
-    public double calcularTotal(lineas lineas, cliente cliente, ArrayList<billete> billete){ 
-        clientex=cliente;
-        lineasx=lineas;
-        billetex =new ArrayList();
-        Cobro co = new Cobro(clientex, lineasx, billetex);
-        valor1 = co.valor;
-        return valor1;
-    }
-        
-    public double calcularPago(){  
-        
-        pago = (200*billete200)+(100*billete100)+(50*billete50)
-                 +(20*billete20)+(10*billete10)+(5*billete5)+(2*moneda2)
-                 +(1*moneda1)+(0.5*moneda05)+(0.2*moneda02)+(0.1*moneda01)+(0.05*moneda005)+(0.02*moneda002)+(0.01*moneda001);         
-        pago =(Math.round(pago*100d)/100d);    
+
+    public double calculadora(double pago2, double suma)
+    {
+        pago=pago2;
+        pago=pago+suma;
         
         return pago;
-    } 
-
-    public double calcularCambio(){
-
-            double mostrarcambio = pago-valor1;  
-            cambio = pago-valor1;
+    }   
+    
+    public double calcularCambio(double pago,double bille){
+        
+            double mostrarcambio = pago-bille;  
+            cambio = pago-bille;
      
             cambio = (Math.round(cambio*100d)/100d);
             billete200 = cambio / 200;
@@ -137,188 +117,5 @@ public class Pago {
     public double reiniciarPago(){
         pago=0;      
         return pago;
-    }
-    
-    public double bi200(){
-        billete200++;
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=1; billete100=0; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
-        return pago;
-    }
-    
-    public double bi100(){        
-        billete100++;
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=1; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
-        return pago;
-    }
-    
-    public double bi50(){
-        billete50++;
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=1; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
-        return billete50;
-    }
-    
-    public double bi20(){
-        billete20++;
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=1; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
-        return billete20;
-    }
-    
-    public double bi10(){
-        billete10++;
-
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=1; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
-        return billete10;
-    }
-    
-    public double bi5(){
-        billete5++;
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=0; billete5=1; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
-        return billete5;
-    }
-    
-    public double mo2(){
-        moneda2++;
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=1; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
-        return moneda2;
-    }
-    
-    public double mo1(){
-        moneda1++;
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=1;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
-        return moneda1;
-    }
-    
-    public double mo05(){
-        moneda05++;
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=1; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
-        return moneda05;
-    }
-    
-    public double mo02(){
-        moneda02++;
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=1; moneda01=0; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
-        return moneda02;
-    }
-    
-    public double mo01(){
-        moneda01++;
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=1; moneda005=0; moneda002=0; moneda001=0;
-            calcularPago();
-        }
-        return moneda01;
-    }
-    
-    public double mo005(){
-        moneda005++;
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=1; moneda002=0; moneda001=0;
-            calcularPago();
-        }
-        return moneda005;
-    }
-    
-    public double mo002(){
-        moneda002++;
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=1; moneda001=0;
-            calcularPago();
-        }
-        return moneda002;
-    }
-    
-    public double mo001(){
-        moneda001++;
-        if (pago!=0){
-            calcularPago();
-        }
-        if (pago==0){
-            billete200=0; billete100=0; billete50=0; billete20=0; billete10=0; billete5=0; moneda2=0; moneda1=0;
-            moneda05=0; moneda02=0; moneda01=0; moneda005=0; moneda002=0; moneda001=1;
-            calcularPago();
-        }
-        return moneda001;
     }
 }

@@ -122,9 +122,9 @@ public class pasar_pagina{
         obj.setVisible(true);
     }///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCIÒN PARA PASAR DE COBRO A IMPRIMIR
-    public static void cobro_a_imprimir(cliente cliente, lineas lineas){
+    public static void cobro_a_imprimir(cliente cliente,ArrayList<billete> billete){
         //SE CREA EL OBJ DE LA CLASE IMPRIMIR
-        ImprimirTicket obj = new ImprimirTicket(cliente, lineas);
+        ImprimirTicket obj = new ImprimirTicket(cliente,billete);
         obj.setVisible(true);
     }///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCIÒN PARA PASAR DE IMPRIMIR A ADIOS 
@@ -145,17 +145,6 @@ public class pasar_pagina{
          Actualizar obj = new Actualizar(clientex);
          obj.setVisible(true);
      }
-    public void volverBienvenida(){
-        Timer timer = new Timer();
-        TimerTask task;
-        task = new TimerTask() {
-            @Override
-            public void run() {
-                adios_a_saludo();
-            }
-        };
-         timer.schedule(task, 5000); 
-    }
 }
 
 
