@@ -1,6 +1,8 @@
 package reto3.controlador;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 import reto3.modelo.billete;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
@@ -138,11 +140,22 @@ public class pasar_pagina{
         obj.setVisible(true);
     }///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
      //FUNCIÒN PARA PASAR DE REGISTRO A ACTUALIZAR
-     public static void registro_a_actualizar(cliente clientex){
+    public static void registro_a_actualizar(cliente clientex){
          //SE CREA EL OBJ DE LA CLASE ACTUALIZAR
          Actualizar obj = new Actualizar(clientex);
          obj.setVisible(true);
      }
+    public void volverBienvenida(){
+        Timer timer = new Timer();
+        TimerTask task;
+        task = new TimerTask() {
+            @Override
+            public void run() {
+                adios_a_saludo();
+            }
+        };
+         timer.schedule(task, 5000); 
+    }
 }
 
 

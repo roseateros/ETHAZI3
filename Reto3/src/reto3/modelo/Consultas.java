@@ -71,6 +71,29 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
         return null;
     }
     
+        public ArrayList<String> obtener_Poblacion(String linea){
+        
+        try {     
+            ArrayList<String> pobla=new ArrayList();
+           
+            Statement st = reg.createStatement();
+            String query = "SELECT nombre FROM poblacion where Cod_Postal in (SELECT Cod_Postal from poblacion_parada WHERE Cod_Parada in (SELECT Cod_Parada FROM linea_parada where Cod_linea in (SELECT Cod_linea from linea where Cod_linea='"+linea+"')))";
+            Statement sentencia= reg.createStatement();           
+           ResultSet resultado=sentencia.executeQuery(query);
+            while (resultado.next())//ESTO SE REPETIRÀ EL NUMERO DE FILAS QUE SE SELECCIONEN DE LA BASES DE DATOS
+            {
+            pobla.add(resultado.getString("nombre"));    
+            }
+            return pobla;
+            
+            
+        } catch (Exception e) { 
+            System.err.println(e.getMessage()); 
+        }       
+        return null;
+    }
+    
+    
     public cliente ActualizarCliente( String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña)
         {
         try {             
@@ -106,7 +129,7 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
         return null;
     } 
     
-   // public String ObtenerBoleto()
+   //public String ObtenerBoleto()
    // {                    
      //   try{
      //       String query="SELECT * FROM (linea-parada join parada on linea-parada.Cod_Parada=parada.Cod_Parada) join linea on Cod_linea = Cod_linea";

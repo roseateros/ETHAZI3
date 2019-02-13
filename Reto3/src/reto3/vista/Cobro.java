@@ -17,8 +17,7 @@ public class Cobro extends javax.swing.JFrame {
     public cliente clientex;
     public lineas lineasx;
     public ArrayList<billete> billetex;
-    public double valor;
-    private double pago;
+    public double valor, pago;
     
     public Cobro(cliente cliente, lineas lineas, ArrayList<billete> billete) {    
 
@@ -26,9 +25,6 @@ public class Cobro extends javax.swing.JFrame {
         clientex=cliente;
         lineasx=lineas;
         jLabel3.setText(cliente.nombre);
-        billetex =new ArrayList();
-
-        
         billetex =new ArrayList();
         for(int x=0;x<billete.size();x++)
         {
@@ -299,7 +295,7 @@ public class Cobro extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 220, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 610));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -317,8 +313,8 @@ public class Cobro extends javax.swing.JFrame {
         }
         if (pago>valor){
 
-            Pago calcular = new Pago();
-            calcular.calcularCambio();
+            Pago pa = new Pago();
+            pa.calcularCambio();
             InsertarBillete insertar= new InsertarBillete(billetex,clientex);
             dispose();
         } else if (pago<valor){
@@ -329,92 +325,92 @@ public class Cobro extends javax.swing.JFrame {
 
     private void bi100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi100ActionPerformed
         Pago calcular = new Pago();
-        calcular.bi100();
+        pago= calcular.bi100();
         actualizaPago.setText(String.valueOf(pago+" €"));
         
     }//GEN-LAST:event_bi100ActionPerformed
 
     private void bi50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi50ActionPerformed
         Pago calcular = new Pago();
-        calcular.bi50();
+        pago= calcular.bi50();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_bi50ActionPerformed
 
     private void bi20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi20ActionPerformed
         Pago calcular = new Pago();
-        calcular.bi20();
+        pago= calcular.bi20();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_bi20ActionPerformed
 
     private void bi10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi10ActionPerformed
         Pago calcular = new Pago();
-        calcular.bi10();
+        pago= calcular.bi10();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_bi10ActionPerformed
 
     private void bi5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi5ActionPerformed
         Pago calcular = new Pago();
-        calcular.bi5();
+        pago= calcular.bi5();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_bi5ActionPerformed
 
     private void mo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo2ActionPerformed
         Pago calcular = new Pago();
-        calcular.mo2();
+        pago= calcular.mo2();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_mo2ActionPerformed
 
     private void mo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo1ActionPerformed
         Pago calcular = new Pago();
-        calcular.mo1();
+        pago= calcular.mo1();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_mo1ActionPerformed
 
     private void mo05ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo05ActionPerformed
         Pago calcular = new Pago();
-        calcular.mo05();
+        pago= calcular.mo05();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_mo05ActionPerformed
 
     private void mo02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo02ActionPerformed
         Pago calcular = new Pago();
-        calcular.mo02();
+        pago= calcular.mo02();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_mo02ActionPerformed
 
     private void mo01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo01ActionPerformed
         Pago calcular = new Pago();
-        calcular.mo01();
+        pago= calcular.mo01();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_mo01ActionPerformed
 
     private void mo005ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo005ActionPerformed
         Pago calcular = new Pago();
-        calcular.mo005();  
+        pago= calcular.mo005();  
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_mo005ActionPerformed
 
     private void mo002ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo002ActionPerformed
         Pago calcular = new Pago();
-        calcular.mo002();
+        pago= calcular.mo002();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_mo002ActionPerformed
 
     private void mo001ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo001ActionPerformed
         Pago calcular = new Pago();
-        calcular.mo001();
+        pago= calcular.mo001();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_mo001ActionPerformed
 
     private void bi200ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi200ActionPerformed
         Pago calcular = new Pago();
-        calcular.bi200();
+        pago= calcular.bi200();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_bi200ActionPerformed
 
     private void reiniciarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reiniciarPagoActionPerformed
         Pago calcular = new Pago();
-        calcular.reiniciarPago();
+        pago = calcular.reiniciarPago();
         actualizaPago.setText(String.valueOf(pago+" €"));
     }//GEN-LAST:event_reiniciarPagoActionPerformed
 

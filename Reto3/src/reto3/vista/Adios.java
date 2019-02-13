@@ -1,39 +1,19 @@
 
 package reto3.vista;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import reto3.controlador.pasar_pagina;
 
 public class Adios extends javax.swing.JFrame {
-   
-    private int repe, aux;
     
     public Adios() {
         initComponents();
         setResizable (false);
         setLocationRelativeTo(null);
         setTitle ("Hasta Luego");
-        volverBienvenida();
-       
+        pasar_pagina pasar = new pasar_pagina();
+        pasar.volverBienvenida();
+        dispose(); 
     }
-    
-    public void volverBienvenida(){
-        Timer timer = new Timer();
-        TimerTask tarea = new TimerTask() {
-            @Override
-            public void run() {
-                if (aux==0){
-                   reto3.controlador.pasar_pagina.adios_a_saludo();
-                    dispose (); 
-                    aux=1;
-                }
-            }
-        };
-        
-         repe=5000;
-         timer.schedule(tarea, 5000, repe);           
-    }
-       
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -64,4 +44,5 @@ public class Adios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
+
 }
