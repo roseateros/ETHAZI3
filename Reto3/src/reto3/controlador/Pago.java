@@ -11,8 +11,7 @@ public class Pago {
     public float billete200=0, billete100=0, billete50=0, billete20=0, billete10=0, billete5=0, moneda2=0, moneda1=0;  
     public float moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
     public ArrayList<billete> billetex;
-    public double valor;
-    
+    public double valor;    
     
     public void calcularTotal(ArrayList<billete> billete){
         
