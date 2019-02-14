@@ -1,12 +1,12 @@
  
                                                              TERMIBUS BILBAO S.L.                         	
  ********************************************************************************************************************** 	
- -Código del billete:  	-Cantidad de viajes: 8 
+ -Número del billete:2  	-Cantidad de viajes: 2 
 
- -Linea: L4 		-Autobus: 4001 	
+ -Linea: L1 		-Autobus: 1001 	
  ********************************************************************************************************************** 	
- -Parada de salida: Amorebieta - Boroa     -Parada de destino: Termibus-Bilbao 	
+ -Parada de salida: Metro Leioa     -Parada de destino: Termibus-Bilbao 	
  	
  -Fecha de ida: 2019-02-13                  	
  ********************************************************************************************************************** 	
- -Precio final: 5.6 €
+ -Precio final: 4.46 €
