@@ -452,25 +452,26 @@ public class Paradas extends javax.swing.JFrame {
             {
                 if(idas.isSelected() || vueltas.isSelected()){ 
                     if(idas.isSelected()){
-                    
+                     String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
          
                     plazas.setText(" "); 
                     plazas2.setText(" ");   
                     String horaida= (String) horaIda.getSelectedItem();
                     Nplazas nplaza= new Nplazas();   
-                    int numero= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas,horaida);
+                    int numero= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas,horaida,fecha1);
                     plazas.setText("Plazas Disponibles: "+String.valueOf(numero)); 
                     }
                     else if(vueltas.isSelected()){
-                       
+                        String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
+                        String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(idaVuelta.getDate());
                     plazas.setText(" "); 
                     plazas2.setText(" ");    
                     String horaida= (String) horaIda.getSelectedItem();
                     String horavuelta= (String) horaVuelta.getSelectedItem();
                     
                 Nplazas nplaza= new Nplazas();   
-                int numero= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas,horaida);
-                int numero2= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas,horavuelta);
+                int numero= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas,horaida,fecha1);
+                int numero2= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas,horavuelta,fecha2);
                 plazas.setText("Plazas Disponibles: "+String.valueOf(numero)); 
                 plazas2.setText("Plazas Disponibles: "+String.valueOf(numero));
                     }                        
@@ -581,13 +582,13 @@ public class Paradas extends javax.swing.JFrame {
      
         String horaida= (String) horaIda.getSelectedItem();
         String ComboBox3 = (String) jComboBox3.getSelectedItem();
-       
+       String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
         for(int i=0;i<busx.size();i++)
         {
             if(busx.get(i).color==ComboBox3)
                 {
                 Nplazas nplaza= new Nplazas();   
-                int numero= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas,horaida);
+                int numero= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas,horaida,fecha1);
                 plazas.setText("Plazas Disponibles: "+String.valueOf(numero));                
                 }                     
         }       
@@ -637,13 +638,16 @@ public class Paradas extends javax.swing.JFrame {
         String horavuelta= (String) horaVuelta.getSelectedItem();
         String ComboBox3 = (String) jComboBox3.getSelectedItem();
         
+         String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
+                        String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(idaVuelta.getDate());
+        
         for(int i=0;i<busx.size();i++)
         {
                 if(busx.get(i).color==ComboBox3)
                 {
                 Nplazas nplaza= new Nplazas();   
-                int numero= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas,horaida);
-                int numero2= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas,horavuelta);
+                int numero= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas,horaida,fecha1);
+                int numero2= nplaza.Nplazasx(busx.get(i).Cod_bus,busx.get(i).N_Plazas,horavuelta,fecha2);
                 plazas.setText("Plazas Disponibles: "+String.valueOf(numero)); 
                 plazas2.setText("Plazas Disponibles: "+String.valueOf(numero2));
                 }                       
