@@ -3,6 +3,7 @@ package reto3.vista;
 
 import java.util.ArrayList;
 import reto3.modelo.ArchivoTxtBillete;
+import reto3.modelo.ArchivoTxtUsuario;
 import reto3.modelo.billete;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
@@ -36,7 +37,6 @@ public class ImprimirTicket extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         ImprimirTicket = new javax.swing.JButton();
-        finalizar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -66,19 +66,7 @@ public class ImprimirTicket extends javax.swing.JFrame {
                 ImprimirTicketActionPerformed(evt);
             }
         });
-        getContentPane().add(ImprimirTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 500, 140, 70));
-
-        finalizar.setBackground(new java.awt.Color(255, 255, 0));
-        finalizar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        finalizar.setForeground(new java.awt.Color(0, 0, 0));
-        finalizar.setText("FINALIZAR");
-        finalizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        finalizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                finalizarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(finalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, 140, 70));
+        getContentPane().add(ImprimirTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 490, 140, 70));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
@@ -92,20 +80,15 @@ public class ImprimirTicket extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarActionPerformed
-        reto3.controlador.pasar_pagina.imprimir_a_adios();
-        dispose();
-    }//GEN-LAST:event_finalizarActionPerformed
-
     private void ImprimirTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImprimirTicketActionPerformed
         ArchivoTxtBillete txt = new ArchivoTxtBillete(billetex);
+        ArchivoTxtUsuario txt2 = new ArchivoTxtUsuario(clientex);
         reto3.controlador.pasar_pagina.imprimir_a_adios();
         dispose();
     }//GEN-LAST:event_ImprimirTicketActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ImprimirTicket;
-    private javax.swing.JButton finalizar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

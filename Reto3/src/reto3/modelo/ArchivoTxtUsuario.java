@@ -18,10 +18,10 @@ public class ArchivoTxtUsuario {
         String mensaje =         " \n"
 				+"                                                             CLIENTES                        "+" \t\n"
 				+" **********************************************************************************************************************"+" \t\n"
-				+" -DNI:"+clientex.dni+"  \t"
-				+" -Nombre:"+clientex.nombre+"  \t"+"-Apellidos: " +clientex.apellidos+" \n\n"  
+				+" -DNI:"+clientex.dni+"  \t\n"
+				+" -Nombre:"+clientex.nombre+"  \t"+"-Apellidos: " +clientex.apellidos+" \n"  
 				+" -Sexo: " +clientex.sexo+" \t\t"+ "-Fecha de Nacimiento: " +clientex.fecha+" \t\n"
-				+"-Contraseña"+clientex.contraseña+"  \t"
+				+" -Contraseña: "+clientex.contraseña+"  \t\n"
 				+" **********************************************************************************************************************"+" \t\n";
 
         Insertar =new ArrayList();
