@@ -404,7 +404,8 @@ public class Paradas extends javax.swing.JFrame {
                 }
             }              
                          
-        String horaida = (String)horaIda.getSelectedItem();      
+        String horaida = (String)horaIda.getSelectedItem();   
+         String horavuelta = (String)horaVuelta.getSelectedItem();
         String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(ida.getDate());
 
         try{
@@ -418,7 +419,7 @@ public class Paradas extends javax.swing.JFrame {
                 else if(vueltas.isSelected())
                 {
                     String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(idaVuelta.getDate());
-                  Comprar_billete compra2= new Comprar_billete( ComboBox1,ComboBox2,1,clientex,fecha1,horaida,lineasx,busx.get(unox).Cod_bus,numerico,paradax.get(dos).codParada,redondo,billetex,paradax.get(dos).codParada,numerico,fecha2);
+                  Comprar_billete compra2= new Comprar_billete( ComboBox1,ComboBox2,1,clientex,fecha1,horaida,lineasx,busx.get(unox).Cod_bus,numerico,paradax.get(dos).codParada,redondo,billetex,paradax.get(dos).codParada,numerico,fecha2,horavuelta);
                 }
              
             dispose();          
@@ -433,7 +434,7 @@ public class Paradas extends javax.swing.JFrame {
             else if(vueltas.isSelected())
                 {
                     String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(idaVuelta.getDate());
-                  Comprar_billete compra2= new Comprar_billete( ComboBox1,ComboBox2,2,clientex,fecha1,horaida,lineasx,busx.get(unox).Cod_bus,numerico,paradax.get(dos).codParada,redondo,paradax.get(dos).codParada,numerico,fecha2);
+                  Comprar_billete compra2= new Comprar_billete( ComboBox1,ComboBox2,2,clientex,fecha1,horaida,lineasx,busx.get(unox).Cod_bus,numerico,paradax.get(dos).codParada,redondo,paradax.get(dos).codParada,numerico,fecha2,horavuelta);
                 }    
             
             
