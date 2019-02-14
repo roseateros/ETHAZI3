@@ -1,6 +1,8 @@
 package reto3.controlador;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 import reto3.modelo.billete;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
@@ -120,9 +122,9 @@ public class pasar_pagina{
         obj.setVisible(true);
     }///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCIÒN PARA PASAR DE COBRO A IMPRIMIR
-    public static void cobro_a_imprimir(cliente cliente, lineas lineas){
+    public static void cobro_a_imprimir(cliente cliente,ArrayList<billete> billete){
         //SE CREA EL OBJ DE LA CLASE IMPRIMIR
-        ImprimirTicket obj = new ImprimirTicket(cliente, lineas);
+        ImprimirTicket obj = new ImprimirTicket(cliente,billete);
         obj.setVisible(true);
     }///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCIÒN PARA PASAR DE IMPRIMIR A ADIOS 
@@ -138,7 +140,7 @@ public class pasar_pagina{
         obj.setVisible(true);
     }///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
      //FUNCIÒN PARA PASAR DE REGISTRO A ACTUALIZAR
-     public static void registro_a_actualizar(cliente clientex){
+    public static void registro_a_actualizar(cliente clientex){
          //SE CREA EL OBJ DE LA CLASE ACTUALIZAR
          Actualizar obj = new Actualizar(clientex);
          obj.setVisible(true);

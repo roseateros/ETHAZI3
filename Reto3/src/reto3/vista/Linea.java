@@ -5,16 +5,17 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import reto3.controlador.Seleccionar_linea;
-import static reto3.controlador.poblac.poblac;
+import static reto3.controlador.Poblacion.poblac;
 import reto3.modelo.billete;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
 
 public class Linea extends javax.swing.JFrame  {
- public ArrayList<billete> billetex;
- public ArrayList<String> uno;
-  public ArrayList<String> dos;
-   public ArrayList<String> tres;
+    
+    public ArrayList<billete> billetex;
+    public ArrayList<String> uno;
+    public ArrayList<String> dos;
+    public ArrayList<String> tres;
     public ArrayList<String> cuatro;
 
     public cliente clientex;
@@ -24,16 +25,12 @@ public class Linea extends javax.swing.JFrame  {
         uno =new ArrayList();
         dos =new ArrayList();
         tres =new ArrayList();
-        cuatro= new ArrayList();
+        cuatro= new ArrayList();        
         
-        
-      uno=  poblac("L1");
-      dos= poblac("L2");  
-       tres= poblac("L3");  
-       cuatro= poblac("L4"); 
-       
-       
-       
+        uno=  poblac("L1");
+        dos= poblac("L2");  
+        tres= poblac("L3");  
+        cuatro= poblac("L4");                    
        
        DefaultListModel modelio = new DefaultListModel();
        lista1.setModel(modelio);
@@ -46,21 +43,12 @@ public class Linea extends javax.swing.JFrame  {
        
        DefaultListModel modelio4 = new DefaultListModel();
        lista4.setModel(modelio4);
-       
-       
-       
-        modelio.addElement(""+uno.get(0)+"--"+uno.get(1)+"--"+uno.get(2)+"--"+uno.get(3)+"--"+uno.get(4)+"--"+uno.get(5));       
-        
-        
-    modelio2.addElement(""+dos.get(0)+"--"+dos.get(1)+"--"+dos.get(2)+"--"+dos.get(3));
-         
-   modelio3.addElement(""+tres.get(0)+"--"+tres.get(1)+"--"+tres.get(2)+"--"+tres.get(3));
-        
-  
-     modelio4.addElement(""+cuatro.get(0)+"--"+cuatro.get(1)+"--"+cuatro.get(2)+"--"+cuatro.get(3));   
-       
-       
-       
+                   
+       modelio.addElement(""+uno.get(0)+"--"+uno.get(1)+"--"+uno.get(2)+"--"+uno.get(3)+"--"+uno.get(4)+"--"+uno.get(5));       
+       modelio2.addElement(""+dos.get(0)+"--"+dos.get(1)+"--"+dos.get(2)+"--"+dos.get(3));
+       modelio3.addElement(""+tres.get(0)+"--"+tres.get(1)+"--"+tres.get(2)+"--"+tres.get(3));
+       modelio4.addElement(""+cuatro.get(0)+"--"+cuatro.get(1)+"--"+cuatro.get(2)+"--"+cuatro.get(3));   
+      
             clientex=cliente;
             setLocationRelativeTo(null);
             setResizable (false);
@@ -71,37 +59,32 @@ public class Linea extends javax.swing.JFrame  {
     public Linea(cliente cliente,lineas lineas) {
         initComponents();
         
-                uno =new ArrayList();
+        uno =new ArrayList();
         dos =new ArrayList();
         tres =new ArrayList();
         cuatro= new ArrayList();
+               
+        uno=  poblac("L1");
+        dos= poblac("L2");  
+        tres= poblac("L3");  
+        cuatro= poblac("L4"); 
         
+        DefaultListModel modelio = new DefaultListModel();
+        lista1.setModel(modelio);
+       
+        DefaultListModel modelio2 = new DefaultListModel();
+        lista2.setModel(modelio2);
+       
+        DefaultListModel modelio3 = new DefaultListModel();
+        lista3.setModel(modelio3);
+       
+        DefaultListModel modelio4 = new DefaultListModel();
+        lista4.setModel(modelio4);
         
-      uno=  poblac("L1");
-      dos= poblac("L2");  
-       tres= poblac("L3");  
-       cuatro= poblac("L4"); 
-        
- DefaultListModel modelio = new DefaultListModel();
-       lista1.setModel(modelio);
-       
-       DefaultListModel modelio2 = new DefaultListModel();
-       lista2.setModel(modelio2);
-       
-       DefaultListModel modelio3 = new DefaultListModel();
-       lista3.setModel(modelio3);
-       
-       DefaultListModel modelio4 = new DefaultListModel();
-       lista4.setModel(modelio4);
         modelio.addElement(""+uno.get(0)+"--"+uno.get(1)+"--"+uno.get(2)+"--"+uno.get(3)+"--"+uno.get(4)+"--"+uno.get(5));       
-        
-        
-    modelio2.addElement(""+dos.get(0)+"--"+dos.get(1)+"--"+dos.get(2)+"--"+dos.get(3));
-         
-   modelio3.addElement(""+tres.get(0)+"--"+tres.get(1)+"--"+tres.get(2)+"--"+tres.get(3));
-        
-  
-     modelio4.addElement(""+cuatro.get(0)+"--"+cuatro.get(1)+"--"+cuatro.get(2)+"--"+cuatro.get(3));   
+        modelio2.addElement(""+dos.get(0)+"--"+dos.get(1)+"--"+dos.get(2)+"--"+dos.get(3));
+        modelio3.addElement(""+tres.get(0)+"--"+tres.get(1)+"--"+tres.get(2)+"--"+tres.get(3));
+        modelio4.addElement(""+cuatro.get(0)+"--"+cuatro.get(1)+"--"+cuatro.get(2)+"--"+cuatro.get(3));   
        
     clientex=cliente;
 
@@ -121,31 +104,27 @@ public class Linea extends javax.swing.JFrame  {
         cuatro= new ArrayList();
         
         
-      uno=  poblac("L1");
-      dos= poblac("L2");  
-       tres= poblac("L3");  
-       cuatro= poblac("L4"); 
+        uno=  poblac("L1");
+        dos= poblac("L2");  
+        tres= poblac("L3");  
+        cuatro= poblac("L4"); 
         
-         DefaultListModel modelio = new DefaultListModel();
-       lista1.setModel(modelio);
+        DefaultListModel modelio = new DefaultListModel();
+        lista1.setModel(modelio);
        
-       DefaultListModel modelio2 = new DefaultListModel();
-       lista2.setModel(modelio2);
+        DefaultListModel modelio2 = new DefaultListModel();
+        lista2.setModel(modelio2);
        
-       DefaultListModel modelio3 = new DefaultListModel();
-       lista3.setModel(modelio3);
+        DefaultListModel modelio3 = new DefaultListModel();
+        lista3.setModel(modelio3);
        
-       DefaultListModel modelio4 = new DefaultListModel();
-       lista4.setModel(modelio4);
+        DefaultListModel modelio4 = new DefaultListModel();
+        lista4.setModel(modelio4);
+        
         modelio.addElement(""+uno.get(0)+"--"+uno.get(1)+"--"+uno.get(2)+"--"+uno.get(3)+"--"+uno.get(4)+"--"+uno.get(5));       
-        
-        
-    modelio2.addElement(""+dos.get(0)+"--"+dos.get(1)+"--"+dos.get(2)+"--"+dos.get(3));
-         
-   modelio3.addElement(""+tres.get(0)+"--"+tres.get(1)+"--"+tres.get(2)+"--"+tres.get(3));
-        
-  
-     modelio4.addElement(""+cuatro.get(0)+"--"+cuatro.get(1)+"--"+cuatro.get(2)+"--"+cuatro.get(3));   
+        modelio2.addElement(""+dos.get(0)+"--"+dos.get(1)+"--"+dos.get(2)+"--"+dos.get(3));
+        modelio3.addElement(""+tres.get(0)+"--"+tres.get(1)+"--"+tres.get(2)+"--"+tres.get(3));
+        modelio4.addElement(""+cuatro.get(0)+"--"+cuatro.get(1)+"--"+cuatro.get(2)+"--"+cuatro.get(3));   
        
         clientex=cliente;
         billetex = new ArrayList();
@@ -193,45 +172,53 @@ public class Linea extends javax.swing.JFrame  {
         jLabel2.setText("SELECCIONA");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 380, 40));
 
-        jButton1.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(255, 255, 0));
+        jButton1.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("L1");
-        jButton1.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), null));
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 190, 70));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 90, 70));
 
-        jButton2.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
+        jButton2.setBackground(new java.awt.Color(255, 255, 0));
+        jButton2.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("L2");
-        jButton2.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), null));
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 190, 70));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 90, 70));
 
-        jButton3.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
+        jButton3.setBackground(new java.awt.Color(255, 255, 0));
+        jButton3.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("L3");
-        jButton3.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), null));
+        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 190, 70));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 90, 70));
 
-        jButton4.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
+        jButton4.setBackground(new java.awt.Color(255, 255, 0));
+        jButton4.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("L4");
-        jButton4.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), null));
+        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 190, 70));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, 90, 70));
 
         jPanel1.setBackground(new java.awt.Color(102, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -258,29 +245,35 @@ public class Linea extends javax.swing.JFrame  {
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 120, 30));
 
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Mapa de Poblaciones");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 130, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 180, -1));
 
-        lista4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lista4.setBackground(new java.awt.Color(255, 255, 255));
+        lista4.setForeground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(lista4);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, 230, 30));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 540, 300, 30));
 
+        lista1.setBackground(new java.awt.Color(255, 255, 255));
         lista1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lista1.setFocusable(false);
         jScrollPane2.setViewportView(lista1);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 300, 30));
 
-        lista2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        lista2.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane3.setViewportView(lista2);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 280, 30));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, 300, 30));
 
+        lista3.setBackground(new java.awt.Color(255, 255, 255));
         lista3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jScrollPane4.setViewportView(lista3);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, 260, 30));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 300, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));

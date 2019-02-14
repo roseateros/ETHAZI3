@@ -30,7 +30,7 @@ public class Insertar {
             try {  
             Statement st = reg.createStatement(); 
             st.executeUpdate("INSERT INTO `billete`(`NTrayecto`, `Cod_Linea`, `Cod_Bus`, `Cod_Parada_Inicio`, `Cod_Parada_Fin`, `Fecha`, `Hora`, `DNI`, `Precio`) VALUES ("+NTrayecto+", '"+Cod_Linea+"', '"+Cod_Bus+"', '"+Cod_Parada_Inicio+"', '"+Cod_Parada_Fin+"', '"+fecha+"', '"+hora+"', '"+dni+"', "+precio+")"); 
-            reg.close(); 
+            
         } catch (Exception e) { 
             System.err.println("Got an exception! "); 
             System.err.println(e.getMessage()); 

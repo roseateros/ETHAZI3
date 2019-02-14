@@ -5,35 +5,27 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Adios extends javax.swing.JFrame {
-   
-    private int repe, aux;
     
     public Adios() {
+        
         initComponents();
+        
         setResizable (false);
         setLocationRelativeTo(null);
         setTitle ("Hasta Luego");
-        volverBienvenida();
-       
-    }
-    
-    public void volverBienvenida(){
+        
         Timer timer = new Timer();
-        TimerTask tarea = new TimerTask() {
+        TimerTask task;
+        task = new TimerTask() {
             @Override
             public void run() {
-                if (aux==0){
-                   reto3.controlador.pasar_pagina.adios_a_saludo();
-                    dispose (); 
-                    aux=1;
-                }
+                reto3.controlador.pasar_pagina.adios_a_saludo();
+                dispose(); 
             }
         };
-        
-         repe=5000;
-         timer.schedule(tarea, 5000, repe);           
+         timer.schedule(task, 5000); 
+    
     }
-       
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -64,4 +56,5 @@ public class Adios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
+
 }
