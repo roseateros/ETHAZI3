@@ -74,7 +74,7 @@ public class NoRegistrado extends javax.swing.JFrame {
         Registrar.setBackground(new java.awt.Color(255, 255, 51));
         Registrar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         Registrar.setForeground(new java.awt.Color(0, 0, 0));
-        Registrar.setText("RESGISTRAR");
+        Registrar.setText("REGISTRAR");
         Registrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegistrarActionPerformed(evt);

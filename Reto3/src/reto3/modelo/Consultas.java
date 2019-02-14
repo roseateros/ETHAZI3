@@ -59,10 +59,11 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
     
     public  cliente BorrarCliente(String us,String pass){
         
-        try {              
+        try {   
+            
             Statement st = reg.createStatement();
             st.executeUpdate("DELETE from cliente where Nombre='"+us+"' AND contraseña='"+pass+"'");            
-            reg.close();
+            
             
             
         } catch (Exception e) { 
@@ -216,7 +217,7 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
             }
         catch (Exception e) 
         {
-            System.err.println("Hubo un Error ");
+            
             System.err.println(e.getMessage());
             }
         
@@ -240,7 +241,7 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
             }
         catch (Exception e) 
         {
-            System.err.println("Hubo un Error ");
+            
             System.err.println(e.getMessage());
             }       
             return null;

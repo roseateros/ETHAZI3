@@ -20,7 +20,7 @@ public class ArchivoTxtBillete{
 				+"                                                             TERMIBUS BILBAO S.L.                        "+" \t\n"
 				+" **********************************************************************************************************************"+" \t\n"
 				
-				+" -Número del billete:"+(x+1)+"  \t"+"-Cantidad de viajes: " +billete.size()+" \n\n"  
+				+" -Número del billete:"+(x+1)+"  \t\t"+"-Cantidad de viajes: " +billete.size()+" \n\n"  
 				+" -Linea: " +billete.get(x).Cod_Linea+" \t\t"+ "-Autobus: " + billete.get(x).Cod_Bus+" \t\n"
 				+" **********************************************************************************************************************"+" \t\n"
 				

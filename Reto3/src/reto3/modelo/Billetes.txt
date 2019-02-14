@@ -1,12 +1,12 @@
  
                                                              TERMIBUS BILBAO S.L.                         	
  ********************************************************************************************************************** 	
- -Número del billete:1  	-Cantidad de viajes: 1 
+ -Número del billete:2  		-Cantidad de viajes: 2 
 
- -Linea: L3 		-Autobus: 3001 	
+ -Linea: L2 		-Autobus: 2001 	
  ********************************************************************************************************************** 	
- -Parada de salida: Termibus-Bilbao     -Parada de destino: Barakaldo - Sagrado Corazon 	
+ -Parada de salida: Barakaldo - Sagrado Corazon     -Parada de destino: Termibus-Bilbao 	
  	
  -Fecha de ida: 2019-02-14                  	
  ********************************************************************************************************************** 	
- -Precio final: 1.39 €
+ -Precio final: 1.805 €
