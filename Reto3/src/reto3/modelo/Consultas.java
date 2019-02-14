@@ -71,6 +71,27 @@ public class Consultas { /*ESTE ES EL CONSTRUCTOR DE LA CLASE CONSULTAS, ES DECI
         return null;
     }
     
+    public  Integer ContarUsuarios(){
+        
+        try {              
+            String query = "SELECT COUNT(DISTINCT DNI) As 'cantidad' from billete"; 
+            Statement sentencia= reg.createStatement();
+            ResultSet resultado=sentencia.executeQuery(query);
+           
+           
+            while (resultado.next())
+            {
+                 int vuelta=resultado.getInt("cantidad");
+                 
+                 return vuelta;                 
+           }
+                       
+        } catch (Exception e) { 
+            System.err.println(e.getMessage()); 
+        }       
+        return null;
+    }
+    
         public ArrayList<String> obtener_Poblacion(String linea){
         
         try {     

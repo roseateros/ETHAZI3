@@ -79,7 +79,7 @@ public class Registrado extends javax.swing.JFrame {
         });
         getContentPane().add(BotonSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 160, 80));
 
-        jButton.setBackground(new java.awt.Color(153, 102, 255));
+        jButton.setBackground(new java.awt.Color(255, 255, 0));
         jButton.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jButton.setForeground(new java.awt.Color(0, 0, 0));
         jButton.setText("NUEVO USUARIO");
@@ -91,9 +91,9 @@ public class Registrado extends javax.swing.JFrame {
         });
         getContentPane().add(jButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, 160, 40));
 
-        delete.setBackground(new java.awt.Color(255, 0, 51));
+        delete.setBackground(new java.awt.Color(255, 255, 0));
         delete.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        delete.setForeground(new java.awt.Color(255, 255, 255));
+        delete.setForeground(new java.awt.Color(0, 0, 0));
         delete.setText("ELIMINAR USUARIO");
         delete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         delete.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +103,7 @@ public class Registrado extends javax.swing.JFrame {
         });
         getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 160, 40));
 
-        jButton1.setBackground(new java.awt.Color(102, 255, 0));
+        jButton1.setBackground(new java.awt.Color(255, 255, 0));
         jButton1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("ACTUALIZAR DATOS");

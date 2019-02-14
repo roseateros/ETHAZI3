@@ -1,8 +1,10 @@
  
                                                              CLIENTES                         	
  ********************************************************************************************************************** 	
- -DNI:fsdfsdfsd  	
- -Nombre:alejandro  	-Apellidos: Di Maggio 
- -Sexo: V 		-Fecha de Nacimiento: 1998-11-20 	
- -Contraseña: 7898  	
+ -DNI:12345678L  	
+ -Nombre:mai	
+ -Apellidos: aa 
+ -Sexo: M	
+ -Fecha de Nacimiento: 2019-02-24 	
+ -Contraseña: aa  	
  ********************************************************************************************************************** 	

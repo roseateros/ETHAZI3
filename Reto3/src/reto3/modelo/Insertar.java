@@ -16,7 +16,7 @@ public class Insertar {
             Statement st = reg.createStatement();
              st.executeUpdate("INSERT INTO cliente (DNI, Nombre, Apellidos, Fecha_nac, Sexo, Contraseña) VALUES ('"+dni+"', '"+nombre+"', '"+apellidos+"','"+fecha+"','"+sexo+"', '"+contraseña+"')"); 
            
-            reg.close(); 
+             
         } catch (Exception e) { 
             System.err.println("cannot insert!"+fecha); 
             System.err.println(e.getMessage()); 

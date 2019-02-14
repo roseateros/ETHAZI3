@@ -19,8 +19,10 @@ public class ArchivoTxtUsuario {
 				+"                                                             CLIENTES                        "+" \t\n"
 				+" **********************************************************************************************************************"+" \t\n"
 				+" -DNI:"+clientex.dni+"  \t\n"
-				+" -Nombre:"+clientex.nombre+"  \t"+"-Apellidos: " +clientex.apellidos+" \n"  
-				+" -Sexo: " +clientex.sexo+" \t\t"+ "-Fecha de Nacimiento: " +clientex.fecha+" \t\n"
+				+" -Nombre:"+clientex.nombre+"\t\n"
+                                +" -Apellidos: " +clientex.apellidos+" \n"  
+				+" -Sexo: " +clientex.sexo+"\t\n"
+                                +" -Fecha de Nacimiento: " +clientex.fecha+" \t\n"
 				+" -Contraseña: "+clientex.contraseña+"  \t\n"
 				+" **********************************************************************************************************************"+" \t\n";
 

@@ -4,6 +4,7 @@ package reto3.vista;
 import java.util.ArrayList;
 import reto3.modelo.ArchivoTxtBillete;
 import reto3.modelo.ArchivoTxtUsuario;
+import reto3.modelo.Consultas;
 import reto3.modelo.billete;
 import reto3.modelo.cliente;
 import reto3.modelo.lineas;
@@ -28,7 +29,11 @@ public class ImprimirTicket extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
         setTitle ("ImprimirTicket");
-        jLabel3.setText(cliente.nombre);      
+        jLabel3.setText(cliente.nombre);  
+        
+        Consultas con = new Consultas();
+        int numer= con.ContarUsuarios();
+        usu.setText("¡Ya somos "+String.valueOf(numer)+" usuarios!");
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -38,6 +43,7 @@ public class ImprimirTicket extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         ImprimirTicket = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        usu = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,6 +80,10 @@ public class ImprimirTicket extends javax.swing.JFrame {
         jLabel4.setText("GRACIAS POR SU COMPRA");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, -1, -1));
 
+        usu.setBackground(new java.awt.Color(0, 0, 0));
+        usu.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        getContentPane().add(usu, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 200, 40));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
 
@@ -94,5 +104,6 @@ public class ImprimirTicket extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel usu;
     // End of variables declaration//GEN-END:variables
 }

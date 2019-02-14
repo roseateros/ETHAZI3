@@ -45,6 +45,7 @@ public class crearCliente {
         
         if (contraseña.equals(password) && (!fecha.equals("")) && (!dni.equals("")) && (!nombre.equals("")) && (!apellidos.equals("")) && (!sexo.isEmpty()))
         {
+            aux=aux-aux;
 	if(m.matches()){
             if(n.matches()){
                     JOptionPane.showMessageDialog(null,"Registro correcto");
